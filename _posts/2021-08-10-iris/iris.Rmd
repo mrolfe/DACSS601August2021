@@ -21,7 +21,31 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r}
 library(datasets)
+#colnames of iris
+colnames(iris)
+#dimensions of iris dataset
+dim(iris)
+# iris dataset
+View(iris)
+#summary of iris datset
+summary(iris)
+#plot iris
 plot(iris)
+```
+
+
+```{r}
+#unique rows in iris
+unique(iris)
+# max.length of sepals in iris
+max(iris$Sepal.Length)
+# min width of petal in iris
+min(iris$Petal.Width)
+# unique species in iris
+unique(iris$Species)
+
+
+
 ```
 
 Distill is a publication format for scientific and technical writing, native to the web.
