@@ -1,0 +1,31 @@
+---
+title: "iris"
+description: |
+  iris dataset
+author: Hans Quiogue
+date: 08-10-2021
+categories:
+  - homework 3
+  - iris
+  - hans quiogue
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(datasets)
+plot(iris)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
