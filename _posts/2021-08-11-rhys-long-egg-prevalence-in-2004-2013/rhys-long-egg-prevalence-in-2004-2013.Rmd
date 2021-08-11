@@ -1,0 +1,26 @@
+---
+title: "Rhys Long - Amount of Eggs Laid Per Month in 2004-2013"
+description: |
+  This is a data set that includes data about how many large and extra large eggs are laid every month in 2004-2013.
+
+author: Rhys Long
+date: 08-11-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+Here I am reading my CSV file
+```{r}
+
+read.csv("~rachellong/desktop/DACSS601August2021/_data/eggs_tidy.csv")
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
