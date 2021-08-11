@@ -12,7 +12,16 @@
       <link>https://mrolfe.github.io/DACSS601August2021/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>TODD_JENNINGS_DATA</title>
+      <dc:creator>Todd Jennings</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601August2021/posts/2021-08-11-toddjenningsdata</link>
+      <description>Data depicts prices of poultry meat cuts categorized by price, month, year, and specific
+cut.</description>
+      <guid>https://mrolfe.github.io/DACSS601August2021/posts/2021-08-11-toddjenningsdata</guid>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>iris</title>
       <dc:creator>bakharia</dc:creator>

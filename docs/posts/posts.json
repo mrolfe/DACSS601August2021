@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-08-11-toddjenningsdata/",
+    "title": "TODD_JENNINGS_DATA",
+    "description": "Data depicts prices of poultry meat cuts categorized by price, month, year, and specific\ncut.",
+    "author": [
+      {
+        "name": "Todd Jennings",
+        "url": {}
+      }
+    ],
+    "date": "2021-08-11",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\nData\r\n\r\n\r\n\r\nMy data is ‘poultry’\r\n\r\n# A tibble: 600 x 4\r\n   Product  Year Month     Price_Dollar\r\n   <chr>   <dbl> <chr>            <dbl>\r\n 1 Whole    2013 January           2.38\r\n 2 Whole    2013 February          2.38\r\n 3 Whole    2013 March             2.38\r\n 4 Whole    2013 April             2.38\r\n 5 Whole    2013 May               2.38\r\n 6 Whole    2013 June              2.38\r\n 7 Whole    2013 July              2.38\r\n 8 Whole    2013 August            2.38\r\n 9 Whole    2013 September         2.38\r\n10 Whole    2013 October           2.38\r\n# ... with 590 more rows\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-08-11T11:13:09-04:00",
+    "input_file": "toddjenningsdata.knit.md"
+  },
+  {
     "path": "posts/2021-08-10-iris/",
     "title": "iris",
     "description": "Here is the iris dataset.",

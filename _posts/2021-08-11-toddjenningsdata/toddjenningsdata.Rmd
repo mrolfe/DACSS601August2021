@@ -1,0 +1,33 @@
+---
+title: "TODD_JENNINGS_DATA"
+description: |
+  Data depicts prices of poultry meat cuts categorized by price, month, year, and specific
+  cut.
+author:
+  - name: Todd Jennings
+    url: {}
+date: 08-11-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+library(distill)
+```
+## Data
+
+```{r}
+poultry <- read_csv(file = "C:/Users/Todd/Desktop/College Files/Coding/R/DACSS601August2021/_data/poultry_tidy.csv")
+```
+My data is 'poultry'
+
+```{r}
+poultry
+```
