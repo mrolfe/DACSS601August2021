@@ -1,0 +1,91 @@
+---
+title: "hotel_Bookings"
+author: "sathvik_thogaru"
+date: "11/08/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+# context
+
+This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things.
+
+Have you ever wondered when the best time of year to book a hotel room is? Or the optimal length of stay in order to get the best daily rate? What if you wanted to predict whether or not a hotel was likely to receive a disproportionately high number of special requests?
+
+```{r}
+library(readr)
+hotel_bookings <- read_csv("_data/hotel_bookings.csv")
+```
+
+
+```{r}
+head(hotel_bookings)
+tail(hotel_bookings)
+str(hotel_bookings)
+```
+
+
+```{r}
+dim(hotel_bookings)
+summary(hotel_bookings)
+```
+
+
+
+```{r}
+colnames(hotel_bookings)
+```
+
+
+```{r}
+View(hotel_bookings)
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+unique(hotel_bookings$hotel)
+unique(hotel_bookings$is_canceled)
+unique(hotel_bookings$meal)
+unique(hotel_bookings$country)
+unique(hotel_bookings$market_segment)
+unique(hotel_bookings$distribution_channel)
+unique(hotel_bookings$is_repeated_guest)
+unique(hotel_bookings$reserved_room_type)
+#unique(hotel_bookings$assigned_room_type)
+unique(hotel_bookings$deposit_type)
+unique(hotel_bookings$customer_type)
+unique(hotel_bookings$reservation_status)
+```
+
+
+```{r}
+my_data<-hotel_bookings
+```
+
+```{r}
+my_data$is_canceled <-as.factor(my_data$is_canceled)
+my_data$hotel<-as.factor(my_data$hotel)
+my_data$meal<-as.factor(my_data$meal)
+my_data$is_repeated_guest<-as.factor(my_data$is_repeated_guest)
+my_data$reserved_room_type<-as.factor(my_data$reserved_room_type)
+my_data$deposit_type<-as.factor(my_data$deposit_type)
+my_data$customer_type<-as.factor(my_data$customer_type)
+my_data$reservation_status<-as.factor((my_data$reservation_status))
+str(my_data)
+```
+```{r}
+
+
+```
+
+## Including Plots
+
+

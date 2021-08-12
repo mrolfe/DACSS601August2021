@@ -9,9 +9,9 @@
       "homework 1",
       "Antonis Gounalakis"
     ],
-    "contents": "\n\n\nknitr::opts_chunk$set(echo = FALSE)\n\nvac_tn <- c(52.01,39.84,33.42,5.8,7.29,4.73,4.29,0.55)\npop <- c(83.78,60.46,46.75,10.42,10.2,8.65,5.79,0.89)\nvac_sh <- vac_tn/pop\nperc_vac_sh <- vac_sh*100\nperc_vac_sh > 70\n\n\n[1] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE\n\nAssuming that each vaccine dose provides full immunity and therefore is administered to different individuals, I examined the vaccination rates of 8 countries (Germany, Italy, Spain, Greece, Portugal, Switzerland, Denmark, Cypurs). I found that only in 3 cases (Spain, Portugal,Denmark) the herd immunity threshold of 70% has been reached!\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "contents": "\r\n\r\n\r\nknitr::opts_chunk$set(echo = FALSE)\r\n\r\nvac_tn <- c(52.01,39.84,33.42,5.8,7.29,4.73,4.29,0.55)\r\npop <- c(83.78,60.46,46.75,10.42,10.2,8.65,5.79,0.89)\r\nvac_sh <- vac_tn/pop\r\nperc_vac_sh <- vac_sh*100\r\nperc_vac_sh > 70\r\n\r\n\r\n[1] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE\r\n\r\nAssuming that each vaccine dose provides full immunity and therefore is administered to different individuals, I examined the vaccination rates of 8 countries (Germany, Italy, Spain, Greece, Portugal, Switzerland, Denmark, Cypurs). I found that only in 3 cases (Spain, Portugal,Denmark) the herd immunity threshold of 70% has been reached!\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:02:00-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -24,9 +24,9 @@
       "homework 1",
       "Annie McGrew"
     ],
-    "contents": "\n\n\nknitr::opts_chunk$set(echo = FALSE)\nvector <- c(1,2,3,4,5)\nnew_vector <- c(3,5,1,1,2)\navg_vector <- (vector + new_vector)/2\nperc_vector <- avg_vector/5\nfinal_vector <- perc_vector*100\n\n\n\nFirst I input two vectors: vector = 1, 2, 3, 4, 5 and new_vector = 3, 5, 1, 1, 2 Then I take the average of these two vectors creating avg_vector = 2, 3.5, 2, 2.5, 3.5 Then I divide the average of the vectors by 5 (perc_vector = 0.4, 0.7, 0.4, 0.5, 0.7) and finally I multiple the vector by 100 (final_vector = 40, 70, 40, 50, 70).\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "contents": "\r\n\r\n\r\nknitr::opts_chunk$set(echo = FALSE)\r\nvector <- c(1,2,3,4,5)\r\nnew_vector <- c(3,5,1,1,2)\r\navg_vector <- (vector + new_vector)/2\r\nperc_vector <- avg_vector/5\r\nfinal_vector <- perc_vector*100\r\n\r\n\r\n\r\nFirst I input two vectors: vector = 1, 2, 3, 4, 5 and new_vector = 3, 5, 1, 1, 2 Then I take the average of these two vectors creating avg_vector = 2, 3.5, 2, 2.5, 3.5 Then I divide the average of the vectors by 5 (perc_vector = 0.4, 0.7, 0.4, 0.5, 0.7) and finally I multiple the vector by 100 (final_vector = 40, 70, 40, 50, 70).\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:02:01-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -41,9 +41,9 @@
     ],
     "date": "2021-08-10",
     "categories": [],
-    "contents": "\nHi folks! My name is Marina. I will now try to make R do something\nWhat does the UCB Admissions dataset look like?\n\n     Admit Gender Dept Freq\n1 Admitted   Male    A  512\n2 Rejected   Male    A  313\n3 Admitted Female    A   89\n4 Rejected Female    A   19\n5 Admitted   Male    B  353\n6 Rejected   Male    B  207\n\nHow many departments are in the dataset?\n\n\nA B C D E F \n4 4 4 4 4 4 \n\nHow many people were admitted across all departments?\n\n[1] \"The sum of all admits is 1755\"\n\n\n\n\n",
+    "contents": "\r\nHi folks! My name is Marina. I will now try to make R do something\r\nWhat does the UCB Admissions dataset look like?\r\n\r\n     Admit Gender Dept Freq\r\n1 Admitted   Male    A  512\r\n2 Rejected   Male    A  313\r\n3 Admitted Female    A   89\r\n4 Rejected Female    A   19\r\n5 Admitted   Male    B  353\r\n6 Rejected   Male    B  207\r\n\r\nHow many departments are in the dataset?\r\n\r\n\r\nA B C D E F \r\n4 4 4 4 4 4 \r\n\r\nHow many people were admitted across all departments?\r\n\r\n[1] \"The sum of all admits is 1755\"\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:50-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -53,9 +53,9 @@
     "author": [],
     "date": "2021-08-10",
     "categories": [],
-    "contents": "\nHello, my name is Shih-Yen Pan. I am a PhD student in Economics at UMass, Amherst.\nIn this post, I will introduce the Two Sum problem from LeetCode and a solution using double for loop provided by Pascal Schmidt here. I thought it might be useful to see what for loop looks like in R.\nThe idea of the problem is, given a list of integers nums and an integer target, to write a function that spits out, if they exist, two different integers in nums that sum up to the target integer.\ntwo_sum <- function(nums, target) {\n\n  for(i in seq_along(nums)) {\n    for(j in seq_along(nums)[-length(nums)]) {\n      \n      sum <- nums[i] + nums[j + 1]\n      if(sum == target) {\n        \n        first <- i\n        second <- j + 1\n        output <- c(nums[first], nums[second])\n        return(output)\n        \n      }\n      \n    }\n    \n  }\n  \n}\nThis is what the function two_sum is doing: Starting from the beginning of the vector ‘nums’, for each integer, search the rest of vector using the second for loop. If the two numbers sum up to the target integer, the code returns those two numbers; otherwise, continue doing the same with the next integer in the list.\nExample:\nnums <- c(1, 2, 3, 5, 6, 9, 11)\ntarget <- 9\ntwo_sum(nums, target)\nThis should return 3 and 6.\nTry it out yourself with different numbers! How can the code be modified to return all the different pairs that sum to the target integer?\n\n\n\n",
+    "contents": "\r\nHello, my name is Shih-Yen Pan. I am a PhD student in Economics at UMass, Amherst.\r\nIn this post, I will introduce the Two Sum problem from LeetCode and a solution using double for loop provided by Pascal Schmidt here. I thought it might be useful to see what for loop looks like in R.\r\nThe idea of the problem is, given a list of integers nums and an integer target, to write a function that spits out, if they exist, two different integers in nums that sum up to the target integer.\r\ntwo_sum <- function(nums, target) {\r\n\r\n  for(i in seq_along(nums)) {\r\n    for(j in seq_along(nums)[-length(nums)]) {\r\n      \r\n      sum <- nums[i] + nums[j + 1]\r\n      if(sum == target) {\r\n        \r\n        first <- i\r\n        second <- j + 1\r\n        output <- c(nums[first], nums[second])\r\n        return(output)\r\n        \r\n      }\r\n      \r\n    }\r\n    \r\n  }\r\n  \r\n}\r\nThis is what the function two_sum is doing: Starting from the beginning of the vector ‘nums’, for each integer, search the rest of vector using the second for loop. If the two numbers sum up to the target integer, the code returns those two numbers; otherwise, continue doing the same with the next integer in the list.\r\nExample:\r\nnums <- c(1, 2, 3, 5, 6, 9, 11)\r\ntarget <- 9\r\ntwo_sum(nums, target)\r\nThis should return 3 and 6.\r\nTry it out yourself with different numbers! How can the code be modified to return all the different pairs that sum to the target integer?\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:51-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -74,9 +74,9 @@
       "iris",
       "bakharia"
     ],
-    "contents": "\nHere is a plot of the iris dataset:\n\n\nlibrary(datasets)\nplot(iris)\n\n\n\n\n\n\n\n",
+    "contents": "\r\nHere is a plot of the iris dataset:\r\n\r\n\r\nlibrary(datasets)\r\nplot(iris)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2021-08-10-iris/iris_files/figure-html5/unnamed-chunk-1-1.png",
-    "last_modified": "2021-08-10T23:01:53-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
@@ -97,9 +97,9 @@
       "introduce yourself",
       "rhys long"
     ],
-    "contents": "\n\n\n\n",
+    "contents": "\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:54-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -114,9 +114,9 @@
     ],
     "date": "2021-08-10",
     "categories": [],
-    "contents": "\n\n\n8+8\n\n\n[1] 16\n\n\n\n8==2\n\n\n[1] FALSE\n\n\n\n\n",
+    "contents": "\r\n\r\n\r\n8+8\r\n\r\n\r\n[1] 16\r\n\r\n\r\n\r\n8==2\r\n\r\n\r\n[1] FALSE\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:55-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -126,9 +126,9 @@
     "author": [],
     "date": "2021-08-10",
     "categories": [],
-    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:58-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -145,9 +145,9 @@
     "categories": [
       "matrix algebra"
     ],
-    "contents": "\n\n\nA <- matrix(1:9, nrow = 3, ncol = 3)\nA\n\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\nB <- matrix(1:9, ncol = 3)\nB\n\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\ndim(A)\n\n\n[1] 3 3\n\ndim(B)\n\n\n[1] 3 3\n\n#Scalar Multiplication\ns <- 10\ns*A\n\n\n     [,1] [,2] [,3]\n[1,]   10   40   70\n[2,]   20   50   80\n[3,]   30   60   90\n\n#Matrix Multiplication\nA%*%B\n\n\n     [,1] [,2] [,3]\n[1,]   30   66  102\n[2,]   36   81  126\n[3,]   42   96  150\n\n#Matrix Addition\nA + B\n\n\n     [,1] [,2] [,3]\n[1,]    2    8   14\n[2,]    4   10   16\n[3,]    6   12   18\n\n#Matrix Subtraction\nA - B\n\n\n     [,1] [,2] [,3]\n[1,]    0    0    0\n[2,]    0    0    0\n[3,]    0    0    0\n\n#Matrix Transpose\nt(A)\n\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[3,]    7    8    9\n\nt(B)\n\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[3,]    7    8    9\n\n\n\n\n",
+    "contents": "\r\n\r\n\r\nA <- matrix(1:9, nrow = 3, ncol = 3)\r\nA\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]    1    4    7\r\n[2,]    2    5    8\r\n[3,]    3    6    9\r\n\r\nB <- matrix(1:9, ncol = 3)\r\nB\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]    1    4    7\r\n[2,]    2    5    8\r\n[3,]    3    6    9\r\n\r\ndim(A)\r\n\r\n\r\n[1] 3 3\r\n\r\ndim(B)\r\n\r\n\r\n[1] 3 3\r\n\r\n#Scalar Multiplication\r\ns <- 10\r\ns*A\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]   10   40   70\r\n[2,]   20   50   80\r\n[3,]   30   60   90\r\n\r\n#Matrix Multiplication\r\nA%*%B\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]   30   66  102\r\n[2,]   36   81  126\r\n[3,]   42   96  150\r\n\r\n#Matrix Addition\r\nA + B\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]    2    8   14\r\n[2,]    4   10   16\r\n[3,]    6   12   18\r\n\r\n#Matrix Subtraction\r\nA - B\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]    0    0    0\r\n[2,]    0    0    0\r\n[3,]    0    0    0\r\n\r\n#Matrix Transpose\r\nt(A)\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]    1    2    3\r\n[2,]    4    5    6\r\n[3,]    7    8    9\r\n\r\nt(B)\r\n\r\n\r\n     [,1] [,2] [,3]\r\n[1,]    1    2    3\r\n[2,]    4    5    6\r\n[3,]    7    8    9\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:46-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -162,9 +162,9 @@
     ],
     "date": "2021-08-07",
     "categories": [],
-    "contents": "\nThis is my first post in R using the distill package! Check out my R code.\n\n\n2+2\n\n\n[1] 4\n\nx<-4\ny<-6\n\nx+y\n\n\n[1] 10\n\n\n\n\n",
+    "contents": "\r\nThis is my first post in R using the distill package! Check out my R code.\r\n\r\n\r\n2+2\r\n\r\n\r\n[1] 4\r\n\r\nx<-4\r\ny<-6\r\n\r\nx+y\r\n\r\n\r\n[1] 10\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:43-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -179,9 +179,9 @@
     ],
     "date": "2021-08-07",
     "categories": [],
-    "contents": "\nUsing Markdown is fun!\nI learned a lot this summer — Markdown is your friend, as are flexdashboard and Stack Overflow.\nAlso, always keep in mind that social scientists understand data and data management just as well (if not better) than the computer scientists.\nTidyTuesday\nNew goal: Participate in Tidy Tuesdays\n\n\n\n",
+    "contents": "\r\nUsing Markdown is fun!\r\nI learned a lot this summer — Markdown is your friend, as are flexdashboard and Stack Overflow.\r\nAlso, always keep in mind that social scientists understand data and data management just as well (if not better) than the computer scientists.\r\nTidyTuesday\r\nNew goal: Participate in Tidy Tuesdays\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:44-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   },
   {
@@ -198,9 +198,9 @@
     "categories": [
       "welcome"
     ],
-    "contents": "\nWelcome to the Data Analytics and Computational Social Science Programs’ Orientation 2021 session of DACSS 601 Foundations of Data Science. This blog will feature the work of our incoming M.S. students taking the class, as well as PhD students in the College of Behavioral and Social Sciences who have decided to participate through “R Bootcamp”.\n\n\n\n",
+    "contents": "\r\nWelcome to the Data Analytics and Computational Social Science Programs’ Orientation 2021 session of DACSS 601 Foundations of Data Science. This blog will feature the work of our incoming M.S. students taking the class, as well as PhD students in the College of Behavioral and Social Sciences who have decided to participate through “R Bootcamp”.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-08-10T23:01:45-04:00",
+    "last_modified": "2021-08-11T10:53:26-04:00",
     "input_file": {}
   }
 ]
