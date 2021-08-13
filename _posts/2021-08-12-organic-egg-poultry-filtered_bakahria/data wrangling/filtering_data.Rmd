@@ -79,6 +79,7 @@ ggplot(data = df, aes(x = index, y = `Bone-in Breast`, group = 1)) + geom_line()
 ggplot(data = df, aes(x = index, y = `Thighs`, group = 1)) + geom_line() + geom_point()
 ```
 ```{r}
-write.csv(df, 'D:/R project/DACSS601August2021/filtered_data/organiceggpoultry_filtered.csv', row.names = FALSE)
+# Writing of csv file
+## write.csv(df, 'D:/R project/DACSS601August2021/_posts/2021-08-12-organic-egg-poultry-filtered_bakahria/data wrangling/organiceggpoultry_filtered.csv', row.names = FALSE)
 ```
 
