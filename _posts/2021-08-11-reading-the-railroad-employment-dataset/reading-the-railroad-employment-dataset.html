@@ -1485,8 +1485,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='va'>State_county</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"/Users/mohitarora/Desktop/StateCounty2012.xlsx"</span>, sheet<span class='op'>=</span><span class='st'>"Sheet1"</span>, skip <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>State_county</span><span class='op'>)</span>
+<span class='va'>State_county</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"../../_data/StateCounty2012.xls"</span>, skip<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>I have downloaded the excel file and initially I try to see the data structure.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>State_county</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 6 × 5
@@ -1511,11 +1517,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 4 1  Military designation.                    NA    &lt;NA&gt;   NA       NA
 5 &lt;NA&gt;                                        NA    &lt;NA&gt;   NA       NA
 6 NOTE:  Excludes 2,896 employees without an… NA    &lt;NA&gt;   NA       NA</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>State_county</span><span class='op'>$</span><span class='st'>"...4"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
 </div>
-<pre><code>[1] 2990</code></pre>
+<p>The data needs to be cleaned for further analysis.</p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>State_county</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>State_county</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>State_county</span> <span class='op'>&lt;-</span> <span class='va'>State_county</span><span class='op'>[</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2985</span>, <span class='fl'>2987</span>, <span class='fl'>2989</span><span class='op'>)</span>, <span class='op'>]</span>
@@ -1546,7 +1550,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 5 WY    WASHAKIE      10
 6 WY    WESTON        37</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Now it looks better!</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
