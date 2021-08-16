@@ -1,0 +1,86 @@
+---
+title: "Air Pollution in Equivalent Cigarettes/day"
+description: |
+  Converting air pollution to equivalent cig./day.
+author: 
+  -name: Shubham Mishra
+date: 08-13-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+# Installing packages for Scraping
+#install.packages('rvest')
+library(rvest)
+library(tidyverse)
+```
+
+```{r}
+html_page <- read_html("https://www.iqair.com/us/world-air-quality-ranking")
+cities_list <- c()
+aqi <- c()
+for (i in 1:94){
+  city <- html_page %>% 
+    html_nodes(xpath = sprintf("//*[@id='content-wrapper']/app-ranking/app-progressive-container/section[2]/div/div/div[2]/div/div/table/tbody/tr[%s]/td[3]/a", i)) %>%
+    html_text()
+  cities_list <- c(cities_list, city)
+  aqi <- c(aqi, parse_number(html_page %>%
+    html_node(xpath = sprintf('//*[@id="content-wrapper"]/app-ranking/app-progressive-container/section[2]/div/div/div[2]/div/div/table/tbody/tr[%d]/td[4]/span', i)) %>%
+    html_text()))
+}
+```
+```{r}
+countries_list <- c()
+for (i in 1:length(cities_list)){
+  countries_list[i] <- strsplit(as.character(cities_list[i]), ",")[[1]][2]
+  cities_list[i] <- strsplit(as.character(cities_list[i]), ",")[[1]][1]
+}
+```
+
+```{r}
+cities_list <- lapply(cities_list, split <- function(X) {
+                                                    trimws(X, whitespace = "[ ]")
+                                                        })
+countries_list <- lapply(countries_list, split <- function(X){
+                                                    trimws(X, whitespace =  "[ ]")
+                                                            })
+```
+
+```{r}
+temp <- c()
+for (i in cities_list){
+  temp <- c(temp, i)
+}
+cities_list <- temp
+temp <- c()
+for (i in countries_list){
+  temp <- c(temp, i)
+}
+countries_list <- temp
+```
+```{r}
+
+```
+
+```{r}
+print(cities_list)
+print(countries_list)
+aqi <- aqi[1:50]
+print(aqi)
+```
+```{r}
+aqi_data <- data.frame(cities_list,countries_list,aqi)
+```
+
+```{r}
+aqi_data$CE_aqi <- aqi
+```
+
