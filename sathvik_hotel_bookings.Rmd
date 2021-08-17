@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "hotel_bookings"
 author: "sathvik_thogaru"
 date: "15/08/2021"
 output: html_document
@@ -21,7 +21,7 @@ library(skimr)
 ```
 
 ```{r}
-hotel_bookings <- read_csv(""_data/hotel_bookings.csv"")
+hotel_bookings <- read_csv("_data/hotel_bookings.csv")
 head(hotel_bookings)
 ```
 
