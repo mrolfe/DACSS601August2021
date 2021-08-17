@@ -1,5 +1,5 @@
 ---
-title: "Rhys Long's Postcard"
+title: "Rhys Long"
 image: "Rhys.jpg"
 color1: "#5A59A3"
 color2: "#C66060"
@@ -16,6 +16,7 @@ links:
 output:
   postcards::onofre
 ---
+ 
 Education/Work Background: Bachelor of Music in Trumpet Performance at Rhode Island College (2020)
 
 Program: M.S. DACSS
@@ -26,6 +27,6 @@ Research interests: Social justice, social media, and healthcare
 
 Hometown: Rutland, Massachusetts
 
-Hobbies: Trumpet, trombone, singing, acting, playing video games, learning new languages, and spending time with my pets.
+Hobbies: Trumpet, trombone, singing, acting, playing video games, learning new languages, and spending time with my pets
 
 Fun fact: I love cats
