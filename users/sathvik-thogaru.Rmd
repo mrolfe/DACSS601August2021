@@ -3,11 +3,11 @@ title: "sathvik thogaru"
 image: "dp.jpg"
 links:
   - label: LinkedIn
-    url: "https://linkedin.com/"
+    url: "https://www.linkedin.com/in/sathvikthogaru/"
   - label: Twitter
     url: "https://twitter.com/"
   - label: GitHub
-    url: "https://github.com/"
+    url: "https://github.com/sthogaru"
   - label: Email
     url: "mailto:sthogaru@umass.edu"
 output:
