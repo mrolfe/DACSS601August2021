@@ -1,0 +1,161 @@
+---
+title: "Untitled"
+author: "sathvik_thogaru"
+date: "15/08/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This data set contains a single file which compares various booking information between two hotels: a city hotel and a resort hotel.
+
+reading hotel_bookings data into R using readr library
+
+```{r}
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(skimr)
+```
+
+```{r}
+hotel_bookings <- read_csv(""_data/hotel_bookings.csv"")
+head(hotel_bookings)
+```
+
+
+skim() is an alternative to summary(), quickly providing a broad overview of a data frame. It handles data of all types, dispatching a different set of summary functions based on the types of columns in the data frame.
+
+```{r}
+skim(hotel_bookings)
+```
+
+finding the na values in the dataframe( row and column) using which() 
+```{r}
+which(is.na(hotel_bookings), arr.ind=TRUE)
+```
+
+```{r}
+hotel_bookings[c(40601,40668,40680,41161),]
+```
+
+recoding the missing values in children column
+
+```{r}
+hotel_bookings<-hotel_bookings[-c(40601,40668,40680,41161),] 
+```
+
+```{r}
+dim(hotel_bookings)
+sum(is.na(hotel_bookings))
+```
+
+looking for type of hotels booked by guests
+
+```{r}
+hotels_info<-data.frame(table(hotel_bookings$hotel))
+```
+
+```{r}
+pie(hotels_info$Freq, labels=paste(hotels_info$Var1,sep = " ", hotels_info$Freq), main = "type of hotels booked by guests")
+```
+
+1. where do most of the guests come from?
+
+```{r}
+guests_country_details<-group_by(hotel_bookings,country)%>%
+   count()%>%
+  arrange(desc(n))
+top10<-head(guests_country_details,10)
+```
+
+most guests by top 10 country's
+```{r}
+pie(top10$n,labels = paste(top10$country,sep='  ',top10$n), main="most guests and country's")
+```
+
+2. how much do guests pay for a room at eachhotel?
+
+had struggle with the inf, NaN, NA as most of the data points are zeroes
+```{r}
+city_hotel_data<-filter(hotel_bookings, hotel_bookings$hotel=="City Hotel")
+resort_hotel_data<-filter(hotel_bookings, hotel_bookings$hotel=="Resort Hotel")
+```
+
+adr - average daily rate
+adr_pp - adr per person
+
+
+```{r}
+city_adr_data <- city_hotel_data %>% select(hotel,adults, children, arrival_date_month, reserved_room_type, adr)
+city_adr_data$total_guests <- city_adr_data$adults + city_adr_data$children
+city_adr_data<-filter(city_adr_data, total_guests!=0)
+city_adr_data$adr_pp <- city_adr_data$adr/city_adr_data$total_guests
+```
+
+```{r}
+(mean_adr_pp_city_hotel <- mean(city_adr_data$adr_pp))
+```
+```{r}
+resort_adr_data <- resort_hotel_data %>% select(hotel,adults,arrival_date_month, children,reserved_room_type, adr)
+resort_adr_data$total_guests <- resort_adr_data$adults + resort_adr_data$children
+resort_adr_data<-filter(resort_adr_data, total_guests!=0)
+resort_adr_data$adr_pp <- resort_adr_data$adr/resort_adr_data$total_guests
+```
+
+```{r}
+(mean_adr_pp_resort_hotel <- mean(resort_adr_data$adr_pp))
+```
+
+```{r}
+mean_adr_pp <- cbind(mean_adr_pp_city_hotel, mean_adr_pp_resort_hotel)
+barplot(mean_adr_pp, col = "red", ylim = c(0,60), main = "average daily rate per person in city and resort hotel ", names.arg = c("city hotel", "resort_hotel"))
+```
+
+
+```{r}
+city_adr_pp_roomtype <- city_adr_data%>%group_by(reserved_room_type) %>% summarise(mean_adr_pp_roomtype=mean(adr_pp))
+ggplot(city_adr_pp_roomtype, aes(x=reserved_room_type, y= mean_adr_pp_roomtype))+geom_bar(stat = "identity",fill = "blue")+labs(x="reserved room type", y="mean price of room per person", title = "mean price of reserved room type per person at city hotel")
+```
+
+```{r}
+resort_adr_pp_roomtype <- resort_adr_data%>%group_by(reserved_room_type) %>% summarise(mean_adr_pp_roomtype=mean(adr_pp))
+ggplot(resort_adr_pp_roomtype, aes(x=reserved_room_type, y= mean_adr_pp_roomtype))+geom_bar(stat = "identity",fill = "blue")+labs(x="reserved room type", y="mean price of room per person", title = "mean price of reserved room type per person at resort hotel")
+```
+
+
+
+how does the price per night varry in the year?
+
+```{r}
+city_room_prices_monthly <-select(city_adr_data, arrival_date_month, adr_pp)
+ordered_months <- c("January", "February", "March", "April", "May", "June", 
+          "July", "August", "September", "October", "November", "December")
+(city_room_prices_monthly <- city_room_prices_monthly %>% group_by(arrival_date_month) %>% summarise(mean_room_prices = mean(adr_pp)))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
