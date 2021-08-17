@@ -1,7 +1,7 @@
 ---
 title: "Rhys Long - Eggs Sales In 2004-2013"
 description: |
-  This is a data set that includes records of how many cartons of eggs were sold every month in 2004-2013. I got this data from the Basic Data sets section of google classroom.
+  This is a data set that includes records of how many cartons of eggs were sold every month in 2004-2013. I got this data from the Basic Data sets section of google classroom. This data set contains four variables
   
 author: Rhys Long
 date: 08-11-2021
@@ -12,15 +12,121 @@ draft: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Part 1: Full Data Set
+
+```{r}
+library(tidyverse)
+eggs_data <- read.csv(file = "/Users/rhyslong/Desktop/DACSS601August2021/_data/eggs_tidy.csv")
+as.tibble(eggs_data)
+library(ggplot2)
+ggplot(data = eggs_data, aes(year)) +
+  geom_point(mapping = aes(y=extra_large_dozen), color = 'magenta') +
+  geom_point(mapping = aes(y=large_dozen), color = 'purple') +
+  geom_point(mapping = aes(y=extra_large_half_dozen), color = 'blue') +
+  geom_point(mapping = aes(y=large_half_dozen), color = 'cyan') +
+  labs(title="Eggs Sold in 2004-2013", y="Eggs Sold", x="Year")
+```
+
+Part 2: Using Filter And Summarize To Show How Sales Changed Over Time
+
+```{r}
+first_third <- filter(eggs_data, year <= 2007)
+ggplot(data = first_third, aes(year)) +
+  geom_point(mapping = aes(y=extra_large_dozen), color = 'magenta') +
+  geom_point(mapping = aes(y=large_dozen), color = 'purple') +
+  geom_point(mapping = aes(y=extra_large_half_dozen), color = 'blue') +
+  geom_point(mapping = aes(y=large_half_dozen), color = 'cyan') +
+  labs(title="Eggs Sold in 2004-2007", y="Eggs Sold", x="Year")
+
+summarize(first_third, max(extra_large_dozen), min(extra_large_dozen), median(extra_large_dozen), mean(extra_large_dozen))
+summarize(first_third, max(large_dozen), min(large_dozen), median(large_dozen), mean(large_dozen))
+summarize(first_third, max(extra_large_half_dozen), min(extra_large_half_dozen), median(extra_large_half_dozen), mean(extra_large_half_dozen))
+summarize(first_third, max(large_half_dozen), min(large_half_dozen), median(large_half_dozen), mean(large_half_dozen))
 ```
 
 ```{r}
+middle_third <- filter(eggs_data, year >= 2007 & year <= 2010)
+ggplot(data = middle_third) +
+  geom_point(mapping = aes(x=year, y=extra_large_dozen), color = 'magenta') +
+  geom_point(mapping = aes(x=year, y=large_dozen), color = 'purple') +
+  geom_point(mapping = aes(x=year, y=extra_large_half_dozen), color = 'blue') +
+  geom_point(mapping = aes(x=year, y=large_half_dozen), color = 'cyan') +
+  labs(title="Eggs Sold in 2007-2010", y="Eggs Sold", x="Year")
 
-read.csv("~rachellong/desktop/DACSS601August2021/_data/eggs_tidy.csv")
+summarize(middle_third, max(extra_large_dozen), min(extra_large_dozen), median(extra_large_dozen), mean(extra_large_dozen))
+summarize(middle_third, max(large_dozen), min(large_dozen), median(large_dozen), mean(large_dozen))
+summarize(middle_third, max(extra_large_half_dozen), min(extra_large_half_dozen), median(extra_large_half_dozen), mean(extra_large_half_dozen))
+summarize(middle_third, max(large_half_dozen), min(large_half_dozen), median(large_half_dozen), mean(large_half_dozen))
 ```
-According to the data above, extra large eggs were bought more frequently than large eggs and cartons that contain a dozen eggs were sold more frequently than cartons that contain a half dozen eggs.
 
-Distill is a publication format for scientific and technical writing, native to the web.
+```{r}
+final_third <- filter(eggs_data, year >= 2010)
+ggplot(data = final_third, aes(x=year)) +
+  geom_point(mapping = aes(x=year, y=extra_large_dozen), color = 'magenta') +
+  geom_point(mapping = aes(x=year, y=large_dozen), color = 'purple') +
+  geom_point(mapping = aes(x=year, y=extra_large_half_dozen), color = 'blue') +
+  geom_point(mapping = aes(x=year, y=large_half_dozen), color = 'cyan') +
+  labs(title="Eggs Sold in 2010-2013", y="Eggs Sold", x="Year")
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+summarize(final_third, max(extra_large_dozen), min(extra_large_dozen), median(extra_large_dozen), mean(extra_large_dozen))
+summarize(final_third, max(large_dozen), min(large_dozen), median(large_dozen), mean(large_dozen))
+summarize(final_third, max(extra_large_half_dozen), min(extra_large_half_dozen), median(extra_large_half_dozen), mean(extra_large_half_dozen))
+summarize(final_third, max(large_half_dozen), min(large_half_dozen), median(large_half_dozen), mean(large_half_dozen))
+```
+
+Part 3: Using Select and Arrange To Show When Sales Were Least and Most Popular For Each Variable
+
+```{r}
+variable_1 <- select(eggs_data, month, year, extra_large_dozen)
+  ggplot(data = variable_1) +
+  geom_point(mapping = aes(x=year, y=extra_large_dozen), color = 'magenta') +
+  labs(title="Extra Large Eggs Sold By The Dozen in 2004-2013", y="Eggs Sold", x="Year")
+  
+  arrange(variable_1, extra_large_dozen) %>%
+    slice(1:10)
+  arrange(variable_1, desc(extra_large_dozen)) %>%
+    slice(1:10)
+  summarize(variable_1, median = median(extra_large_dozen), mean = mean(extra_large_dozen))
+```
+
+```{r}
+variable_2 <- select(eggs_data, month, year, large_dozen)
+  ggplot(data = variable_2) +
+  geom_point(mapping = aes(x=year, y=large_dozen), color = 'purple') +
+  labs(title="Large Eggs Sold By The Dozen in 2004-2013", y="Eggs Sold", x="Year")
+ 
+  arrange(variable_2, large_dozen) %>%
+    slice(1:10)
+  arrange(variable_2, desc(large_dozen))  %>%
+    slice(1:10)
+  summarize(variable_2, median = median(large_dozen), mean = mean(large_dozen))
+```
+
+```{r}
+variable_3 <- select(eggs_data, month, year, extra_large_half_dozen)
+  ggplot(data = variable_3) +
+  geom_point(mapping = aes(x=year, y=extra_large_half_dozen), color = 'blue') +
+  labs(title="Extra Large Eggs Sold By The Half Dozen in 2004-2013", y="Eggs Sold", x="Year")
+
+  arrange(variable_3, extra_large_half_dozen) %>%
+    slice(1:10)
+  arrange(variable_3, desc(extra_large_half_dozen)) %>%
+    slice(1:10)
+  summarize(variable_3, median = median(extra_large_half_dozen), mean = mean(extra_large_half_dozen))
+```
+
+```{r}
+variable_4 <- select(eggs_data, month, year, large_half_dozen)
+  ggplot(data = variable_4) +
+  geom_point(mapping = aes(x=year, y=large_half_dozen), color = 'cyan') +
+  labs(title="Large Eggs Sold By The Half Dozen in 2004-2013", y="Eggs Sold", x="Year")
+  
+  arrange(variable_4, large_half_dozen) %>%
+    slice(1:10)
+  arrange(variable_4, desc(large_half_dozen)) %>%
+    slice(1:10)
+  summarize(variable_4, median = median(large_half_dozen), mean = mean(large_half_dozen))
+```
