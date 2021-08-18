@@ -48,3 +48,5 @@ vignettes/*.pdf
 
 .Rproj.user
 docs/
+docs/*
+_data/
