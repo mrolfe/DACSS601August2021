@@ -1,7 +1,7 @@
 ---
 title: "Interest Rate, Inflation, and Unemployment rates"
 description: |
-  A comparison of interest rates vs GDP change vs inflation vs unemployment rates in the US from 1954 - 2017
+  A comparison of interest rates vs GDP change vs inflation vs unemployment vs Capital Gains in the US from 1954 - 2017
 author: Ben Lewis
 date: 08-18-2021
 output:
@@ -20,6 +20,8 @@ library(knitr)
 library(readr)
 library(readxl)
 library(ggplot2)
+library(stringr)
+library(patchwork)
 ```
 
 # Reading in my data. This set contains monthly Federal Reserve interest rates from 1954-2017. It also contains the quarterly inflation rates, and monthly unemployment rates. I downloaded this data from Kaggle. Raw data can be found [here](https://www.kaggle.com/federalreserve/interest-rates)
@@ -27,8 +29,34 @@ library(ggplot2)
 ```{r}
 fed_rates <- read_csv("../../_data/FedFundsRate.csv")
 ```
+## I want to compare the variables in fed_rates with data on capital gains tax paid in the same years. I found another dataset of Kaggle containing capital gains taxes collected between 1954 and 2018[Here](https://www.kaggle.com/johndotpub/historical-federal-capital-gains-tax-1954-to-2018) This is me loading in that data. I need to rename some columns in this data and I only am interested in several variables contained in the data so I will be removing excess columns and renaming them in the loading process.
 
+```{r}
+capital_gains_paid <- read_csv("../../_data/Capital Gains Tax Collected .csv") %>%
+  rename("Realized Gains" = "Total Realized Capital Gains in $millions" , "Taxes Paid" = "Taxes Paid on Capital Gains in $millions" , "Year" = "Tax Year") %>%
+  select("Year", "Realized Gains" , "Taxes Paid" )
+```
+
+#Capital Gains Visualisation
+
+```{r}
+RG <- ggplot(capital_gains_paid, aes(`Year` , `Realized Gains`)) + 
+  geom_point() + 
+  geom_smooth()
+```
+#Taxes Paid Vis 
+
+```{r}
+TP <- ggplot(capital_gains_paid, aes(`Year` , `Taxes Paid`)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+
+ 
+  
 # Changing numeric values in column "Year" to names of the month. I want to simplify the data set by being able to see the names of the month instead of month number. 
+
 
 ```{r}
 fed_rates <- fed_rates %>%
@@ -57,7 +85,7 @@ fed_rates_new <- fed_rates %>%
 fed_rates_new
 ```
 
-## Filtering by Quarter to make viewing quarterly GDP growth rate data easier to track. Because we do not tend to see wild swings in monthly data in regards to inflation and interest rate change. 
+## Filtering by Quarter to make viewing quarterly GDP growth rate data easier to see 
 
 ```{r}
 fed_rates_quarter <- fed_rates_new %>%
@@ -67,7 +95,7 @@ fed_rates_quarter
   
 ```
 
-## Real GDP (Percent Change) over time. We see a  downward annual trend since 1954 with fairly substantial movement in GDP percent growth quarterly. The highest % change in GDP came in Q2 (April) of 1978 with a 16% increase QoQ. 
+## Real GDP (Percent Change) over time. We see a  downward annual trend since 1954 with fairly substantial movement in GDP percent growth quarterly. The highest % change in GDP came in Q2 (April) of 1978 with a 16.5% increase QoQ. 
 
 ```{r}
 summarise_GDP <- fed_rates_quarter 
@@ -75,8 +103,16 @@ select(fed_rates_quarter,`Month`, `Real GDP (Percent Change)`)
   summarise(fed_rates_quarter , mean.Real_GDP = mean(`Real GDP (Percent Change)` , na.rm = TRUE) , max.Real_GDP = max(`Real GDP (Percent Change)` , na.rm = TRUE) , min.Real_GDP = min(`Real GDP (Percent Change)` , na.rm = TRUE) , sd.Real_GDP = sd(`Real GDP (Percent Change)` , na.rm = TRUE) , IQR.Real_GDP = IQR(`Real GDP (Percent Change)` , na.rm = TRUE))
 ```
 
+#group by decade attempt
+
 ```{r}
-ggplot(fed_rates_quarter, aes(`Year` , `Real GDP (Percent Change)`)) + 
+
+```
+
+
+```{r}
+
+GDP <- ggplot(fed_rates_quarter, aes(`Year` , `Real GDP (Percent Change)`)) + 
   geom_point() + 
   geom_smooth()
 ```
@@ -96,6 +132,7 @@ ggplot(fed_rates_quarter, aes(`Year` , `Unemployment Rate`)) +
 # Interest Rate over time
 
 ```{r}
+FF <-
 ggplot(fed_rates_quarter, aes(`Year` , `Effective Federal Funds Rate`)) + 
   geom_point() + 
   geom_smooth()
@@ -104,13 +141,39 @@ ggplot(fed_rates_quarter, aes(`Year` , `Effective Federal Funds Rate`)) +
 # Inflation Rate over time
 
 ```{r}
+IR_OT <- 
  ggplot(fed_rates_quarter, aes(`Year` , `Inflation Rate`)) + 
   geom_point() + 
   geom_smooth()
 ```
 
+#HW 5
+
+### Comparing Inflation Rate to Realized Gains over time. This visualization represents the relationship between Federeal Reserve interest rates and realized gains in teh stock market. Financial theory would suggest that as interest rates decline investors are forced seek more risk outside of treasury notes to acheive higher returns. The below visualization compares the Federal Reserve interest rate from 1954-2018 to capital gains from the same time period. In this we see that as interest rates fall, realized gains rise. 
+### In order to execute the side by side approach, I used external resources (Google) as per the advice of our teaching assistants. I made attempts at combining the datasets together onto one visualisation but was unable to figure out how using external resources. 
+### I would have preferred to overlay the Capital Gains on top of the Federal Funds rate.
+```{r}
+FF + RG
+```
 
 
+### The below visualisation represents the dollar amount of taxes paid versus the capital gains over time. 
+
+```{r}
+(hist <- ggplot(capital_gains_paid , aes(x = `Year`, y = `Taxes Paid`, fill = `Realized Gains`)) +
+    geom_histogram(stat = "identity", position = "dodge")) +
+    scale_x_continuous(breaks = c(1950,1960,1970,1980,1990,2000,2010,2020)) + 
+    scale_colour_gradient2() +  
+     labs(title = "Taxes Paid vs Realized Gains (in million$)", 
+         x = "\n Year", y = "Taxes Paid on Gains \n") + 
+    theme(axis.text = element_text(size = 12), 
+          axis.title = element_text(size = 12, face = "italic"), 
+          plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
+    
+
+    
+   
+```
 
 
 ```{r setup, include=FALSE}
