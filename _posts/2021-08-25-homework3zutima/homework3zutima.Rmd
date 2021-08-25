@@ -1,0 +1,72 @@
+---
+title: "homework3_zutima"
+description: |
+  A short description of the post.
+author:
+  - name: Abhinav Kumar
+    url: {}
+date: 08-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r}
+library(blogbuilder)
+library(distill)
+library(tidyverse)
+library(usethis)
+library(dplyr)
+```
+
+
+```{r}
+head(hotel_bookings)
+dim(hotel_bookings)
+colnames(hotel_bookings)
+
+```
+
+
+```{r}
+
+book <-read_csv(file="../../_data/hotel_bookings.csv")
+
+```
+```{r Select} 
+
+head(hotel_bookings)
+
+select(hotel_bookings, "arrival_date_month")
+select(hotel_bookings, "arrival_date_year")
+
+```
+```{r filter}
+
+d <-filter(hotel_bookings, adults == 2)
+f <-filter(hotel_bookings, children == 2)
+
+```
+
+```{r arrange}
+
+head(hotel_bookings)
+hotel_bookings %>%arrange(hotel, arrival_date_month, arrival_date_year) %>%print(n=30)
+
+```
+```{r}
+
+summarize_all(select(hotel_bookings, starts_with(July)), median, na.rm = TRUE)
+```
+```
+
+
+

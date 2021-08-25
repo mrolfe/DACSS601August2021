@@ -1,0 +1,45 @@
+---
+title: "homework4_zutima"
+description: |
+  A short description of the post.
+author:
+  - name: Abhinav Kumar
+    url: {}
+date: 08-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r}
+library(tidyverse)
+library(stringr)
+library(dplyr)
+
+```
+Tasks for Assignment 4
+
+For this assignment, you must select at least two variables of interest from your dataset, provide a basic description of the variables, clean and recode as needed, and present descriptive statistics and any visualizations. Your R Markdown document should include:
+
+1. Descriptions of the variables - how they were collected, any missing values, etc
+2. How you cleaned and coded the data, including a before/after comparison as needed
+3. summary descriptives of the recoded variables
+4. appropriate visualizations (not required)
+
+```{r Read in the data}
+
+book <-read_csv(file="../../_data/hotel_bookings.csv")
+
+```
+
+### Now we will read in the data. For this assignment, I am looking at the hotel bookings data which shows us data describing the best time and year to book a hotel. Source for this data is kaggle: https://www.kaggle.com/jessemostipak/hotel-booking-demand
+
+
+```
+
+
+

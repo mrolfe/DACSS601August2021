@@ -1,0 +1,32 @@
+---
+title: "ankithw3"
+description: |
+  Data Wrangling in Hotel Bookings dataset
+author: Ankit Kumar
+date: 08-19-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+# reading hotel bookings data and viewing it
+
+library(readr)
+hotel_bookings
+read_csv("_data/hotel_bookings.csv")
+View(hotel_bookings)
+```
+
+loading relevant libraries
+
+```{r}
+library(tidyverse)
+```
+

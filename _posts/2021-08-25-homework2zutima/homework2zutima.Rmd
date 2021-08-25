@@ -1,0 +1,42 @@
+---
+title: "homework2_zutima"
+description: |
+  A short description of the post.
+author:
+  - name: Abhinav Kumar
+    url: {}
+date: 08-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r}
+## X is score of students in an exam out of 15 and y is the student serial number.
+
+x<-c(2,4,6,8,10,12,14)
+y<-c(5,7,3,4,1,2,6)
+
+## Below the scores have been divided by 15 and changed to fraction and then into percentage
+
+fraction <- x/15
+percent <- fraction*100
+
+## The following shows the performance of each student 
+
+plot(y,percent)
+
+```
+
+
+
+
+
+
+
+
+
