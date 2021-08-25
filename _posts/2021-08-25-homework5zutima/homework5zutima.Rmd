@@ -1,0 +1,41 @@
+---
+title: "homework5_zutima"
+description: |
+  A short description of the post.
+author:
+  - name: Abhinav Kumar
+    url: {}
+date: 08-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This assignment is building on the previous distill blog post with hotel booking data inlcuding data visualizations. I would be using ggplot2 for the visuals 
+
+
+
+```{r}
+library(tidyverse)
+library(blogbuilder)
+library(distill)
+library(tidyverse)
+library(usethis)
+library(dplyr)
+library(ggplot2)
+
+```
+```{r Read in the Data}
+
+book <-read_csv(file="../../_data/hotel_bookings.csv")
+
+```
+```
+
+
+
