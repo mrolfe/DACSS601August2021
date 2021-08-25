@@ -111,12 +111,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["School Characteristics"]},{"type":"character","attributes":{},"value":["Blog posts about School Characteristics"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Joey Wolpert"]}]}]},{"type":"character","attributes":{},"value":["08-17-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["School Characteristics"]},{"type":"character","attributes":{},"value":["Blog posts about School Characteristics"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Joey Wolpert"]}]}]},{"type":"character","attributes":{},"value":["08-17-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["homework-2_files/anchor-4.2.2/anchor.min.js","homework-2_files/bowser-1.9.3/bowser.min.js","homework-2_files/distill-2.2.21/template.v2.js","homework-2_files/header-attrs-2.10/header-attrs.js","homework-2_files/jquery-1.11.3/jquery.min.js","homework-2_files/popper-2.6.0/popper.min.js","homework-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","homework-2_files/tippy-6.2.7/tippy-light-border.css","homework-2_files/tippy-6.2.7/tippy.css","homework-2_files/tippy-6.2.7/tippy.umd.min.js","homework-2_files/webcomponents-2.0.0/webcomponents.js","Public_School_Characteristics_2017-18.csv"]}
+  {"type":"character","attributes":{},"value":["homework-2_files/anchor-4.2.2/anchor.min.js","homework-2_files/bowser-1.9.3/bowser.min.js","homework-2_files/distill-2.2.21/template.v2.js","homework-2_files/figure-html5/unnamed-chunk-10-1.png","homework-2_files/figure-html5/unnamed-chunk-15-1.png","homework-2_files/header-attrs-2.10/header-attrs.js","homework-2_files/jquery-1.11.3/jquery.min.js","homework-2_files/popper-2.6.0/popper.min.js","homework-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","homework-2_files/tippy-6.2.7/tippy-light-border.css","homework-2_files/tippy-6.2.7/tippy.css","homework-2_files/tippy-6.2.7/tippy.umd.min.js","homework-2_files/webcomponents-2.0.0/webcomponents.js","Public_School_Characteristics_2017-18.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"School Characteristics","description":"Blog posts about School Characteristics","authors":[{"author":"Joey Wolpert","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-17T00:00:00.000+00:00","citationText":"Wolpert, 2021"}
+{"title":"School Characteristics","description":"Blog posts about School Characteristics","authors":[{"author":"Joey Wolpert","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-17T00:00:00.000-04:00","citationText":"Wolpert, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1481,91 +1481,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h1 id="homework-2">Homework 2</h1>
 <p>Let’s read in the data and see what it looks like:</p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>          X        Y OBJECTID     NCESSCH
-1 -149.3578 61.62714        1 20051000480
-2 -156.7542 71.30034        2 20061000470
-3 -151.0701 60.49144        3 20039000448
-4 -151.2791 60.56828        4 20039000463
-5 -151.2323 60.56700        5 20039000513
-6 -133.1287 56.11917        6 20070000526
-                             NMCNTY  SURVYEAR STABR  LEAID ST_LEAID
-1         Matanuska-Susitna Borough 2017-2018    AK 200510    AK-33
-2               North Slope Borough 2017-2018    AK 200610    AK-36
-3           Kenai Peninsula Borough 2017-2018    AK 200390    AK-24
-4           Kenai Peninsula Borough 2017-2018    AK 200390    AK-24
-5           Kenai Peninsula Borough 2017-2018    AK 200390    AK-24
-6 Prince of Wales-Hyder Census Area 2017-2018    AK 200700    AK-44
-                                   LEA_NAME
-1 Matanuska-Susitna Borough School District
-2       North Slope Borough School District
-3   Kenai Peninsula Borough School District
-4   Kenai Peninsula Borough School District
-5   Kenai Peninsula Borough School District
-6          Southeast Island School District
-                               SCH_NAME           LSTREET1 LSTREET2
-1                  John Shaw Elementary 3750 E Paradise Ln         
-2              Kiita Learning Community     5246 Karluk St         
-3    Soldotna Montessori Charter School     158 E Park Ave         
-4 Kaleidoscope School of Arts &amp; Science    549 N Forest Dr         
-5                       Marathon School    405 Marathon Rd         
-6                     Whale Pass School     126 Bayview Rd         
-  LSTREET3      LCITY LSTATE  LZIP LZIP4         PHONE GSLO GSHI
-1             Wasilla     AK 99654    NA (907)352-0500   PK   05
-2           Utqiagvik     AK 99723    NA (907)852-9677   09   12
-3            Soldotna     AK 99669    NA (907)260-9221   KG   06
-4               Kenai     AK 99611    NA (907)283-0804   KG   05
-5               Kenai     AK 99611    NA (907)335-3343   07   12
-6          Whale Pass     AK 99950    NA (907)846-5320   PK   12
-               VIRTUAL TOTFRL FRELCH REDLCH PK KG G01 G02 G03 G04 G05
-1 Not a virtual school    183    158     25 30 81  63  80  62  58  73
-2 Not a virtual school     27     27      0 NA NA  NA  NA  NA  NA  NA
-3 Not a virtual school     43     23     20 NA 23  23  27  22  25  28
-4 Not a virtual school     69     50     19 NA 40  43  42  46  46  43
-5 Not a virtual school     -9     -9     -9 NA NA  NA  NA  NA  NA  NA
-6 Not a virtual school     17     17      0  0  0   3   1   2   2   2
-  G06 G07 G08 G09 G10 G11 G12 G13 TOTAL MEMBER AM HI BL  WH HP TR
-1  NA  NA  NA  NA  NA  NA  NA  NA   447    447 50 12  5 351  2 23
-2  NA  NA  NA   0   3   7  20  NA    30     30 27  0  0   0  1  2
-3  19  NA  NA  NA  NA  NA  NA  NA   167    167  8  5  0 136  0 15
-4  NA  NA  NA  NA  NA  NA  NA  NA   260    260 16 14  3 168  0 56
-5  NA   0   1   1   2   1   0  NA     5      5  0  0  1   3  1  0
-6   1   5   1   0   0   0   1  NA    18     18  0  1  0  13  0  4
-    FTE   LATCOD    LONCOD          ULOCALE STUTERATIO        STITLEI
-1 24.90 61.62714 -149.3579 41-Rural: Fringe      17.95            Yes
-2  3.00 71.30034 -156.7542  33-Town: Remote      10.00 Not Applicable
-3 10.35 60.49144 -151.0702  33-Town: Remote      16.14 Not Applicable
-4 16.75 60.56828 -151.2791  33-Town: Remote      15.52 Not Applicable
-5  0.67 60.56700 -151.2323  33-Town: Remote       7.46            Yes
-6  1.90 56.11918 -133.1287 43-Rural: Remote       9.47            Yes
-  AMALM AMALF ASALM ASALF HIALM HIALF BLALM BLALF WHALM WHALF HPALM
-1    33    17     1     3    10     2     3     2   193   158     0
-2    16    11     0     0     0     0     0     0     0     0     1
-3     4     4     0     3     2     3     0     0    58    78     0
-4    10     6     1     2     6     8     3     0    82    86     0
-5     0     0     0     0     0     0     0     1     1     2     0
-6     0     0     0     0     1     0     0     0     5     8     0
-  HPALF TRALM TRALF TOTMENROL TOTFENROL STATUS UG AE
-1     2    11    12       251       196      1 NA NA
-2     0     1     1        18        12      1 NA NA
-3     0     7     8        71        96      1 NA NA
-4     0    26    30       128       132      1 NA NA
-5     1     0     0         1         4      1 NA NA
-6     0     4     0        10         8      1 NA NA
-          SCHOOL_TYPE_TEXT         SY_STATUS_TEXT SCHOOL_LEVEL AS
-1           Regular school Currently operational    Elementary  4
-2 Alternative/other school Currently operational          High  0
-3           Regular school Currently operational    Elementary  3
-4           Regular school Currently operational    Elementary  3
-5 Alternative/other school Currently operational          High  0
-6           Regular school Currently operational         Other  0
-  CHARTER_TEXT MAGNET_TEXT
-1           No          No
-2           No          No
-3          Yes          No
-4          Yes          No
-5           No          No
-6           No          No</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"C:/Users/wolpe/DACSS601August2021/_data/Public_School_Characteristics_2017-18.csv"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h3 id="whats-in-the-data">What’s in the data?</h3>
 <p>This dataset looks at the characteristics of various public schools across the United States. Among the variables in the dataset are identifying characteristics such as the name of the school, its school district, and its location; there are also several quantitative variables such as the number of students in each grade, as well as the overall number of students broken down in categories such as race and gender.</p>
@@ -1575,7 +1496,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="cleaning-data">Cleaning Data</h3>
 <p>The data is definitely unclean, let’s filter out some stuff so that we have more complete data.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>          X        Y OBJECTID     NCESSCH                     NMCNTY
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_clean</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>TOTAL</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='va'>TOTAL</span> <span class='op'>&gt;</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>FTE</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='va'>FTE</span> <span class='op'>&gt;</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>STUTERATIO</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>SCHOOL_TYPE_TEXT</span> <span class='op'>==</span> <span class='st'>"Regular school"</span> <span class='op'>&amp;</span> <span class='va'>VIRTUAL</span> <span class='op'>==</span> <span class='st'>"Not a virtual school"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>SCHOOL_LEVEL</span> <span class='op'>==</span> <span class='st'>"High"</span> <span class='op'>|</span> <span class='va'>SCHOOL_LEVEL</span> <span class='op'>==</span> <span class='st'>"Middle"</span> <span class='op'>|</span> <span class='va'>SCHOOL_LEVEL</span> <span class='op'>==</span> <span class='st'>"Elementary"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>G13</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>G13</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>PK</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>PK</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>STABR</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>SCH_NAME</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_clean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>       ï..X        Y OBJECTID     NCESSCH                     NMCNTY
 1 -151.0701 60.49144        3 20039000448    Kenai Peninsula Borough
 2 -151.2791 60.56828        4 20039000463    Kenai Peninsula Borough
 3 -166.5224 53.86895       15 20072000340 Aleutians West Census Area
@@ -1661,9 +1592,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 6           No          No</code></pre>
 </div>
 <p>With filtering, we now have a subset of the original data that will be much more useful for analysis. The schools were filtered to include only regular, non-virtual schools at the elementary, middle, and high school levels. It also removed any schools that had students younger than kindergarten (PK) or those past their senior year of high school (G13).</p>
+<p>There is still an issue however with student to teacher ratios, so let’s look at a distribution of that:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_clean</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>quantile <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.005</span>, <span class='fl'>0.025</span>, <span class='fl'>0.5</span>, <span class='fl'>0.975</span>, <span class='fl'>0.995</span>, <span class='fl'>1</span><span class='op'>)</span>, quant.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.005</span>, <span class='fl'>0.025</span>, <span class='fl'>0.5</span>, <span class='fl'>0.975</span>, <span class='fl'>0.995</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  quantile quant.val
+1    0.000    0.1900
+2    0.005    4.8200
+3    0.025    8.1800
+4    0.500   15.7700
+5    0.975   27.0000
+6    0.995   34.4274
+7    1.000  485.0000</code></pre>
+</div>
+<p>Looking at the distribution, we see that 99% of the dataset falls between a student to teacher ratio of 4.82 and 34.4274, which we can use as a boundary to remove outliers of this variable from the dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_clean</span> <span class='op'>&lt;-</span> <span class='va'>data_clean</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span> <span class='op'>&gt;=</span> <span class='fl'>4.82</span> <span class='op'>&amp;</span> <span class='va'>STUTERATIO</span> <span class='op'>&lt;=</span> <span class='fl'>34.4274</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
 <h3 id="subsetting-columns">Subsetting Columns</h3>
 <p>Now let’s subset the columns in the dataset to only include those that interest this project.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_sub</span> <span class='op'>&lt;-</span> <span class='va'>data_clean</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>SCH_NAME</span>, <span class='va'>STABR</span>, <span class='va'>GSLO</span>, <span class='va'>GSHI</span>, <span class='va'>G01</span>, <span class='va'>G02</span>, <span class='va'>G03</span>, <span class='va'>G04</span>, <span class='va'>G05</span>, <span class='va'>G06</span>, <span class='va'>G07</span>, <span class='va'>G08</span>, <span class='va'>G09</span>, <span class='va'>G10</span>, <span class='va'>G11</span>, <span class='va'>G12</span>, <span class='va'>TOTAL</span>, <span class='va'>AM</span>, <span class='va'>HI</span>, <span class='va'>BL</span>, <span class='va'>WH</span>, <span class='va'>HP</span>, <span class='va'>TR</span>, <span class='va'>FTE</span>, <span class='va'>STUTERATIO</span>, <span class='va'>AMALM</span>, <span class='va'>AMALF</span>, <span class='va'>ASALM</span>, <span class='va'>ASALF</span>, <span class='va'>HIALM</span>, <span class='va'>HIALF</span>, <span class='va'>BLALM</span>, <span class='va'>BLALF</span>, <span class='va'>WHALM</span>, <span class='va'>WHALF</span>, <span class='va'>HPALM</span>, <span class='va'>HPALF</span>, <span class='va'>TRALM</span>, <span class='va'>TRALF</span>, <span class='va'>TOTMENROL</span>, <span class='va'>TOTFENROL</span>, <span class='va'>SCHOOL_LEVEL</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_sub</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>                               SCH_NAME STABR GSLO GSHI G01 G02 G03
 1    Soldotna Montessori Charter School    AK   KG   06  23  27  22
 2 Kaleidoscope School of Arts &amp; Science    AK   KG   05  43  42  46
@@ -1696,93 +1657,225 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="arranging-some-data">Arranging Some Data</h3>
 <p>It may be useful to be the top several rows for certain columns, in this script, we look at the top 6 schools ordered based on their student to teacher ratio.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>                                SCH_NAME STABR GSLO GSHI G01 G02 G03
-1                      MARMOT SCHOOL K-8    ND   KG   08   0   0   0
-2 Kalamazoo Area Math and Science Center    MI   09   12  NA  NA  NA
-3          Woodruff Career &amp; Tech Center    IL   05   12  NA  NA  NA
-4                        South Fork High    CA   09   12  NA  NA  NA
-5             Snohomish Detention Center    WA   06   12  NA  NA  NA
-6                      Cold Springs High    CA   09   12  NA  NA  NA
-  G04 G05 G06 G07 G08 G09 G10 G11 G12 TOTAL AM HI BL WH HP TR   FTE
-1   0   0   0   1   2  NA  NA  NA  NA     3  3  0  0  0  0  0 16.00
-2  NA  NA  NA  NA  NA   1   0   1   0     2  0  0  0  2  0  0  9.50
-3  NA  NA  NA  NA  NA   1  NA   1   1     3 NA NA  3 NA NA NA 10.00
-4  NA  NA  NA  NA  NA   0   0   0   1     1  1  0  0  0  0  0  2.00
-5  NA  NA   0   0   0   0   0   1   0     1  0  0  0  1  0  0  2.00
-6  NA  NA  NA  NA  NA   0   1   0   0     1  0  0  0  1  0  0  1.57
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_stuteratio</span> <span class='op'>&lt;-</span> <span class='va'>data_sub</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span>, by_group <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_stuteratio</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>                         SCH_NAME STABR GSLO GSHI G01 G02 G03 G04 G05
+1           George Jr Republic HS    PA   09   12  NA  NA  NA  NA  NA
+2         Medicine Bow Elementary    WY   KG   06   1   4   0   3   2
+3 LONE STAR UNDIVIDED HIGH SCHOOL    CO   09   12  NA  NA  NA  NA  NA
+4          VERDIGRE MIDDLE SCHOOL    NE   07   08  NA  NA  NA  NA  NA
+5          Judith Gap High School    MT   09   12  NA  NA  NA  NA  NA
+6        Mobile Elementary School    AZ   KG   08   5   0   5   1   3
+  G06 G07 G08 G09 G10 G11 G12 TOTAL AM HI  BL WH HP TR   FTE
+1  NA  NA  NA  54  54  88  83   279  1 36 135 80  0 26 57.94
+2   1  NA  NA  NA  NA  NA  NA    11  0  0   0 11  0  0  2.28
+3  NA  NA  NA  16   5   4   4    29 NA  3  NA 26 NA NA  6.01
+4  NA   4  10  NA  NA  NA  NA    14  2  0   0 12  0  0  2.90
+5  NA  NA  NA   4   3   3   3    13  0  1   0 12  0  0  2.68
+6   1   0   2  NA  NA  NA  NA    19  0  4   5  9  0  1  3.90
   STUTERATIO AMALM AMALF ASALM ASALF HIALM HIALF BLALM BLALF WHALM
-1       0.19     1     2     0     0     0     0     0     0     0
-2       0.21     0     0     0     0     0     0     0     0     1
-3       0.30    NA    NA    NA    NA    NA    NA     2     1    NA
-4       0.50     1     0     0     0     0     0     0     0     0
-5       0.50     0     0     0     0     0     0     0     0     1
-6       0.64     0     0     0     0     0     0     0     0     1
+1       4.82     1     0     1     0    36     0   135     0    80
+2       4.82     0     0     0     0     0     0     0     0     4
+3       4.83    NA    NA    NA    NA     2     1    NA    NA    13
+4       4.83     1     1     0     0     0     0     0     0     5
+5       4.85     0     0     0     0     1     0     0     0     5
+6       4.87     0     0     0     0     3     1     2     3     5
   WHALF HPALM HPALF TRALM TRALF TOTMENROL TOTFENROL SCHOOL_LEVEL
-1     0     0     0     0     0         1         2   Elementary
-2     1     0     0     0     0         1         1         High
-3    NA    NA    NA    NA    NA         2         1         High
-4     0     0     0     0     0         1         0         High
-5     0     0     0     0     0         1         0         High
-6     0     0     0     0     0         1         0         High</code></pre>
+1     0     0     0    26     0       279         0         High
+2     7     0     0     0     0         4         7   Elementary
+3    13    NA    NA    NA    NA        15        14         High
+4     7     0     0     0     0         6         8       Middle
+5     7     0     0     0     0         6         7         High
+6     4     0     0     0     1        10         9   Elementary</code></pre>
 </div>
 <p>And now we look at the bottom 6 schools with the highest student-teacher ratio.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>                                             SCH_NAME STABR GSLO GSHI
-59238                      RIVER CITY SCIENCE ACADEMY    FL   06   12
-59239                     DUVAL CHARTER AT BAYMEADOWS    FL   KG   08
-59240        Pathways Early College Innovation School    MA   11   12
-59241             ENERGIZED FOR EXCELLENCE ACADEMY EL    TX   KG   05
-59242 Gateway to College at Holyoke Community College    MA   10   12
-59243                          The Gateway to College    MA   09   12
-      G01 G02 G03 G04 G05 G06 G07 G08 G09 G10 G11 G12 TOTAL AM   HI
-59238  NA  NA  NA  NA  NA 150 152 142 137 147 114 100   942  7  155
-59239 138 132 133 130 125 154 153 156  NA  NA  NA  NA  1252  7  176
-59240  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  17  19    36  0    2
-59241 315 310 286 285 281  NA  NA  NA  NA  NA  NA  NA  1802  6 1585
-59242  NA  NA  NA  NA  NA  NA  NA  NA  NA   6  11   9    26  0   12
-59243  NA  NA  NA  NA  NA  NA  NA  NA  40  NA  17  26    83  0   15
-       BL  WH HP TR  FTE STUTERATIO AMALM AMALF ASALM ASALF HIALM
-59238 202 483  1 45 1.00        942     7     0    18    31    82
-59239 287 564  5 63 1.00       1252     2     5    75    75    88
-59240   0  30  0  2 0.02       1800     0     0     0     2     1
-59241 191   9  0  0 1.00       1802     5     1     2     9   788
-59242   8   6  0  0 0.01       2600     0     0     0     0     4
-59243   1  63  0  3 0.02       4150     0     0     0     1     4
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_stuteratio</span> <span class='op'>&lt;-</span> <span class='va'>data_sub</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>data_stuteratio</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>                                              SCH_NAME STABR GSLO
+58631                        College of So. NV HS East    NV   11
+58632                              Everest High School    OH   09
+58633                         Birch Grove Intermediate    CA   03
+58634                       John C. Fremont Elementary    CA   KG
+58635 Aspire Benjamin Holt College Preparatory Academy    CA   09
+58636                            Hamburg Middle School    IA   06
+      GSHI G01 G02 G03 G04 G05 G06 G07 G08 G09 G10 G11 G12 TOTAL AM
+58631   12  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 102  68   170 NA
+58632   12  NA  NA  NA  NA  NA  NA  NA  NA  20  24  17   7    68  0
+58633   06  NA  NA 109 118 119 112  NA  NA  NA  NA  NA  NA   458  1
+58634   08  85  76  77  95 115 113  91 102  NA  NA  NA  NA   867 13
+58635   12  NA  NA  NA  NA  NA  NA  NA  NA 122 130  94  72   418  5
+58636   08  NA  NA  NA  NA  NA  14  18  13  NA  NA  NA  NA    45 NA
+       HI BL WH HP TR   FTE STUTERATIO AMALM AMALF ASALM ASALF HIALM
+58631  85 23 42  4  5  5.00      34.00    NA    NA     3     8    42
+58632   4 37 24  0  3  2.00      34.00     0     0     0     0     1
+58633 180 28 52  6 29 13.40      34.18     1    NA    93    69    95
+58634 759 26 33  4  6 25.24      34.35     8     5    14    12   400
+58635 184 23 83  3 16 12.17      34.35     1     4    55    49    87
+58636   7 NA 37 NA  1  1.31      34.35    NA    NA    NA    NA     3
       HIALF BLALM BLALF WHALM WHALF HPALM HPALF TRALM TRALF TOTMENROL
-59238    73   100   102   265   218     1     0    21    24       494
-59239    88   152   135   284   280     3     2    37    26       641
-59240     1     0     0     8    22     0     0     1     1        10
-59241   797   102    89     4     5     0     0     0     0       901
-59242     8     5     3     1     5     0     0     0     0        10
-59243    11     0     1    28    35     0     0     0     3        32
+58631    43     5    18    17    25     1     3     2     3        70
+58632     3    27    10    15     9     0     0     1     2        44
+58633    85    12    16    30    22     5     1    18    11       254
+58634   359    16    10    19    14     1     3     4     2       462
+58635    97    10    13    35    48     3    NA     4    12       195
+58636     4    NA    NA    17    20    NA    NA    NA     1        20
       TOTFENROL SCHOOL_LEVEL
-59238       448         High
-59239       611   Elementary
-59240        26         High
-59241       901   Elementary
-59242        16         High
-59243        51         High</code></pre>
+58631       100         High
+58632        24         High
+58633       204   Elementary
+58634       405   Elementary
+58635       223         High
+58636        25       Middle</code></pre>
 </div>
 <h3 id="summary-data">Summary Data</h3>
 <p>Now let’s take a look at some summary of the dataset in terms of its student-teacher ratio in each state.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 53 × 3
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_stats</span> <span class='op'>&lt;-</span> <span class='va'>data_sub</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>STABR</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>STABR <span class='op'>=</span> <span class='va'>STABR</span>, AvgRatio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, SDRatio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>data_summary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='va'>data_stats</span><span class='op'>)</span>
+<span class='va'>data_summary</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 53 x 3
 # Groups:   STABR [53]
    STABR AvgRatio SDRatio
    &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;
- 1 AK        16.9    8.97
- 2 AL        18.2    3.48
- 3 AR        13.2    2.83
- 4 AZ        19.1    4.90
- 5 CA        23.7    9.99
- 6 CO        16.6    4.83
- 7 CT        13.7   26.4 
- 8 DC        20.9   30.3 
+ 1 AK        16.0    3.02
+ 2 AL        18.1    2.64
+ 3 AR        13.2    2.81
+ 4 AZ        18.9    3.77
+ 5 CA        23.4    3.47
+ 6 CO        16.4    3.71
+ 7 CT        12.0    1.92
+ 8 DC        13.1    4.02
  9 DE        14.9    2.63
-10 FL        21.0   50.2 
-# … with 43 more rows</code></pre>
+10 FL        17.2    3.66
+# ... with 43 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="homework-4">Homework 4</h1>
+<p>For this section we need to look deeper into two variables from the dataset, for this I want to look at school type and student to teacher ratio.</p>
+<h3 id="how-this-data-was-collected">How This Data Was Collected</h3>
+<p>Taken from the NCES website: “The National Center for Education Statistics’ (NCES) Common Core of Data (CCD) program is an annual collection of basic administrative characteristics for all public schools, school districts, and state education agencies in the United States. These characteristics are reported by state education officials and include directory information, number of students, number of teachers, grade span, and other conditions. The NCES Education Demographic and Geographic Estimate (EDGE) program develops annually updated point locations (latitude and longitude) for public elementary and secondary schools included in the CCD. The NCES EDGE program collaborates with the U.S. Census Bureau’s Education Demographic, Geographic, and Economic Statistics (EDGE) Branch to develop point locations for schools and school district administrative offices based on reported physical addresses” (NCES).</p>
+<h3 id="school-type">School Type</h3>
+<p>Let’s take a look at all the different levels of schools from the original, uncleaned dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>SCHOOL_LEVEL</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>SCHOOL_LEVEL <span class='op'>=</span> <span class='va'>SCHOOL_LEVEL</span>, count.type <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 10 x 2
+# Groups:   SCHOOL_LEVEL [10]
+   SCHOOL_LEVEL    count.type
+   &lt;chr&gt;                &lt;int&gt;
+ 1 Adult Education         28
+ 2 Elementary           53287
+ 3 High                 22977
+ 4 Middle               16506
+ 5 Not Applicable         796
+ 6 Not Reported          1113
+ 7 Other                 3824
+ 8 Prekindergarten       1430
+ 9 Secondary              602
+10 Ungraded               166</code></pre>
+</div>
+<p>For the dataset I wanted to focus on the most common types of school, which immediately meant filtering out adult education, secondary, and ungraded schools. This also left not applicable, not reported, and other in the dataset, which also should be removed. The last four remaining categories were elementary, high, middle, and prekindergarten. Prekindergarten schools were then removed to focus on the main three types of public schools as well as because of the number of fewer schools of this type.</p>
+<p>Now let’s filter out these unwanted categories and look at the breakdown of schook type.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>SCHOOL_LEVEL</span> <span class='op'>==</span> <span class='st'>"High"</span> <span class='op'>|</span> <span class='va'>SCHOOL_LEVEL</span> <span class='op'>==</span> <span class='st'>"Middle"</span> <span class='op'>|</span> <span class='va'>SCHOOL_LEVEL</span> <span class='op'>==</span> <span class='st'>"Elementary"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>SCHOOL_LEVEL</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="homework-2_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<p>This looks significantly cleaner and more organized than with all the other unused variables.</p>
+<h3 id="student-to-teacher-ratio">Student to Teacher Ratio</h3>
+<p>Let’s start by looking at some summary statistics and a barplot of student to teacher ratio from the unclean dataset:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, mean.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, sd.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, median.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>   count mean.val sd.val median.val
+1 100729       NA     NA         NA</code></pre>
+</div>
+<p>We see that there are probably a large amount of NA values, so we first need to clean that.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_stuteratio</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>data_stuteratio</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, mean.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, sd.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, median.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  count mean.val   sd.val median.val
+1 93894 16.94477 85.73974      15.33</code></pre>
+</div>
+<p>Now we are getting valid statistics, but the standard deviation appears to be very large, over 5 times the mean and median! Let’s take a look at some quantiles to see what the breakdown is.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>quantiles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.005</span>, <span class='fl'>0.025</span>, <span class='fl'>0.05</span>, <span class='fl'>0.1</span>, <span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span>, <span class='fl'>0.9</span>, <span class='fl'>0.95</span>, <span class='fl'>0.975</span>, <span class='fl'>0.995</span>, <span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>data_stuteratio</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>quantiles <span class='op'>=</span> <span class='va'>quantiles</span>, value <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span>, <span class='va'>quantiles</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>   quantiles       value
+1      0.000     0.00000
+2      0.005     0.00000
+3      0.025     5.10325
+4      0.050     8.02000
+5      0.100    10.33000
+6      0.250    12.85000
+7      0.500    15.33000
+8      0.750    18.18000
+9      0.900    22.50000
+10     0.950    25.11000
+11     0.975    27.50000
+12     0.995    50.30070
+13     1.000 22350.00000</code></pre>
+</div>
+<p>We see that our wide range of values that cause a large standard deviation is probably due to the top 0.5% of values for student to teacher ration, as the bottom 99.5% are all equal to or less than 50.3, with the top 0.5% ranging from that to over 20,000! To look at more meaningful data, we can select the middle 99% of the data to use.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_stuteratio</span> <span class='op'>&lt;-</span> <span class='va'>data_stuteratio</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span> <span class='op'>&lt;=</span> <span class='fl'>50.3007</span><span class='op'>)</span>
+<span class='va'>data_stuteratio</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, mean.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, sd.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span>, median.val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>STUTERATIO</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  count mean.val sd.val median.val
+1 93424 15.71938 5.2405      15.31</code></pre>
+</div>
+<p>The standard deviation for this value now makes a lot more sense, and the median has moved closer to the mean. Let’s take a look at a barplot to see the distribution.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_stuteratio</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>STUTERATIO</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="homework-2_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<p>The data still appears somewhat skewed, but not in a way that will negatively affect our analysis.</p>
+<p>NOTE: In the actual filtering of data the cutoffs used for STUTERATIO are different because of other filtering, in actuality the cutoffs of 4.82 and 34.4274 will be used.</p>
+<h1 id="works-cited">Works Cited</h1>
+<p><span class="math inline">\(NCES. Public School characteristics.\space2017-18.\space Common Core Data Set. https://data-nces.opendata.arcgis.com/datasets/nces::public-school-characteristics-2017-18/about\)</span></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1790,6 +1883,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

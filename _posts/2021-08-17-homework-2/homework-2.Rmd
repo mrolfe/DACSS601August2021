@@ -11,7 +11,7 @@ draft: yes
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 library("tidyverse")
 library("readr")
 library("ggplot2")
@@ -22,9 +22,9 @@ library("dplyr")
 
 Let's read in the data and see what it looks like:
 
-```{r echo = FALSE}
-data <- read.csv("../../_data/Public_School_Characteristics_2017-18.csv")
-head(data)
+<<<<<<< HEAD
+```{r }
+data <- read.csv("C:/Users/wolpe/DACSS601August2021/_data/Public_School_Characteristics_2017-18.csv")
 ```
 
 ### What's in the data?
@@ -41,9 +41,9 @@ The data has 79 total columns and just over 100,000 rows. It is unlikely that al
 
 The data is definitely unclean, let's filter out some stuff so that we have more complete data.
 
-```{r echo = FALSE}
+```{r }
 data_clean <- data %>%
-  filter(!is.na(TOTAL) & TOTAL > 0 & !is.na(FTE) & FTE > 0) %>%
+  filter(!is.na(TOTAL) & TOTAL > 0 & !is.na(FTE) & FTE > 0 & STUTERATIO < 500) %>%
   filter(SCHOOL_TYPE_TEXT == "Regular school" & VIRTUAL == "Not a virtual school") %>%
   filter(SCHOOL_LEVEL == "High" | SCHOOL_LEVEL == "Middle" | SCHOOL_LEVEL == "Elementary") %>%
   filter((is.na(G13) | G13 == 0) & (is.na(PK) | PK == 0)) %>%
@@ -53,11 +53,25 @@ head(data_clean)
 
 With filtering, we now have a subset of the original data that will be much more useful for analysis. The schools were filtered to include only regular, non-virtual schools at the elementary, middle, and high school levels. It also removed any schools that had students younger than kindergarten (PK) or those past their senior year of high school (G13).
 
+There is still an issue however with student to teacher ratios, so let's look at a distribution of that:
+
+```{r }
+data_clean %>%
+  summarise(quantile = c(0, 0.005, 0.025, 0.5, 0.975, 0.995, 1), quant.val = quantile(STUTERATIO, c(0, 0.005, 0.025, 0.5, 0.975, 0.995, 1)))
+```
+
+Looking at the distribution, we see that 99% of the dataset falls between a student to teacher ratio of 4.82 and 34.4274, which we can use as a boundary to remove outliers of this variable from the dataset.
+
+```{r }
+data_clean <- data_clean %>%
+  filter(STUTERATIO >= 4.82 & STUTERATIO <= 34.4274)
+```
+
 ### Subsetting Columns
 
 Now let's subset the columns in the dataset to only include those that interest this project.
 
-```{r echo = FALSE}
+```{r }
 data_sub <- data_clean %>%
   select(SCH_NAME, STABR, GSLO, GSHI, G01, G02, G03, G04, G05, G06, G07, G08, G09, G10, G11, G12, TOTAL, AM, HI, BL, WH, HP, TR, FTE, STUTERATIO, AMALM, AMALF, ASALM, ASALF, HIALM, HIALF, BLALM, BLALF, WHALM, WHALF, HPALM, HPALF, TRALM, TRALF, TOTMENROL, TOTFENROL, SCHOOL_LEVEL)
 head(data_sub)
@@ -67,14 +81,14 @@ head(data_sub)
 
 It may be useful to be the top several rows for certain columns, in this script, we look at the top 6 schools ordered based on their student to teacher ratio.
 
-```{r echo = FALSE}
+```{r }
 data_stuteratio <- data_sub %>%
   arrange(STUTERATIO, by_group = TRUE)
 head(data_stuteratio)
 ```
  And now we look at the bottom 6 schools with the highest student-teacher ratio.
 
-```{r echo = FALSE}
+```{r }
 data_stuteratio <- data_sub %>%
   arrange(STUTERATIO)
 tail(data_stuteratio)
@@ -84,7 +98,7 @@ tail(data_stuteratio)
 
 Now let's take a look at some summary of the dataset in terms of its student-teacher ratio in each state.
 
-```{r echo = FALSE}
+```{r }
 data_stats <- data_sub %>%
   group_by(STABR) %>%
   summarise(STABR = STABR, AvgRatio = mean(STUTERATIO), SDRatio = sd(STUTERATIO))
@@ -92,5 +106,85 @@ data_summary <- distinct(data_stats)
 data_summary
 ```
 
+# Homework 4
 
+For this section we need to look deeper into two variables from the dataset, for this I want to look at school type and student to teacher ratio.
+
+### How This Data Was Collected
+
+Taken from the NCES website: "The National Center for Education Statistics’ (NCES) Common Core of Data (CCD) program is an annual collection of basic administrative characteristics for all public schools, school districts, and state education agencies in the United States. These characteristics are reported by state education officials and include directory information, number of students, number of teachers, grade span, and other conditions. The NCES Education Demographic and Geographic Estimate (EDGE) program develops annually updated point locations (latitude and longitude) for public elementary and secondary schools included in the CCD. The NCES EDGE program collaborates with the U.S. Census Bureau’s Education Demographic, Geographic, and Economic Statistics (EDGE) Branch to develop point locations for schools and school district administrative offices based on reported physical addresses" (NCES).
+
+### School Type
+
+Let's take a look at all the different levels of schools from the original, uncleaned dataset.
+
+```{r }
+data %>%
+  group_by(SCHOOL_LEVEL) %>%
+  summarise(SCHOOL_LEVEL = SCHOOL_LEVEL, count.type = n()) %>%
+  distinct()
+```
+
+For the dataset I wanted to focus on the most common types of school, which immediately meant filtering out adult education, secondary, and ungraded schools. This also left not applicable, not reported, and other in the dataset, which also should be removed. The last four remaining categories were elementary, high, middle, and prekindergarten. Prekindergarten schools were then removed to focus on the main three types of public schools as well as because of the number of fewer schools of this type.
+
+Now let's filter out these unwanted categories and look at the breakdown of schook type.
+
+```{r }
+data %>% 
+  filter(SCHOOL_LEVEL == "High" | SCHOOL_LEVEL == "Middle" | SCHOOL_LEVEL == "Elementary") %>%
+  ggplot(aes(x = SCHOOL_LEVEL)) + geom_bar()
+```
+
+This looks significantly cleaner and more organized than with all the other unused variables.
+
+### Student to Teacher Ratio
+
+Let's start by looking at some summary statistics and a barplot of student to teacher ratio from the unclean dataset:
+
+```{r}
+data %>%
+  summarise(count = n(), mean.val = mean(STUTERATIO), sd.val = sd(STUTERATIO), median.val = median(STUTERATIO))
+```
+
+We see that there are probably a large amount of NA values, so we first need to clean that.
+
+```{r}
+data_stuteratio <- data %>%
+  filter(!is.na(STUTERATIO)) 
+data_stuteratio %>%
+  summarise(count = n(), mean.val = mean(STUTERATIO), sd.val = sd(STUTERATIO), median.val = median(STUTERATIO))
+```
+
+Now we are getting valid statistics, but the standard deviation appears to be very large, over 5 times the mean and median! Let's take a look at some quantiles to see what the breakdown is.
+
+```{r}
+quantiles <- c(0, 0.005, 0.025, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.975, 0.995, 1)
+data_stuteratio %>%
+  summarise(quantiles = quantiles, value = quantile(STUTERATIO, quantiles))
+```
+
+We see that our wide range of values that cause a large standard deviation is probably due to the top 0.5% of values for student to teacher ration, as the bottom 99.5% are all equal to or less than 50.3, with the top 0.5% ranging from that to over 20,000! To look at more meaningful data, we can select the middle 99% of the data to use.
+
+```{r}
+data_stuteratio <- data_stuteratio %>%
+  filter(STUTERATIO <= 50.3007)
+data_stuteratio %>%
+  summarise(count = n(), mean.val = mean(STUTERATIO), sd.val = sd(STUTERATIO), median.val = median(STUTERATIO))
+```
+
+The standard deviation for this value now makes a lot more sense, and the median has moved closer to the mean. Let's take a look at a barplot to see the distribution.
+
+```{r}
+data_stuteratio %>%
+  ggplot(aes(x = STUTERATIO)) + geom_bar()
+```
+
+The data still appears somewhat skewed, but not in a way that will  negatively affect our analysis.
+
+NOTE: In the actual filtering of data the cutoffs used for STUTERATIO are different because of other filtering, in actuality the cutoffs of 4.82 and 34.4274 will be used.
+
+
+# Works Cited
+
+$NCES. Public School characteristics.\space2017-18.\space Common Core Data Set. https://data-nces.opendata.arcgis.com/datasets/nces::public-school-characteristics-2017-18/about$
 
