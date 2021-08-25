@@ -37,6 +37,9 @@ US_Data <- All_Data %>%
 summary_data<-All_Data %>%
   group_by(Code) %>%
   summarise(mean_ourdoor_ozone = mean(Outdoor_Ozone_Deaths), n=n())
+<<<<<<< HEAD
 summary(summary_data, mean_ourdoor_ozone)
+=======
+>>>>>>> d352daf07c2eaec8a472d8927372b8ece309ccbb
 ```
 ```
