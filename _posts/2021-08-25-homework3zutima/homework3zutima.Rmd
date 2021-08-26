@@ -3,7 +3,7 @@ title: "homework3_zutima"
 description: |
   A short description of the post.
 author:
-  - name: Abhinav Kumar
+  - name: Zutima Tuladhar 
     url: {}
 date: 08-25-2021
 output:
@@ -15,10 +15,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-```{r}
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+
 ```{r}
 library(blogbuilder)
 library(distill)
@@ -28,44 +25,50 @@ library(dplyr)
 ```
 
 
-```{r}
-head(hotel_bookings)
-dim(hotel_bookings)
-colnames(hotel_bookings)
-
-```
-
-
-```{r}
+```{r READ DATA}
 
 book <-read_csv(file="../../_data/hotel_bookings.csv")
 
 ```
+
+
+```{r}
+
+head(book)
+dim(book)
+colnames(book)
+
+```
+
+
+
 ```{r Select} 
 
-head(hotel_bookings)
+head(book)
 
-select(hotel_bookings, "arrival_date_month")
-select(hotel_bookings, "arrival_date_year")
+select(book, "arrival_date_month")
+select(book, "arrival_date_year")
 
 ```
 ```{r filter}
 
-d <-filter(hotel_bookings, adults == 2)
-f <-filter(hotel_bookings, children == 2)
+d <-filter(book, adults == 2)
+f <-filter(book, children == 2)
 
 ```
 
 ```{r arrange}
 
-head(hotel_bookings)
-hotel_bookings %>%arrange(hotel, arrival_date_month, arrival_date_year) %>%print(n=30)
+head(book)
+book %>%arrange(hotel, arrival_date_month, arrival_date_year) %>%print(n=30)
 
 ```
-```{r}
+```{r summarize}
 
-summarize_all(select(hotel_bookings, starts_with(July)), median, na.rm = TRUE)
-```
+head(book)
+summarise(book, mean(adults))
+summarise(book, mean(lead_time))
+summarise(book, mean(is_canceled))
 ```
 
 
