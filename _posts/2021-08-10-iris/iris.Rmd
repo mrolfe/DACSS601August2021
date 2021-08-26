@@ -6,7 +6,7 @@ author:
 - name: bakharia
 date: 08-10-2021
 categories:
-- homework 3
+- homework 1
 - iris
 - bakharia
 output:
