@@ -241,10 +241,6 @@ theme(plot.title = element_text(size = 14, hjust =0.5 , face = "bold"))+
 
 plot +
   scale_x_discrete(limits = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
-
-
-  
-
 ```
 
 
@@ -258,8 +254,7 @@ Q) customer_type vs is canceled booking
 
 ggplot(canceled_bookings_by_customer_type, aes(customer_type,proportion))+
  geom_bar(stat = "identity", fill = "indianred",width = 0.5)+
-  labs(x = "customer type", y="proportion of cancelations", title = " proportion of cancelations by customer type")+
- theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))#
+  labs(x = "customer type", y="proportion of cancelations", title = " proportion of cancelations by customer type")+theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
 ```
 
 
@@ -368,10 +363,10 @@ city_number_of_days_guests_stay_data$relative_no_of_bookings <- city_number_of_d
 
 ```{r}
 (plot1<-ggplot(city_number_of_days_guests_stay_data, aes(total_nights,relative_no_of_bookings))+
-   geom_bar(stat = "identity", fill="indianred"))+
+   geom_bar(stat = "identity", fill="indianred")+
   labs(x = "no of nights stayed at the hotel", y = "Guests[%]", title = "length of stay at the city hotel")+
     theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
-  xlim(c(0,20))
+  xlim(c(0,20)))
 ```
 
 
