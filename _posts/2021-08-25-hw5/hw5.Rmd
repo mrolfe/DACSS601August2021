@@ -1,0 +1,55 @@
+---
+title: "Death via Air Pollution"
+description: |
+  Air pollution, an important factor in the advancement of climate change has also been linked to various respiratory illnesses and deaths. In this post we will dissect the various forms of air pollution related deaths.
+author:
+  - name: Nathaniel Ross
+    url: {}
+date: 08-19-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+My data consists of a list of countries and a count of deaths per 100,000 people for various causes of air pollution. The first cause of death by pollution is indoor air pollution. Indoor air pollution deaths can be caused by various factors such as carbon monoxide poisoning, asbestos, tobacco smoke, and similar indoor carcinogens. The second cause of air pollution deaths in my data is outdoor particulate matter deaths. These deaths are caused from small solid or liquid particles in the air leading to infection. The most common particulate matters are carbon monoxide, lead, nitrogen dioxide, and sulfur dioxide. The last cause of death by air pollution is death due to ozone. Ozone is a part of Earth's upper atmosphere and filters UV rays from the sun. Ozone is dangerous when it becomes plentiful in the atmosphere and comes down from the upper atmosphere and causes serious breathing issues and respiratory infection.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(readxl)
+library(stringr)
+```
+*My first step is to read in my data. I have skipped the first row due to it not not having relevant data. I decided to delete the totals column so I can calculate it myself. I also deleted the column for country name as this becomes redundant after we use the country code.* 
+```{r, eval=TRUE, echo=TRUE,  }
+#Showing Dimensions of Base Data
+#assign US_Data to data
+#Skip first row because it has titles which are already included
+#Make column names, which include delete for country name and total deaths in order to remove them
+#Filtered by country code USA
+All_Data <- read_csv("../../_data/death-rates-from-air-pollution.csv", 
+         skip =1, 
+         col_names = c("Delete", "Code", "Year", "Delete", "Indoor_Deaths", "Outdoor_Particulate_Matter_Deaths", "Outdoor_Ozone_Deaths"))%>%
+  select(!contains("Delete"))
+```
+```{r}
+#Assign US Data
+#US_Data <- All_Data %>%
+  #filter(Code == "USA") 
+```
+#Summary of Data
+*Now I am summarizing my data. I am selecting outdoor ozone deaths as my variable of analysis. I am using the estimator of mean to over 17 years to see how average pollution is different among countries. I selected a country from each continent to see how the mean ozone pollution deaths varies from country to country. This will help see if certain climates have different ozone deaths, while also being able to look at policy decisions in each country to see if certain policy decisions may impact ozone deaths. *
+```{r, eval =TRUE, echo=TRUE, tidy=TRUE}
+#Summarize Data
+summary_data<-All_Data %>%
+  group_by(Code) %>%
+  summarize(mean_ourdoor_ozone = mean(Outdoor_Ozone_Deaths), n=n())
+small_summary_data1 = c('USA', 'AFG', 'AUS', 'ALB', 'GAB')
+small_summary_data <- filter(summary_data, Code %in% small_summary_data1)
+```
+#Display of Summary
+```{r, eval=TRUE, echo=TRUE}
+
+ggplot(small_summary_data, aes(x=Code, y = mean_ourdoor_ozone)) + geom_bar(stat='identity', aes(fill=Code)) + 
+  geom_text(aes(label=round(mean_ourdoor_ozone,digits = 2)))
+
+
+```
