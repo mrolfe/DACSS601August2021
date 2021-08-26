@@ -23,6 +23,7 @@ This data set contains a single file which compares various booking information 
 library(skimr)
 library(lubridate)
 library(tidyverse)
+library(patchwork)
 ```
 
 ```{r}
@@ -153,17 +154,19 @@ sort(unique(resort_hotel_data$reserved_room_type))
 ## visualizing Average daily rate of reserved room type at city hotel and resort hotel
 
 ```{r}
-ggplot(city_hotel_adr_per_room_type_data, aes(x=reserved_room_type, y= adr_per_room_type))+
+a<-ggplot(city_hotel_adr_per_room_type_data, aes(x=reserved_room_type, y= adr_per_room_type))+
   geom_bar(stat = "identity",fill = "steelblue", width = .5)+
   labs(x="reserved room type", y=" average daily rate per room", title = "Average daily rate of reserved room type at city hotel")+
   theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
 ```
 
 ```{r}
-ggplot(resort_hotel_adr_per_room_type_data, aes(x=reserved_room_type, y= adr_per_room_type))+
+b<-ggplot(resort_hotel_adr_per_room_type_data, aes(x=reserved_room_type, y= adr_per_room_type))+
   geom_bar(stat = "identity",fill = "steelblue", width = .5)+
   labs(x="reserved room type", y=" average daily rate per room", title = "Average daily rate of reserved room type at resort hotel")+
   theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
+
+a+b
 ```
 
  3. how does the price per night varry in the year in each hotel?
@@ -181,12 +184,14 @@ city_room_prices_monthly <-select(city_hotel_data, arrival_date_month, adr)
 
 ```{r}
 plot <- ggplot(city_room_prices_monthly)+
-  geom_bar(aes(arrival_date_month, mean_room_prices),stat = "identity")+
-  labs(x="arrival_date_month", y=" mean_room_prices", title = "mean room prices over the year at city hotel")+
-  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
+  geom_bar(aes(arrival_date_month, mean_room_prices),stat = "identity",fill = "steelblue",width = 0.5)+
+  labs(x="arrival_date_month", y=" mean_room_prices", title = "City hotel")+
+  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
   
 
-plot +
+c<-plot +
   scale_x_discrete(limits = c("January", "February", "March", "April", "May", "June", 
           "July", "August", "September", "October", "November", "December"))
 ```
@@ -204,26 +209,172 @@ resort_room_prices_monthly <-select(resort_hotel_data, arrival_date_month, adr)
 ```
 
 ```{r}
-plot <- ggplot(resort_room_prices_monthly)+
-  geom_bar(aes(arrival_date_month, mean_room_prices),stat = "identity")+
-  labs(x="arrival_date_month", y=" mean_room_prices", title = "mean room prices over the year at resort hotel")+
-  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
+plot1 <- ggplot(resort_room_prices_monthly)+
+  geom_bar(aes(arrival_date_month, mean_room_prices),stat = "identity",width=0.5)+
+  labs(x="arrival_date_month", y=" mean_room_prices", title = "Resort hotel")+
+  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
   
 
-plot +
+d<-plot1 +
   scale_x_discrete(limits = c("January", "February", "March", "April", "May", "June", 
           "July", "August", "September", "October", "November", "December"))
+c+d
+```
+
+
+cancelations by month
+
+```{r}
+(cancellations_by_month<-hotel_bookings %>%
+  select(hotel, is_canceled, arrival_date_month) %>% 
+  group_by( arrival_date_month, hotel) %>% 
+summarise( bookings = length(is_canceled), canceled = sum(is_canceled), proportion= canceled/bookings*100))
+
+plot <- ggplot(cancellations_by_month, aes(x = arrival_date_month, y = proportion, fill = hotel)) +
+  geom_col(position = "dodge")+
+  labs(x= "arrival month", y= "proportion of canceltions", title = "proportion of cancelations by month")+
+theme(plot.title = element_text(size = 14, hjust =0.5 , face = "bold"))+
+    theme(axis.text.x = element_text(angle = 90))
+
+
+plot +
+  scale_x_discrete(limits = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
+
+
+  
 
 ```
 
 
 
+Q) customer_type vs is canceled booking
 
-Q) which months are the busiest?
+```{r}
+(canceled_bookings_by_customer_type <- hotel_bookings %>% 
+  group_by(customer_type) %>% 
+  summarise( bookings = length(is_canceled), canceled = sum(is_canceled), proportion= canceled/bookings*100))
+
+ggplot(canceled_bookings_by_customer_type, aes(customer_type,proportion))+
+ geom_bar(stat = "identity", fill = "indianred",width = 0.5)+
+  labs(x = "customer type", y="proportion of cancelations", title = " proportion of cancelations by customer type")+
+ theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))#
+```
+
+
+
+```{r}
+(df <- hotel_bookings %>% 
+  select(hotel,stays_in_weekend_nights,stays_in_week_nights,market_segment))
+```
+
+```{r}
+unique(df$hotel)
+unique(df$market_segment)
+```
+
+```{r}
+resort_hotel <- filter(df, hotel == "Resort Hotel") 
+city_hotel <- filter(df, hotel =="City Hotel") 
+```
+
+
+bookings in different market segments
+
+
+
+city hotel
+
+```{r}
+(city_hotel_market_segment <- city_hotel %>% 
+  count(market_segment))
+
+
+(ggplot(city_hotel_market_segment, aes(market_segment,n))+
+geom_histogram(fill = "indianred", stat = "identity", width=0.5) + 
+labs(title = "City Market segment", y = "no of bookings") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold")))
+```
+
+resort hotel
+
+```{r}
+(resort_hotel_market_segment <- resort_hotel %>% 
+  count(market_segment))
+
+
+(ggplot(resort_hotel_market_segment, aes(market_segment,n))+
+geom_histogram(fill = "indianred", stat = "identity", width=0.5) + 
+labs(title = "Resort_Market segment") + 
+theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold")))
+```
+
+
+```{r}
+(df %>% group_by(hotel,market_segment) %>% count(market_segment))
+```
+
+```{r}
+(ggplot(df, aes(hotel)) + 
+  geom_histogram(fill = "indianred", stat = "count") + 
+  labs(title = "Market segment") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(market_segment), scales = "free_y"))
+```
+
+
+how many number of days do people stay in the hotel?
+
+Resort hotel
 
 ```{r}
 
+resort_hotel$total_nights <- resort_hotel$stays_in_weekend_nights + resort_hotel$stays_in_week_nights
+city_hotel$total_nights <- city_hotel$stays_in_weekend_nights + city_hotel$stays_in_week_nights
+
+
+  
+resort_number_of_days_guests_stay_data <- resort_hotel %>% 
+  group_by(total_nights) %>% 
+  count()
+
+resort_number_of_days_guests_stay_data$relative_no_of_bookings <- resort_number_of_days_guests_stay_data$n/sum(resort_number_of_days_guests_stay_data$n)*100
+
+  
+city_number_of_days_guests_stay_data <- city_hotel %>% 
+  group_by(total_nights) %>% 
+  count()
+
+city_number_of_days_guests_stay_data$relative_no_of_bookings <- city_number_of_days_guests_stay_data$n/sum(city_number_of_days_guests_stay_data$n)*100
+
+
+
+
 ```
+
+```{r}
+(plot1<-ggplot(resort_number_of_days_guests_stay_data, aes(total_nights,relative_no_of_bookings))+
+   geom_bar(stat = "identity", fill="indianred"))+
+  labs(x = "no of nights stayed at the hotel", y = "Guests[%]", title = "length of stay at the resort hotel")+
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  xlim(c(0,30))
+
+
+```
+
+
+
+
+```{r}
+(plot1<-ggplot(city_number_of_days_guests_stay_data, aes(total_nights,relative_no_of_bookings))+
+   geom_bar(stat = "identity", fill="indianred"))+
+  labs(x = "no of nights stayed at the hotel", y = "Guests[%]", title = "length of stay at the city hotel")+
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  xlim(c(0,20))
+```
+
+
 
 
 

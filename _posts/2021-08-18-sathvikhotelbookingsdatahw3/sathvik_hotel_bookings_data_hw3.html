@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["sathvik_hotel_bookings_data_hw3_files/anchor-4.2.2/anchor.min.js","sathvik_hotel_bookings_data_hw3_files/bowser-1.9.3/bowser.min.js","sathvik_hotel_bookings_data_hw3_files/distill-2.2.21/template.v2.js","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-11-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-13-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-20-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-21-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-23-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-25-1.png","sathvik_hotel_bookings_data_hw3_files/header-attrs-2.10/header-attrs.js","sathvik_hotel_bookings_data_hw3_files/jquery-1.11.3/jquery.min.js","sathvik_hotel_bookings_data_hw3_files/popper-2.6.0/popper.min.js","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy-bundle.umd.min.js","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy-light-border.css","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy.css","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy.umd.min.js","sathvik_hotel_bookings_data_hw3_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["sathvik_hotel_bookings_data_hw3_files/anchor-4.2.2/anchor.min.js","sathvik_hotel_bookings_data_hw3_files/bowser-1.9.3/bowser.min.js","sathvik_hotel_bookings_data_hw3_files/distill-2.2.21/template.v2.js","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-11-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-13-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-20-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-21-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-23-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-25-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-26-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-27-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-31-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-32-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-34-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-36-1.png","sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-37-1.png","sathvik_hotel_bookings_data_hw3_files/header-attrs-2.10/header-attrs.js","sathvik_hotel_bookings_data_hw3_files/jquery-1.11.3/jquery.min.js","sathvik_hotel_bookings_data_hw3_files/popper-2.6.0/popper.min.js","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy-bundle.umd.min.js","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy-light-border.css","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy.css","sathvik_hotel_bookings_data_hw3_files/tippy-6.2.7/tippy.umd.min.js","sathvik_hotel_bookings_data_hw3_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1486,6 +1486,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://docs.ropensci.org/skimr/'>skimr</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://lubridate.tidyverse.org'>lubridate</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -2259,20 +2260,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="visualizing-average-daily-rate-of-reserved-room-type-at-city-hotel-and-resort-hotel">visualizing Average daily rate of reserved room type at city hotel and resort hotel</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>city_hotel_adr_per_room_type_data</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>reserved_room_type</span>, y<span class='op'>=</span> <span class='va'>adr_per_room_type</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>a</span><span class='op'>&lt;-</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>city_hotel_adr_per_room_type_data</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>reserved_room_type</span>, y<span class='op'>=</span> <span class='va'>adr_per_room_type</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill <span class='op'>=</span> <span class='st'>"steelblue"</span>, width <span class='op'>=</span> <span class='fl'>.5</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"reserved room type"</span>, y<span class='op'>=</span><span class='st'>" average daily rate per room"</span>, title <span class='op'>=</span> <span class='st'>"Average daily rate of reserved room type at city hotel"</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>resort_hotel_adr_per_room_type_data</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>reserved_room_type</span>, y<span class='op'>=</span> <span class='va'>adr_per_room_type</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>b</span><span class='op'>&lt;-</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>resort_hotel_adr_per_room_type_data</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>reserved_room_type</span>, y<span class='op'>=</span> <span class='va'>adr_per_room_type</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill <span class='op'>=</span> <span class='st'>"steelblue"</span>, width <span class='op'>=</span> <span class='fl'>.5</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"reserved room type"</span>, y<span class='op'>=</span><span class='st'>" average daily rate per room"</span>, title <span class='op'>=</span> <span class='st'>"Average daily rate of reserved room type at resort hotel"</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>a</span><span class='op'>+</span><span class='va'>b</span>
 </code></pre>
 </div>
 <p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
@@ -2310,17 +2312,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>city_room_prices_monthly</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>arrival_date_month</span>, <span class='va'>mean_room_prices</span><span class='op'>)</span>,stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"arrival_date_month"</span>, y<span class='op'>=</span><span class='st'>" mean_room_prices"</span>, title <span class='op'>=</span> <span class='st'>"mean room prices over the year at city hotel"</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>arrival_date_month</span>, <span class='va'>mean_room_prices</span><span class='op'>)</span>,stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill <span class='op'>=</span> <span class='st'>"steelblue"</span>,width <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"arrival_date_month"</span>, y<span class='op'>=</span><span class='st'>" mean_room_prices"</span>, title <span class='op'>=</span> <span class='st'>"City hotel"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>90</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+
   
 
-<span class='va'>plot</span> <span class='op'>+</span>
+<span class='va'>c</span><span class='op'>&lt;-</span><span class='va'>plot</span> <span class='op'>+</span>
   <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"January"</span>, <span class='st'>"February"</span>, <span class='st'>"March"</span>, <span class='st'>"April"</span>, <span class='st'>"May"</span>, <span class='st'>"June"</span>, 
           <span class='st'>"July"</span>, <span class='st'>"August"</span>, <span class='st'>"September"</span>, <span class='st'>"October"</span>, <span class='st'>"November"</span>, <span class='st'>"December"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
 <h2 id="resort-hotel">resort hotel</h2>
 <div class="layout-chunk" data-layout="l-body">
@@ -2351,20 +2354,260 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>resort_room_prices_monthly</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>arrival_date_month</span>, <span class='va'>mean_room_prices</span><span class='op'>)</span>,stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"arrival_date_month"</span>, y<span class='op'>=</span><span class='st'>" mean_room_prices"</span>, title <span class='op'>=</span> <span class='st'>"mean room prices over the year at resort hotel"</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot1</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>resort_room_prices_monthly</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>arrival_date_month</span>, <span class='va'>mean_room_prices</span><span class='op'>)</span>,stat <span class='op'>=</span> <span class='st'>"identity"</span>,width<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"arrival_date_month"</span>, y<span class='op'>=</span><span class='st'>" mean_room_prices"</span>, title <span class='op'>=</span> <span class='st'>"Resort hotel"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>90</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+
   
 
-<span class='va'>plot</span> <span class='op'>+</span>
+<span class='va'>d</span><span class='op'>&lt;-</span><span class='va'>plot1</span> <span class='op'>+</span>
   <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"January"</span>, <span class='st'>"February"</span>, <span class='st'>"March"</span>, <span class='st'>"April"</span>, <span class='st'>"May"</span>, <span class='st'>"June"</span>, 
           <span class='st'>"July"</span>, <span class='st'>"August"</span>, <span class='st'>"September"</span>, <span class='st'>"October"</span>, <span class='st'>"November"</span>, <span class='st'>"December"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>c</span><span class='op'>+</span><span class='va'>d</span>
 </code></pre>
 </div>
 <p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>cancelations by month</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>cancellations_by_month</span><span class='op'>&lt;-</span><span class='va'>hotel_bookings</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>hotel</span>, <span class='va'>is_canceled</span>, <span class='va'>arrival_date_month</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span> <span class='va'>arrival_date_month</span>, <span class='va'>hotel</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<span class='fu'>summarise</span><span class='op'>(</span> bookings <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>is_canceled</span><span class='op'>)</span>, canceled <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>is_canceled</span><span class='op'>)</span>, proportion<span class='op'>=</span> <span class='va'>canceled</span><span class='op'>/</span><span class='va'>bookings</span><span class='op'>*</span><span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 24 x 5
+# Groups:   arrival_date_month [12]
+   arrival_date_month hotel        bookings canceled proportion
+   &lt;chr&gt;              &lt;chr&gt;           &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1 April              City Hotel       7480     3465       46.3
+ 2 April              Resort Hotel     3609     1059       29.3
+ 3 August             City Hotel       8979     3598       40.1
+ 4 August             Resort Hotel     4894     1637       33.4
+ 5 December           City Hotel       4132     1740       42.1
+ 6 December           Resort Hotel     2648      631       23.8
+ 7 February           City Hotel       4965     1901       38.3
+ 8 February           Resort Hotel     3103      795       25.6
+ 9 January            City Hotel       3736     1482       39.7
+10 January            Resort Hotel     2193      325       14.8
+# ... with 14 more rows</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>cancellations_by_month</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>arrival_date_month</span>, y <span class='op'>=</span> <span class='va'>proportion</span>, fill <span class='op'>=</span> <span class='va'>hotel</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span> <span class='st'>"arrival month"</span>, y<span class='op'>=</span> <span class='st'>"proportion of canceltions"</span>, title <span class='op'>=</span> <span class='st'>"proportion of cancelations by month"</span><span class='op'>)</span><span class='op'>+</span>
+<span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span><span class='fl'>0.5</span> , face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>90</span><span class='op'>)</span><span class='op'>)</span>
+
+
+<span class='va'>plot</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"January"</span>, <span class='st'>"February"</span>, <span class='st'>"March"</span>, <span class='st'>"April"</span>, <span class='st'>"May"</span>, <span class='st'>"June"</span>, <span class='st'>"July"</span>, <span class='st'>"August"</span>, <span class='st'>"September"</span>, <span class='st'>"October"</span>, <span class='st'>"November"</span>, <span class='st'>"December"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+</div>
+<ol start="17" type="A">
+<li>customer_type vs is canceled booking</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>canceled_bookings_by_customer_type</span> <span class='op'>&lt;-</span> <span class='va'>hotel_bookings</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>customer_type</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>summarise</span><span class='op'>(</span> bookings <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>is_canceled</span><span class='op'>)</span>, canceled <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>is_canceled</span><span class='op'>)</span>, proportion<span class='op'>=</span> <span class='va'>canceled</span><span class='op'>/</span><span class='va'>bookings</span><span class='op'>*</span><span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 4 x 4
+  customer_type   bookings canceled proportion
+  &lt;chr&gt;              &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+1 Contract            4076     1262       31.0
+2 Group                577       59       10.2
+3 Transient          89613    36514       40.7
+4 Transient-Party    25120     6385       25.4</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>canceled_bookings_by_customer_type</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>customer_type</span>,<span class='va'>proportion</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+ <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='st'>"indianred"</span>,width <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"customer type"</span>, y<span class='op'>=</span><span class='st'>"proportion of cancelations"</span>, title <span class='op'>=</span> <span class='st'>" proportion of cancelations by customer type"</span><span class='op'>)</span><span class='op'>+</span>
+ <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='co'>#</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='va'>hotel_bookings</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>hotel</span>,<span class='va'>stays_in_weekend_nights</span>,<span class='va'>stays_in_week_nights</span>,<span class='va'>market_segment</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 119,386 x 4
+   hotel        stays_in_weekend_ni~ stays_in_week_nig~ market_segment
+   &lt;chr&gt;                       &lt;dbl&gt;              &lt;dbl&gt; &lt;chr&gt;         
+ 1 Resort Hotel                    0                  0 Direct        
+ 2 Resort Hotel                    0                  0 Direct        
+ 3 Resort Hotel                    0                  1 Direct        
+ 4 Resort Hotel                    0                  1 Corporate     
+ 5 Resort Hotel                    0                  2 Online TA     
+ 6 Resort Hotel                    0                  2 Online TA     
+ 7 Resort Hotel                    0                  2 Direct        
+ 8 Resort Hotel                    0                  2 Direct        
+ 9 Resort Hotel                    0                  3 Online TA     
+10 Resort Hotel                    0                  3 Offline TA/TO 
+# ... with 119,376 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>hotel</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;Resort Hotel&quot; &quot;City Hotel&quot;  </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>market_segment</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;Direct&quot;        &quot;Corporate&quot;     &quot;Online TA&quot;     &quot;Offline TA/TO&quot;
+[5] &quot;Complementary&quot; &quot;Groups&quot;        &quot;Aviation&quot;     </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>resort_hotel</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>hotel</span> <span class='op'>==</span> <span class='st'>"Resort Hotel"</span><span class='op'>)</span> 
+<span class='va'>city_hotel</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>hotel</span> <span class='op'>==</span><span class='st'>"City Hotel"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+</div>
+<p>bookings in different market segments</p>
+<p>city hotel</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>city_hotel_market_segment</span> <span class='op'>&lt;-</span> <span class='va'>city_hotel</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>market_segment</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 2
+  market_segment     n
+  &lt;chr&gt;          &lt;int&gt;
+1 Aviation         237
+2 Complementary    542
+3 Corporate       2986
+4 Direct          6092
+5 Groups         13975
+6 Offline TA/TO  16747
+7 Online TA      38747</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>city_hotel_market_segment</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>market_segment</span>,<span class='va'>n</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+<span class='fu'>geom_histogram</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"indianred"</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span>, width<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> 
+<span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"City Market segment"</span>, y <span class='op'>=</span> <span class='st'>"no of bookings"</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+</div>
+<p>resort hotel</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>resort_hotel_market_segment</span> <span class='op'>&lt;-</span> <span class='va'>resort_hotel</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>market_segment</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 2
+  market_segment     n
+  &lt;chr&gt;          &lt;int&gt;
+1 Complementary    201
+2 Corporate       2309
+3 Direct          6513
+4 Groups          5836
+5 Offline TA/TO   7472
+6 Online TA      17729</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>resort_hotel_market_segment</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>market_segment</span>,<span class='va'>n</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+<span class='fu'>geom_histogram</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"indianred"</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span>, width<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> 
+<span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Resort_Market segment"</span><span class='op'>)</span> <span class='op'>+</span> 
+<span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>df</span> <span class='op'>%&gt;%</span> <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>hotel</span>,<span class='va'>market_segment</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>count</span><span class='op'>(</span><span class='va'>market_segment</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 13 x 3
+# Groups:   hotel, market_segment [13]
+   hotel        market_segment     n
+   &lt;chr&gt;        &lt;chr&gt;          &lt;int&gt;
+ 1 City Hotel   Aviation         237
+ 2 City Hotel   Complementary    542
+ 3 City Hotel   Corporate       2986
+ 4 City Hotel   Direct          6092
+ 5 City Hotel   Groups         13975
+ 6 City Hotel   Offline TA/TO  16747
+ 7 City Hotel   Online TA      38747
+ 8 Resort Hotel Complementary    201
+ 9 Resort Hotel Corporate       2309
+10 Resort Hotel Direct          6513
+11 Resort Hotel Groups          5836
+12 Resort Hotel Offline TA/TO   7472
+13 Resort Hotel Online TA      17729</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>hotel</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_histogram</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"indianred"</span>, stat <span class='op'>=</span> <span class='st'>"count"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Market segment"</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='fu'>vars</span><span class='op'>(</span><span class='va'>market_segment</span><span class='op'>)</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-34-1.png" width="624" /></p>
+</div>
+<p>how many number of days do people stay in the hotel?</p>
+<p>Resort hotel</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>resort_hotel</span><span class='op'>$</span><span class='va'>total_nights</span> <span class='op'>&lt;-</span> <span class='va'>resort_hotel</span><span class='op'>$</span><span class='va'>stays_in_weekend_nights</span> <span class='op'>+</span> <span class='va'>resort_hotel</span><span class='op'>$</span><span class='va'>stays_in_week_nights</span>
+<span class='va'>city_hotel</span><span class='op'>$</span><span class='va'>total_nights</span> <span class='op'>&lt;-</span> <span class='va'>city_hotel</span><span class='op'>$</span><span class='va'>stays_in_weekend_nights</span> <span class='op'>+</span> <span class='va'>city_hotel</span><span class='op'>$</span><span class='va'>stays_in_week_nights</span>
+
+
+  
+<span class='va'>resort_number_of_days_guests_stay_data</span> <span class='op'>&lt;-</span> <span class='va'>resort_hotel</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>total_nights</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>resort_number_of_days_guests_stay_data</span><span class='op'>$</span><span class='va'>relative_no_of_bookings</span> <span class='op'>&lt;-</span> <span class='va'>resort_number_of_days_guests_stay_data</span><span class='op'>$</span><span class='va'>n</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>resort_number_of_days_guests_stay_data</span><span class='op'>$</span><span class='va'>n</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>100</span>
+
+  
+<span class='va'>city_number_of_days_guests_stay_data</span> <span class='op'>&lt;-</span> <span class='va'>city_hotel</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>total_nights</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>city_number_of_days_guests_stay_data</span><span class='op'>$</span><span class='va'>relative_no_of_bookings</span> <span class='op'>&lt;-</span> <span class='va'>city_number_of_days_guests_stay_data</span><span class='op'>$</span><span class='va'>n</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>city_number_of_days_guests_stay_data</span><span class='op'>$</span><span class='va'>n</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>100</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot1</span><span class='op'>&lt;-</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>resort_number_of_days_guests_stay_data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>total_nights</span>,<span class='va'>relative_no_of_bookings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+   <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill<span class='op'>=</span><span class='st'>"indianred"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"no of nights stayed at the hotel"</span>, y <span class='op'>=</span> <span class='st'>"Guests[%]"</span>, title <span class='op'>=</span> <span class='st'>"length of stay at the resort hotel"</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.window.html'>xlim</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>30</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-36-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot1</span><span class='op'>&lt;-</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>city_number_of_days_guests_stay_data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>total_nights</span>,<span class='va'>relative_no_of_bookings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+   <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill<span class='op'>=</span><span class='st'>"indianred"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"no of nights stayed at the hotel"</span>, y <span class='op'>=</span> <span class='st'>"Guests[%]"</span>, title <span class='op'>=</span> <span class='st'>"length of stay at the city hotel"</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, hjust <span class='op'>=</span> <span class='fl'>0.5</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.window.html'>xlim</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="sathvik_hotel_bookings_data_hw3_files/figure-html5/unnamed-chunk-37-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
