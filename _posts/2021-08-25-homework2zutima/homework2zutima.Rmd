@@ -3,7 +3,7 @@ title: "homework2_zutima"
 description: |
   A short description of the post.
 author:
-  - name: Abhinav Kumar
+  - name: Zutima Tuladhar
     url: {}
 date: 08-25-2021
 output:
