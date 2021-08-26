@@ -10,8 +10,6 @@ output:
 draft: true
 ---
 
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -178,8 +176,8 @@ city_room_prices_monthly <-select(city_hotel_data, arrival_date_month, adr)
 (city_room_prices_monthly <- city_room_prices_monthly %>%
     group_by(arrival_date_month) %>%
     summarise(mean_room_prices = mean(adr)) %>% 
-    ungroup() %>% 
-  arrange(desc(mean_room_prices)))
+    ungroup() %>%
+    arrange(desc(mean_room_prices)))
 ```
 
 ```{r}
@@ -187,7 +185,7 @@ plot <- ggplot(city_room_prices_monthly)+
   geom_bar(aes(arrival_date_month, mean_room_prices),stat = "identity",fill = "steelblue",width = 0.5)+
   labs(x="arrival_date_month", y=" mean_room_prices", title = "City hotel")+
   theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
   
 
@@ -203,8 +201,8 @@ resort_room_prices_monthly <-select(resort_hotel_data, arrival_date_month, adr)
 (resort_room_prices_monthly <- resort_room_prices_monthly %>%
     group_by(arrival_date_month) %>%
     summarise(mean_room_prices = mean(adr)) %>% 
-    ungroup() %>% 
-  arrange(desc(mean_room_prices)))
+    ungroup() %>%
+    arrange(desc(mean_room_prices)))
 
 ```
 
@@ -229,14 +227,14 @@ cancelations by month
 ```{r}
 (cancellations_by_month<-hotel_bookings %>%
   select(hotel, is_canceled, arrival_date_month) %>% 
-  group_by( arrival_date_month, hotel) %>% 
-summarise( bookings = length(is_canceled), canceled = sum(is_canceled), proportion= canceled/bookings*100))
+  group_by( arrival_date_month, hotel) %>%
+  summarise( bookings = length(is_canceled), canceled = sum(is_canceled), proportion= canceled/bookings*100))
 
 plot <- ggplot(cancellations_by_month, aes(x = arrival_date_month, y = proportion, fill = hotel)) +
   geom_col(position = "dodge")+
   labs(x= "arrival month", y= "proportion of canceltions", title = "proportion of cancelations by month")+
-theme(plot.title = element_text(size = 14, hjust =0.5 , face = "bold"))+
-    theme(axis.text.x = element_text(angle = 90))
+  theme(plot.title = element_text(size = 14, hjust =0.5 , face = "bold"))+
+  theme(axis.text.x = element_text(angle = 90))
 
 
 plot +
@@ -254,7 +252,7 @@ Q) customer_type vs is canceled booking
 
 ggplot(canceled_bookings_by_customer_type, aes(customer_type,proportion))+
  geom_bar(stat = "identity", fill = "indianred",width = 0.5)+
-  labs(x = "customer type", y="proportion of cancelations", title = " proportion of cancelations by customer type")+theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
+ labs(x = "customer type", y="proportion of cancelations", title = " proportion of cancelations by customer type")+theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
 ```
 
 
@@ -287,8 +285,8 @@ city hotel
 
 
 (ggplot(city_hotel_market_segment, aes(market_segment,n))+
-geom_histogram(fill = "indianred", stat = "identity", width=0.5) + 
-labs(title = "City Market segment", y = "no of bookings") + 
+    geom_histogram(fill = "indianred", stat = "identity", width=0.5) +
+    labs(title = "City Market segment", y = "no of bookings") +
     theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold")))
 ```
 
@@ -300,9 +298,9 @@ resort hotel
 
 
 (ggplot(resort_hotel_market_segment, aes(market_segment,n))+
-geom_histogram(fill = "indianred", stat = "identity", width=0.5) + 
-labs(title = "Resort_Market segment") + 
-theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold")))
+    geom_histogram(fill = "indianred", stat = "identity", width=0.5) +
+    labs(title = "Resort_Market segment") +
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold")))
 ```
 
 
@@ -313,8 +311,8 @@ theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold")))
 ```{r}
 (ggplot(df, aes(hotel)) + 
   geom_histogram(fill = "indianred", stat = "count") + 
-  labs(title = "Market segment") + 
-    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  labs(title = "Market segment") +
+  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
   facet_wrap(vars(market_segment), scales = "free_y"))
 ```
 
@@ -352,7 +350,7 @@ city_number_of_days_guests_stay_data$relative_no_of_bookings <- city_number_of_d
 (plot1<-ggplot(resort_number_of_days_guests_stay_data, aes(total_nights,relative_no_of_bookings))+
    geom_bar(stat = "identity", fill="indianred"))+
   labs(x = "no of nights stayed at the hotel", y = "Guests[%]", title = "length of stay at the resort hotel")+
-    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
   xlim(c(0,30))
 
 
@@ -365,7 +363,7 @@ city_number_of_days_guests_stay_data$relative_no_of_bookings <- city_number_of_d
 (plot1<-ggplot(city_number_of_days_guests_stay_data, aes(total_nights,relative_no_of_bookings))+
    geom_bar(stat = "identity", fill="indianred")+
   labs(x = "no of nights stayed at the hotel", y = "Guests[%]", title = "length of stay at the city hotel")+
-    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
   xlim(c(0,20)))
 ```
 
