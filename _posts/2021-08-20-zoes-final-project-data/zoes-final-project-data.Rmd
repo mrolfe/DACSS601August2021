@@ -1,0 +1,133 @@
+---
+title: "Zoe's Final Project Data"
+description: |
+ Introducing the final project data for homework 4 and 5
+author: Zoe Bean
+date: 08-20-2021
+catagories:
+  - homework 4
+  - homework 5
+  - bicycle data
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Import datasets and load tidyverse package. This dataset is from the [Chicago Divvy Bicycle Sharing Data](https://www.kaggle.com/yingwurenjian/chicago-divvy-bicycle-sharing-data?select=data.csv) on Kaggle.
+
+```{r import}
+library(tidyverse)
+bicycle_data<-read_csv("../../_data/chicago_bike_data.csv")
+```
+
+My questions: what type of customer is more likely to use the bike on bad weather days? what type of customer is more likely to have a longer trip? does weather impact how long the trips are? does a certain gender take longer trips? are there times of day one gender is more likely to bike?
+
+## Homework 4
+
+#### 1- Descriptions of the variables - how they were collected, any missing values, etc
+
+First I Found out the possible columns in the dataset. Then find out the possible catagories for the events column,the gender column, and the usertype column. 
+
+```{r analysis1}
+colnames(bicycle_data)
+unique(bicycle_data$events) 
+unique(bicycle_data$gender) 
+unique(bicycle_data$usertype) 
+```
+
+
+  'trip_id' is the unique id for each bike trip. 'year', 'month', 'day', and 'hour' are the date and time that each bike trip occured. 'week' is the week of the year each trip occurred at. This data was ranges from January 1, 2014 to January 1, 2017.
+  
+  'usertype' indicated what kind of customer is using the bike; 'Subscriber' is a customer that has purchased a yearly description, 'Customer' is a customer that has purchased this single ride, and I cannot find an indication on what type of customer is 'Dependant'. 
+Gender is the gender of the person renting the bike, and it appears 'Male' and 'Female' were the only options for this dataset. 
+
+  'starttime' is the date, hour, minute, and second the trip began, and 'stoptime' is the same information for when the trip ended. 'tripduration' is how long the trip lasted in minutes. 
+  
+  'tempurature' is the temperature at the time of the trip. 'events' is the weather event, if any, that occured during the trip: the options being "tstorms"(thunderstorms),"rain or snow","cloudy", "not clear", "clear", and "unknown".
+  
+  'from_station_id' is the id of the bike rental station at the beginning of the trip, and 'from_station_name' is the name of the station at that id.'to_station_id' is the id of the bike rental station at the end of the trip, and 'to_station_name' is the name of the station at that id.
+  
+  'latitude_start' and 'longitude_start' is the latitude and the longitude of the location where the trip began; 'latitude_end' and 'longitude_end' is the latitude and the longitude of the location where the trip ended.
+  
+  'dpcapacity_start' and 'dpcapacity_end' are the variables that indicate the charging dock capacity at the stations.
+  
+  All of the variables that are directly related to the bike trip were collected off of the [divvy bikeshare website](https://www.divvybikes.com/system-data). All of the weather related data was collected by the [weather underground website](https://www.wunderground.com/). The person that uploaded this dataset added only the relevant weather data and cleaned up some of the missing variables.
+  
+#### 2- How you cleaned and coded the data, including a before/after comparison as needed
+
+I have no need for the following variables: longitudes, latitudes, and columns to do with stations, because I do not have any questions regarding the location or the specific bike stations. I also do not need the endtime, since we have start time and duration. 'week' is both redundant due to having the date in other variables, as well as being a confusing metric for time.
+
+```{r remove cols}
+bicycle_data_clean<-select(bicycle_data, 1:3, 5:9,11:13)
+colnames(bicycle_data_clean)
+```
+
+
+I create a new column called 'weather_type' with the categories: extreme_temp, low_vis, safe, and dangerous. I also get rid of instances when the weather is 'unknown'.
+
+I determine if the weather is an extreme temperature with the understanding that the average humidity of Chicago is 71 percent [source](https://www.chicagotribune.com/weather/ct-wea-asktom-0324-20180323-column.html). From there, I use the [heat index](https://www.weather.gov/ama/heatindex) and notice that at 70 percent humidity, the 'take extreme caution' catageory starts at 86 degrees Fahrenheit. So, it is extremely hot above 86 degrees.
+I then calculate extreme cold with the understanding that the wind speed is 10mph [source](https://en.wikipedia.org/wiki/Climate_of_Chicago), (under 'windy city' it states that the average wind chill is from 8 to 12 mph, and I took the average of that). Then I look at this [Wind Chill Chart](https://www.weather.gov/safety/cold-wind-chill-chart)  and notice that at 10mph, frostbite in 10 minutes begins at -5 degrees Fahrenheit. Thus, extreme cold is below -5. So, an extreme temperature is when 'temperature' is 86 or above, or when it is -5 or below.
+
+```{r extreme temp}
+bicycle_data_clean<- bicycle_data_clean %>% mutate(extreme_temp=((temperature<=-5)|(temperature>=85)))
+```
+
+Now, I remove the instances where 'events' is 'unknown'. I consider it to be 'low_vis' then 'events' is anything but 'clear'.
+
+```{r low vis}
+bicycle_data_clean<-bicycle_data_clean %>% filter(events!='unknown') %>%
+  mutate(low_vis=(events!='clear'))
+head(bicycle_data_clean)
+```
+
+Now I take my 'low_vis' and 'extreme temp' catagories, and use them to make my weather_type category. If it is both 'low_vis' and 'extreme_temp', it is 'dangerous'. If it is neither, it is 'safe' and if it is just one it will be that catagory. I then remove my temporary variables as well as 'temperature' and 'events'.
+
+```{r make column}
+bicycle_data_clean<-bicycle_data_clean %>%
+  mutate(weather_type = case_when(
+         (low_vis == TRUE) & (extreme_temp==TRUE)  ~ "dangerous",
+         (low_vis == FALSE) & (extreme_temp==FALSE)  ~ "safe",
+         (low_vis == TRUE) & (extreme_temp==FALSE)  ~ "low_vis",
+         (low_vis == FALSE) & (extreme_temp==TRUE)  ~ "extreme_temp"
+         )) %>% select(1:9, 14)
+  
+head(bicycle_data_clean)
+head(bicycle_data)
+```
+
+#### 3- summary descriptives of the recoded variables
+
+Here, I look at the average trip duration and hour of the day for each weather type, gender, and usertype.
+
+```{r summary}
+bicycle_data_clean %>%
+  group_by(weather_type) %>%
+  select(tripduration, hour) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+bicycle_data_clean %>%
+  group_by(gender) %>%
+  select(tripduration, hour) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+bicycle_data_clean %>%
+  group_by(usertype) %>%
+  select(tripduration, hour) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+```
+
+## Homework 5
+
+
+
+<!-- Make visualization -->
+<!-- 1.What the visualization demonstrates.  -->
+<!-- 2. Why you chose the visualization approach you selected, and what alternative approaches you considered but decided not to pursue.  -->
+<!-- 3. What you wished, if anything, you could have executed but found limited capability to do. -->
