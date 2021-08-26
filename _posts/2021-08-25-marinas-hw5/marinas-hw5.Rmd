@@ -1,0 +1,146 @@
+---
+title: "Marina's HW5"
+description: |
+  Visualization homework with ggplot2.
+author:
+  - name: Marina
+date: 08-25-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+The requirement for HW5 is to build on the previous homework and develop a relevant visualization.
+
+One of the last things I did for HW4 was to flatten part of the Lifeline dataset, accounting for adjustments made over time to claimed subscriber amounts. This left me with a dataset breaking down total claimed subscribers by each company, month by month, since 2018.
+
+```{r load libraries and bring in data, echo=FALSE}
+  library(RSocrata)
+  library(tidyverse)
+
+  df <- read.socrata("https://opendata.usac.org/resource/tfxa-gt3x.json")
+  df <- filter(df, state == "MA" & support_year >= 2018)
+
+```
+
+```{r flatten, echo=FALSE, warning=FALSE, message=FALSE}
+#Rename companies, but only if the total number of companies is 6
+  #(otherwise there might have been name changes that I'd have to
+  #account for)
+  if (length(unique(df$sac_name)) == 6) {
+  df <- df %>%
+        mutate(sac_name = str_to_title(sac_name)) %>%
+        mutate(provider = case_when(
+              startsWith(sac_name, "City") ~ 'Westfield',
+              startsWith(sac_name, "Global") ~ 'StandUp Wireless/Global Connection',
+              startsWith(sac_name, "Granby") ~ 'Granby',
+              startsWith(sac_name, "Tracfone") ~ 'Tracfone/Safelink',
+              startsWith(sac_name, "Verizon") ~ 'Verizon',
+              startsWith(sac_name, "Virgin") ~ 'Assurance/Virgin/T-Mobile'
+              ))
+    }  else {
+      print("There has been a change in the number of unique companies")
+    }
+  subscribers <- df %>%
+                  filter(!submission_type == "ADJUSTMENT") %>% #Exclude fin. adj. rows
+                  select(provider, 
+                         support_year,
+                         support_month = support_month_date_format,
+                         technology_type,
+                         service_type,
+                         subscriber_count) %>%
+                  group_by(provider,
+                           support_year,
+                           support_month,
+                           technology_type,
+                           service_type) %>%
+                  summarise(subscriber_count = sum(as.numeric(subscriber_count)))
+```
+```{r quick peek}
+head(subscribers)
+```
+
+We'll start by visualizing overall totals across Massachusetts, without minding providers or types of service.
+
+```{r Graph 1: Overall Total, echo=TRUE}
+#Proper capitalization
+  subscribers <- subscribers %>%
+                  mutate(technology_type = str_to_sentence(technology_type),
+                         service_type = str_to_sentence(service_type))
+
+#Identify where data is missing
+  missing_check <-  subscribers %>%
+                    ungroup() %>% #If I don't do this, it'll add needless variables
+                    select(provider, support_month) %>%
+                    distinct() %>%
+                    select(support_month) %>%
+                    count(support_month) %>%
+                    arrange(desc(support_month))
+  
+  #Identify latest month of complete data
+    
+    for (i in 1:5) { #check 5 latest months)
+      if (missing_check$n[i] == 6) {
+        full_month <- missing_check$support_month[i]
+        break
+      }
+    }
+  
+  #Graph overall totals, excluding the recent months that aren't complete
+  waiver_end_date <-  as.POSIXct("2021-05-01") #date that waiver expired 
+  p1 <- subscribers %>%
+            filter(support_month <= full_month) %>% #keep data up to most recent complete month
+            group_by(support_month) %>%
+            summarise(subscribers = sum(subscriber_count)) %>%
+          ggplot(aes(x=support_month, y=subscribers)) +
+            geom_line() +
+            xlab("Support Month") +
+            scale_y_continuous(name="Number of Subscribers", limits=c(0, 200000)) +
+            geom_vline(xintercept = waiver_end_date, linetype="dotted", 
+                color = "red", size=1.5) +
+            annotate("text", x = (waiver_end_date - 50), y = 155000, 
+                     label = "End of Waiver \n", angle=90) +
+            ggtitle("Overall Amount of Lifeline Subscribers")
+  
+  p1 + theme_classic()
+  
+```
+I added a line to show the end of a federal covid-related waiver, which was preventing companies from removing subscribers who hadn't been actively using the service in the past couple of months. The end of the waiver is likely a big factor in why we see a sharp drop in subscribers.
+
+Next, let's look at totals by types of service offered, to see if there are any differences in enrollment trends.
+
+```{r Graph 2: service type totals, echo=TRUE}
+ p2 <- subscribers %>%
+              ungroup() %>%
+              select(support_month, service_type, subscriber_count) %>%
+              filter(support_month <= full_month) %>% 
+              group_by(support_month, service_type) %>%
+              summarise(subscribers = sum(subscriber_count)) %>%
+        ggplot(aes(x=support_month, y=subscribers,
+                   group = service_type, color = service_type)) +
+            geom_line() +
+            xlab("Support Month") +
+            scale_y_continuous(name="Number of Subscribers", limits=c(0, 150000)) +
+            geom_vline(xintercept = waiver_end_date, linetype="dotted", 
+                color = "red", size=1.5) +
+            labs(col="Service Type") +
+            theme_classic() +
+            annotate("text", x = (waiver_end_date - 50), y = 130000, 
+                     label = "End of Waiver \n", angle=90) +
+            ggtitle("Lifeline Subscribers by Service Type")
+
+p2
+```
+
+Although all service types have experienced important drops, it looks like voice service has remained the most stable throughout 2020 and 2021. 
+
+### Reflection
+* It's always a challenge to decide what kind of chart to make, and how many different things to try to plot at once. I could have tried using `facet_wrap` to divide the graphs between different service types, but I was curious to see how they all compared against each other, so decided to keep them all in one place.
+* I'm not happy with the 'end of waiver' annotation I added to the red line, because I ended up manually choosing the positioning that made the most sense. I wonder if there isn't an easier/more automated way to choose an annotation position relative to `geom_vline`.
+* I'm going to work on creating additional charts with different cuts of data. It's a bit of a chicken and egg problem, though, in a way-- sometimes it's hard to imagine how you want to cut the data without seeing a chart first, and sometimes it's not until you see a specific chart that you get an idea for a different cut.
