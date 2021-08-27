@@ -3,7 +3,7 @@ title: "homework5_zutima"
 description: |
   A short description of the post.
 author:
-  - name: Abhinav Kumar
+  - name: Zutima Tuladhar
     url: {}
 date: 08-25-2021
 output:
@@ -13,29 +13,118 @@ output:
 
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-This assignment is building on the previous distill blog post with hotel booking data inlcuding data visualizations. I would be using ggplot2 for the visuals 
-
-
+This assignment is building on the previous distill blog post with hotel booking data including data visualizations. I would be using ggplot2 for the visuals 
 
 ```{r}
 library(tidyverse)
-library(blogbuilder)
 library(distill)
-library(tidyverse)
 library(usethis)
 library(dplyr)
 library(ggplot2)
-
 ```
+
 ```{r Read in the Data}
 
 book <-read_csv(file="../../_data/hotel_bookings.csv")
 
 ```
+
+```{r Pick Variables}
+
+## In order to separate and piping selected variables I am using the package dplyr and using the select() function as seen below
+
+(d <- book %>% 
+  select( deposit_type, arrival_date_year, arrival_date_month, hotel, is_repeated_guest))
+
+```
+
+```{r}
+
+unique(d$arrival_date_year)
+unique(d$arrival_date_month)
+unique(d$hotel)
+unique(d$is_repeated_guest)
+
+```
+
+```{r}
+
+ggplot(d, aes(arrival_date_year)) + geom_bar(fill = "maroon2") + theme_classic()
+
+
+## The bar shows the number of guests that booked hotels each month from 2015-2017 at the particular hotels. We can see from the graph there were highest number of bookings in 2016 and lowest number of bookings in 2017.
+
+```
+```{r}
+
+## arrival_date_month
+
+ggplot(d, aes(arrival_date_month)) + geom_bar( fill = "skyblue") +theme_classic()
+
+## The bar shows the number of guests that booked hotels each month from 2015-2017 at the particular hotels. We can see from the graph there were highest number of bookings in August and lowest number of bookings in January.
+
+```
+```{r}
+
+ggplot(d, aes(hotel)) + geom_bar(fill = "red") + theme_bw()
+
+```
+```{r filter}
+resort <- filter(d, hotel == "Resort Hotel") 
+city <- filter(d, hotel =="City Hotel")
+```
+
+We can now look at which year was the highest number of guests arriving at each hotel. 
+
+```{r arrange}
+
+resort$hotel <- resort$arrival_date_year + resort$is_repeated_guest
+city$hotel <- city$arrival_date_year + city$is_repeated_guest
+
+```
+```{r }
+
+(d %>% group_by(hotel, arrival_date_year)) %>% count(arrival_date_year)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "skyblue2", stat = "count") + 
+  labs(title = "Year Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_year), scales = "free_y"))
+
+```
+```{r}
+(d %>% group_by(hotel, is_repeated_guest)) %>% count(is_repeated_guest)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "skyblue3", stat = "count") + 
+  labs(title = "Repeated Guest") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(is_repeated_guest), scales = "free_y"))
 ```
 
 
+```{r}
 
+(d %>% group_by(arrival_date_year, arrival_date_month)) %>% count(arrival_date_month)
+
+(ggplot(d, aes(arrival_date_year)) + 
+  geom_histogram(fill = "skyblue2", stat = "count") + 
+  labs(title = "Month Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_month), scales = "free_y"))
+```
+
+```{r}
+
+d %>% ggplot(aes(x = arrival_date_year, 
+             y = arrival_date_month)) +
+  geom_point(fill = "skyblue4") +
+  xlab("year") +
+  ylab("month") + theme_linedraw()
+
+```
