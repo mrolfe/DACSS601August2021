@@ -1,0 +1,26 @@
+---
+title: "Zutima Tuladhar"
+image: "zutima.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/zutima-tuladhar-602bb01bb/"
+  - label: GitHub
+    url: "https://github.com/"
+  - label: Email
+    url: "mailto:ztuladhar@umass.edu"
+output:
+  postcards::trestles
+---
+ 
+## Bio
+
+I am currently a graduate student in Data Analytics and Computational Social Science at the University of Massachusetts Amherst. I have a bachelors degree in Psychology and a double minor in Human Services and Industrial Relations Management from the University of Bridgeport in Connecticut.
+
+## Education
+
+**University of Massachusetts ** | Amherst, MA | 2021-2022
+
+Data Analytics and Computational Social Science | 
+
+**University of Bridgeport ** | Undergraduate in Psychology, Industrial Relations & Human Services | Bridgeport, CT
+

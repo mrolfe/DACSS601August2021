@@ -1,5 +1,43 @@
 [
   {
+    "path": "posts/2021-08-25-homework4zutima/",
+    "title": "homework4_zutima",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Zutima Tuladhar",
+        "url": {}
+      }
+    ],
+    "date": "2021-08-25",
+    "categories": [],
+    "contents": "\nTasks for Assignment 4\nDescriptions of the variables - how they were collected, any missing values, etc\nHow you cleaned and coded the data, including a before/after comparison as needed\nsummary descriptives of the recoded variables\n\n\n\n\n [1] \"hotel\"                          \"is_canceled\"                   \n [3] \"lead_time\"                      \"arrival_date_year\"             \n [5] \"arrival_date_month\"             \"arrival_date_week_number\"      \n [7] \"arrival_date_day_of_month\"      \"stays_in_weekend_nights\"       \n [9] \"stays_in_week_nights\"           \"adults\"                        \n[11] \"children\"                       \"babies\"                        \n[13] \"meal\"                           \"country\"                       \n[15] \"market_segment\"                 \"distribution_channel\"          \n[17] \"is_repeated_guest\"              \"previous_cancellations\"        \n[19] \"previous_bookings_not_canceled\" \"reserved_room_type\"            \n[21] \"assigned_room_type\"             \"booking_changes\"               \n[23] \"deposit_type\"                   \"agent\"                         \n[25] \"company\"                        \"days_in_waiting_list\"          \n[27] \"customer_type\"                  \"adr\"                           \n[29] \"required_car_parking_spaces\"    \"total_of_special_requests\"     \n[31] \"reservation_status\"             \"reservation_status_date\"       \n\nHotel Bookings can be very expensive, the data we are discussing today looks at the patterns of hotel bookings from travelers that show the peak months and days that are the busiest and expensive times to book a room. This data was collected between the years of 2015-2017 to understand various research questions such as\nWhat is the best time of the year to book hotels?\nWhat is the optimal time of days to spend for the best rate possible?\nWhat time and month do hotels receive most requests?\nWe can see above that we have 32 columns of data.\n\n# A tibble: 119,390 x 3\n   deposit_type arrival_date_year arrival_date_month\n   <chr>                    <dbl> <chr>             \n 1 No Deposit                2015 July              \n 2 No Deposit                2015 July              \n 3 No Deposit                2015 July              \n 4 No Deposit                2015 July              \n 5 No Deposit                2015 July              \n 6 No Deposit                2015 July              \n 7 No Deposit                2015 July              \n 8 No Deposit                2015 July              \n 9 No Deposit                2015 July              \n10 No Deposit                2015 July              \n# … with 119,380 more rows\n\n## Variable Description\narrival_date_year - Year of Arrival arrival_date_month - Month of Arrival deposit_type : guest have either made advanced deposit or no deposit\n\n\n[1] \"No Deposit\" \"Refundable\" \"Non Refund\"\n\n\n\n[1] 2015 2016 2017\n\n\n\n [1] \"July\"      \"August\"    \"September\" \"October\"   \"November\" \n [6] \"December\"  \"January\"   \"February\"  \"March\"     \"April\"    \n[11] \"May\"       \"June\"     \n\n\n\n\n\n\n\n",
+    "preview": "posts/2021-08-25-homework4zutima/homework4zutima_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2021-08-26T19:12:28-04:00",
+    "input_file": "homework4zutima.knit.md",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
+    "path": "posts/2021-08-25-homework5zutima/",
+    "title": "homework5_zutima",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Zutima Tuladhar",
+        "url": {}
+      }
+    ],
+    "date": "2021-08-25",
+    "categories": [],
+    "contents": "\nThis assignment is building on the previous distill blog post with hotel booking data inlcuding data visualizations. I would be using ggplot2 for the visuals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "preview": "posts/2021-08-25-homework5zutima/homework5zutima_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2021-08-26T17:45:27-04:00",
+    "input_file": "homework5zutima.knit.md",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2021-08-23-homework-4-univariate-statistics/",
     "title": "Homework 4 - Univariate Statistics",
     "description": "This dataset is named Active Duty Marital Status (ADMS). This dataset has been published by government of United States for public usage. It has count details of singles,   single parents, and married resources of the 4 branches of the defence department for the month of April 2010.",
