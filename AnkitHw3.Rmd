@@ -1,0 +1,124 @@
+---
+title: "AnkitHw5"
+author: "Ankit"
+date: "8/27/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Loading relevant packages
+
+```{r}
+library(tidyverse)
+```
+
+Reading the dataset into a data frame
+
+```{r}
+library(readr)
+hotel_bookings <- read_csv("_data/hotel_bookings.csv")
+```
+
+Overview of the dataset
+```{r}
+glimpse(hotel_bookings)
+```
+
+Taking a look at the first few rows
+```{r}
+head(hotel_bookings)
+```
+
+Are Na values present in the dataset?
+
+```{r}
+hotel_bookings %>% is.na()%>% sum()
+```
+
+There are 4 Na values in the data set.
+
+Identifying the positions of NA values in the dataset
+
+```{r}
+hotel_bookings %>% is.na() %>% which(arr.ind = TRUE)
+```
+
+arr.ind is TRUE because we need the positions of NA values in the Dataset
+
+Na values are present in the 11th column. So, examining the rows which have NA values
+
+```{r}
+hotel_bookings[c(40601,40668,40680,41161), ]
+```
+
+The children column has NA values for the above rows
+
+Removing the rows which have Na values
+```{r}
+hotel_bookings <- hotel_bookings %>% filter(!is.na(children))
+```
+
+Checking whether data set still has Na values
+
+```{r}
+hotel_bookings %>% is.na()%>% sum()
+```
+
+```{r}
+hotel_bookings %>% mutate(arrival_date_month = factor(arrival_date_month,
+    levels = c("January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"), ordered = TRUE))
+```
+
+
+Frequency table of Hotels in the dataset
+```{r}
+hotel_bookings %>%
+  group_by(hotel) %>% summarise(freq=n())
+```
+
+The number of city hotels in the data set is very large relative to the number of resort hotels.
+
+Observing average daily rates by assigned room type in Hotels
+
+```{r}
+hotel_bookings %>% group_by(assigned_room_type, hotel) %>% select(assigned_room_type, adr, hotel) %>% summarise(mean = mean(adr))  %>% ggplot(aes(x = assigned_room_type, y = mean, color = hotel, fill= hotel)) + geom_point(shape=21, alpha=.55, size=5) + labs(title = "Average Daily Rate by Assigned Room Type in Resort Hotels", x = "Assigned Room Type", y = "Average Daily Rate")
+```
+Exploring the correlation between canceled hotel bookings and other variables.
+
+```{r}
+cor(hotel_bookings$is_canceled, hotel_bookings$previous_cancellations)
+```
+
+```{r}
+cor(hotel_bookings$is_canceled, hotel_bookings$previous_bookings_not_canceled)
+```
+
+```{r}
+cor(hotel_bookings$is_canceled, hotel_bookings$days_in_waiting_list)
+```
+
+Observing Lead Time by Customer Type in Hotels
+
+```{r}
+hotel_bookings  %>% select(customer_type, lead_time, hotel) %>% group_by(customer_type, hotel) %>% summarise(mean = round(mean(lead_time), 2)) %>% ggplot(aes(x = customer_type, y = mean, color = hotel, fill = hotel)) + 
+  geom_point(shape=21, alpha=.55, size=5) + 
+  geom_text(aes(label=mean,vjust=-0.3)) +
+  labs(title = "Lead Time by Customer Type in Hotels", x = "Customer Type", y = "Lead time") + theme_classic() +
+  theme(plot.title = element_text(face = "bold"))
+```
+
+Understanding the kinds of meals that are booked by customers.
+
+```{r}
+(a <- hotel_bookings%>% select(meal, hotel) %>%  group_by(meal, hotel) %>%  summarise(freq = n()))
+ggplot(a, aes(x=meal, y=freq, fill = meal)) +
+ geom_bar(stat="identity") + facet_wrap(~hotel) +
+geom_text(aes(label=freq),vjust=-0.3)+
+  labs(title = "Meals booked by Customers in Hotels", x = "Meal", y = "Number of meals") +
+ theme_classic() +
+ theme(plot.title = element_text(face = "bold"))
+```
