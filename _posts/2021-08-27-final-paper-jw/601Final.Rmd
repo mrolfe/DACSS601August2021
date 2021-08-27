@@ -1,14 +1,9 @@
 ---
-title: School Characteristics
-description: Blog posts about School Characteristics
-author: Joey Wolpert
-date: 08-17-2021
-output:
-  distill::distill_article:
-    self_contained: no
-draft: yes
+title: "601Final"
+author: "Joey Wolpert"
+date: "8/27/2021"
+output: pdf_document
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -219,4 +214,3 @@ Looking at the generated heatmap, we can see that the bottom right, where school
 # Works Cited
 
 $NCES. Public School characteristics.\space2017-18.\space Common Core Data Set. https://data-nces.opendata.arcgis.com/datasets/nces::public-school-characteristics-2017-18/about$
-
