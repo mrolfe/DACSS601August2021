@@ -1,0 +1,196 @@
+---
+title: "Joe Biden's Approval Ratings "
+description: |
+  DACSS 601 Final Project Summer 2021 
+author: "Isha Akshita Mahajan"
+date: 08-19-2021
+output: 
+  distill::distill_article:
+    self_contained: false
+draft: TRUE
+---
+
+## Introduction
+
+On January 20, 2021, Joe Biden was sworn in as the 46th President of the United States. The president came into office at a time when the world faced a public health crisis and the country's economy remained vulnerable. Six months into his presidency, those challenges still dominate him as cases due to the Delta variant and vaccine hesitancy and the withdrawal of troops from Afghanistan rise.
+
+The purpose of this analysis is to assess his approval rating based on data from the recent ABC News/Ipsos survey conducted in July 2021. With the broad aim of performing exploratory analysis on this dataset, I aim to closely examine the variables around the covid response, immigration, economic recovery, crime and gun violence, and the withdrawal of troops from Afghanistan and see their relationship with the demographic data. I hope to understand the overall dynamics of his presidency and the factors that influence the public's opinion on it. 
+
+In the end, I am also curious to see whether the data taken from this poll is biased in any form to align with the political leaning of ABC News. 
+
+## About the Data
+
+This data was taken from the ABC News/Ipsos poll conducted from July 23 to July 24, 2021, by Ipsos. The poll sampled a population of 527 participants who were 18 years or older. The demographics were drawn from the US Census Bureau’s 2019 Community Survey conducted in both English and Spanish. The margin of error for the total sample is expected to be +-/-5.0 percentage at the 95% confidence level.
+
+The survey asked a variety of questions to the participants which spanned from Joe Biden's handling of covid_19 and economic recovery to immigration and the withdrawal of troops from Afghanistan. The poll aims to overall get an understanding of Joe Biden's rating after being in office for six months.
+
+The list of questions in includes as renamed in the final dataset for the analysis are:
+
+1.`covid_response` = Do you approve or disapprove of the way Joe Biden is handling...the response to the coronavirus(COVID-19)?
+2. `immigration`= Do you approve or disapprove of the way Joe Biden is handling...immigration and the situation at the United States-Mexico border?
+3. `economic_recovery` = Do you approve or disapprove of the way Joe Biden is handling...the economic recovery?
+4. `afghanistan` = Do you approve or disapprove of the way Joe Biden is handling...the withdrawal of United States troops from Afghanistan?
+5. `gun_violence` = Do you approve or disapprove of the way Joe Biden is handling...gun violence?
+6. `crime`= Do you approve or disapprove of the way Joe Biden is handling...crime?
+7. `coronavirus_concern` = How concerned are you that you or someone you know will be infected with the coronavirus?...
+8. `one_or_more_vaccine_dose` = Have you personally received at least one dose of a coronavirus vaccine, or not?
+9. `campaign_promises` = How would you rate the job Joe Biden is doing keeping his campaign promises?....
+10. `next_12_month_views` = Thinking about the next 12 months, would you say you feel optimistic or pessimistic about the way things are going in this country?
+
+The current data were weighted to adjust for gender by age, race/ethnicity, education, Census region, metropolitan status, household income, and party identification. The weights_pid column reflects those values. The data was downloaded using the Roper I-poll service and can be found here:  https://ropercenter.cornell.edu/ipoll/study/31118538/questions#d952e1cc-5dbd-45ea-9801-80bd8c5fdcdf
+
+
+## Code Setup
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(haven)
+
+#load stata package and get information on variable columns 
+data<- read_stata("../../_data/stata.DTA")
+#load csv file 
+csv<-read_csv("../../_data/abc_poll_2021.csv") 
+```
+
+
+## Data Cleansing
+
+```{r}
+#use head and colnames function to getter a better sense of the data
+colnames(csv)
+head(csv)
+
+#Update csv with renamed columns, separate two races,
+updated_csv <- csv %>% 
+  rename(
+  "education"= "ppeduc5",
+  "age"="ppage",
+  "education_category"="ppeducat",
+  "gender"="ppgender",                              
+  "race_and_ethnicity"="ppethm",                     
+  "household_size"="pphhsize",
+  "household_income"= "ppinc7",
+  "marital_status"="ppmarit5",
+  "msa_status"="ppmsacat",
+  "region_of_residence"="ppreg4",
+  "living_ownership_status"="pprent",
+  "state"="ppstaten",
+  "work_status"="PPWORKA",
+  "employement_status"= "ppemploy",
+  "covid_response"="Q1_a",
+  "immigration"="Q1_b",
+  "economic_recovery"="Q1_c",
+  "afghanistan"="Q1_d",
+  "gun_violence"= "Q1_e",
+  "crime"="Q1_f",
+ "coronavirus_concern"= "Q2",
+ "one_or_more_vaccine_dose_recieved"="Q3",
+ "campaign_promises"="Q4",
+ "next_12_months_views"="Q5",
+ "political_identification"="QPID") %>% 
+  separate(race_and_ethnicity,sep = ", ",into= c("race_1", "race_2")) 
+```
+
+## Exploratory Analysis 
+
+> What are the party leanings of the survey participants?  
+
+```{r}
+#Use the count function to count the number of times each person identified themselves politically into one of the categories
+political_leanings <- csv %>% 
+  count(QPID)
+
+political_leanings %>% 
+ggplot(aes(QPID,n)) +
+  geom_col()+
+  labs(x="Party Identification", y="Number of Responders", title="Party Identification of Survey Responders", subtitle="The participants in the abc/Ipsos poll for July 2021 identified mostly as  Democrats or Independents", caption="Graphic: Isha Akshita Mahajan/ Student,UMass Amherst\nSource: ABC/Ipsos poll July 2021")+
+theme_bw()
+```
+
+**176 Participants identified as democrats, 152 as republicans, 168 and independents and 28 participants skipped and 3 chose not to identify. This highlights the democratic majority  and the prominence of independents among the survey takers. I suspect that the data will align with the political leanings of ABC news which is considered to be more left of center. (AllSides)**
+
+> What region of the United States has the lowest count of vaccines recieved?
+
+```{r}
+vaccines_no<- updated_csv %>% 
+  filter(one_or_more_vaccine_dose_recieved == "No") %>% 
+  group_by(region_of_residence) %>% 
+  count(one_or_more_vaccine_dose_recieved)
+
+ggplot(vaccines_no, aes(region_of_residence,n))+
+  geom_col()+
+  labs(x="Region of Residence", y="Number of Responders", title="Participants who had not recieved vaccines yet (By region)", subtitle="The south had the highest number of participants who had not yet recieved a single dose of vaccine", caption="Graphic: Isha Akshita Mahajan/ Student,UMass Amherst\nSource: ABC/Ipsos poll July 2021")+
+  theme_bw()
+```
+**The South has the highest number of participants who answered No for whether they had received one or more dose of vaccine or not**
+
+> Is there a regional disparity for people's beliefs on Biden's handling of gun laws?
+
+```{r}
+guns <- updated_csv %>% 
+  group_by(gun_violence) %>% 
+  select(region_of_residence, gun_violence, political_identification) %>% 
+  filter(gun_violence == "Disapprove") %>% 
+  count(region_of_residence)
+
+ggplot(guns,aes(region_of_residence, n))+
+  geom_col()+
+  labs(x = "Region of Residence", y= "Number of Responders", title = "Number of Participants who disapproved Biden's Handling of Gun Violence", subtitle = "The South had the highest number of participants who disapproved his handling of gun violence", caption ="Graphic: Isha Akshita Mahajan/ Student,UMass Amherst\nSource: ABC/Ipsos poll July 2021")+
+  theme_bw()
+  
+```
+
+*This graph highlights that most number of participants  were from the South who disapproved of Biden's handling of gun violence.This seems like a newsworthy finding- something that could be published in a data report by ABC news. I would like to explore this variable further and look at the party identifications of the participants who disapproved of Biden's handling of gun_violence *
+
+
+```{r}
+guns_party <- updated_csv %>% 
+  filter(gun_violence== "Disapprove") %>% 
+ group_by(political_identification) %>% 
+  count(political_identification)
+
+ggplot(guns_party,aes(political_identification, n))+
+  geom_col()+
+  labs(x = "Party Identification", y= "Number of Responders", title = "Diapproval for Biden's Handling of Gun laws", subtitle = "Participants who identified as Republicans were the ones who disapproved the most on handling of Gun Laws", caption ="Graphic: Isha Akshita Mahajan/ Student,UMass Amherst\nSource: ABC/Ipsos poll July 2021")+
+  theme_bw()
+```
+
+*Looking at the graph above, we can see that out of those who disapprove the handling of gun laws by Joe Biden, most of them identify as Republicans which highlights*
+
+> With the big decision of withdrawing from troops in Afghanistan, what was Biden's Disapproval rating for the withdrawal of troops from Afghanistan? Which parties did they belong to?
+
+```{r}
+afghanistan <- updated_csv %>% 
+  filter(afghanistan== "Disapprove") %>% 
+  group_by(political_identification) %>% 
+  count(political_identification)
+
+ggplot(afghanistan,aes(political_identification, n))+
+  geom_col()+
+  labs(x = "Party Identification", y= "Number of Responders", title = "Diapproval for Biden's Handling of Afghanistan", subtitle = "Participants who identified as Republicans and Independents were the ones who disapproved the most on the withdrawal of troops from Afghanistan", caption ="Graphic: Isha Akshita Mahajan/ Student,UMass Amherst\nSource: ABC/Ipsos poll July 2021")+
+  theme_bw()
+```
+**Participants who identified as Republicans and Independents were the ones who disapproved the most on the withdrawal of troops from Afghanistan**
+
+## Results
+
+From my exploratory analysis, I found that there is a stark divide in Approval ratings and the party identification could be one of the biggest influencing factors for that. To begin with, the poll itself can be considered slightly biased as the number of independents and Democrats are higher than the Republicans. As mentioned earlier, this could be because of the news bias of the organization but I'd also like to look for  more datasets that could show these approval ratings from a different lens. I would also want to compare the two and analyze the relationship between news biases and the data they use to further enhance those biases.  Additionally, I also found how region can be an influencing factor in how people make their decisions and I would like to explore more on how regions and party identification are related to one anothercand how they impact the dataset and the results as a whole. 
+
+
+## Next Steps
+
+I would like to approach this project as a story pitch to highlight partisanship and its impact on news biases. To build on this analysis further, I would like to find the other waves of this ABC/Ipsos poll and see if the demographics for those were similar to this dataset. That will confirm that the samples they are taking are biased and would be because they're trying to keep up with the political leaning of the news organization. 
+
+## Bibliography 
+
+1. ABC News (Online) Media Bias Rating.” AllSides, 11 June 2021, www.allsides.com/news-source/abc-news-media-bias. 
+
+2. ABC News. ABC News/Ipsos Poll: 2021 Wave 35. (Dataset, Version 2). Cornell University, Ithaca, NY: Roper Center for Public Opinion Research, Jul-29-2021. Web. Aug-27-2021. 
+doi:10.25940/ROPER-31118538.
+
+
+
