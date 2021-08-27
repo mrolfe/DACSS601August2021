@@ -55,7 +55,7 @@ library(gridExtra)
 
 ```{r}
 
-data  <- ("C:/Users/Abhinavkumar.DESKTOP-JP9HSBL/Desktop/DACSS Summer/USA Households by Total Money Income, Race, and Hispanic Origin of Householder 1967 to 2019.xlsx")
+data  <- ("../../_data/USA Households by Total Money Income, Race, and Hispanic Origin of Householder 1967 to 2019.xlsx")
 
 data_income <- read_excel(data)
 
