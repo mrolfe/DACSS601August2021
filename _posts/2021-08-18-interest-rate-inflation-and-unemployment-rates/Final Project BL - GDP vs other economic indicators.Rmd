@@ -15,7 +15,9 @@ draft: true
 
 
   Gross Domestic Product is the bread and butter of financial data. No country has a higher one than the United States. Although it takes into account Government Spending, Business Investment, and exports, 70% of what accounts for GDP is consumption by the citizens. It informs the Federal Reserve of how healthy our consumer culture is more than anything. Keeping the consumer in the United States able to spend is the result of a carefully managed financial system led by the Federal Reserve. Inflation in our economy eats away at the purchasing power of the dollar over time. It is very important for the stability of the US economy that inflation remain under control, with a steady increase in inflation to drive up wages as well as consumer spending.
+  
   With a rise in Crypto Currencies and a cohort of citizens seeking to decentralize our banking system I believe it is more important than ever to understand the complex relationship that keeps the US economy the most stable in the world. 
+
   I believe it is important to in order to maintain a stable economy the interest rate, or Federal Funds Rate should outpace inflation. If it does not then the purchasing power of the dollar when held in "risk free" assets such as US Treasury Bonds would diminish leaving people with less purchasing power over time.
   
   I will attempt to answer is there a significant  inflation rates and interest rates (federal funds rates)?
@@ -99,8 +101,7 @@ select(fed_rates_quarter,`Month`, `Real GDP (Percent Change)`)
 
 ```
 
-  As we can see from the above tibble the average GDP growth rate between 1954-2017 is 3.138%. The highest growth rate came in Q2 1978. The lowest GDP growth rate of -10% came in Q1 of 1958. Despite several deep recessions since 1958 the United States economy up to 2017 did not see any GDP growth rates that surpassed -10%. However, looking at the pattern on the scatter plot below we see a steady decline in the GDP growth rate. Although there has not been any recession greater than a 10% decline in GDP since Q1 1958 we do see a trend of 
-lower rates of increase throughout time. 
+  As we can see from the above tibble the average GDP growth rate between 1954-2017 is 3.138%. The highest growth rate came in Q2 1978. The lowest GDP growth rate of -10% came in Q1 of 1958. Despite several deep recessions since 1958 the United States economy up to 2017 did not see any GDP growth rates that surpassed -10%. However, looking at the pattern on the scatter plot below we see a steady decline in the GDP growth rate. Although there has not been any recession greater than a 10% decline in GDP since Q1 1958 we do see a trend of lower rates of increase throughout time. 
 
 ```{r}
 #GDP growth trend visualization
@@ -124,6 +125,7 @@ select(fed_rates_quarter,`Month`, `Inflation Rate`)
 ```
 
   Observing the graph below we notice a slightly alarming situation that occurred throughout the 1970's into the 1980's where shot to a high of 13% in 1980 and back down to roughly 2% by the middle of the decade. The trend begins to stabilize around 2.5% in the mid 1990's into 2017. 
+
   I chose to use this visualization because the scatter plot does an excellent job at showing the trend over 
 time.
 
@@ -155,6 +157,7 @@ ggplot(fed_rates_quarter, aes(`Year` , `Effective Federal Funds Rate`)) +
 ```
 
   Because the numbers are so close I want to overlay the interest rate and inflation rate over time. I am attempting to do a line graph with two y-axis to compare the trends of inflation and interest. T
+
   I did this once and had an output with null values expressed on the graph leaving ugly blank space. While the trend is still visible I am removing the null values.
 
 ```{r}
@@ -195,14 +198,18 @@ ggplot(no_null_fed_rates, aes(x = `Year`)) +
  
 ```
 
-  In the above graph we see a very similar trend between the interest rates and inflation rates over time. Inflation and deflation diverge and converge at different times from 1958 - 2017 but a divergence around the 2008 financial crisis has seemingly subdued interest rates keeping them hovering close to 0% while inflation still continues at around 2%. I chose this visual because the data of these two variables seemed similar and the best way to visualize and compare them is to have them overlaid. It shows a similar patter and possible correlation between the two.
+   In the above graph we see a very similar trend between the interest rates and inflation rates over time. Inflation and deflation diverge and converge at different times from 1958 - 2017 but a divergence around the 2008 financial crisis has seemingly subdued interest rates keeping them hovering close to 0% while inflation still continues at around 2%. I chose this visual because the data of these two variables seemed similar and the best way to visualize and compare them is to have them overlaid. It shows a similar patter and possible correlation between the two.
+  
   I believe that in taking all of the visuals we can say that the Federal Reserve is doing its job in maintaining a healthy economy in the United States. GDP growth rates indicate that while the growth of the economy has slowed over time, it is in fact still growing and the slowing of the growth rate is due more to the size of the economy rather than the health. It is also clear that inflation rates are being managed well enough through the setting of interest rates by the Federal Reserve. It is only recently that the rate of inflation has gotten ahead of interest rates forcing investors to take on more risk in their portfolios.
 
 #Reflection
 
   My experience with this process was somewhat frustrating. I wanted to do more than I was able to. Originally I had attempted to compare overall market returns from a separate data set with the information in the Fed Funds set. I ran into challenges of having two separate data sets and not having the time or knowledge on how to combine them within R. 
+
   I am concerned that I could have done more in depth evaluations of the variables by decade to observe trends. This would allow for further research into economic policy of Federal Reserve chairmen as well as Presidential policies and the effects that they may effect consumer behavior. The most challenging and time consuming parts of this process were settling on a questions for my data set, and creating the visualization with two y-axis. I also ran into issues with renaming variables. I would rename them and re-run all of my code only to have errors of variables not being found downstream. I even went back and redid every step before finding satisfaction with the variable names already in place.
+
   Overall I am proud of what I accomplished because I have no prior experience with R or any other programming language and found myself asking more questions which the one set I settled on restricted in being able to fully answer those questions. 
+ 
   If I were to continue with this project I would go more in depth in to breaking out the data by decade and possibly including Fed Chair, President/Party, and stock market information to get a better view of the real impacts and relationships over time of different fiscal policies. It would be interesting to see how markets like the Russel 2000, S&P 1000, and Dow behaved in relation to fiscal policies. 
 
 #Conclusion
@@ -219,8 +226,10 @@ INT_INF_Corr
 ```
 
 Do interest rates and inflation have a relationship?
-When comparing Inflation and Interest Rates on a linear model we get p-value < 2.2e-16. This means the p-value is a lot less than 0.05, which means we can reject the null hypothesis. There is correlation between the Effective Federal Funds Rate and Inflation Rate over time. 
-It is only since 2008 that we see inflation creeping up while interest rates remain close to 0. If this trend continues it will harm the consumer in the US by more rapidly diminishing the purchasing power of the consumer. Have safe assets with returns that outperform inflation is one reason that the US enjoys a robust economy. This trend forces investors to take on more risk and potentially suffer more losses. To do to much too soon to increase interest rates may also have a negative effect as investors have begun relying on riskier assets to help their money outpace inflation.
+
+  When comparing Inflation and Interest Rates on a linear model we get p-value < 2.2e-16. This means the p-value is a lot less than 0.05, which means we can reject the null hypothesis. There is correlation between the Effective Federal Funds Rate and Inflation Rate over time. 
+
+  It is only since 2008 that we see inflation creeping up while interest rates remain close to 0. If this trend continues it will harm the consumer in the US by more rapidly diminishing the purchasing power of the consumer. Have safe assets with returns that outperform inflation is one reason that the US enjoys a robust economy. This trend forces investors to take on more risk and potentially suffer more losses. To do to much too soon to increase interest rates may also have a negative effect as investors have begun relying on riskier assets to help their money outpace inflation.
 
 
 #Bibliography
