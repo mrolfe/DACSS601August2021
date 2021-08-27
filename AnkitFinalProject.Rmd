@@ -1,13 +1,31 @@
 ---
-title: "AnkittProjectDacss601"
-author: "Ankit"
-date: "8/23/2021"
-output: html_document
+title: "Ankit_HW2"
+description: |
+  First attempt to understand the demand in hospitatily industry.
+author: Ankit Kumar
+date: 08-18-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Introduction
+
+Have you ever wondered how the hotel management predict bookings cancellation? What strategies can be deployed by the hospitality sector to understand the satiation, seasonality, etc. How can researchers study the segmentaion of the consumers in this market to generate more revenue? 
+
+Hospitality industry is one of the most service-intensive real estate asset types. Due to the Covid 19 pandemic, the hospitality industry has witnessed huge disruption making it imminent for the industry to revisit its revenue generating and asset management strategies to absorb the short and long run impacts of the pandemic on its business operations.
+
+The scope for this project will be focused on exploring an old data on hotels to find possible relationships between the variables so that we could answer some of the questions raised above .
+
+# Data
+
+The data used for this project includes hotel demand metrics for two types of Hotel in Portugal between 1st July, 2015 and the 31st August, 2017. The two types of hotels are Resort hotels and City hotels. There are 119390 observations and 32 variables in the dataset.
 
 Loading relevant packages
 
@@ -19,85 +37,219 @@ Reading the dataset into a data frame
 
 ```{r}
 library(readr)
-life_expectancy <- read_csv("_data/UNdata_Export_20210825_221659882.csv")
+hotel_bookings <- read_csv("_data/hotel_bookings.csv")
 ```
 
-Taking a look at the first few rows
+Overview of the dataset
 
 ```{r}
-head(life_expectancy)
+glimpse(hotel_bookings)
 ```
 
-Subsetting the life expectancy data
+Taking a look at the first few rows.
 
 ```{r}
-subdata <- life_expectancy  %>% 
-    filter(Year == "2000-2005") %>%
-    select("Country or Area", "Subgroup", "Value")
-
-head(subdata)
+head(hotel_bookings)
 ```
-Reshaping the life expectancy data
+
+Are Na values present in the dataset?
 
 ```{r}
-subdata <- pivot_wider(subdata, names_from = "Subgroup", values_from = "Value")
-
-head(subdata)
+hotel_bookings %>% is.na()%>% sum()
 ```
 
-Plotting male and female life expectancy
+There are 4 Na values in the data set.
+
+Identifying the positions of NA values in the dataset
 
 ```{r}
-ggplot(subdata, aes(x = Male, y = Female)) +
-  geom_point()
+hotel_bookings %>% is.na() %>% which(arr.ind = TRUE)
 ```
 
-Adding an abline and changing the scale of axes of the previous plots
-```{r}
-ggplot(subdata, aes(x = Male, y = Female)) +
-  geom_point() + geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
-xlim(35, 85) + ylim(35,85)
-```
+arr.ind is TRUE because we need the positions of NA values in the Dataset.
 
-Adding labels to previous plot
+Na values are present in the 11th column. So, examining the rows which have NA values
 
 ```{r}
-ggplot(subdata, aes(x=Male, y=Female))+
-  geom_point(colour="white", fill="chartreuse3", shape=21, alpha=.55, size=5)+
-  geom_abline(intercept = 0, slope = 1, linetype=2)+
-  scale_x_continuous(limits=c(35,85))+
-  scale_y_continuous(limits=c(35,85))+
-  labs(title= "Life Expectancy at Birth by Country",
-       subtitle="Years. Period: 2000-2005. Average.",
-       caption= "Source: United Nations Statistics Division",
-       x= "Males",
-       y="Females")
+hotel_bookings[c(40601,40668,40680,41161), ]
 ```
 
-Subseting data to obtain countries of interest
-```{r}
-top_male <- subdata %>% arrange(Male-Female) %>% head(3)
-top_female <- subdata %>% arrange(Female-Male) %>% head(3)
+The children column has NA values for the above rows
 
-top_male
-top_female
-```
-
-Adding text to the previous plot to label countries of interest
+Removing the rows which have Na values
 
 ```{r}
-ggplot(subdata, aes(x=Male, y=Female))+
-  geom_point(colour="white", fill="chartreuse3", shape=21, alpha=.55, size=5)+
-  geom_abline(intercept = 0, slope = 1, linetype=2)+
-  scale_x_continuous(limits=c(35,85))+
-  scale_y_continuous(limits=c(35,85))+
-  labs(title="Life Expectancy at Birth by Country",
-       subtitle="Years. Period: 2000-2005. Average.",
-       caption="Source: United Nations Statistics Division",
-       x="Males",
-       y="Females") +
-    geom_text(data = top_male, aes(x = "Male", y = "Female", label = "Country or Area"))+
-    geom_text(data = top_female, aes(x = "Male", y = "Female", label = "Country or Area"))+    
-    theme_bw()
+hotel_bookings <- hotel_bookings %>% filter(!is.na(children))
 ```
+
+Checking whether data set still has Na values
+
+```{r}
+hotel_bookings %>% is.na()%>% sum()
+```
+
+Using the month of arrival to study the demand would require that the arrival_date_month variable be ordered.
+
+```{r}
+hotel_bookings %>% mutate(arrival_date_month = factor(arrival_date_month,
+    levels = c("January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"), ordered = TRUE))
+```
+
+How many Resort and City Hotels are present in the dataset?
+
+```{r}
+hotel_bookings %>%
+  group_by(hotel) %>% summarise(freq=n())
+```
+
+The number of city hotels in the data set is very large relative to the number of resort hotels.
+
+Observing average daily rates by assigned room type in Hotels
+
+```{r}
+hotel_bookings %>% group_by(assigned_room_type, hotel) %>% select(assigned_room_type, adr, hotel) %>% summarise(mean = mean(adr))  %>% ggplot(aes(x = assigned_room_type, y = mean, color = hotel, fill= hotel)) + geom_point(shape=21, alpha=.55, size=5) + labs(title = "Average Daily Rate by Assigned Room Type in Resort Hotels", x = "Assigned Room Type", y = "Average Daily Rate")
+```
+Exploring the correlation between canceled hotel bookings and other variables.
+
+```{r}
+cor(hotel_bookings$is_canceled, hotel_bookings$previous_cancellations)
+```
+
+```{r}
+cor(hotel_bookings$is_canceled, hotel_bookings$previous_bookings_not_canceled)
+```
+
+```{r}
+cor(hotel_bookings$is_canceled, hotel_bookings$days_in_waiting_list)
+```
+The correlations between canceled booking and above variables do not appear to be strong. We will have to do a pairwise correlation for each variable in the dataset.
+
+Observing Lead Time by Customer Type in Hotels will provide insights on the number of days elapsed between the booking date and arrival. Pricing strategies can be made based on the availability of the rooms and the lead time for each customer type.
+
+```{r}
+hotel_bookings  %>% select(customer_type, lead_time, hotel) %>% group_by(customer_type, hotel) %>% summarise(mean = round(mean(lead_time), 2)) %>% ggplot(aes(x = customer_type, y = mean, color = hotel, fill = hotel)) + 
+  geom_point(shape=21, alpha=.55, size=5) + 
+  geom_text(aes(label=mean,vjust=-0.3)) +
+  labs(title = "Lead Time by Customer Type in Hotels", x = "Customer Type", y = "Lead time") + theme_classic() +
+  theme(plot.title = element_text(face = "bold"))
+```
+
+Understanding the types of meal packages booked by customers. The type of meal booked by customers can help the hotel management to derive paid or complimentary meal packages to increase or generate a stream of revenue.
+
+```{r}
+(a <- hotel_bookings%>% select(meal, hotel) %>%  group_by(meal, hotel) %>%  summarise(freq = n()))
+ggplot(a, aes(x=meal, y=freq, fill = meal)) +
+ geom_bar(stat="identity") + facet_wrap(~hotel) +
+geom_text(aes(label=freq),vjust=-0.3)+
+  labs(title = "Meals booked by Customers in Hotels", x = "Meal", y = "Number of meals") +
+ theme_classic() +
+ theme(plot.title = element_text(face = "bold"))
+```
+
+What type of rooms are booked by customers? The type of rooms reserved by customers shall provide cue to the hotels to curate their asset management strategies.
+
+```{r}
+hotel_bookings %>% group_by(reserved_room_type, hotel) %>% 
+  select(reserved_room_type, hotel) %>% summarise(freq = n())%>% ggplot(aes(x = reserved_room_type, y=freq, fill = reserved_room_type)) +
+  geom_bar(stat = "identity", shape=21, alpha=.55, size=5) + facet_wrap(~hotel) + 
+  geom_text(aes(label= freq),vjust= -0.3) +
+  labs(title = "Type of rooms booked by Customers in Hotels", x = "Type of Rooms reserved by Customers", y = "Number of Rooms") +
+  theme_gray() +
+  theme( plot.title = element_text(face = "bold"))
+```
+
+The number of adults, children and babies visited the hotels will help the hotel management to map the number and type of visitors with the types of room that are availabe in the hotel.
+
+```{r}
+hotel_bookings %>% group_by(hotel) %>% select(hotel, adults, children, babies)%>% summarize(adults = sum(adults), children = sum(children), babies = sum(babies))
+```
+
+How many customers were assigned a different room type than were reserved by them? Could it be a reason for the cancellations?
+
+```{r}
+hotel_bookings %>% group_by(hotel) %>% select(hotel, reserved_room_type, assigned_room_type) %>% mutate(diff_room_assigned = if_else(assigned_room_type != reserved_room_type, 1, 0)) %>% summarize(diff_room_assigned = sum(diff_room_assigned))
+```
+```{r}
+hotel_bookings %>% group_by(hotel) %>% select(hotel, is_canceled) %>% summarise(is_canceled = sum(is_canceled)) 
+```
+
+Observing cancellation by customer type
+
+```{r}
+hotel_bookings %>% group_by(hotel, customer_type) %>% select(hotel, is_canceled, customer_type) %>% summarise(is_canceled = sum(is_canceled))%>% ggplot(aes(x = customer_type, y = is_canceled)) +
+  geom_bar(position = "dodge", stat = "identity", fill = "chartreuse") +
+  theme_classic() +
+  labs(title = "Number of Cancellations by type of Customers in Hotels", x = "Type of Customer", y = "Number of Customers") +
+  theme(plot.title = element_text(face = "bold"))
+```
+
+The footfall of visitors in each month will help the hotel management to develop strategies that generate demand in lean seasons.
+
+```{r}
+hotel_bookings %>%
+  select(hotel, arrival_date_month) %>% group_by(hotel, arrival_date_month) %>% 
+    tally(name = "freq") %>%
+  ggplot(aes(x = freq, y = arrival_date_month)) +
+  geom_bar(position = "dodge", stat = "identity", fill = "chartreuse") +
+  theme_classic() +
+  labs(title = "Number of arrivals in each month", x = "Number of reservations",
+       y = "Month") +
+  theme(plot.title = element_text(face = "bold"))
+
+```
+
+Segregating hotel data set into city hotels and resort hotels will help us exploring the intricacies and anomalies involved in the data with respect to city and resort hotels per se.
+
+```{r}
+
+city_hotel <- hotel_bookings %>% filter(hotel_bookings$hotel == "City Hotel")
+
+resort_hotel <- hotel_bookings %>% filter(hotel_bookings$hotel == "Resort Hotel")
+
+```
+
+
+Exploring City Hotels and Resort Hotels further.
+
+Frequency table of the market segment in city hotels.
+
+```{r}
+n_cityHotel_mktSegment <- city_hotel %>%
+  group_by(market_segment) %>% count(customer_type)
+
+n_cityHotel_mktSegment
+```
+
+Observing Number of Customers by the type of customers and market segment in city hotels.
+
+```{r}
+n_cityHotel_mktSegment %>% 
+ggplot(aes(x = market_segment, y = n, fill = customer_type)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  theme_classic() +
+  labs(title = "Number of Customers in NYC City Hotels by market segment", x = "Market Segment", y = "Number of Customers") +
+  theme(plot.title = element_text(face = "bold"))
+```
+
+Frequency table of the market segment in resort hotels.
+
+```{r}
+n_resortHotel_mktSegment <- resort_hotel %>%
+  group_by(market_segment) %>% count(customer_type)
+
+n_resortHotel_mktSegment
+```
+
+Observing Number of Customers by the type of customers and market segment in resort hotels.
+
+```{r}
+n_resortHotel_mktSegment %>% 
+ggplot(aes(x = market_segment, y = n, fill = customer_type)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  theme_classic() +
+  labs(title = "Number of Customers in Resort Hotels by market segment", x = "Market Segment", y = "Number of Customers") +
+  theme(plot.title = element_text(face = "bold"))
+```
+
 
