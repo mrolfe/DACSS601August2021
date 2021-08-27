@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Study of Economic Indicator from US Census Data for year 1967 to 2019</title>
+
+  <meta property="description" itemprop="description" content="DACSS 601 - Final Project"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-08-27"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-08-27"/>
+  <meta name="article:author" content="Abhinav Kumar"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Study of Economic Indicator from US Census Data for year 1967 to 2019"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="DACSS 601 - Final Project"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Study of Economic Indicator from US Census Data for year 1967 to 2019"/>
+  <meta property="twitter:description" content="DACSS 601 - Final Project"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Income and poverty in the united states: 2019;citation_publication_date=2020;citation_author=US Census Bureau"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Study of Economic Indicator from US Census Data for year 1967 to 2019"]},{"type":"character","attributes":{},"value":["DACSS 601 - Final Project\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Abhinav Kumar"]}]}]},{"type":"character","attributes":{},"value":["08-27-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["citation.bib"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["citation.bib","final-project_files/anchor-4.2.2/anchor.min.js","final-project_files/bowser-1.9.3/bowser.min.js","final-project_files/distill-2.2.21/template.v2.js","final-project_files/figure-html5/unnamed-chunk-10-1.png","final-project_files/figure-html5/unnamed-chunk-11-1.png","final-project_files/figure-html5/unnamed-chunk-14-1.png","final-project_files/figure-html5/unnamed-chunk-15-1.png","final-project_files/figure-html5/unnamed-chunk-16-1.png","final-project_files/figure-html5/unnamed-chunk-17-1.png","final-project_files/figure-html5/unnamed-chunk-18-1.png","final-project_files/figure-html5/unnamed-chunk-19-1.png","final-project_files/figure-html5/unnamed-chunk-20-1.png","final-project_files/figure-html5/unnamed-chunk-22-1.png","final-project_files/header-attrs-2.10/header-attrs.js","final-project_files/jquery-1.11.3/jquery.min.js","final-project_files/popper-2.6.0/popper.min.js","final-project_files/tippy-6.2.7/tippy-bundle.umd.min.js","final-project_files/tippy-6.2.7/tippy-light-border.css","final-project_files/tippy-6.2.7/tippy.css","final-project_files/tippy-6.2.7/tippy.umd.min.js","final-project_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="final-project_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="final-project_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="final-project_files/popper-2.6.0/popper.min.js"></script>
+  <link href="final-project_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="final-project_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="final-project_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="final-project_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="final-project_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="final-project_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="final-project_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Study of Economic Indicator from US Census Data for year 1967 to 2019","description":"DACSS 601 - Final Project","authors":[{"author":"Abhinav Kumar","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-27T00:00:00.000+05:30","citationText":"Kumar, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Study of Economic Indicator from US Census Data for year 1967 to 2019</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>DACSS 601 - Final Project</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Abhinav Kumar
+  
+<br/>08-27-2021
+</div>
+
+<div class="d-article">
+<p><strong>Introduction</strong></p>
+<p><em>Census data across the globe happens to be one of the most interesting data sets that unfolds interesting stories about the socio-economic status and progress of countries. These data sets are not easy to collect and often the data sets are very disparate. Analyzing and modelling these data sets builds the causal understanding of latent information. Also, these data sets cannot be studied in silo. It needs to be articulated with the events of the past to understand why any particular variable would be impacted that results in some form of complex patterns. These data sets help in generating insights about key indicators such as income, poverty, inflation, income inequality, health, and many more as they are blended with the demographic information. Census data is collected by the respective country’s bureau.</em></p>
+<p><em>I am interested to study from the census data how the income of the households in USA has shifted over time and the direction of the shift for households basis their Race. However, in doing so there could be subtler trends that are difficult to identify. Hence, I will try to study if at all there is a shift in the income and what could be the reasons for the shift. I will try to focus away from strong signals to understand if there is a variation in the shift of the income level. Also, if possible I will try to model the data and understand it from statistical perspective.</em></p>
+<p><em>I have personally never analyzed any census data. Hence, I would like to explore and understand it better. I believe this will give me hands on experience to manage such data and drive insights that may impact decision making or course correction at scale. Such analysis also helps in understanding the strong and poor practices employed while data collection. It also helps is paving the way to design comfortable yet pointed questions for the survey. Such an approach makes respondents provide information with ease without any latency.</em></p>
+<p><strong>Data</strong></p>
+<p><em>For the purpose of this project, I have selected the “Households by Total Money Income, Race, and Hispanic Origin of Householder 1967 to 2019” data set published by United States Census Bureau under “Income and Poverty in the United States: 2019” publication on their webpage <span class="citation" data-cites="bureau_2020"><a href="#ref-bureau_2020" role="doc-biblioref">Bureau</a> (<a href="#ref-bureau_2020" role="doc-biblioref">2020</a>)</span>. The data set presents details of income, earnings, income inequality, and poverty in the United States based on information collected in the 2020 and earlier Current Population Survey Annual Social and Economic Supplements (CPS ASEC) conducted by the U.S. Census Bureau. This is an appropriate choice of data set as it contains and economic activity indicator “Income” that is blended with demographic ethnicity. It helps to understand how the overall social structures are impacted over time through economic growth of the individual households</em></p>
+<p><em>This data set has the information of various races, year the data belongs to, income Categories, percentage contribution to income through each income categories, mean of income, median of income and the margin of errors for both mean and median income. The data set comes in “.xlsx” format. It has stacked data of various Races. Below is the description of all the variables.</em></p>
+<p><em>“Race and Hispanic origin of householder and year” - This column has the names of each Race and within each Race the Year values are mentioned within the same column. So data of all races with years is stacked in one column. “Number (thousands)” - This is the household count of data for each race year wise. “Total” - This is a percentage column calculated across various income categories percentage contribution to income. Here every single value is <code>100</code> and hence does not provide any meaningful information for our analysis. Will drop this variable from the data set. “Under $15,000” - This is the information about percentage contribution made by households earning less than $15K to income for particular race in the given year. “$15,000 to $24,999” - This is the information about percentage contribution made by households earning more than $15K and less than $24.9K to income for particular race in the given year. “$25,000 to $34,999” - This is the information about percentage contribution made by households earning more than $25K and less than $34.9K to income for particular race in the given year. “$35,000 to $49,999” - This is the information about percentage contribution made by households earning more than $35K and less than $49.9K income for particular race in the given year. “$50,000 to $74,999” - This is the information about percentage contribution made by households earning more than $50K and less than $74.9K income for particular race in the given year. “$75,000 to $99,999” - This is the information about percentage contribution made by households earning more than $75K and less than $99.9K income for particular race in the given year. “$100,000 to $149,999” - This is the information about percentage contribution made by households earning more than $100K and less than $149.9K income for particular race in the given year. “$150,000 to $199,999” - This is the information about percentage contribution made by households earning more than $150K and less than $199.9K income for particular race in the given year. “$200,000 and over” - This is the information about percentage contribution made by households earning more than equal to $2000K to income for particular race in the given year. “Percentage Distribution” - This is an overarching label for all the income slabs. This will become our grouping variable. “Median income (dollars)” - This is an overarching label to columns “Estimate” that has the value of median income and “Margin of Error” for the median income. “Median income (dollars)” - This is an overarching label to columns “Estimate” that has the value of mean income and “Margin of Error” for the mean income.</em></p>
+<p><em>In the data set we have nominal, ordinal, and ratio scale data. I will focus on the “Estimate” of the median income to study how it has shifted over time from 1967 to 2019. My assumption here is that any naturally occuring data is prone to outliers and hence it is best to use the median statistic of the data to avoid any outlier stressed outcomes. Hence, I will also drop the mean income columns from the data set. This data set seems to be condensed version of the data collected through the years 1967 to 2019 and is prone to inaccuracies and errors. Hence, the margin of error column for median income estimate will not be important to our study and will be dropped from the data set. To orchestrate the data, the “Race and Hispanic origin of householder and year” will be de-stacked to form one combined data set and the name of all the races will be assigned to respective observations. The data will be wrangled through as per need. Before grouping any variable all necessary exploration abd visualization will be performed.</em></p>
+<p><strong>Exploratory Data Analysis and Visualization</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://stringr.tidyverse.org'>stringr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gridExtra</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><em>Importing libraries to perform analysis:</em> <em>“tidyverse” - library for data cleansing, preparation, and wrangling</em> <em>“readxl” - library for importing “.xls” and “.xlsx” file</em> <em>“stringr” - library for string manipulation</em> <em>“gridExtra” - library for arranging multiple plots in single space</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span>  <span class='op'>&lt;-</span> <span class='op'>(</span><span class='st'>"C:/Users/Abhinavkumar.DESKTOP-JP9HSBL/Desktop/DACSS Summer/USA Households by Total Money Income, Race, and Hispanic Origin of Householder 1967 to 2019.xlsx"</span><span class='op'>)</span>
+
+<span class='va'>data_income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 387  16</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 16
+  `Table with row h~ ...2   ...3   ...4  ...5  ...6  ...7  ...8  ...9 
+  &lt;chr&gt;              &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 &quot;Table A-2.\r\nHo~ &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+2 &quot;(Income in 2019 ~ &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+3 &quot;Race and Hispani~ Numbe~ Perce~ &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+4  &lt;NA&gt;              &lt;NA&gt;   Total  Unde~ &quot;$15~ &quot;$25~ &quot;$35~ &quot;$50~ &quot;$75~
+5 &quot;ALL RACES&quot;        &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+6 &quot;2019&quot;             128451 100    9.1   &quot;8&quot;   &quot;8.3~ &quot;11.~ &quot;16.~ &quot;12.~
+# ... with 7 more variables: ...10 &lt;chr&gt;, ...11 &lt;chr&gt;, ...12 &lt;chr&gt;,
+#   ...13 &lt;chr&gt;, ...14 &lt;chr&gt;, ...15 &lt;chr&gt;, ...16 &lt;chr&gt;</code></pre>
+</div>
+<p><em>The “.xlsx” file path of the dataset has been stored in the object “data.” Using “read_excel” function the dataset is imported to the object “data_income.” On inspecting the head of the dataset we can observe that it is of dimension 387 rows by 16 columns. It has got imorted with the header, which is not meaningful for our analysis. Also, the features have been assigned names during import and is not meaningful. Hence the columns need to be renamed by brute force.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='va'>data</span>, skip <span class='op'>=</span> <span class='fl'>3</span>, col_names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Year"</span>, <span class='st'>"Household_Count"</span>, <span class='st'>"%_Total"</span>, <span class='st'>"%Income_Under$15k"</span>, <span class='st'>"%Income_Between15k&amp;24.9k"</span>, <span class='st'>"%Income_Between25k&amp;34.9k"</span>,
+                                                        <span class='st'>"%Income_Between35k&amp;49.9k"</span>, <span class='st'>"%Income_Between50k&amp;74.9k"</span>, <span class='st'>"%Income_Between75k&amp;99.9k"</span>, <span class='st'>"%Income_Between100k&amp;149.9k"</span>, 
+                                                        <span class='st'>"%Income_Between150k&amp;199.9k"</span>, <span class='st'>"%Income_Over200k"</span>, <span class='st'>"Median_Income"</span>,<span class='st'>"Median_Income_MOE"</span>, <span class='st'>"Mean_Income"</span>, 
+                                                        <span class='st'>"Mean_Income_MOE"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 16
+  Year    Household_Count  `%_Total` `%Income_Under$~ `%Income_Betwee~
+  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;           
+1 &quot;Race ~ Number (thousan~ Percent ~ &lt;NA&gt;              &lt;NA&gt;           
+2  &lt;NA&gt;   &lt;NA&gt;             Total     Under $15,000    &quot;$15,000\r\nto\~
+3 &quot;ALL R~ &lt;NA&gt;             &lt;NA&gt;      &lt;NA&gt;              &lt;NA&gt;           
+4 &quot;2019&quot;  128451           100       9.1              &quot;8&quot;             
+5 &quot;2018&quot;  128579           100       10.1             &quot;8.800000000000~
+6 &quot;2017 ~ 127669           100       10               &quot;9.1&quot;           
+# ... with 11 more variables: %Income_Between25k&amp;34.9k &lt;chr&gt;,
+#   %Income_Between35k&amp;49.9k &lt;chr&gt;, %Income_Between50k&amp;74.9k &lt;chr&gt;,
+#   %Income_Between75k&amp;99.9k &lt;chr&gt;, %Income_Between100k&amp;149.9k &lt;chr&gt;,
+#   %Income_Between150k&amp;199.9k &lt;chr&gt;, %Income_Over200k &lt;chr&gt;,
+#   Median_Income &lt;chr&gt;, Median_Income_MOE &lt;chr&gt;, Mean_Income &lt;chr&gt;,
+#   Mean_Income_MOE &lt;chr&gt;</code></pre>
+</div>
+<p>*Using “read_excel” we have gain imported the dataset. We have skipped first 3 header rows and renamed all the columns as “Year,” “Household_Count,” "%_Total“,”%Income_Under$15k“,”%Income_Between15k&amp;24.9k“,”%Income_Between25k&amp;34.9k“,”%Income_Between35k&amp;49.9k“,”%Income_Between50k&amp;74.9k“,”%Income_Between75k&amp;99.9k“,”%Income_Between100k&amp;149.9k“,”%Income_Between150k&amp;199.9k“,”%Income_Over200k“,”Median_Income“,”Median_Income_MOE“,”Mean_Income“,”Mean_Income_MOE" respectively. We can observe from the tibble that the first column “Year” has dual information about Race names and respective years. We will remove all the race names from the “Year” column and assign it to a new column “Race” with respect to “Year” column observations accordingly. We can also observe that “NA” values are also present. Hence, we meed to check across all columns for “NA” values presence. The original column names have been imported in the data as part of observations that needs to removed. Also, the dimension of the data is now 385 observation by 16 columns*</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 16
+  Year     Household_Count `%_Total` `%Income_Under$~ `%Income_Betwee~
+  &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;           
+1 25 For ~ &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;            
+2 26 Blac~ &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;            
+3 27 Asia~ &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;            
+4 28 Beca~ &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;            
+5 Note: I~ &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;            
+6 Source:~ &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;            
+# ... with 11 more variables: %Income_Between25k&amp;34.9k &lt;chr&gt;,
+#   %Income_Between35k&amp;49.9k &lt;chr&gt;, %Income_Between50k&amp;74.9k &lt;chr&gt;,
+#   %Income_Between75k&amp;99.9k &lt;chr&gt;, %Income_Between100k&amp;149.9k &lt;chr&gt;,
+#   %Income_Between150k&amp;199.9k &lt;chr&gt;, %Income_Over200k &lt;chr&gt;,
+#   Median_Income &lt;chr&gt;, Median_Income_MOE &lt;chr&gt;, Mean_Income &lt;chr&gt;,
+#   Mean_Income_MOE &lt;chr&gt;</code></pre>
+</div>
+<p><em>We can observe that the tail end of data set has footer explaining the meaning of encoded values in the data. There are 31 such rows from the tail that we need to drop from the data set.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>data_income</span>, <span class='fl'>2</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/any.html'>any</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>                      Year            Household_Count 
+                      TRUE                       TRUE 
+                   %_Total          %Income_Under$15k 
+                      TRUE                       TRUE 
+  %Income_Between15k&amp;24.9k   %Income_Between25k&amp;34.9k 
+                      TRUE                       TRUE 
+  %Income_Between35k&amp;49.9k   %Income_Between50k&amp;74.9k 
+                      TRUE                       TRUE 
+  %Income_Between75k&amp;99.9k %Income_Between100k&amp;149.9k 
+                      TRUE                       TRUE 
+%Income_Between150k&amp;199.9k           %Income_Over200k 
+                      TRUE                       TRUE 
+             Median_Income          Median_Income_MOE 
+                      TRUE                       TRUE 
+               Mean_Income            Mean_Income_MOE 
+                      TRUE                       TRUE </code></pre>
+</div>
+<p><em>We can observe that all the columns in the dataset has “NA” values present. We have used the “apply” function here to detect the “NA” values across the variables.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>tibble [385 x 16] (S3: tbl_df/tbl/data.frame)
+ $ Year                      : chr [1:385] &quot;Race and Hispanic origin of householder\r\nand year&quot; NA &quot;ALL RACES&quot; &quot;2019&quot; ...
+ $ Household_Count           : chr [1:385] &quot;Number (thousands)&quot; NA NA &quot;128451&quot; ...
+ $ %_Total                   : chr [1:385] &quot;Percent distribution&quot; &quot;Total&quot; NA &quot;100&quot; ...
+ $ %Income_Under$15k         : chr [1:385] NA &quot;Under $15,000&quot; NA &quot;9.1&quot; ...
+ $ %Income_Between15k&amp;24.9k  : chr [1:385] NA &quot;$15,000\r\nto\r\n$24,999&quot; NA &quot;8&quot; ...
+ $ %Income_Between25k&amp;34.9k  : chr [1:385] NA &quot;$25,000\r\nto\r\n$34,999&quot; NA &quot;8.3000000000000007&quot; ...
+ $ %Income_Between35k&amp;49.9k  : chr [1:385] NA &quot;$35,000\r\nto\r\n$49,999&quot; NA &quot;11.7&quot; ...
+ $ %Income_Between50k&amp;74.9k  : chr [1:385] NA &quot;$50,000\r\nto\r\n$74,999&quot; NA &quot;16.5&quot; ...
+ $ %Income_Between75k&amp;99.9k  : chr [1:385] NA &quot;$75,000\r\nto\r\n$99,999&quot; NA &quot;12.3&quot; ...
+ $ %Income_Between100k&amp;149.9k: chr [1:385] NA &quot;$100,000\r\nto\r\n$149,999&quot; NA &quot;15.5&quot; ...
+ $ %Income_Between150k&amp;199.9k: chr [1:385] NA &quot;$150,000\r\nto\r\n$199,999&quot; NA &quot;8.3000000000000007&quot; ...
+ $ %Income_Over200k          : chr [1:385] NA &quot;$200,000 and over&quot; NA &quot;10.3&quot; ...
+ $ Median_Income             : chr [1:385] &quot;Median income\r\n(dollars)&quot; &quot;Estimate&quot; NA &quot;68703&quot; ...
+ $ Median_Income_MOE         : chr [1:385] NA &quot;Margin of error1 (±)&quot; NA &quot;904&quot; ...
+ $ Mean_Income               : chr [1:385] &quot;Mean income\r\n(dollars)&quot; &quot;Estimate&quot; NA &quot;98088&quot; ...
+ $ Mean_Income_MOE           : chr [1:385] NA &quot;Margin of error1 (±)&quot; NA &quot;1042&quot; ...</code></pre>
+</div>
+<p><em>On inspecting the structure of the dataset, we understand that all the features are being recognized as “charatcter in R environment. This is incorrect. Hence, we will need to coerce the columns to the right class. The columns representing percentage under income slab variables such as” %Income_Between25k&amp;34.9k" has values that have multiple deimal points and need to be restricted to single deimal point.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>&lt;-</span> <span class='va'>data_income</span> <span class='op'>%&gt;%</span> <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>3</span> <span class='op'>:</span> <span class='fl'>354</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>Race <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>Year</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
+    <span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='st'>"[A-Za-z]"</span><span class='op'>)</span> <span class='op'>==</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>{</span>
+      <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span> <span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+    <span class='op'>}</span>
+    <span class='kw'>else</span><span class='op'>{</span>
+      <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span> <span class='op'>(</span><span class='cn'>NA</span><span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>}</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>relocate</span><span class='op'>(</span><span class='va'>Race</span><span class='op'>)</span>
+
+<span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>$</span><span class='va'>Race</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>data_income</span><span class='op'>$</span><span class='va'>Race</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>$</span><span class='va'>Race</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>,<span class='va'>data_income</span><span class='op'>$</span><span class='va'>Race</span><span class='op'>[</span><span class='va'>i</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>, <span class='va'>data_income</span><span class='op'>$</span><span class='va'>Race</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span> 
+
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 17
+  Race      Year      Household_Count `%_Total` `%Income_Under$15k`
+  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;              
+1 ALL RACES ALL RACES &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;               
+2 ALL RACES 2019      128451          100       9.1                
+3 ALL RACES 2018      128579          100       10.1               
+4 ALL RACES 2017 2    127669          100       10                 
+5 ALL RACES 2017      127586          100       10.1               
+6 ALL RACES 2016      126224          100       10.4               
+# ... with 12 more variables: %Income_Between15k&amp;24.9k &lt;chr&gt;,
+#   %Income_Between25k&amp;34.9k &lt;chr&gt;, %Income_Between35k&amp;49.9k &lt;chr&gt;,
+#   %Income_Between50k&amp;74.9k &lt;chr&gt;, %Income_Between75k&amp;99.9k &lt;chr&gt;,
+#   %Income_Between100k&amp;149.9k &lt;chr&gt;,
+#   %Income_Between150k&amp;199.9k &lt;chr&gt;, %Income_Over200k &lt;chr&gt;,
+#   Median_Income &lt;chr&gt;, Median_Income_MOE &lt;chr&gt;, Mean_Income &lt;chr&gt;,
+#   Mean_Income_MOE &lt;chr&gt;</code></pre>
+</div>
+<p><em>From the tibble “data_income” with dimension (385 by 16), we are extracting the rows 3 to 354. This helps in ignoring the tail part of the data which has footer. Then using “mutate” function have created a new column “Race.” Using “sapply” function over “Year” column have created a user defined local function to extratct all race names and have implemented a loop function to populate all the race names in the respective rows of the “Race” column. While creating the column for “Race,” it got added as the last column in the tibble and have repositioned it to the first column in the tibble using relocate function. The first few rows in the manipulated tibble belongs to “ALL RACES” that is just an aggregate of all categories of “Race.” We will remove these observations from the tibble. Also, we can see that under “Year” column the years have more than 4 digits and that needs to be truncated.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>&lt;-</span>  <span class='va'>data_income</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='st'>"Race"</span> <span class='op'>:</span> <span class='st'>"Household_Count"</span>, <span class='st'>"%Income_Under$15k"</span> <span class='op'>:</span> <span class='st'>"Median_Income"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fu'><a href='https://stringr.tidyverse.org/reference/str_extract.html'>str_extract</a></span><span class='op'>(</span><span class='va'>Year</span>, <span class='st'>"\\d+"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  <span class='co'># "\\d+" helps in extracting the only first 4 digits of the year and leaves out anything that is after a blank space.</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Year</span>, <span class='st'>"[A-Za-z]"</span>, negate <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/na.fail.html'>na.omit</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Race</span>, <span class='st'>"ALL RACES"</span>, negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Household_Count</span>, <span class='st'>"N"</span>, negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 13
+  Race           Year  Household_Count `%Income_Under$~ `%Income_Betwee~
+  &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;            &lt;chr&gt;           
+1 WHITE ALONE 24 2019  100568          7.8              7.5             
+2 WHITE ALONE 24 2018  100528          8.5              8.3000000000000~
+3 WHITE ALONE 24 2017  100113          8.5              8.6             
+4 WHITE ALONE 24 2017  100065          8.6              8.6999999999999~
+5 WHITE ALONE 24 2016  99400           8.9              8.6             
+6 WHITE ALONE 24 2015  99313           8.9              9.5             
+# ... with 8 more variables: %Income_Between25k&amp;34.9k &lt;chr&gt;,
+#   %Income_Between35k&amp;49.9k &lt;chr&gt;, %Income_Between50k&amp;74.9k &lt;chr&gt;,
+#   %Income_Between75k&amp;99.9k &lt;chr&gt;, %Income_Between100k&amp;149.9k &lt;chr&gt;,
+#   %Income_Between150k&amp;199.9k &lt;chr&gt;, %Income_Over200k &lt;chr&gt;,
+#   Median_Income &lt;chr&gt;</code></pre>
+</div>
+<p><em>To further crystallize the data set for analysis, have used “select” function to keep “Race,” “Year,” “Household_Count,” “%Income_Under$15k,” “%Income_Between15k&amp;24.9k,” “%Income_Between25k&amp;34.9k,” “%Income_Between35k&amp;49.9k,” “%Income_Between50k&amp;74.9k,” “%Income_Between75k&amp;99.9k,” “%Income_Between100k&amp;149.9k,” “%Income_Between150k&amp;199.9k,” “%Income_Over200k,” and “Median_Income” features in the data set. Using “str_extract” function from “stringr” package, have extracted the first 4 digits of the years in every observation with regular expression “\d+.” With “filter” function have used “str_detect” to identify “ALL RACES” class under “Race” feature to remove it from the tibble. The feature “Household_Count” has missing values with pattern “N” and these observation will not be useful. Hence, dropping these rows as well. Now the tibble is of the dimension (284 by 13).</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income_num</span> <span class='op'>&lt;-</span> <span class='va'>data_income</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='st'>"Year"</span>, <span class='st'>"Household_Count"</span>, <span class='st'>"%Income_Under$15k"</span> <span class='op'>:</span> <span class='st'>"Median_Income"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate_if</span><span class='op'>(</span><span class='va'>is.character</span>,<span class='va'>as.numeric</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate_at</span><span class='op'>(</span><span class='fl'>4</span><span class='op'>:</span><span class='fl'>12</span>, <span class='va'>round</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='va'>data_income</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>[</span><span class='st'>"Race"</span><span class='op'>]</span>, <span class='va'>data_income_num</span><span class='op'>)</span> 
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_income</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 13
+  Race            Year Household_Count `%Income_Under$~ `%Income_Betwee~
+  &lt;chr&gt;          &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 WHITE ALONE 24  2019          100568              7.8              7.5
+2 WHITE ALONE 24  2018          100528              8.5              8.3
+3 WHITE ALONE 24  2017          100113              8.5              8.6
+4 WHITE ALONE 24  2017          100065              8.6              8.7
+5 WHITE ALONE 24  2016           99400              8.9              8.6
+6 WHITE ALONE 24  2015           99313              8.9              9.5
+# ... with 8 more variables: %Income_Between25k&amp;34.9k &lt;dbl&gt;,
+#   %Income_Between35k&amp;49.9k &lt;dbl&gt;, %Income_Between50k&amp;74.9k &lt;dbl&gt;,
+#   %Income_Between75k&amp;99.9k &lt;dbl&gt;, %Income_Between100k&amp;149.9k &lt;dbl&gt;,
+#   %Income_Between150k&amp;199.9k &lt;dbl&gt;, %Income_Over200k &lt;dbl&gt;,
+#   Median_Income &lt;dbl&gt;</code></pre>
+</div>
+<p><em>Now a new tibble “data_income_num” has been created to coerce the features except for “Race” to numeric class. From the head of the new tibble it can be observed that class of the features have coerced to numeric (double) uisng “mutate_if” function . Npw we will merge the coerced new tibble with the “Race” feature to for new tibble with the same object name as “data_income.” Also, have rounded the percentage income contribution columns using “round” function to one decimal point. Now the tibble is ready to be analyzed and visualized</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>Race</span>, fill <span class='op'>=</span> <span class='va'>Race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Frequency Count Plot of Race"</span>, x <span class='op'>=</span> <span class='st'>"Count of Race"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_text</span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>'count'</span>, <span class='fu'>aes</span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>..count..</span><span class='op'>)</span>, vjust <span class='op'>=</span> <span class='fl'>0.5</span>, hjust<span class='op'>=</span> <span class='fl'>5</span>, fontface <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<p><em>Using ggplot function a bar plot of “Race” feature is created. We can observe the data in terms of frequency is not consistent across races that has been collected from years 1967 to 2019. The race category “Hispanic (Any Race) 28” has the maximum data availability of 50 years and “Asia And Pacific Islander 25” has minimum data availability of 14 years. Across race categories the data availability is not consistent and modelling data for each variabale class will not result in dependable insights. Hence, for modelling the data, all the “Race” categories will be used to drive insights about shift in median income of households. It can be observed from classes of the “Race” that each class name has some numeric value attached at the end and the names of the classes is not straight forward to understand. Here is the description of “Race” classes:</em></p>
+<p><em>“ASIAN ALONE 27” - Asian alone refers to people who reported Asian and did not report any other race category.</em></p>
+<p><em>“ASIAN AND PACIFIC ISLANDER 25” - For the year 2001 and earlier, the CPS ASEC allowed respondents to report only one race group.</em></p>
+<p><em>“BLACK 25” - For the year 2001 and earlier, the CPS ASEC allowed respondents to report only one race group.</em></p>
+<p><em>“BLACK ALONE 26” - Black alone refers to people who reported Black and did not report any other race category.</em></p>
+<p><em>“HISPANIC ANY RACE 28” - Because Hispanics may be any race, data in this report for Hispanics overlap with data for racial groups. Hispanic origin was reported by 15.6</em> <em>percent of White householders who reported only one race, 5.0 percent of Black householders who reported only one race, and 2.5 percent of Asian householders who</em> <em>reported only one race. Data users should exercise caution when interpreting aggregate results for the Hispanic population and for race groups because these populations</em> <em>consist of many distinct groups that differ in socioeconomic characteristics, culture, and recency of immigration. Data were first collected for Hispanics in 1972.</em><br />
+<em>“WHITE 25” - For the year 2001 and earlier, the CPS ASEC allowed respondents to report only one race group.</em></p>
+<p><em>“WHITE ALONE 24” - Beginning with the 2003 CPS ASEC, respondents were allowed to choose one or more races. White alone refers to people who reported White and did not</em> <em>report any other race category. The use of this single-race population does not imply that it is the preferred method of presenting or analyzing the data. The Census</em> <em><code>Bureau uses a variety of approaches.</code></em></p>
+<p><em>“WHITE ALONE, NOT HISPANIC 24” - Beginning with the 2003 CPS ASEC, respondents were allowed to choose one or more races. White alone refers to people who reported White and did not report any other race category. The use of this single-race population does not imply that it is the preferred method of presenting or analyzing the data. The Census Bureau uses a variety of approaches. <code>It seems in this category households mention they are White but not of Hispanic origin</code></em></p>
+<p><em>“WHITE ALONE, NOT HISPANIC 25” - For the year 2001 and earlier, the CPS ASEC allowed respondents to report only one race group.</em> <em><code>The above explanation of encoded values have been verbatim taken from the data published by the bureau and in no way represent my interpretation of the races. However,   the below interpretation of the 2 classes of race is my own</code></em> <em>“Asian ALONE OR IN COMBINATION” - Meaning of the “Race” class not available. However, it seems that the households reported themselves as Asians or a household of mixed</em> <em>races due to marriage, birth, or naturalization.</em></p>
+<p><em>“BLACK ALONE OR IN COMBINATION” - Meaning of the “Race” class not available. However, it seems that the households reported themselves as Asians or a household of mixed</em> <em>races due to marriage, birth, or naturalization.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Year</span>, fill <span class='op'>=</span> <span class='va'>Race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Frequency Count Plot of Year"</span>, y <span class='op'>=</span> <span class='st'>"Count of Year"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<p><em>From the above bar plot of “Year” frequency, the intuition that data for all “Race” classes is not consistent and hence modelling for median income basis classes of “Race” will not give robust results.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income_grouped</span> <span class='op'>&lt;-</span>  <span class='va'>data_income</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='st'>"%Income_Under$15k"</span> <span class='op'>:</span> <span class='st'>"%Income_Over200k"</span>, names_to <span class='op'>=</span> <span class='st'>"Income_Category"</span>, values_to <span class='op'>=</span> <span class='st'>"Income_Percentage_Share"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><em>Using “pivot_longer” function have grouped the percentage contribution income slabs data to “Income_Category” and its respective values to “Income_Percentage_Share.” This grouped data tibble is named as “data_income_grouped.” Now the tibble dimension is (2556 observations by 6 columns)</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plotdata</span> <span class='op'>&lt;-</span> <span class='va'>data_income</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>Race</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>Avg_Median_Income <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Median_Income</span><span class='op'>)</span><span class='op'>)</span> 
+
+<span class='va'>plotdata</span><span class='op'>$</span><span class='va'>Avg_Median_Income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>plotdata</span><span class='op'>$</span><span class='va'>Avg_Median_Income</span><span class='op'>)</span>, <span class='fl'>0</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>plotdata</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 2
+  Race                          Avg_Median_Income
+  &lt;chr&gt;                                     &lt;dbl&gt;
+1 ASIAN ALONE 27                            80852
+2 ASIAN ALONE OR IN COMBINATION             80538
+3 ASIAN AND PACIFIC ISLANDER 25             71868
+4 BLACK 25                                  34428
+5 BLACK ALONE 26                            40272
+6 BLACK ALONE OR IN COMBINATION             40566</code></pre>
+</div>
+<p><em>Prepared a table for Race and mean of Median_Income for all races to understand the distribution of income across races over time.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plotdata</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>Race</span>, x <span class='op'>=</span> <span class='va'>Avg_Median_Income</span>, fill <span class='op'>=</span> <span class='va'>Race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of Average Median Income for Races Over Time"</span>, x <span class='op'>=</span> <span class='st'>"Avg_Median_Income in Dollars"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.50</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_text</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>Avg_Median_Income</span><span class='op'>)</span>, hjust <span class='op'>=</span> <span class='fl'>1</span>, fontface <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<p><em>Here it can be observed that highest average meidan income is being earned by households of Asian origin followed by households of White origin. However, this insight might not hold true as the data collection process over time has changed. Also, the data availability for races of Asian origin only ranges from 14 years to 20 years and was collected much later by when the over all median income across race categories had increased.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income_grouped</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>Median_Income</span><span class='op'>)</span>, y  <span class='op'>=</span> <span class='va'>Income_Category</span>, fill <span class='op'>=</span> <span class='va'>Race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of Median Income over Income Category for Races Over Time"</span>, x <span class='op'>=</span> <span class='st'>"Median_Income in Dollars"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.50</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<p><em>This is bar plot of Income_Categories versus Median_Income where the legend is Race. This has been visualized to understand individual Income_Category contribution towards Median Income for all the Races at each Income Category level. However, this visualization is very complex to drive insights. It seems that across Income Categories contribution to Median Income is distributed proportionally across Races. In order to generate better insight, we need to visualize for individual Race categories.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income_grouped</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>Median_Income</span>, x  <span class='op'>=</span> <span class='va'>Race</span>, fill <span class='op'>=</span> <span class='va'>Income_Category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>5</span>, angle <span class='op'>=</span> <span class='fl'>90</span><span class='op'>)</span>, <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of Median_Income over Race for Individual Income_Category"</span>, x <span class='op'>=</span> <span class='st'>"Race"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='fu'>vars</span><span class='op'>(</span><span class='va'>Income_Category</span><span class='op'>)</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span>, shrink <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.30</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<p><em>Through this plot the effort is to understand individual Income_Category contribution tot Median_Income across all the Races. Howvere, even this visualization is too complex to drive meaningful insights as it is difficult to interpret. We will try to do this differently now.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income_grouped</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Race</span>, y  <span class='op'>=</span> <span class='va'>Income_Percentage_Share</span>, fill <span class='op'>=</span> <span class='va'>Income_Category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Income_Category share of Median Income for Individual Race"</span>, x <span class='op'>=</span> <span class='st'>"Race"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>5</span>, angle <span class='op'>=</span> <span class='fl'>90</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+</div>
+<p><em>From this bar plot, we are able to see how much does each Income_Category contributes to total Median_Income across Races. However, from the plot it is difficult to understand which Income_Category is contributing the most under individual Race category. For that we can build cross tables to understand.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Year</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>Median_Income</span><span class='op'>)</span>, group <span class='op'>=</span> <span class='va'>Race</span>, color <span class='op'>=</span> <span class='va'>Race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Year-wise Median Income Distribution of Households From 1967 to 2019"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+</div>
+<p><em>As our data set is too small, and the data is quite disparate from the perspective that it has been collected at different times for different Races. Also, there has been change in survey questionnaire so over time the data has been collected differently. Also, for a few races data collection started happening much later. Like for “ASIAN AND PACIFIC ISLANDER 25” we have data from 1998 to 2001 only. For “ASIA ALONE 27” and “ASIAN ALONE OR IN COMBINATION” the data collection has been done only between 2002 to 2019.</em></p>
+<p><em>We can observe from the line plot that the over all Median_Income has shifted positively upwards but it is difficult to see the subtler trends. Also, my intuition is that the races could have been much lesser but due to the way households have identified themselves, it gave rise to more categories. It has been mentioned in data that Hispanics category has other overlapping classes. Hence, it gives us strong signal that data quality can be improved. However, to understand how household median income has improved, data cannot be modeled based on race categories as there are not enough examples within each race to model for median income. So, I will take the complete data set of 248 observations and 13 features to model for median income.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_income</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>Median_Income</span>, x <span class='op'>=</span> <span class='va'>Year</span>, color <span class='op'>=</span> <span class='st'>"Red"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_line</span><span class='op'>(</span> stat <span class='op'>=</span> <span class='st'>'identity'</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Year-wise Median Income Distribution of Households From 1967 to 2019"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='fu'>vars</span><span class='op'>(</span><span class='va'>Race</span><span class='op'>)</span>, scales <span class='op'>=</span> <span class='st'>"free"</span><span class='op'>)</span>  <span class='op'>+</span> <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+</div>
+<p><em>Here we have re-plotted the same information of median income over time as earlier but this time have used “facet_wrap” over “Race” variable to understand the trends better. Here we can observe that the median income has grown for each racial category in the data set. Interestingly, majority of the racial classes for which data is available between mid 2005 to 2015, they have experienced decline in median income. This was the global economic meltdown period due to <code>Sub Prime</code> crisis. From here we can pick up an individual category and see if we are missing out on further trends. I will take “HISPANIC (ANY RACE) 28” category to showcase the same.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://modelr.tidyverse.org'>modelr</a></span><span class='op'>)</span>
+
+<span class='va'>Hispanic</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data_income</span>, <span class='va'>Race</span> <span class='op'>==</span> <span class='st'>"HISPANIC (ANY RACE) 28"</span><span class='op'>)</span>
+
+<span class='va'>Complete_Data</span> <span class='op'>&lt;-</span> <span class='va'>Hispanic</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Year</span>, <span class='va'>Median_Income</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_line</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"MedIncome v/s Time"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_dark</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>Hispanic_pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Median_Income</span> <span class='op'>~</span> <span class='va'>Year</span>, data <span class='op'>=</span> <span class='va'>Hispanic</span><span class='op'>)</span>
+
+<span class='va'>Model</span> <span class='op'>&lt;-</span> <span class='va'>Hispanic</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://modelr.tidyverse.org/reference/add_predictions.html'>add_predictions</a></span><span class='op'>(</span><span class='va'>Hispanic_pred</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Year</span>, <span class='va'>pred</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_line</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Green"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"LinTrend v/s Time"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_dark</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>Residuals</span> <span class='op'>&lt;-</span> <span class='va'>Hispanic</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://modelr.tidyverse.org/reference/add_residuals.html'>add_residuals</a></span><span class='op'>(</span><span class='va'>Hispanic_pred</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Year</span>, <span class='va'>resid</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_hline</span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>, colour <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_line</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Residuals v/s Time"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_dark</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html'>grid.arrange</a></span><span class='op'>(</span><span class='va'>Complete_Data</span>, <span class='va'>Model</span>, <span class='va'>Residuals</span>, nrow <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+</div>
+<p><em>Here I have tried to fit a linear model to the data. It can be observed that the Median_Income data is not following a linear trend. It seems to follow some kind of polynomial trend, maybe quadratic. We can see from the Linear Trend versus Time plot that the a linear model has been tried to fit and values for median income have been predicted. However, basis the residuals plot we can observe that the prediction made by the model are not very dependable due to high variation in the residual distribution which does not satisfy the assumption of linear regression. So,now I will use the complete data to fit the model and analyze how is median income being impacted. I will use all the variables to model the median income from data_income data set.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_reg</span> <span class='op'>&lt;-</span> <span class='va'>data_income</span><span class='op'>[</span>,<span class='op'>]</span>
+
+<span class='va'>data_reg</span><span class='op'>$</span><span class='va'>Year</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>data_reg</span><span class='op'>$</span><span class='va'>Year</span><span class='op'>)</span>
+
+<span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Median_Income</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>data_reg</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = Median_Income ~ ., data = data_reg)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1937.8  -343.9   -24.3   346.3  2140.7 
+
+Coefficients:
+                                    Estimate Std. Error t value
+(Intercept)                        1.291e+05  4.679e+04   2.759
+RaceASIAN ALONE OR IN COMBINATION  8.917e+01  1.944e+02   0.459
+RaceASIAN AND PACIFIC ISLANDER 25 -5.676e+02  3.783e+02  -1.500
+RaceBLACK 25                       6.685e+03  1.557e+03   4.293
+RaceBLACK ALONE 26                 7.249e+03  1.564e+03   4.633
+RaceBLACK ALONE OR IN COMBINATION  7.199e+03  1.557e+03   4.625
+RaceHISPANIC (ANY RACE) 28         6.519e+03  1.340e+03   4.864
+RaceWHITE 25                       7.431e+03  2.318e+03   3.206
+RaceWHITE ALONE 24                 8.143e+03  2.493e+03   3.266
+RaceWHITE ALONE, NOT HISPANIC 24   7.042e+03  2.117e+03   3.327
+RaceWHITE, NOT HISPANIC 25         6.942e+03  2.174e+03   3.193
+Year1968                          -1.191e+02  6.248e+02  -0.191
+Year1969                          -3.802e+02  6.506e+02  -0.584
+Year1970                          -1.353e+03  6.609e+02  -2.048
+Year1971                          -1.176e+03  6.527e+02  -1.802
+Year1972                          -2.096e+03  6.449e+02  -3.251
+Year1973                          -3.099e+03  6.935e+02  -4.469
+Year1974                          -2.430e+03  6.597e+02  -3.684
+Year1975                          -1.833e+03  6.219e+02  -2.948
+Year1976                          -2.462e+03  6.649e+02  -3.702
+Year1977                          -3.080e+03  6.890e+02  -4.471
+Year1978                          -3.838e+03  7.502e+02  -5.116
+Year1979                          -4.088e+03  7.655e+02  -5.340
+Year1980                          -3.602e+03  7.216e+02  -4.991
+Year1981                          -3.682e+03  7.220e+02  -5.100
+Year1982                          -4.142e+03  6.981e+02  -5.933
+Year1983                          -4.448e+03  7.219e+02  -6.161
+Year1984                          -5.086e+03  7.709e+02  -6.598
+Year1985                          -5.141e+03  8.023e+02  -6.407
+Year1986                          -6.108e+03  8.557e+02  -7.138
+Year1987                          -6.565e+03  8.859e+02  -7.411
+Year1988                          -7.353e+03  8.971e+02  -8.196
+Year1989                          -7.256e+03  9.376e+02  -7.739
+Year1990                          -6.430e+03  8.998e+02  -7.146
+Year1991                          -6.977e+03  8.685e+02  -8.033
+Year1992                          -6.722e+03  8.517e+02  -7.892
+Year1993                          -7.361e+03  8.629e+02  -8.531
+Year1994                          -8.366e+03  9.002e+02  -9.293
+Year1995                          -7.965e+03  8.977e+02  -8.872
+Year1996                          -8.128e+03  9.430e+02  -8.620
+Year1997                          -8.486e+03  9.811e+02  -8.650
+Year1998                          -9.245e+03  1.051e+03  -8.801
+Year1999                          -1.069e+04  1.111e+03  -9.624
+Year2000                          -9.510e+03  1.145e+03  -8.308
+Year2001                          -9.921e+03  1.114e+03  -8.905
+Year2002                          -1.049e+04  1.141e+03  -9.194
+Year2003                          -9.882e+03  1.143e+03  -8.649
+Year2004                          -9.876e+03  1.126e+03  -8.773
+Year2005                          -1.009e+04  1.144e+03  -8.820
+Year2006                          -1.118e+04  1.179e+03  -9.484
+Year2007                          -9.844e+03  1.194e+03  -8.246
+Year2008                          -1.007e+04  1.132e+03  -8.896
+Year2009                          -1.076e+04  1.109e+03  -9.706
+Year2010                          -1.077e+04  1.092e+03  -9.868
+Year2011                          -1.027e+04  1.062e+03  -9.674
+Year2012                          -1.059e+04  1.085e+03  -9.760
+Year2013                          -1.097e+04  1.090e+03 -10.068
+Year2014                          -1.100e+04  1.137e+03  -9.682
+Year2015                          -1.210e+04  1.205e+03 -10.035
+Year2016                          -1.199e+04  1.265e+03  -9.475
+Year2017                          -1.302e+04  1.257e+03 -10.354
+Year2018                          -1.243e+04  1.298e+03  -9.583
+Year2019                          -1.337e+04  1.427e+03  -9.371
+Household_Count                   -7.853e-02  2.577e-02  -3.048
+`%Income_Under$15k`               -1.362e+03  4.694e+02  -2.902
+`%Income_Between15k&amp;24.9k`        -1.288e+03  4.755e+02  -2.709
+`%Income_Between25k&amp;34.9k`        -1.194e+03  4.879e+02  -2.448
+`%Income_Between35k&amp;49.9k`        -9.097e+02  4.660e+02  -1.952
+`%Income_Between50k&amp;74.9k`        -8.595e+02  4.733e+02  -1.816
+`%Income_Between75k&amp;99.9k`        -3.228e+02  4.746e+02  -0.680
+`%Income_Between100k&amp;149.9k`       3.703e+00  4.729e+02   0.008
+`%Income_Between150k&amp;199.9k`       4.855e+02  4.798e+02   1.012
+`%Income_Over200k`                 1.019e+03  4.715e+02   2.161
+                                  Pr(&gt;|t|)    
+(Intercept)                       0.006313 ** 
+RaceASIAN ALONE OR IN COMBINATION 0.646853    
+RaceASIAN AND PACIFIC ISLANDER 25 0.135047    
+RaceBLACK 25                      2.69e-05 ***
+RaceBLACK ALONE 26                6.30e-06 ***
+RaceBLACK ALONE OR IN COMBINATION 6.52e-06 ***
+RaceHISPANIC (ANY RACE) 28        2.24e-06 ***
+RaceWHITE 25                      0.001556 ** 
+RaceWHITE ALONE 24                0.001273 ** 
+RaceWHITE ALONE, NOT HISPANIC 24  0.001036 ** 
+RaceWHITE, NOT HISPANIC 25        0.001623 ** 
+Year1968                          0.849046    
+Year1969                          0.559644    
+Year1970                          0.041822 *  
+Year1971                          0.072924 .  
+Year1972                          0.001340 ** 
+Year1973                          1.28e-05 ***
+Year1974                          0.000292 ***
+Year1975                          0.003555 ** 
+Year1976                          0.000273 ***
+Year1977                          1.27e-05 ***
+Year1978                          7.01e-07 ***
+Year1979                          2.39e-07 ***
+Year1980                          1.25e-06 ***
+Year1981                          7.56e-07 ***
+Year1982                          1.21e-08 ***
+Year1983                          3.60e-09 ***
+Year1984                          3.30e-10 ***
+Year1985                          9.50e-10 ***
+Year1986                          1.50e-11 ***
+Year1987                          2.98e-12 ***
+Year1988                          2.39e-14 ***
+Year1989                          4.10e-13 ***
+Year1990                          1.43e-11 ***
+Year1991                          6.63e-14 ***
+Year1992                          1.59e-13 ***
+Year1993                          2.84e-15 ***
+Year1994                           &lt; 2e-16 ***
+Year1995                          3.10e-16 ***
+Year1996                          1.59e-15 ***
+Year1997                          1.32e-15 ***
+Year1998                          4.94e-16 ***
+Year1999                           &lt; 2e-16 ***
+Year2000                          1.17e-14 ***
+Year2001                          2.50e-16 ***
+Year2002                           &lt; 2e-16 ***
+Year2003                          1.32e-15 ***
+Year2004                          5.91e-16 ***
+Year2005                          4.35e-16 ***
+Year2006                           &lt; 2e-16 ***
+Year2007                          1.74e-14 ***
+Year2008                          2.66e-16 ***
+Year2009                           &lt; 2e-16 ***
+Year2010                           &lt; 2e-16 ***
+Year2011                           &lt; 2e-16 ***
+Year2012                           &lt; 2e-16 ***
+Year2013                           &lt; 2e-16 ***
+Year2014                           &lt; 2e-16 ***
+Year2015                           &lt; 2e-16 ***
+Year2016                           &lt; 2e-16 ***
+Year2017                           &lt; 2e-16 ***
+Year2018                           &lt; 2e-16 ***
+Year2019                           &lt; 2e-16 ***
+Household_Count                   0.002602 ** 
+`%Income_Under$15k`               0.004102 ** 
+`%Income_Between15k&amp;24.9k`        0.007295 ** 
+`%Income_Between25k&amp;34.9k`        0.015197 *  
+`%Income_Between35k&amp;49.9k`        0.052232 .  
+`%Income_Between50k&amp;74.9k`        0.070808 .  
+`%Income_Between75k&amp;99.9k`        0.497150    
+`%Income_Between100k&amp;149.9k`      0.993760    
+`%Income_Between150k&amp;199.9k`      0.312709    
+`%Income_Over200k`                0.031833 *  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 611.4 on 211 degrees of freedom
+Multiple R-squared:  0.9989,    Adjusted R-squared:  0.9985 
+F-statistic:  2581 on 72 and 211 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<p><em>For the purpose of model building, I have stored the original tibble “data_income” to another tibble “data_reg” to fit a linear model. The Year column has been converted to factor. From model’s “Residuals” summary, it can be inferred that the residuals are some what normally distributed, which may satisfy the assumptions of the linear model. The coefficient of determination “R squared” and “Adjusted R squared” is 0.998, which confirms that the features are able to explain the variation in median income very well. Also, the F-statistic of the model is significant, assuming the significance level to be 0.05 (5%).</em><br />
+<em>As per the model, average of Median Income is USD 129,100 over the years from 1967 to 2019.</em> <em>Except for the below variables or the respective categories are the variables, all variables are significant to the model:</em></p>
+<p><em><code>Race - ASIAN ALONE OR IN COMBINATION</code> : We only have 20 years median income data for this class and the sample size is not enough to model</em></p>
+<p><em><code>Race - ASIAN AND PACIFIC ISLANDER 25</code> : : We only have 14 years median income data for this class and the sample size is not enough to model</em></p>
+<p><em><code>Year - 1968</code></em></p>
+<p><em><code>Year - 1969</code></em></p>
+<p><em><code>Year - 1971</code></em></p>
+<p><em><code>%Income_Between35k&amp;49.9k</code></em></p>
+<p><em><code>%Income_Between50k&amp;74.9k</code></em></p>
+<p><em><code>%Income_Between75k&amp;99.9k</code></em></p>
+<p><em><code>%Income_Between100k&amp;149.9k</code></em></p>
+<p><em><code>%Income_Between150k&amp;199.9k</code></em></p>
+<p><em>From the model it is clear that only the below classes of income category have impacted the rise in median income over the years. Interestingly the categories <code>%Income_Under$15k</code>, <code>%Income_Between15k&amp;24.9k</code>, and <code>%Income_Between25k&amp;34.9k</code> are negatively impacting the median income overall. It is only households earning <code>%Income_Over200k</code> are driving the median income to rise</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span>  <span class='va'>data_reg</span><span class='op'>[</span> , <span class='op'>-</span><span class='fl'>13</span><span class='op'>]</span>
+
+<span class='va'>Fitted_Values</span> <span class='op'>&lt;-</span> <span class='va'>model</span><span class='op'>$</span><span class='va'>fitted.values</span>
+
+<span class='va'>Residuals</span> <span class='op'>&lt;-</span> <span class='va'>model</span><span class='op'>$</span><span class='va'>residuals</span>
+
+<span class='va'>new_df</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span><span class='va'>Fitted_Values</span>, <span class='va'>Residuals</span><span class='op'>)</span>
+
+<span class='va'>plot1</span> <span class='op'>&lt;-</span> <span class='va'>new_df</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Fitted_Values</span>, <span class='va'>Residuals</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_jitter</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_smooth</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Green"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Residuals v/s Fitted_Values Plot"</span><span class='op'>)</span>
+
+<span class='va'>plot2</span> <span class='op'>&lt;-</span> <span class='va'>new_df</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Fitted_Values</span>, <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>Residuals</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_jitter</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_smooth</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Scaled Residuals v/s Fitted_Values Plot"</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html'>grid.arrange</a></span><span class='op'>(</span><span class='va'>plot1</span>, <span class='va'>plot2</span>, nrow <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+</div>
+<p><em>The model fits the data well and it is confirmed by amount of variation explained by independent variables. Surprisingly, when we look at the two residual plots versus fitted values, we get the idea that the residuals are not randomly distributed but following some type of polynomial pattern. Probably, as we have the insignificant variables as a part of the model, the residual are following some pattern. This needs to be analyzed further by removing the insignificant variables. Some amount of data transformation techniques can also be applied to get better results. However, as the coefficient of determination is 0.998, it seems that removing insignificant variables might help.</em></p>
+<p><strong>Reflection</strong></p>
+<p><em>This is the first time that I have dealt with a Census data set and worked with an economic indicator. The data set was quite challenging due to it’s sheer size and how the aggregation has been done over the years. Although, it is a single sheet data set but it cam with its own set of issues. Wrangling the data took almost 3 days. Also the data set has been provided in a nested form and it needs to be un-nested at first to work with it. I learnt a lot of new concepts, functions, and different strategies to prepare the data for analysis and visualization. While wrangling the data, there are so many ways that a problem could be approached and that distinguishes the efficiency of the process. During the complete process package <code>tidyverse</code> made it super simple to do daunting tasks with only a few commands. In <code>Base R</code>, one needs to write multiple lines of functions along with usage of various libraries to achieve an outcome. The overarching umbrella of <code>tidyverse</code> is extremely useful. I now personally recommend this library even to beginners.</em></p>
+<p><em>As this data set does not have sufficient sample size, it throws a lot of challenges in model building. I have implemented linear regression method to model for a financial indicator <code>median income</code>. Over the years with experience, I understand that such financial indicators pertaining to money is naturally exponentially distributed yet I have only implemented linear regression. Hence, I believe my findings could improve if the sample size is fairly large.</em></p>
+<p><em>As this data set is a nested, I kept struggling to orchestrate the first feature of the data set for a long time. Also, as many functions that I am not readily aware about take a lot of time to search for and then implementing those functions immediately to the context is also not that smooth. After data wrangling, another time-consuming aspect of the project is what to analyze and how to visualize. Hence, defining the research problem at the beginning is of utmost importance. It was very time consuming to figure out what needs to be analyzed during the exploratory data analysis phase. The ideas take a time to crystallize. Preparing the data to visualize also needs to be focused on.</em></p>
+<p><em>I wanted to understand the impact of income categories for shift of median income over time by visualization without building any models. I also identified the grouping variable and grouped the data, however was not able to use it appropriately. I was unable to make the visualizations and resorted to modelling the data to understand the impact of income categories.</em></p>
+<p><em>In case I am able to continue the project, I will focus more on the logic of grouping the variables and how it is used to subset the data to build visualizations. I would also like to improve the data quality and would like to source relevant features from other data sets to provide more rationalization to the economic indicator. I would also like to invest more time in modelling the data to bring dependable insights.</em></p>
+<p><strong>Conclusion</strong></p>
+<p><em>The agenda of this project was to understand how median income shifts for households across various races in USA over time. After analyzing the data set, I have I have come to conclusion that this data set needs to be augmented further with more features and additional samples across each race category to drive meaningful dependable insights. The series of changes implemented by the bureau during data collection needs to be looked at with more depth to understand what sort of overlaps are present for households across races in order to rationalize the races and reduce/increase it to more meaningful categories. Also, the questionnaire for the survey have evolved over time, and understanding needs to be built how it can be blended with previously collected data.</em></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bureau_2020" class="csl-entry" role="doc-biblioentry">
+Bureau, US Census. 2020. <span>“Income and Poverty in the United States: 2019.”</span> <em>The United States Census Bureau</em>. <a href="https://www.census.gov/data/tables/2020/demo/income-poverty/p60-270.html">https://www.census.gov/data/tables/2020/demo/income-poverty/p60-270.html</a>.
+</div>
+</div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
