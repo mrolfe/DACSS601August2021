@@ -1,0 +1,214 @@
+---
+title: "Saulo's 'Egg'cellent Final Project"
+author:
+  - name: Saulo DePaula
+date: 08-26-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+## Introduction
+
+In what may have been Martin Gerra’s 1959 seminal piece, *The Demand, Supply, and Price Stucture for Eggs*, the author sought to understand the “major factors that affect the demand for and supply of eggs in the United States and the quantification in a statistical model of the relationships among those factors” (p. 1). Over the course of 163 pages, Gerra’s (1959) mathematical dive into the factors influencing the price of eggs is elegant and, without a doubt, inspirational.
+
+With the above in mind, I seek to highlight only a sliver of data on the price of eggs from 2004 to 2013. I ask, specifically: is it possible to discern patterns or notable inferences through a dataset including egg prices over range of years?
+
+The purpose of this project is two-fold. First, I seek to answer the question above, to the extent that is possible. Second, and perhaps most pertinent to the project, I use this as an attempt to demonstrate the skills I have learned through DACSS 601: Data Science Fundamentals. 
+
+## Data
+
+The data being referenced throughout this project  – *eggs_tidy* –  were retrieved from the assortment of sample datasets provided through the DACSS 601 online classroom portal. Its origins beyond the classroom portal are, unfortunately, unknown. The dataset is fairly straightforward, but nonetheless requires some explanation. 
+
+In total, there are eight columns: *Month*, *Year*, *Date*, *Large Half Dozen*, *Large Dozen*, *Extra Large Half Dozen*, *Extra Large Dozen*, and *Average Price*. *Months* range from January to December, *Years* from 2004 to 2013, and *Date* is a combination of the prior two (e.g., January 2003); therefore, every month from January 2003 to December 2013 is included, for a total of 120 rows. For each corresponding *Date*, there is a price (in cents) listed for each category of eggs, from *Large Half Dozen* to *Extra Large Dozen*. As is expected, a regular dozen will always cost more than its half dozen counterpart (i.e., *Large Dozen* > *Large Half Dozen*; *Extra Large Dozen* > *Extra Large Half Dozen*). The final column, *Average Price*, includes the average price across all four egg categories for any given Date. Overall, the data are organized in the most logical manner conceivable and do not present any opportunities for confusion. The only modifications made were 1) concatenating *Month* and *Year* into *Date* and 2) creating the *Average Price* column. 
+
+These data are informative – they provide a clear snapshot of the price under each category of eggs being sold over the course of ten years. However, the data are limited in that the chronological interactions are simply between the prices of one set of eggs versus others. There are no additional data that may present deeper insights, such as the price of chickens or chicken feed, egg-laying data (e.g., how many eggs laid by a chicken over *x* amount of days/months/years). All of these factors (and others) would be incredibly valuable and would transform the entire perspective of this project.
+
+Nevertheless, it is possible to persevere with the data at hand and tackle the two-fold purpose mentioned above!
+
+## Visualization
+
+Before diving right into visualizations, it is helpful to understand the layout of the data set (e.g., *dim*) and some basic descriptive statistics that summarize the dataset into a more condensed set of metrics. For each category of egg being sold (including the *Average Price* column), the following are listed below: *Mean*, *Median*, *Min*, *Max*.
+
+```{r echo = FALSE}
+eggs <- read.csv(file="/Users/SauloDePaula/Documentos/Documents/School/Grad School/PhD/DACSS 601 (Data Science Fundamentals)/RStudio/DACSS601August2021/eggs_tidy2.csv")
+```
+
+```{r}
+dim(eggs)
+```
+
+The *dim* function provides a quick summary of the number of rows (120) and columns (8). For a simple data set such as this one, the number of rows and columns is very manageable, but if were larger, *dim* would prove itself to be increasingly more useful. 
+
+```{r}
+colnames(eggs)
+```
+
+The *colnames* function compiles a list of all column names (previously described in the Data section). Similar to *dim*, *colnames* is extraordinarily efficient at rapidly summarizing key information. 
+
+### Large Half Dozen
+
+```{r echo = FALSE}
+library(tidyverse)
+summarize(eggs, mean(`large_half_dozen`))
+summarize(eggs, median(`large_half_dozen`))
+summarize(eggs, min(`large_half_dozen`))
+summarize(eggs, max(`large_half_dozen`))
+```
+
+As noted above, the price of *Large Half Dozen* eggs over 10 years produced a mean of 155.17, median of 174.50, min of 126.00, and max of 178.00 Evidently, the price of *Large Half Dozen* eggs spent a considerably amount of time closer to its highest price. 
+
+### Extra Large Half Dozen
+
+```{r echo = FALSE}
+library(tidyverse)
+summarize(eggs, mean(`extra_large_half_dozen`))
+summarize(eggs, median(`extra_large_half_dozen`))
+summarize(eggs, min(`extra_large_half_dozen`))
+summarize(eggs, max(`extra_large_half_dozen`))
+```
+
+The next category of prices, *Extra Large Half Dozen*, had a mean of 164.22, median of 185.50, min of 132.00, and max of 188.13.
+
+### Large Dozen
+
+```{r echo = FALSE}
+library(tidyverse)
+summarize(eggs, mean(`large_dozen`))
+summarize(eggs, median(`large_dozen`))
+summarize(eggs, min(`large_dozen`))
+summarize(eggs, max(`large_dozen`))
+```
+
+*Large Dozen* eggs produced a mean of 254.20, median of 267.50, min of 225.00, and max of 277.50.
+
+### Extra Large Dozen
+
+```{r echo = FALSE}
+library(tidyverse)
+summarize(eggs, mean(`extra_large_dozen`))
+summarize(eggs, median(`extra_large_dozen`))
+summarize(eggs, min(`extra_large_dozen`))
+summarize(eggs, max(`extra_large_dozen`))
+```
+
+The last category of eggs, *Extra Large Dozen*, egg prices yielded the following results: mean of 266.80, median of 285.50, min of 230.00, and max of 290.00.
+
+
+```{r echo = FALSE}
+library(tidyverse)
+summarize(eggs, mean(`avg_price`))
+summarize(eggs, median(`avg_price`))
+summarize(eggs, min(`avg_price`))
+summarize(eggs, max(`avg_price`))
+```
+
+Finally, the *Average Price* had a mean of 210.10, median of 228.25, min of 197.50, and max of 290.00.
+
+For a few initial visualizations, the following four graphs display the price frequency for each category of eggs – that is, how often each category was priced at any given value. Noteworthy is that, visually, the Half Dozen variations have nearly identical frequencies, which may indicate their prices are directly linked to each other. As the Large variation changes, so too does the Extra Large. The graphs for the Dozen variations have similar shapes, but are slightly different, whereas the Half Dozen variations are fairly indistinguishable. In all cases, it is evident that eggs prices spent more time closer their maximum price (within the ten-year range), indicating price growth followed by a long-term plateau near the top.
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(`large_half_dozen`)) + geom_density(colour="#881C1C") +
+  theme_minimal() +
+  labs(title = "Price Frequency for Large Half Dozen Egg Prices (in cents)", y = "Frequency", x= "Count of Eggs")
+```
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(`extra_large_half_dozen`)) + geom_density(colour="#881C1C") +
+  theme_minimal() +
+  labs(title = "Price Frequency for Extra Large Half Dozen Egg Prices (in cents)", y = "Frequency", x= "Count of Eggs")
+```
+
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(`large_dozen`)) + geom_density(colour="#881C1C") +
+  theme_minimal() +
+  labs(title = "Price Frequency for Large Dozen Egg Prices (in cents)", y = "Frequency", x= "Count of Eggs")
+```
+
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(`extra_large_dozen`)) + geom_density(colour="#881C1C") +
+  theme_minimal() +
+  labs(title = "Price Frequency for Extra Large Dozen Egg Prices (in cents)", y = "Frequency", x= "Count of Eggs")
+```
+
+The next two charts are intended to efficiently visualize the relationships between the large and extra large variations of eggs, which can help further determine whether there is a discernable pattern or relationship. As seen below, the mirrored relationship between the large and extra large variations of eggs are emphasized in a similar manner to the charts above – the prices of large eggs are tied to the price of extra large eggs. 
+
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`large_half_dozen`, col=as_factor(`extra_large_half_dozen`))) + 
+  geom_point() +
+  labs(title = "Relationship between Large and Extra Large Half Dozen Eggs", y = "Price of Large Half Dozen Eggs", x= "Year")
+
+```
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`large_dozen`, col=as_factor(`extra_large_dozen`))) + 
+  geom_point() +
+  labs(title = "Relationship between Large and Extra Large Dozen Eggs", y = "Price of Large Dozen Eggs", x= "Year")
+```
+
+The final four charts highlight the relationship between the price of each category of egg (separately) with the average price of all egg categories, for each corresponding date. While there is a *mostly* consistent relationship (when one rises, so too does the other, or vice-versa), it's clear that there is some deviation over time, notably starting in 2008, indicating that the prices don't always proportionally line up (e.g., when some go up, others go down or don't shift, and vice-versa).
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`large_half_dozen`, col=as_factor(`avg_price`))) + 
+  geom_point() +
+  labs(title = "Relationship between Large Half Dozen Eggs and Avg Egg Price", y = "Price of Large Half Dozen Eggs", x= "Year")
+
+```
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`extra_large_half_dozen`, col=as_factor(`avg_price`))) + 
+  geom_point() +
+  labs(title = "Relationship between Extra Large Half Dozen Eggs and Avg Egg Price", y = "Price of Extra Large Half Dozen Eggs", x= "Year")
+```
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`large_dozen`, col=as_factor(`avg_price`))) + 
+  geom_point() +
+  labs(title = "Relationship between Large Dozen Eggs and Avg Egg Price", y = "Price of Large Dozen Eggs", x= "Year")
+```
+
+```{r echo = FALSE}
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`extra_large_dozen`, col=as_factor(`avg_price`))) + 
+  geom_point() +
+    labs(title = "Relationship between Extra Large Dozen Eggs and Avg Egg Price", y = "Price of Extra Large Dozen Eggs", x= "Year")
+
+```
+
+## Conclusion
+
+The question posed at the start of this project asked: *is it possible to discern patterns or notable inferences through a dataset including egg prices over range of years?* The immediate answer is a firm *maybe*. Ultimately, the lack of data and, truthfully, skills (discussed further in the *Reflection* portion of the project) place a limit on what can be produced and interpreted through the data. There is, of course, a clear pattern between the large and extra large variation of eggs over time; as one changes, so too does the other at a fairly similar rate. 
+
+That said, there is yet so much more to be explored, especially if additional data (e.g., price of chickens, chicken feed, egg-laying rates, etc.) were to be incorporated into the mix. What this project definitively spotlights is the potential that RStudio has for taking in all these metrics, no matter how simple (this project is on egg prices, after all!), and producing some neat outputs (based on the input of several chunks of code).
+
+## Reflection
+
+The process of running the *eggs_tidy2* dataset through RStudio was exploratory, at best. Due to a (pun intended) chicken and egg conundrum, I felt a bit stuck through the process. On the one hand, I feel my grasp on the RStudio and the language being utilized is simplistic. I have just barely scratched the surface of what’s possible and, truthfully, everything beyond feels quite overwhelming. On the other hand, I acknowledge the dataset I opted to use for this project is equally as simple as my understanding of RStudio, therefore I was limited in the quantity and quality of outputs I could produce with such basic data. However – and this is where the paradox comes in – had I chosen a more intricate dataset, I would not have known what to do with it, given my rudimentary skills. 
+
+The learning curve for RStudio is, at least to me, extraordinarily steep, and seemingly impossible to get ahead of without dedicating enormous amounts of time to understanding the language and shortcuts. Although I believe it’s the troubleshooting factor that is most prohibitive – there is always so much that can go wrong, and searching for a solution is never all that simple. The variety of errors can be frustrating, especially when you know what you want to produce, but cannot figure out how to make it work. Even when following step-by-step instructions from R4DS and other resources provided, results varied or produced further errors.
+
+For example, I really wanted to produce a few charts with the Date on the X-axis and price of a given category of eggs on the Y-axis. The only way in which I was able to achieve that was through the following:
+
+library(tidyverse)
+ggplot(eggs, aes(x=`year`, y=`large_dozen`, col=as_factor(`extra_large_dozen`))) + 
+ 	geom_point() 
+
+However, this isn’t what I wanted to produce, but the only way through which I could get some semblance of my vision to work. I attempted to modify it, but with results being strings of errors I could not overcome.
+
+Now, is RStudio a bad platform for statistics and visualizations? Of course not! I actually think it’s fantastic at summarizing complex data into interpretable results. However, its value is linked directly to the user, so to maximize its potential, the user must also maximize their skills. Overall, it was interesting to test out the basics of RStudio and see how it interacts with the chunks of code I would input. Hitting *Knit* and getting zero errors is an added bonus, I will add – the immediate satisfaction of seeing the result of your work on screen can be genuinely exciting. 
+
+## References
+
+Gerra, M. J. (1959). *The demand, supply, and price structure of eggs*. United States Department of Agriculture (USDA).
