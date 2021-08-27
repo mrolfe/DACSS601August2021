@@ -421,7 +421,7 @@ rbind(cbind(cattle_all, Category = "Cattle"), cbind(swine_all, Category = "Swine
   geom_bar(stat = "identity") + theme_minimal()
 
 ```
-*While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a significant impact on the emission as the growth is almost exponential to the growth of human population*
+*While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a significant impact on the emission.*
 ```{r}
 methane <- read.csv("../../_data/ghg-concentrations_fig-1.csv", skip = 6) %>% 
   slice(1860:1964) %>% 

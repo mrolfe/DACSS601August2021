@@ -1873,7 +1873,7 @@ Western Europe        130   130    217</code></pre>
 1966           0.04436850                26.89000</code></pre>
 </div>
 <figure>
-<img src="_data/IPCC_pigs.png" alt="Estimated Population of Swine" /><figcaption aria-hidden="true">Estimated Population of Swine</figcaption>
+<img src="../../_data/IPCC_pigs.png" alt="Estimated Population of Swine" /><figcaption aria-hidden="true">Estimated Population of Swine</figcaption>
 </figure>
 <p><em>For swine(pigs) the <span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span> assumption is assumed here where close to 90% of them are used for breeding and only 1% are available for market. Based on this assumption <code>swine_breeding</code> and <code>swine_market</code> dataframes are created using the wrangling_livestock function (loading FAOSTAT_livestock.csv) and then multiplied by their respective weights in different regions. These are then combined to form swine_all where using rowSums the data is categorized into Total Biomass/year and %age Total Mammal Biomass/year.</em></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2152,7 +2152,7 @@ Western Europe        130   130    217</code></pre>
 </div>
 <p><img src="final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
-<em>While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a significant impact on the emission as the growth is almost exponential to the growth of human population</em>
+<em>While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a significant impact on the emission.</em>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>methane</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"../../_data/ghg-concentrations_fig-1.csv"</span>, skip <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
