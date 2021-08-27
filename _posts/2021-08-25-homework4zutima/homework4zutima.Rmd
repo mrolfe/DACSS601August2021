@@ -1,45 +1,149 @@
 ---
 title: "homework4_zutima"
 description: |
-  A short description of the post.
+  Home work 4
 author:
-  - name: Abhinav Kumar
+  - name: Zutima Tuladhar
     url: {}
 date: 08-25-2021
 output:
   distill::distill_article:
     self_contained: false
 ---
+Hotel Bookings can be very expensive, the data we are discussing today looks at the patterns of hotel bookings from travelers that show the peak months and days that are the busiest and expensive times to book a room. This data was collected between the years of 2015-2017. 
 
+a. What is the best time of the year to book hotels?
+b. What is the optimal time of days to spend for the best rate possible?
+c. What time and month do hotels receive most requests?
+
+We can see above that we have 32 columns of data.  
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 ```{r}
+
 library(tidyverse)
 library(stringr)
 library(dplyr)
+library(ggplot2)
 
 ```
-Tasks for Assignment 4
-
-For this assignment, you must select at least two variables of interest from your dataset, provide a basic description of the variables, clean and recode as needed, and present descriptive statistics and any visualizations. Your R Markdown document should include:
-
-1. Descriptions of the variables - how they were collected, any missing values, etc
-2. How you cleaned and coded the data, including a before/after comparison as needed
-3. summary descriptives of the recoded variables
-4. appropriate visualizations (not required)
-
 ```{r Read in the data}
-
 book <-read_csv(file="../../_data/hotel_bookings.csv")
-
-```
-
-### Now we will read in the data. For this assignment, I am looking at the hotel bookings data which shows us data describing the best time and year to book a hotel. Source for this data is kaggle: https://www.kaggle.com/jessemostipak/hotel-booking-demand
-
-
 ```
 
 
+```{r Column names}
+colnames(book)
+```
+In order to pick our variables for the assignment today, lets look at the columns 
+using colnames() function. 
+
+We can now see we have 32 columns with various data. Out of the 32 I will be 
+looking 
+at four of them. As we are using this assignment to further build on our final 
+project, my variables would be 
+
+
+```{r}
+
+(d <- book %>% 
+  select( hotel, arrival_date_year, arrival_date_month, hotel, is_repeated_guest, market_segment))
+
+#Hotel : Type of hotel (Resort or City)
+#Arrival Date of Year : Between 2015, 2016 and 2019
+#Arrival Date of Month : In each year, arrival in month
+#Repeated Guest : This data shows the number of each repeated guest in each hotel.
+#Market Segment
+
+```
+
+```{r}
+
+unique(d$arrival_date_year)
+unique(d$arrival_date_month)
+
+```
+
+```{r  clean data}
+
+## Drop explicit missing values (NA) data in all columns
+
+drop_na(d,market_segment, arrival_date_year, arrival_date_month, is_repeated_guest, hotel) 
+
+
+```
+
+```{r}
+
+ggplot(d, aes(arrival_date_year)) + geom_bar() + theme_classic()
+
+```
+```{r}
+
+## arrival_date_month
+
+ggplot(d, aes(arrival_date_month)) + geom_bar() +theme_classic()
+
+## The bar shows the number of guests that booked hotels each month from 2015-2017 at the particular hotels. We can see from the graph there were highest number of bookings in August and lowest number of bookings in January.
+
+```
+
+```{r filter}
+resort <- filter(d, hotel == "Resort Hotel") 
+city <- filter(d, hotel =="City Hotel")
+```
+
+We can now look at which year was the highest number of guests arriving at each hotel. 
+
+```{r arrange}
+
+resort$hotel <- resort$arrival_date_year + resort$is_repeated_guest
+city$hotel <- city$arrival_date_year + city$is_repeated_guest
+
+```
+```{r }
+
+(d %>% group_by(hotel, arrival_date_year)) %>% count(arrival_date_year)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram( stat = "count") + 
+  labs(title = "Year Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_year), scales = "free_y"))
+
+```
+```{r}
+(d %>% group_by(hotel, is_repeated_guest)) %>% count(is_repeated_guest)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(stat = "count") + 
+  labs(title = "Repeated Guest") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(is_repeated_guest), scales = "free_y"))
+
+#How many of the guests are repeated guests. This is an important variable to look at as it shows the performance and determines the rating of each hotel for future prospective customers. 
+
+```
+
+```{r}
+
+(d %>% group_by(arrival_date_year, arrival_date_month)) %>% count(arrival_date_month)
+
+(ggplot(d, aes(arrival_date_year)) + 
+  geom_histogram( stat = "count") + 
+  labs(title = "Month Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_month), scales = "free_y"))
+```
+
+```{r}
+(d %>% group_by(arrival_date_year, market_segment)) %>% count(market_segment)
+(ggplot(d, aes(arrival_date_year)) + 
+  geom_histogram( stat = "count") + 
+  labs(title = "Market Segment") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(market_segment), scales = "free_y"))
+```
 
