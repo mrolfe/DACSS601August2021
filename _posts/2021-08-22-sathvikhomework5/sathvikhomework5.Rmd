@@ -1,0 +1,40 @@
+---
+title: "sathvik_homework5"
+description: |
+  Homework5 : creating visualizations and interpreting them
+author: sathvik_thogaru
+date: 08-22-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+
+```{r}
+df <- read
+```
+
+
+
+```{r}
+Remove retweets
+Gates_tweets_organic <- Gates_tweets[Gates_tweets$is_retweet==FALSE, ] 
+# Remove replies
+Gates_tweets_organic <- subset(Gates_tweets_organic, is.na(Gates_tweets_organic$reply_to_status_id)) 
+```
+
+

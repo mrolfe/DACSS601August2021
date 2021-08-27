@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Biomass Distribution 1961-2018</title>
+
+  <meta property="description" itemprop="description" content="DACSS 601 Final Project"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-08-23"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-08-23"/>
+  <meta name="article:author" content="Shubham Mishra"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Biomass Distribution 1961-2018"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="DACSS 601 Final Project"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Biomass Distribution 1961-2018"/>
+  <meta property="twitter:description" content="DACSS 601 Final Project"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=The biomass distribution on earth;citation_publication_date=2018;citation_publisher=National Academy of Sciences;citation_volume=115;citation_doi=10.1073/pnas.1711842115;citation_issn=0027-8424;citation_author=Yinon M. Bar-On;citation_author=Rob Phillips;citation_author=Ron Milo"/>
+  <meta name="citation_reference" content="citation_title=FAO global statistical yearbook, FAO regional statistical yearbooks;citation_publisher=Food; Agriculture Organization of the United Nations (FAO)"/>
+  <meta name="citation_reference" content="citation_title=How many times has the human population doubled? Comparisons with cancer;citation_publication_date=1999;citation_volume=21;citation_doi=10.1023/A:1022153110536;citation_issn=1573-7810;citation_author=Warren M. Hern"/>
+  <meta name="citation_reference" content="citation_title=2006 IPCC guidelines for NATIONAL greenhouse gas inventories"/>
+  <meta name="citation_reference" content="citation_title=Humans just 0.01;citation_publication_date=2018;citation_publisher=Guardian News; Media"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","bibliography","draft"]}},"value":[{"type":"character","attributes":{},"value":["Biomass Distribution 1961-2018"]},{"type":"character","attributes":{},"value":["DACSS 601 Final Project\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Shubham Mishra"]}]}]},{"type":"character","attributes":{},"value":["08-23-2021"]},{"type":"character","attributes":{},"value":["Final Project","Biomass Distribution 1961-2018","bakharia"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["the-biomass-distribution-on-earth.bib"]},{"type":"logical","attributes":{},"value":[true]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["final-project-biomass-distribution-1961-2018_files/anchor-4.2.2/anchor.min.js","final-project-biomass-distribution-1961-2018_files/bowser-1.9.3/bowser.min.js","final-project-biomass-distribution-1961-2018_files/distill-2.2.21/template.v2.js","final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-22-1.png","final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-23-1.png","final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-24-1.png","final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-25-1.png","final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-26-1.png","final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-27-1.png","final-project-biomass-distribution-1961-2018_files/header-attrs-2.10/header-attrs.js","final-project-biomass-distribution-1961-2018_files/jquery-1.11.3/jquery.min.js","final-project-biomass-distribution-1961-2018_files/popper-2.6.0/popper.min.js","final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy-bundle.umd.min.js","final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy-light-border.css","final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy.css","final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy.umd.min.js","final-project-biomass-distribution-1961-2018_files/webcomponents-2.0.0/webcomponents.js","IPCC_pigs.png","the-biomass-distribution-on-earth.bib"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="final-project-biomass-distribution-1961-2018_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="final-project-biomass-distribution-1961-2018_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="final-project-biomass-distribution-1961-2018_files/popper-2.6.0/popper.min.js"></script>
+  <link href="final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="final-project-biomass-distribution-1961-2018_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="final-project-biomass-distribution-1961-2018_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="final-project-biomass-distribution-1961-2018_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="final-project-biomass-distribution-1961-2018_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="final-project-biomass-distribution-1961-2018_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Biomass Distribution 1961-2018","description":"DACSS 601 Final Project","authors":[{"author":"Shubham Mishra","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-23T00:00:00.000-04:00","citationText":"Mishra, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Biomass Distribution 1961-2018</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Final Project</div>
+<div class="dt=tag">Biomass Distribution 1961-2018</div>
+<div class="dt=tag">bakharia</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>DACSS 601 Final Project</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Shubham Mishra
+  
+<br/>08-23-2021
+</div>
+
+<div class="d-article">
+<p><strong>INTRODUCTION</strong></p>
+<p><em>This project helps in properly visualising as well as undersanding the rapid change in biomass distribution in the last ~60 years. <span class="citation" data-cites="Bar-On6506"><a href="#ref-Bar-On6506" role="doc-biblioref">Bar-On, Phillips, and Milo</a> (<a href="#ref-Bar-On6506" role="doc-biblioref">2018</a>)</span></em> <em>It is a way to fact check all the different headlines that have been going around recently like how humans contribution to the present state of the planet has been more than 83% but by themselves they only make up 0.01% of the life present on earth. <span class="citation" data-cites="the_guardian_2018"><a href="#ref-the_guardian_2018" role="doc-biblioref"><span>“Humans Just 0.01”</span></a> (<a href="#ref-the_guardian_2018" role="doc-biblioref">2018</a>)</span> </em></p>
+<p><em>How the population sizes of mammals, fish, birds, reptiles, and amphibians have declined an average of 68% between 1970 and 2016, according to World Wildlife Fund’s (WWF) Living Planet Report 2020. Populations in Latin America and the Caribbean have fared worst, with an average decline of 94%. Global freshwater species have also been disproportionately impacted, declining 84% on average. As an important indicator of planetary health, these drastic species population trends signal a fundamentally broken relationship between humans and the natural world, the consequences of which—as demonstrated by the ongoing COVID-19 pandemic—can be catastrophic. <code>@wwf_2020</code> </em></p>
+<p><em>In order better understand the actual meaning behind these numbers, biomass distribution has been used which can be used to depict the size of a species with respect to all the lifeforms.</em></p>
+<p><strong>DATA</strong></p>
+<p><em>This project consists of data pulled from 2006 IPCC Guidelines for National Greenhouse Gas Inventories (<span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span>) and Food and Agriculture Organization of the United Nations (<span class="citation" data-cites="faostat"><a href="#ref-faostat" role="doc-biblioref"><span>“FAO Global Statistical Yearbook, FAO Regional Statistical Yearbooks”</span></a> (<a href="#ref-faostat" role="doc-biblioref">n.d.</a>)</span>) for data regarding the mass index and distribution of poultry and livestock in different regions of the world (North and Latin America, Asia, Indian Subcontinent, Oceania and Africa). The aim of this project was to map out the change in the biomass distribution and analyze how human activities have affected the environment in the past 60 years. The main focus will be on terrestrial lifeforms (animals) and humans.</em></p>
+<p><em>The project can be broken down into two sections: Wrangling and Visualization. As I will be referring to various data sets in this project, cleaning and structuring is a big part of it. </em></p>
+<p><strong>WRANGLING</strong></p>
+<em>70% humany body is water =&gt; 30% carbon x 50% carbon out of the dry weight. Also the average of the human body is being assumed at 50 kgs. Also, 1kg is equal to 0.15 C which is stored in the variable <code>to_carbon</code> <span class="citation" data-cites="Hern1999"><a href="#ref-Hern1999" role="doc-biblioref">Hern</a> (<a href="#ref-Hern1999" role="doc-biblioref">1999</a>)</span>.</em> <em><code>bird_bm</code> and <code>mammal_bm</code> store the total biomass of the birds and mammals on earth and <code>wild_animal_biomass</code> stores the total biomass of the wild animals on earth.</em> <em>These values have been used as constants in this notebook for easy conversion. For this project, the total biomass on earth has been assumed to be ~550 Gt C, being such a large number any change in it is bound to be insignificant concerning only a span of 60 years.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>regions</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Africa"</span>, <span class='st'>"Latin America"</span>, <span class='st'>"Asia"</span>, <span class='st'>"Eastern Europe"</span>, <span class='st'>"Northern America"</span>, <span class='st'>"Oceania"</span>, <span class='st'>"Indian Subcontinent"</span>, <span class='st'>"Western Europe"</span> <span class='op'>)</span><span class='op'>)</span>
+<span class='va'>converter</span> <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>*</span><span class='fl'>0.15</span><span class='op'>/</span><span class='fl'>1e15</span> <span class='co'>#kg to Gt</span>
+<span class='va'>wild_animal_biomass</span> <span class='op'>=</span> <span class='fl'>550</span> <span class='op'>*</span> <span class='fl'>3</span> <span class='op'>*</span> <span class='fl'>1e-6</span>
+<span class='va'>birds_bm</span> <span class='op'>=</span> <span class='fl'>0.007</span> <span class='co'>#Gt C</span>
+<span class='va'>mammmal_bm</span> <span class='op'>=</span> <span class='fl'>550</span> <span class='op'>*</span> <span class='fl'>3</span> <span class='op'>*</span> <span class='fl'>1e-4</span>
+<span class='va'>to_carbon</span> <span class='op'>=</span> <span class='fl'>0.15</span>
+<span class='va'>human_carbon_mass</span> <span class='op'>=</span> <span class='fl'>5e4</span> <span class='op'>*</span> <span class='va'>to_carbon</span>
+</code></pre>
+</div>
+</div>
+<em>Loading the data on human population over the years and converting it into Gt C and calculating the changing biomass and %age biomass over the years</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>human_pop</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"_data/Data_Extract_From_World_Development_Indicators.xlsx"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>select</span><span class='op'>(</span><span class='op'>!</span> <span class='fu'>contains</span><span class='op'>(</span><span class='st'>"Series"</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='op'>!</span> <span class='fu'>contains</span><span class='op'>(</span><span class='st'>"Country"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pivot_longer</span><span class='op'>(</span>cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>.</span><span class='op'>)</span>,names_to <span class='op'>=</span> <span class='st'>"Year"</span>, values_to <span class='op'>=</span> <span class='st'>"Population"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>Year</span>, <span class='st'>'[^\\s]+'</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>`Population`</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>human_carbon_mass</span> <span class='op'>*</span> <span class='fl'>1e-15</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>mammmal_bm</span> <span class='op'>*</span> <span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span>
+
+    
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>human_pop</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 4
+   Year Population `Total Biomass (Gt C)` `% Mammal Biomass (Gt C)`
+  &lt;dbl&gt;      &lt;dbl&gt;                  &lt;dbl&gt;                     &lt;dbl&gt;
+1  2013 7169675197                 0.0538                      32.6
+2  2014 7254292848                 0.0544                      33.0
+3  2015 7339076654                 0.0550                      33.4
+4  2016 7424484741                 0.0557                      33.7
+5  2017 7509410228                 0.0563                      34.1
+6  2018 7592475615                 0.0569                      34.5</code></pre>
+</div>
+<p><em>Loading the mass Index for poultry and modifying the Area name and Region as per the requirement, the areas under focus have been listed down below</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>birds_index</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'_data/birds.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Area <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+    <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Southern Asia"</span> <span class='op'>~</span> <span class='st'>"Indian Subcontinent"</span>,
+    <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Americas"</span> <span class='op'>~</span> <span class='st'>"Latin America"</span>,
+    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='va'>Area</span>
+  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Area</span> <span class='op'>%in%</span> <span class='va'>regions</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Item</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>birds_index</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  ï..Domain.Code       Domain Area.Code   Area Element.Code Element
+1             QA Live Animals      5100 Africa         5112  Stocks
+2             QA Live Animals      5100 Africa         5112  Stocks
+3             QA Live Animals      5100 Africa         5112  Stocks
+4             QA Live Animals      5100 Africa         5112  Stocks
+5             QA Live Animals      5100 Africa         5112  Stocks
+6             QA Live Animals      5100 Africa         5112  Stocks
+  Item.Code     Item Year.Code Year      Unit  Value Flag
+1      1057 Chickens      1961 1961 1000 Head 274201    A
+2      1057 Chickens      1962 1962 1000 Head 282821    A
+3      1057 Chickens      1963 1963 1000 Head 292008    A
+4      1057 Chickens      1964 1964 1000 Head 305707    A
+5      1057 Chickens      1965 1965 1000 Head 316576    A
+6      1057 Chickens      1966 1966 1000 Head 330808    A
+                                                              Flag.Description
+1 Aggregate, may include official, semi-official, estimated or calculated data
+2 Aggregate, may include official, semi-official, estimated or calculated data
+3 Aggregate, may include official, semi-official, estimated or calculated data
+4 Aggregate, may include official, semi-official, estimated or calculated data
+5 Aggregate, may include official, semi-official, estimated or calculated data
+6 Aggregate, may include official, semi-official, estimated or calculated data</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>birds_index</span><span class='op'>[</span>,<span class='st'>"Area"</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     birds_index[, &quot;Area&quot;]
+1                   Africa
+291                   Asia
+581         Eastern Europe
+813    Indian Subcontinent
+1045         Latin America
+1277      Northern America
+1509               Oceania
+1741        Western Europe</code></pre>
+</div>
+<em>Using bird_index the information on chicken is extracted out which only the Area, Year and Value columns are seleccted. The Values of Latin America and Asia are modified by subtracting Northern America and Indian Subcontinent respectively to avoid repitition.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>chicken</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>birds_index</span>, <span class='va'>Item</span> <span class='op'>==</span> <span class='st'>"Chickens"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Latin America` <span class='op'>=</span> <span class='va'>`Latin America`</span> <span class='op'>-</span> <span class='va'>`Northern America`</span>, Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>chicken</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Africa    Asia Eastern Europe Indian Subcontinent Latin America
+1961 274201  918518         623953              172296        365212
+1962 282821  962503         672343              176622        373697
+1963 292008 1001039         689495              186306        395109
+1964 305707 1040895         623901              193017        423850
+1965 316576 1078200         638318              199930        428824
+1966 330808 1108430         671476              209242        441242
+     Northern America Oceania Western Europe
+1961           821016   26304         361024
+1962           847087   27059         364607
+1963           847720   27313         365832
+1964           863594   27991         380597
+1965           904276   28949         386324
+1966           926914   29316         349822</code></pre>
+</div>
+<em>The dataset on chickens laying eggs is loaded and stored in <code>chicken_layers</code> and is formatted to match the table above.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>chicken_layers</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'_data/FAOSTAT_egg_chicken.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Area <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+    <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Southern Asia"</span> <span class='op'>~</span> <span class='st'>"Indian Subcontinent"</span>,
+    <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Americas"</span> <span class='op'>~</span> <span class='st'>"Latin America"</span>,
+    <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='va'>Area</span>
+  <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Area</span> <span class='op'>%in%</span> <span class='va'>regions</span> <span class='op'>&amp;</span> <span class='va'>Element</span> <span class='op'>==</span> <span class='st'>"Laying"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Latin America` <span class='op'>=</span> <span class='va'>`Latin America`</span> <span class='op'>-</span> <span class='va'>`Northern America`</span>, Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span>
+  
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>chicken_layers</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Africa   Asia Eastern Europe Indian Subcontinent Latin America
+1961 122114 546011         393793               56750        150247
+1962 126039 575480         405868               61033        151731
+1963 129208 568808         390208               64255        153821
+1964 134420 593492         384892               65305        160602
+1965 141982 614320         414677               69055        171345
+1966 145630 628879         438041               74105        167284
+     Northern America Oceania Western Europe
+1961           323081   18033         167066
+1962           326236   18301         163560
+1963           323869   17925         164074
+1964           327459   18117         169345
+1965           327171   19248         168955
+1966           329247   19579         199529</code></pre>
+</div>
+<em>To calculate the biomass of chicken first chicken is seperated into two categories- broilers and layers. The resulting separate dataframes are multiplied by the avg weight as per the <span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span> standars i.e. 0.9 and 1.8 kgs. The output obtained is then stored together in <code>chicken_all</code> where the added weights are converted into Biomass(Gt C) then the actual %age of Total Biomass is calculated as well. The chicken_all dataframe adds both the dataframes together. The sum of all the regions are added based on the year using <code>rowSums()</code> and the %Total Birds mass is calculated using the constant birds_bm</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>chicken_broilers</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>chicken</span> <span class='op'>-</span> <span class='va'>chicken_layers</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>0.9</span>
+<span class='va'>chicken_layers</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>chicken_layers</span><span class='op'>)</span><span class='op'>*</span> <span class='fl'>1.8</span>
+
+<span class='va'>chicken_all</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>chicken_broilers</span> <span class='op'>+</span> <span class='va'>chicken_layers</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>converter</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>chicken_all</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Total Biomass (Gt C)"</span>
+
+<span class='va'>chicken_all</span> <span class='op'>&lt;-</span> <span class='va'>chicken_all</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Total Birds` <span class='op'>=</span> <span class='op'>(</span><span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='va'>birds_bm</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>1e5</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span> <span class='op'>*</span> <span class='fl'>1e-1</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>chicken_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Total Birds
+2013         3.656286e-07      52.23266
+2014         3.694877e-07      52.78396
+2015         3.786571e-07      54.09388
+2016         3.962678e-07      56.60968
+2017         4.023285e-07      57.47550
+2018         4.086130e-07      58.37328</code></pre>
+</div>
+<em>For ducks (and Turkey), the data is first loaded to <code>ducks</code>(<code>Turkeys</code>) from <code>bird_index</code> similarly as chickens before. The <code>ducks_all</code>(<code>Turkey_all</code>) then adds all the different regions together which is then multiplied by their avg weight (as per <span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span>) of 2.7 and then converted into Gt C using <code>converter</code>. </em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ducks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>birds_index</span>, <span class='va'>Item</span> <span class='op'>==</span> <span class='st'>'Ducks'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Latin America` <span class='op'>=</span> <span class='va'>`Latin America`</span> <span class='op'>-</span> <span class='va'>`Northern America`</span>, Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span><span class='op'>)</span>
+
+<span class='va'>ducks_all</span> <span class='op'>&lt;-</span> <span class='va'>ducks</span> <span class='op'>%&gt;%</span>  
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>converter</span> <span class='op'>*</span> <span class='fl'>2.7</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>ducks_all</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Total Biomass (Gt C)"</span>
+<span class='va'>ducks_all</span> <span class='op'>&lt;-</span> <span class='va'>ducks_all</span> <span class='op'>%&gt;%</span>
+  <span class='co'>#mutate(`% Total Animal Biomass (Gt C)` = `Total Biomass (Gt C)`/(wild_animal_biomass)) %&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Total Birds` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='va'>birds_bm</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>1e5</span>
+
+  
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>ducks_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Total Birds
+1961          0.007619913      1.088559
+1962          0.007960680      1.137240
+1963          0.008356851      1.193836
+1964          0.008590374      1.227196
+1965          0.008861400      1.265914
+1966          0.009144859      1.306409</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Turkey</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>birds_index</span>, <span class='va'>Item</span> <span class='op'>==</span> <span class='st'>'Turkeys'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Latin America` <span class='op'>=</span> <span class='va'>`Latin America`</span> <span class='op'>-</span> <span class='va'>`Northern America`</span>, Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span><span class='op'>)</span>
+
+<span class='va'>Turkey_all</span> <span class='op'>&lt;-</span> <span class='va'>Turkey</span> <span class='op'>%&gt;%</span>  
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>converter</span> <span class='op'>*</span> <span class='fl'>2.7</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>Turkey_all</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Total Biomass (Gt C)"</span>
+<span class='va'>Turkey_all</span> <span class='op'>&lt;-</span> <span class='va'>Turkey_all</span> <span class='op'>%&gt;%</span>
+  <span class='co'>#mutate(`% Total Animal Biomass (Gt C)` = `Total Biomass (Gt C)`/(wild_animal_biomass)) %&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Total Birds` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='va'>birds_bm</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>1e5</span>
+
+  
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>Turkey_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Total Birds
+1961          0.007942334     1.1346191
+1962          0.006744587     0.9635124
+1963          0.006216345     0.8880493
+1964          0.005902389     0.8431984
+1965          0.005909071     0.8441531
+1966          0.006389240     0.9127485</code></pre>
+</div>
+<p><em>Livestock index loads the dataset on the weight of livestocks in different regions of the world as per the <span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span>. The columns are renamed and rearranged as per the requirement</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>livestock_index</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"_data/animal_weight.csv"</span>,
+                       col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Area'</span>,<span class='st'>'Cattle_dairy'</span>, <span class='st'>'Cattle_non_dairy'</span>, <span class='st'>'Buffaloes'</span>,<span class='st'>'Swine_market'</span>, <span class='st'>'Swine_breeding'</span>, <span class='st'>'d'</span>,  <span class='st'>'d'</span>, <span class='st'>'d'</span>, <span class='st'>'d'</span>, <span class='st'>'Sheep'</span>, <span class='st'>'Goats'</span>,                                          <span class='st'>'Horses'</span>,<span class='st'>'Asses'</span>, <span class='st'>'Mules'</span>,<span class='st'>'Camels'</span>,  <span class='st'>'d'</span><span class='op'>)</span>
+                       <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>!</span> <span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"d"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span> <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Middle east"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Area'</span><span class='op'>)</span>
+<span class='va'>livestock_index</span>
+</code></pre>
+</div>
+<pre><code>                    Cattle_dairy Cattle_non_dairy Buffaloes
+Africa                       275              173       380
+Asia                         350              391       380
+Eastern Europe               550              391       380
+Indian Subcontinent          275              110       295
+Latin America                400              305       380
+Northern America             604              389       380
+Oceania                      500              330       380
+Western Europe               600              420       380
+                    Swine_market Swine_breeding Sheep Goats Horses
+Africa                        28             28  28.0  30.0    238
+Asia                          50            180  48.5  38.5    377
+Eastern Europe                50            180  48.5  38.5    377
+Indian Subcontinent           28             28  28.0  30.0    238
+Latin America                 28             28  28.0  30.0    238
+Northern America              46            198  48.5  38.5    377
+Oceania                       45            180  48.5  38.5    377
+Western Europe                50            198  48.5  38.5    377
+                    Asses Mules Camels
+Africa                130   130    217
+Asia                  130   130    217
+Eastern Europe        130   130    217
+Indian Subcontinent   130   130    217
+Latin America         130   130    217
+Northern America      130   130    217
+Oceania               130   130    217
+Western Europe        130   130    217</code></pre>
+</div>
+<em>As for most of the data, similar wrangling is required, <code>wrangling_livestock</code> function has been created which helps in loading the <code>FAOSTAT_livestock</code> data(in most cases) and then filtering them out based on the category.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>wrangling_livestock</span> <span class='op'>&lt;-</span> <span class='kw'>function</span> <span class='op'>(</span><span class='va'>category</span>, <span class='va'>file_name</span> <span class='op'>=</span> <span class='st'>"FAOSTAT_livestock"</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>temp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'_data/%s.csv'</span>, <span class='va'>file_name</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Area <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Southern Asia"</span> <span class='op'>~</span> <span class='st'>"Indian Subcontinent"</span>,
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Americas"</span> <span class='op'>~</span> <span class='st'>"Latin America"</span>,
+      <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>Area</span><span class='op'>)</span>
+    <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Area</span> <span class='op'>%in%</span> <span class='va'>regions</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Item</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Item</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'%s'</span>, <span class='va'>category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>`Latin America` <span class='op'>=</span> <span class='va'>`Latin America`</span> <span class='op'>-</span> <span class='va'>`Northern America`</span>, Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span><span class='op'>)</span>
+  
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>temp</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<em>Dairy and non-dairy cattles have different diets and hence different weights. So, to make the calculations more accurate the data on dairy cattles is loaded from <code>FAOSTAT_cattle_dairy.csv</code> which is then filtered to match the regions which we are focussing on. Due to different column naming <code>wrangling_livestock</code> function is skipped but is to load data on non-dairy cattles.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cattle_dairy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'_data/FAOSTAT_cattle_dairy.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Area <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Southern Asia"</span> <span class='op'>~</span> <span class='st'>"Indian Subcontinent"</span>,
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Americas"</span> <span class='op'>~</span> <span class='st'>"Latin America"</span>,
+      <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='va'>Area</span>
+    <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Area</span> <span class='op'>%in%</span> <span class='va'>regions</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Item</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Element</span> <span class='op'>==</span> <span class='st'>'Milk Animals'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>`Latin America` <span class='op'>=</span> <span class='va'>`Latin America`</span> <span class='op'>-</span> <span class='va'>`Northern America`</span>, Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span><span class='op'>)</span>
+<span class='va'>cattle</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>'Cattle'</span><span class='op'>)</span> <span class='op'>-</span> <span class='va'>cattle_dairy</span>
+
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cattle</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>        Africa     Asia Eastern Europe Indian Subcontinent
+1961 105529681 86089461       51332404           198560283
+1962 107228969 83195165       56757782           200223885
+1963 109072042 85148252       60337536           201085315
+1964 112410585 87364184       58670982           205939424
+1965 115554186 91991748       60065138           206173971
+1966 115675777 92478459       66390091           201876014
+     Latin America Northern America  Oceania Western Europe
+1961     158687950         88166740 18975600       27582914
+1962     162380226         91504879 19729034       29253640
+1963     162233211         96536759 20297538       29125845
+1964     168267429        100998695 20968039       28375526
+1965     175688128        103289512 20898726       28795538
+1966     181666686        104017227 20502454       30221061</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cattle_dairy</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>       Africa    Asia Eastern Europe Indian Subcontinent
+1961 17007415 6862907       45941801            27498908
+1962 17237363 7316815       47520221            25057900
+1963 17390909 7490111       48870567            24423500
+1964 17747291 7761084       49030454            23406763
+1965 18469973 7924174       49501925            22818605
+1966 19118918 8270102       50004087            28560745
+     Latin America Northern America Oceania Western Europe
+1961      17161126         20230855 5115736       19921153
+1962      17531215         19798540 5224001       20012785
+1963      18210796         19175636 5286648       19724129
+1964      18519113         18584172 5125422       19515994
+1965      19151689         17840320 5081390       19749062
+1966      20170925         16748828 5034903       19855998</code></pre>
+</div>
+<em>To calculate the mass of all the cattles they are multiplied by their respective regional masses and category(dairy/non-dairy) form the <code>livestock_index</code> dataframe, the resulting dfs are then added togehter and stored in <code>cattle_all</code> where all the different regions are summed together based on the year to get the total biomass/year as well %age total biomass/year</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>for</span> <span class='op'>(</span><span class='va'>r</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>regions</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>cattle</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span>,<span class='st'>'Cattle_non_dairy'</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>cattle</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span>
+  <span class='va'>cattle_dairy</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span>,<span class='st'>'Cattle_dairy'</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>cattle_dairy</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span>
+<span class='op'>}</span>
+<span class='va'>cattle_all</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>cattle</span> <span class='op'>+</span> <span class='va'>cattle_dairy</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>*</span> <span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cattle_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961           0.04018161                24.35249
+1962           0.04097010                24.83036
+1963           0.04172734                25.28930
+1964           0.04238290                25.68660
+1965           0.04335895                26.27815
+1966           0.04436850                26.89000</code></pre>
+</div>
+<figure>
+<img src="IPCC_pigs.png" alt="Estimate Population of Swine" /><figcaption aria-hidden="true">Estimate Population of Swine</figcaption>
+</figure>
+<p><em>For swine(pigs) the <span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span> assumption is assumed here where close to 90% of them are used for breeding and only 1% are available for market. Based on this assumption <code>swine_breeding</code> and <code>swine_market</code> dataframes are created using the wrangling_livestock function (loading FAOSTAT_livestock.csv) and then multiplied by their respective weights in different regions. These are then combined to form swine_all where using rowSums the data is categorised into Total Biomass/year and %age Total Mammal Biomass/year.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>swine_breeding</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>"Pigs"</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>0.9</span>
+<span class='va'>swine_market</span> <span class='op'>&lt;-</span> <span class='va'>swine_breeding</span> <span class='op'>/</span> <span class='fl'>9</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>r</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>regions</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+   <span class='va'>swine_breeding</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span>,<span class='st'>'Swine_breeding'</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>swine_breeding</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span>
+  <span class='va'>swine_market</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span>,<span class='st'>'Swine_market'</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>swine_market</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span>
+<span class='op'>}</span>
+
+<span class='va'>swine</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>swine_breeding</span> <span class='op'>+</span> <span class='va'>swine_market</span><span class='op'>)</span>
+
+
+<span class='va'>swine_all</span> <span class='op'>&lt;-</span> <span class='va'>swine</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span> <span class='op'>*</span> <span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>swine_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961          0.008243982                4.996352
+1962          0.008659171                5.247982
+1963          0.009241365                5.600827
+1964          0.009410881                5.703564
+1965          0.010282287                6.231689
+1966          0.010649067                6.453980</code></pre>
+</div>
+<em>In the case of buffaloes, most of the process is same as in cattle except the regions(buffaloes are not present in northern America and west Europe) which are modified to match rest of the tables </em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>buffaloes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'_data/FAOSTAT_livestock.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Area <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Southern Asia"</span> <span class='op'>~</span> <span class='st'>"Indian Subcontinent"</span>,
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Americas"</span> <span class='op'>~</span> <span class='st'>"Latin America"</span>,
+      <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='va'>Area</span>
+    <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Area</span> <span class='op'>%in%</span> <span class='va'>regions</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Item</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Item</span> <span class='op'>==</span> <span class='st'>"Buffaloes"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span>, `Western Europe` <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>`Northern America` <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>r</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>regions</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>buffaloes</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>buffaloes</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>r</span>, <span class='st'>"Buffaloes"</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='va'>buffaloes_all</span> <span class='op'>&lt;-</span> <span class='va'>buffaloes</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span> <span class='op'>*</span> <span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>buffaloes_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961          0.004257691                2.580419
+1962          0.004305583                2.609444
+1963          0.004329264                2.623797
+1964          0.004517807                2.738065
+1965          0.004568208                2.768611
+1966          0.004810559                2.915490</code></pre>
+</div>
+<p><em>Sheeps, Goats, Horses, asses and mules follow the same procedure as in cattle and their final values are stored sheep_all, horses_all, asses_all and mules_all respectively.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sheep</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>"Sheep"</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>r</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>regions</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>sheep</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>sheep</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>r</span>, <span class='st'>"Sheep"</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='va'>sheep_all</span> <span class='op'>&lt;-</span> <span class='va'>sheep</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span> <span class='op'>*</span> <span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span>
+  
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>sheep_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961          0.005442698                3.298605
+1962          0.005478983                3.320596
+1963          0.005519002                3.344850
+1964          0.005605461                3.397249
+1965          0.005692616                3.450070
+1966          0.005742036                3.480022</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>goat</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>"Goats"</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>r</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>regions</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>goat</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>goat</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>r</span>, <span class='st'>"Goats"</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='va'>goat_all</span> <span class='op'>&lt;-</span> <span class='va'>goat</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>*</span><span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span> 
+  
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>goat_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961          0.001663703                1.008305
+1962          0.001747766                1.059252
+1963          0.001784774                1.081682
+1964          0.001775618                1.076132
+1965          0.001765696                1.070119
+1966          0.001770902                1.073274</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>horses</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>"Horses"</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>r</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>regions</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>horses</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>horses</span><span class='op'>[</span><span class='va'>regions</span><span class='op'>[</span><span class='va'>r</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>livestock_index</span><span class='op'>[</span><span class='va'>r</span>, <span class='st'>"Goats"</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='va'>horses_all</span> <span class='op'>&lt;-</span> <span class='va'>horses</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>*</span> <span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`Total Biomass (Gt C)`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span> 
+  
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>horses_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961         0.0003073617               0.1862798
+1962         0.0002959165               0.1793433
+1963         0.0002889394               0.1751148
+1964         0.0002845318               0.1724435
+1965         0.0002904977               0.1760592
+1966         0.0002938808               0.1781096</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mules</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>"Mules"</span><span class='op'>)</span>
+
+<span class='va'>mules_all</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>mules</span><span class='op'>*</span><span class='fl'>130</span><span class='op'>*</span><span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'>#mutate(`% Biomass (Gt C)` = `.`/(wild_animal_biomass * 1e-2)) %&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`.`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span>, <span class='st'>"% Mammal Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>mules_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961         0.0001676369               0.1015981
+1962         0.0001791703               0.1085880
+1963         0.0001708586               0.1035507
+1964         0.0001764372               0.1069317
+1965         0.0001784144               0.1081299
+1966         0.0001813179               0.1098896</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>asses</span> <span class='op'>&lt;-</span> <span class='fu'>wrangling_livestock</span><span class='op'>(</span><span class='st'>"Asses"</span><span class='op'>)</span>
+
+<span class='va'>asses_all</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>asses</span><span class='op'>*</span><span class='fl'>130</span><span class='op'>*</span><span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'>#mutate(`% Biomass (Gt C)` = `.`/(wild_animal_biomass * 1e-2)) %&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`.`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span>, <span class='st'>"% Mammal Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>asses_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961         0.0006781587               0.4110053
+1962         0.0006521343               0.3952329
+1963         0.0006479494               0.3926966
+1964         0.0006640885               0.4024779
+1965         0.0006817642               0.4131905
+1966         0.0006959867               0.4218101</code></pre>
+</div>
+<em>Camels are not found in Europe, Northern America, Latin America much as livestocks so they have been set to zero for the purpose of calculation. The wild camels in Australia(Oceania) will come under wild Animals (included in analysis later)</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>camels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'_data/FAOSTAT_livestock.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Area <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Southern Asia"</span> <span class='op'>~</span> <span class='st'>"Indian Subcontinent"</span>,
+      <span class='va'>Area</span> <span class='op'>==</span> <span class='st'>"Americas"</span> <span class='op'>~</span> <span class='st'>"Latin America"</span>,
+      <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='va'>Area</span>
+    <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Area</span> <span class='op'>%in%</span> <span class='va'>regions</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Item</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Item</span> <span class='op'>==</span> <span class='st'>"Camels"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>select</span><span class='op'>(</span><span class='va'>Area</span>, <span class='va'>Year</span>, <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>Area</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>column_to_rownames</span><span class='op'>(</span><span class='st'>'Year'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>Asia <span class='op'>=</span> <span class='va'>Asia</span> <span class='op'>-</span> <span class='va'>`Indian Subcontinent`</span>, `Western Europe` <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>`Northern America` <span class='op'>=</span> <span class='fl'>0</span>, `Latin America` <span class='op'>=</span> <span class='fl'>0</span>, `Oceania` <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+
+<span class='va'>camels_all</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>camels</span><span class='op'>*</span><span class='fl'>217</span><span class='op'>*</span><span class='va'>converter</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'>#mutate(`% Biomass (Gt C)` = `.`/(wild_animal_biomass * 1e-2)) %&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='va'>`.`</span><span class='op'>/</span><span class='op'>(</span><span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span>, <span class='st'>"% Mammal Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>camels_all</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Total Biomass (Gt C) % Mammal Biomass (Gt C)
+1961         0.0004207621               0.2550073
+1962         0.0004283833               0.2596262
+1963         0.0004431511               0.2685764
+1964         0.0004608473               0.2793014
+1965         0.0004746598               0.2876726
+1966         0.0004953378               0.3002047</code></pre>
+</div>
+<em>The result obtained from poultry and livestocks have been clubbed together below to get much more clearer picture of the distribution of biomass.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>poultry</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>chicken_all</span> <span class='op'>+</span> <span class='va'>Turkey_all</span> <span class='op'>+</span> <span class='va'>ducks_all</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>`Total Biomass (Gt C)`</span>, <span class='va'>`% Total Birds`</span><span class='op'>)</span>
+
+<span class='va'>wild_birds</span> <span class='op'>&lt;-</span> <span class='va'>poultry</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='op'>(</span><span class='fl'>100</span> <span class='op'>-</span> <span class='va'>`% Total Birds`</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>birds_bm</span> <span class='op'>*</span> <span class='fl'>1e-2</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Total Birds` <span class='op'>=</span> <span class='op'>(</span><span class='fl'>100</span> <span class='op'>-</span> <span class='va'>`% Total Birds`</span><span class='op'>)</span><span class='op'>)</span>
+  
+<span class='va'>livestocks</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>cattle_all</span> <span class='op'>+</span> <span class='va'>buffaloes_all</span> <span class='op'>+</span> <span class='va'>sheep_all</span> <span class='op'>+</span> <span class='va'>goat_all</span> <span class='op'>+</span> <span class='va'>horses_all</span> <span class='op'>+</span> <span class='va'>mules_all</span> <span class='op'>+</span> <span class='va'>asses_all</span> <span class='op'>+</span> <span class='va'>camels_all</span> <span class='op'>+</span> <span class='va'>swine_all</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>`Total Biomass (Gt C)`</span>, <span class='va'>`% Mammal Biomass (Gt C)`</span><span class='op'>)</span>
+
+<span class='va'>wild_animal_biomass</span> <span class='op'>&lt;-</span> <span class='va'>livestocks</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`Total Biomass (Gt C)` <span class='op'>=</span> <span class='op'>(</span><span class='fl'>100</span> <span class='op'>-</span> <span class='va'>`% Mammal Biomass (Gt C)`</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>mammmal_bm</span><span class='op'>*</span><span class='fl'>1e-2</span> <span class='op'>-</span> <span class='va'>human_pop</span><span class='op'>$</span><span class='va'>`Total Biomass (Gt C)`</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>`% Mammal Biomass (Gt C)` <span class='op'>=</span> <span class='op'>(</span><span class='fl'>100</span> <span class='op'>-</span> <span class='va'>`% Mammal Biomass (Gt C)`</span> <span class='op'>-</span> <span class='va'>human_pop</span><span class='op'>$</span><span class='va'>`% Mammal Biomass (Gt C)`</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Visualization</strong></p>
+<em>The graph below helps in the visualization of the change in biomass of the birds from 1961-2018. It is easy to observe from it that there has been a drastic drop in the wild bird population; from occupying more than 60% of the total biomass of the birds they have dropped to 30% in 2018 whereas the poultry is occupying more than 60%.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>chicken_all</span>, Category <span class='op'>=</span> <span class='st'>"Chicken"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>Turkey_all</span>, Category <span class='op'>=</span> <span class='st'>"Turkey"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>ducks_all</span>, Category <span class='op'>=</span> <span class='st'>"Ducks"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>wild_birds</span>, Category <span class='op'>=</span> <span class='st'>"Wild"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>poultry</span>, Category <span class='op'>=</span> <span class='st'>"Total Poultry"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Time <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.Date.html'>seq.Date</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>'1961-01-01'</span><span class='op'>)</span>, length <span class='op'>=</span> <span class='fl'>58</span>, by <span class='op'>=</span> <span class='st'>"1 year"</span><span class='op'>)</span>,<span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Time</span>, <span class='va'>`% Total Birds`</span>, color <span class='op'>=</span> <span class='va'>Category</span>, fill <span class='op'>=</span> <span class='va'>Category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Change in biomass of birds"</span>, x <span class='op'>=</span> <span class='st'>"% Total Birds (Gt C)"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+</div>
+<em>Like in the case of birds, similar situation can be observed in the mammals where the drop is more significant. The wild animals have dropped from almost 50% to ~2% in less than 60 years. The humans have grown to occupy more than 35% of the total biomass in the mammals and the livestock occupy more than 60% of the total biomass.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>cattle_all</span>, Category <span class='op'>=</span> <span class='st'>"Cattle"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>swine_all</span>, Category <span class='op'>=</span> <span class='st'>"Swine"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>buffaloes_all</span>, Category <span class='op'>=</span> <span class='st'>"Buffaloes"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>wild_animal_biomass</span>, Category <span class='op'>=</span> <span class='st'>"Wild"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>livestocks</span>, Category <span class='op'>=</span> <span class='st'>"Total Livestock"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>sheep_all</span>, Category <span class='op'>=</span> <span class='st'>"Sheep"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>goat_all</span>, Category <span class='op'>=</span> <span class='st'>"Goat"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>horses_all</span>, Category <span class='op'>=</span> <span class='st'>"Horses"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>mules_all</span>, Category <span class='op'>=</span> <span class='st'>"Mules"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>asses_all</span>, Category <span class='op'>=</span> <span class='st'>"Asses"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>camels_all</span>, Category <span class='op'>=</span> <span class='st'>"Camels"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>human_pop</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Total Biomass (Gt C)"</span>,<span class='st'>"% Mammal Biomass (Gt C)"</span><span class='op'>)</span><span class='op'>]</span>, Category <span class='op'>=</span> <span class='st'>"Humans"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Time <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.Date.html'>seq.Date</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>'1961-01-01'</span><span class='op'>)</span>, length <span class='op'>=</span> <span class='fl'>58</span>, by <span class='op'>=</span> <span class='st'>"1 year"</span><span class='op'>)</span>,<span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Time</span>, <span class='va'>`% Mammal Biomass (Gt C)`</span>, fill <span class='op'>=</span> <span class='va'>Category</span>, color <span class='op'>=</span> <span class='va'>Category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+</div>
+<em>While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a far greater impact on the emission as the growth is almost exponential to the growth of human population</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>methane</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"_data/ghg-concentrations_fig-1.csv"</span>, skip <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1860</span><span class='op'>:</span><span class='fl'>1964</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>`colnames&lt;-`</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Year"</span>, <span class='st'>"d"</span>, <span class='st'>"Methane (ppm of C02)"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='fu'>contains</span><span class='op'>(</span><span class='st'>"e"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>fill</span><span class='op'>(</span><span class='va'>`Methane (ppm of C02)`</span>, .direction <span class='op'>=</span> <span class='st'>"updown"</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>Year</span><span class='op'>)</span> <span class='op'>%in%</span> <span class='va'>human_pop</span><span class='op'>$</span><span class='va'>Year</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>slice</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>38</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>methane</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  Year Methane (ppm of C02)
+1 1961                317.6
+2 1962                318.5
+3 1963                319.0
+4 1964                319.6
+5 1965                320.0
+6 1966                321.4</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>livestocks</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Methane <span class='op'>=</span> <span class='va'>methane</span><span class='op'>$</span><span class='va'>`Methane (ppm of C02)`</span>, Time <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.Date.html'>seq.Date</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>'1961-01-01'</span><span class='op'>)</span>, length <span class='op'>=</span> <span class='fl'>58</span>, by <span class='op'>=</span> <span class='st'>"1 year"</span><span class='op'>)</span>, Humans <span class='op'>=</span> <span class='va'>human_pop</span><span class='op'>$</span><span class='va'>`% Mammal Biomass (Gt C)`</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>Methane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>Methane</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
+    <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span> <span class='op'>(</span><span class='fl'>100</span><span class='op'>*</span><span class='op'>(</span><span class='va'>x</span><span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>Methane</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>Methane</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>Methane</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>}</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Time</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>Methane</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"blue"</span>, fill <span class='op'>=</span> <span class='st'>"blue"</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>`% Mammal Biomass (Gt C)`</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, fill <span class='op'>=</span> <span class='st'>"red"</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>Humans</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"green"</span>, fill <span class='op'>=</span> <span class='st'>"green"</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+</div>
+<em>To sum up all of my findings from this project together, the visualization below showcases the change in biomass of birds and mammals in the past ~60 years in Gt C. Although the share of birds has always been low, the drop in wild animals is very concerning.</em>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>poultry</span><span class='op'>$</span><span class='va'>`Total Biomass (Gt C)`</span>, category <span class='op'>=</span> <span class='st'>"Poultry"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>livestocks</span><span class='op'>$</span><span class='va'>`Total Biomass (Gt C)`</span>, category <span class='op'>=</span> <span class='st'>"Livestocks"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>wild_birds</span><span class='op'>$</span><span class='va'>`Total Biomass (Gt C)`</span>, category <span class='op'>=</span> <span class='st'>"Wild Bird"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>wild_animal_biomass</span><span class='op'>$</span><span class='va'>`Total Biomass (Gt C)`</span>, category <span class='op'>=</span> <span class='st'>"Wild Terrestrial Mammals"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>human_pop</span><span class='op'>$</span><span class='va'>`Total Biomass (Gt C)`</span>, category <span class='op'>=</span> <span class='st'>"Humans"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>Time <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.Date.html'>seq.Date</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>'1961-01-01'</span><span class='op'>)</span>, length <span class='op'>=</span> <span class='fl'>58</span>, by <span class='op'>=</span> <span class='st'>"1 year"</span><span class='op'>)</span>, <span class='fl'>5</span><span class='op'>)</span>, `Total Biomass` <span class='op'>=</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>V1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Time</span>, y <span class='op'>=</span> <span class='va'>`Total Biomass`</span>, fill <span class='op'>=</span> <span class='va'>category</span>, color <span class='op'>=</span> <span class='va'>category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Biomass Distributions of Birds and Mammals over the years"</span>, y <span class='op'>=</span> <span class='st'>"Total Biomass in Gt C"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final-project-biomass-distribution-1961-2018_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+</div>
+<p><strong>Inference</strong></p>
+<p><em>Though we have been aware of climate change and importance of a healthy eco-system for more than three decades, the continuing sharp decline in the wild is concerning and proves that we are much farther away from a solution than we think.</em></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ipcc" class="csl-entry" role="doc-biblioentry">
+<span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories.”</span> n.d. <em>IPCC</em>. <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html">https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html</a>.
+</div>
+<div id="ref-Bar-On6506" class="csl-entry" role="doc-biblioentry">
+Bar-On, Yinon M., Rob Phillips, and Ron Milo. 2018. <span>“The Biomass Distribution on Earth.”</span> <em>Proceedings of the National Academy of Sciences</em> 115 (25): 6506–11. <a href="https://doi.org/10.1073/pnas.1711842115">https://doi.org/10.1073/pnas.1711842115</a>.
+</div>
+<div id="ref-faostat" class="csl-entry" role="doc-biblioentry">
+<span>“FAO Global Statistical Yearbook, FAO Regional Statistical Yearbooks.”</span> n.d. <em>FAOSTAT</em>. Food; Agriculture Organization of the United Nations (FAO). <a href="http://www.fao.org/faostat/en/#data/QCL">http://www.fao.org/faostat/en/#data/QCL</a>.
+</div>
+<div id="ref-Hern1999" class="csl-entry" role="doc-biblioentry">
+Hern, Warren M. 1999. <span>“How Many Times Has the Human Population Doubled? Comparisons with Cancer.”</span> <em>Population and Environment</em> 21 (1): 59–80. <a href="https://doi.org/10.1023/A:1022153110536">https://doi.org/10.1023/A:1022153110536</a>.
+</div>
+<div id="ref-the_guardian_2018" class="csl-entry" role="doc-biblioentry">
+<span>“Humans Just 0.01.”</span> 2018. <em>The Guardian</em>. Guardian News; Media. <a href="https://www.theguardian.com/environment/2018/may/21/human-race-just-001-of-all-life-but-has-destroyed-over-80-of-wild-mammals-study">https://www.theguardian.com/environment/2018/may/21/human-race-just-001-of-all-life-but-has-destroyed-over-80-of-wild-mammals-study</a>.
+</div>
+</div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

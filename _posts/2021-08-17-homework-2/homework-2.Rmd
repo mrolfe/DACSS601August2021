@@ -16,6 +16,7 @@ library("tidyverse")
 library("readr")
 library("ggplot2")
 library("dplyr")
+library("dlookr")
 ```
 
 # Homework 2
@@ -183,6 +184,37 @@ The data still appears somewhat skewed, but not in a way that will  negatively a
 
 NOTE: In the actual filtering of data the cutoffs used for STUTERATIO are different because of other filtering, in actuality the cutoffs of 4.82 and 34.4274 will be used.
 
+# Homework 5
+
+Let's take a look at student to teacher ratio in relation to the percentage of black and hispanic students in the school.
+
+```{r}
+quant <- c()
+axis_val <- c()
+count <- 1
+heat.data <- data_sub %>%
+  summarise(SCH_NAME, STUTERATIO, BLHI_PCT = (BL + HI)/TOTAL) %>%
+  filter(!is.na(BLHI_PCT))
+while (count <= 20) {
+  count2 <- 1
+  while (count2 <= 20) {
+    cur.data <- heat.data %>%
+      filter(STUTERATIO >= quantile(STUTERATIO, prob = c((count2-1)*0.05)) & STUTERATIO < quantile(STUTERATIO, prob = c((count2)*0.05)) & BLHI_PCT >= quantile(BLHI_PCT, prob = c((count-1)*0.05)) & BLHI_PCT < quantile(BLHI_PCT, prob = c((count)*0.05)))  
+    quant <- append(quant, nrow(cur.data)) 
+    count2 <- count2 + 1
+  }
+  axis_val <- append(axis_val, 0.05*count)
+  count <- count + 1
+}
+data <- expand.grid(X=axis_val, Y=axis_val)
+data$Z <- quant
+print(axis_val)
+ggplot(data, aes(X, Y, fill= Z)) + 
+  geom_tile() + labs(title = "Percentage of Black or Hispanic Students \nvs. Student to Teacher Ratio", x = "Student to Teacher Ratio", y = "Percent of Black and Hispanic Students")
+quant
+```
+
+Looking at the generated heatmap, we can see that the bottom right, where schools have the highest student to teacher ratio and lowest percentage of black and hispanic are the least common. However, it appears that the most common combnation is a high student to teacher ratio and a high percentage of black and hispanic students. The heat map was used to convey the number of schools whose student to teacher ratio and black and hispanic percentage matched the x and y axes for those values. It would have been nice if there was more robust racial statistics available for the schools as more specific heatmaps could be created.
 
 # Works Cited
 

@@ -1,0 +1,293 @@
+---
+title: "Marina's Final Project"
+description: |
+  A look at Massachusetts Federal Lifeline data
+author:
+  - name: Marina
+date: 08-26-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction to Lifeline
+
+Lifeline is a Federal Communications Commission (FCC) program, funded by the Universal Services Fund, which provides a discount of up to $9.25/month on telecommunications services for eligible low-income consumers. Qualifying households can receive the discount on select voice, broadband, or bundled telecommunications services. One of the most popular iterations of Lifeline takes the form of a free cell phone service plan, which usually includes free minutes of voice chat, unlimited text, and 4.5GB of data. ^[For more information about the Lifeline program, I recommend visiting the [FCC's Lifeline Consumer Guide](https://www.fcc.gov/lifeline-consumers)]
+
+The Coronavirus pandemic has brought about many changes to how governments, businesses, and people conduct themselves in daily life, and one item that was very much put in the spotlight was access to telecommunication services. Although the importance of broadband has long been understood by many, it became irrefutably clear that it was (and continues to be) indispensable during a global pandemic. Because of this, the federal government tried to react by implementing temporary changes to the Lifeline program, in order to facilitate access to the people. These changes included waivers on program rules that have made it easier for people to enroll in the program, and to stay enrolled without dropping off. One such waiver has recently expired, as of May 2021. The expired waiver allowed subscribers to continue being enrolled in the program despite non-usage of their service plan. 
+
+At the same time, several initiatives were passed to facilitate access to broadband by other means-- notably, the [Emergency Broadband Benefit Program, or EBB, ](https://www.fcc.gov/broadbandbenefit) and the [Emergency Connectivity Fund, or ECF, ](https://www.fcc.gov/emergency-connectivity-fund) were allocated billions of dollars for this purpose. The EBB currently offers a much bigger discount (of up to $50/month) aimed specifically at mobile and fixed broadband plans for consumers, and has looser requirements for enrollments. The EBB was launched in the middle of May, at around the same time as the Lifeline non-usage waiver expired.
+
+Very few months have passed since these substantial changes began taking place. It is still too soon to tell what effect they may have on Lifeline enrollment in Massachusetts. What this project aims to do is to set the stage for a data pipeline that will allow changes to the Lifeline program to be visible over time. The goal is to provide insights in order to begin answering the question: what is the state of Lifeline enrollment in Massachusetts? 
+
+## Accessing Lifeline Data
+
+In order to begin tracking Lifeline subscribers, I looked to the Universal Service Administrative Company (USAC), the organization in charge of administering the Lifeline program on behalf of the FCC. They have launched an [Open Data Portal](https://opendata.usac.org/Lifeline/Lifeline-Disbursements/tfxa-gt3x) that contains data, updated monthly, about the Lifeline subscribers that each Lifeline telecommunications provider claims to serve in each US state and territory. Providers submit this information monthly in order to receive disbursements from the federal government to reimburse them for offering the service.
+
+As of August 2021, the dataset contains over 200,000 observations, so I initially narrowed it down to only Massachusetts-related information, from 2018 onward.
+
+```{r Load libraries, echo=FALSE, warning=FALSE}
+  library(RSocrata)
+  library(tidyverse)
+```
+```{r Load data and add initial filter, echo=TRUE}
+  df <- read.socrata("https://opendata.usac.org/resource/tfxa-gt3x.json")
+  df <- filter(df, state == "MA" & support_year >= 2018)
+```
+
+An initial peek at the filtered data reveals a number of interesting variables:
+
+```{r Initial peek, echo=TRUE}
+glimpse(df)
+```
+I'm going to focus on `sac_name`, `disbursement_year`, `disbursement_month_date_format`, `support_year`, `support_month_date_format` and `subscriber_count`:
+
+```{r Closer peek, echo=TRUE}
+df %>%
+  select(sac_name, disbursement_year,
+         disbursement_month_date_format, 
+         support_year, support_month_date_format,
+         subscriber_count) %>%
+  head()
+
+```
+
+`sac_name`, short for "Study Area Code Name", refers to the name of the companies offering Lifeline service in Massachusetts. Currently 6 companies are certified as an "Eligible Telecommunications Company" (ETC) and allowed to offer Lifeline in the state:
+
+```{r Providers, echo=TRUE}
+unique(df$sac_name)
+```
+
+`disbursement_year` and `disbursement_month_date_format` both refer to the point in time when disbursements are made to companies to pay them for the service they're offering eligible consumers. Relatedly, `support_year` and `support_month_date_format` relate to the service month for which providers claimed support. For example, a provider might in May 2021 receive a disbursement for the subscribers they served in April 2021. In this case, the support month would be April, and the disbursement month would be May.
+
+Finally, `subscriber_count` is the variable that states how many Lifeline subscribers each company claims to be serving each month.
+
+As of August 2021, `subscriber_count` is brought in from the Open Data portal as a string variable, so I'm manually changing it to numeric.
+
+```{r Fix subscriber_count, echo=TRUE}
+df$subscriber_count <- as.numeric(df$subscriber_count)
+class(df$subscriber_count)
+
+```
+## Creating the Pipeline
+
+The company names in `sac_name` are thankfully consistent over the years:
+
+```{r Company names part one, echo=TRUE}
+ xtabs(~ sac_name + support_year, df)
+```
+But they're not necessarily very clear. For example, Virgin Mobile no longer goes by that name--it is now part of T-Mobile, but the Lifeline marketing materials sometimes use other names, like Assurance Wireless.
+
+For clarity and readability, I will be changing the names of the companies, building in an assumption that the total number of providers is 6-- if the number changes, that means it's worth looking into the data first before moving forward.
+
+```{r Rename Companies, echo=TRUE, include=TRUE}
+#Rename companies, but only if the total number of companies is 6
+  #(otherwise there might have been name changes that I'd have to
+  #account for)
+  if (length(unique(df$sac_name)) == 6) {
+  df <- df %>%
+        mutate(sac_name = str_to_title(sac_name)) %>%
+        mutate(provider = case_when(
+              startsWith(sac_name, "City") ~ 'Westfield',
+              startsWith(sac_name, "Global") ~ 'StandUp Wireless/Global Connection',
+              startsWith(sac_name, "Granby") ~ 'Granby',
+              startsWith(sac_name, "Tracfone") ~ 'Tracfone/Safelink',
+              startsWith(sac_name, "Verizon") ~ 'Verizon',
+              startsWith(sac_name, "Virgin") ~ 'Assurance/Virgin/T-Mobile'
+              ))
+    }  else {
+      print("There has been a change in the number of unique companies")
+    }
+  
+  #Confirm it worked
+  print(unique(df$provider))
+```
+Next, I explore `disbursement_year` and `support_year`. `support_year` represents the year where the company provided service, and for which it's entitled to receive financial support. `disbursement_year` represents the year in which said support was actually disbursed and given to the company. 
+
+```{r Compare disbursement vs. support year, echo=TRUE, include=TRUE}
+ xtabs(~ disbursement_year + support_year, df)
+```
+
+Surprisingly, disbursement and support years do not match 1:1. This is because companies make corrections to their claimed support amounts months, and even years, after the fact. 
+
+Because of this, the number of subscribers that one company claims to have served in a specific time period can end up changing over time. Hence, one specific support period for one specific company may present as more than one observation:
+
+```{r View one example, echo=TRUE, include=TRUE}
+df %>%
+  filter(provider == "Tracfone/Safelink" &
+           support_year == "2019" &
+           support_month == "7") %>%
+  select(provider, 
+         disbursement_date = disbursement_month_date_format,
+         support_date = support_month_date_format,
+         service_type,
+         subscriber_count)
+```
+
+
+```{r Remove scientific notation, echo=FALSE}
+options(scipen = 999)
+```
+
+
+Here, I see that in August 2019, Tracfone was disbursed funds for `r (41994 + 7 + 113)` subscribers it claimed to serve in July 2019. A year later, in July 2020, Tracfone submitted a correction of -3 voice subscribers, which would bring the actual total to `r (41994 + 7 + 113 - 3)`.
+
+In order to tidy up these corrections, I will flatten the dataset to add up all claims of support across different disbursement dates.
+
+```{r Aggregate subscriber data, echo=TRUE}
+  
+  subscribers <- df %>%
+                  filter(!submission_type == "ADJUSTMENT") %>% #Exclude fin. adj. rows
+                  select(provider, 
+                         support_year,
+                         support_month = support_month_date_format,
+                         technology_type,
+                         service_type,
+                         subscriber_count) %>%
+                  group_by(provider,
+                           support_year,
+                           support_month,
+                           technology_type,
+                           service_type) %>%
+                  summarise(subscriber_count = sum(as.numeric(subscriber_count)))
+```
+By aggregating subscriber counts across various corrections, we've gone from `r nrow(df)` to `r nrow(subscribers)` rows.
+
+## Visualizing enrollments
+
+We'll start by visualizing overall totals across Massachusetts, without minding providers or types of service. I've included a line marking the end of the non-usage waiver period, after which I would expect to see drops in enrollment that were suppressed for the previous year thanks to the waiver.
+
+```{r Graph 1: Overall Total, echo=TRUE}
+#Proper capitalization
+  subscribers <- subscribers %>%
+                  mutate(technology_type = str_to_sentence(technology_type),
+                         service_type = str_to_sentence(service_type))
+
+#Identify where data is missing
+  missing_check <-  subscribers %>%
+                    ungroup() %>% #If I don't do this, it'll add needless variables
+                    select(provider, support_month) %>%
+                    distinct() %>%
+                    select(support_month) %>%
+                    count(support_month) %>%
+                    arrange(desc(support_month))
+  
+  #Identify latest month of complete data
+    
+    for (i in 1:5) { #check 5 latest months)
+      if (missing_check$n[i] == 6) {
+        full_month <- missing_check$support_month[i]
+        break
+      }
+    }
+  
+  #Graph overall totals, excluding the recent months that aren't complete
+  waiver_end_date <-  as.POSIXct("2021-05-01") #date that waiver expired 
+  p1 <- subscribers %>%
+            filter(support_month <= full_month) %>% #keep data up to most recent complete month
+            group_by(support_month) %>%
+            summarise(subscribers = sum(subscriber_count)) %>%
+          ggplot(aes(x=support_month, y=subscribers)) +
+            geom_line() +
+            xlab("Support Month") +
+            scale_y_continuous(name="Number of Subscribers", limits=c(0, 200000)) +
+            geom_vline(xintercept = waiver_end_date, linetype="dotted", 
+                color = "red", size=1.5) +
+            annotate("text", x = (waiver_end_date - 50), y = 155000, 
+                     label = "End of Waiver \n", angle=90) +
+            ggtitle("Overall Amount of Lifeline Subscribers")
+  
+  p1 + theme_classic()
+  
+```
+Next, I'll look at totals by types of service offered, to see if there are any differences in enrollment trends. As mentioned at the start, different services are offered through Lifeline. **Voice** service involves consumers receiving at least 1,000 minutes of voice usage per month (either through a landline or a mobile device). **Broadband** service has different standards depending on whether a consumer is receiving wireline or wireless service. For wireless service, the existing requirement is to offer at least 4.5GB of 3G or better data. For wireline/fixed service, the requirement is a data allowance of 1,024 GB and 25/3 Mbps speed. **Bundled** support offers a combination of voice and broadband service, and the requirement in those cases is to offer either the minimum standard for voice _or_ for broadband.
+
+```{r Graph 2: service type totals, echo=TRUE}
+ p2 <- subscribers %>%
+              ungroup() %>%
+              select(support_month, service_type, subscriber_count) %>%
+              filter(support_month <= full_month) %>% 
+              group_by(support_month, service_type) %>%
+              summarise(subscribers = sum(subscriber_count)) %>%
+        ggplot(aes(x=support_month, y=subscribers,
+                   group = service_type, color = service_type)) +
+            geom_line() +
+            xlab("Support Month") +
+            scale_y_continuous(name="Number of Subscribers", limits=c(0, 150000)) +
+            geom_vline(xintercept = waiver_end_date, linetype="dotted", 
+                color = "red", size=1.5) +
+            labs(col="Service Type") +
+            theme_classic() +
+            annotate("text", x = (waiver_end_date - 50), y = 130000, 
+                     label = "End of Waiver \n", angle=90) +
+            ggtitle("Lifeline Subscribers by Service Type")
+
+p2
+```
+Although all service types have experienced important drops, it looks like voice service has remained the most stable throughout 2020 and 2021. 
+
+Next, I break down enrollment numbers by individual providers, to see if there are any differences with subscriber trends.
+
+```{r Graph 3: totals by provider, echo=TRUE}
+p3 <- subscribers %>%
+            ungroup() %>%
+            select(support_month, provider, subscriber_count) %>%
+            group_by(support_month, provider) %>%
+            summarise(subscribers = sum(subscriber_count)) %>%
+        ggplot(aes(x=support_month, y=subscribers,
+                   group=provider, color=provider)) +
+            geom_line() +
+            xlab("Support Month") +
+            ylab("Number of Subscribers") +
+            geom_vline(xintercept = waiver_end_date, linetype="dotted", 
+                color = "red", size=1.5) +
+            ggtitle("Lifeline Subscribers by Provider") +
+            labs(col="Provider:") +
+            theme_classic() 
+      
+
+p3+ theme(legend.position="bottom") +
+    annotate("text", x = (waiver_end_date - 50), 
+             y = 80000, label = "\n End of Waiver", angle=90)
+
+```
+It's clear from the graph that two out of the six providers hold an incredibly high proportion of all Lifeline enrollments in Massachusetts. Assurance and Tracfone dominate in terms of subscriber count, to the point where all other provider trends are flattened out.
+
+Importantly, we see sharp drops for both of these providers, and for Assurance especially. A first guess is that this incredibly shart drop is related to the end of the Lifeline waiver period. But, as evidenced from where the line stops for Assurance compared to Tracfone, the company has not submitted data as recently as others, so it's impossible to know whether the sharp drop was a one-off until newer observations are available.
+
+One alternative approach to this graph, which doesn't flatten out possible trends with smaller providers, is to use a log transformation on the Y axis:
+
+```{r Graph 4: log totals by provider, echo=TRUE}
+
+ p3 + scale_y_continuous(trans='log2') + theme(legend.position="bottom") +
+    annotate("text", x = (waiver_end_date - 50), 
+             y = 1000, label = "\n End of Waiver", angle=90)
+
+```
+This helps make all providers visible, but perhaps goes too far in the other direction by flattening out the biggest trend I observed, which was the sharp drop in subscribers from Assurance, the top provider.
+
+## Reflection on the process
+
+I encountered some mechanical problems with getting the graphs to look the right way. For the 'end of waiver' annotation I included, I ended up manually choosing the positioning that made the most sense, but it would have been good to find an automatic way to choose the right place for the text.
+
+More generally, the way the data is presented by USAC limited both my understanding of what it represented, and my ability to connect the dots across different states. The dataset doesn't provide an ID to identify companies, only their names. This is a big issue because company names aren't consistent across states (and often times, they're also inconsistent across time, within a single state). For example, Verizon may be known as "Verizon New England - MA" in Massachusetts, "Verizon New York Inc" in New York, and "Puerto Rico Tel. Co. DBA Verizon Wireless PR" in Puerto Rico. USAC has company IDs that would help consolidate these names to properly compare provider performance in the US, but chose not to include these unique identifiers in the public data.
+
+With more time and resources, I would like to dig deeper on whether it's possible to identify clusters of companies based on name similarities (but again, this would have severe limitations because of changes across time and states). I would also like to zoom in more on the adjustments/corrections to subscriber numbers that providers submit, sometimes years after the fact, to see if there are any patterns there.
+
+## Conclusion
+
+Lifeline enrollment is (and has been) trending down for the past couple of years. This was briefly reversed from 2020 until the end of the waiver period in 2021, when the FCC made it easier to enroll and to stay enrolled in the program.
+
+It's too soon to tell how other connectivity programs like EBB and the ECF will affect Lifeline. They could be complementary, perhaps because raised awareness of one program can raise awareness of others-- or they could cannibalize on Lifeline through their lower enrollment hurdles and bigger discounts.^[As an addendum to this statement, I want to state that the lower hurdles come with a lot of problems. While both Lifeline and the EBB are federal programs, for example, state regulators play an important role in certifying providers for Lifeline, but are completely excluded from the EBB process. This has resulted in dramatically decreased oversight, which will no doubt lead to unsavory problems with fraud and abuse down the line].
+
+Either way, it will be important to closely monitor how this program is performing in the next couple of months. While the pandemic rages on, access to telecommunications services is paramount, and understanding enrollment trends in the state is the first step towards developing a comprehensive plan to assess and act on access to telecommunications in Massachusetts.
+
+
+
+
