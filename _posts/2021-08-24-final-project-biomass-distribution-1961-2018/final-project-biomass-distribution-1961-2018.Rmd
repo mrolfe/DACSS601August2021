@@ -49,7 +49,7 @@ human_carbon_mass = 5e4 * to_carbon
 ```
 *Loading the data on human population over the years and converting it into Gt C and calculating the changing biomass and %age biomass over the years*
 ```{r}
-human_pop <- readxl::read_excel("_data/Data_Extract_From_World_Development_Indicators.xlsx") %>% slice(1) %>%
+human_pop <- readxl::read_excel("../../_data/Data_Extract_From_World_Development_Indicators.xlsx") %>% slice(1) %>%
     select(! contains("Series") & ! contains("Country")) %>%
     pivot_longer(cols = names(.),names_to = "Year", values_to = "Population") %>%
     mutate(Year = as.numeric(str_extract(Year, '[^\\s]+'))) %>%
@@ -62,7 +62,7 @@ tail(human_pop)
 *Loading the mass Index for poultry and modifying the Area name and Region as per the requirement, the areas under focus have been listed down below*
 
 ```{r}
-birds_index <- read.csv('_data/birds.csv') %>%
+birds_index <- read.csv('../../_data/birds.csv') %>%
   mutate(Area = case_when(
     Area == "Southern Asia" ~ "Indian Subcontinent",
     Area == "Americas" ~ "Latin America",
@@ -84,7 +84,7 @@ head(chicken)
 ```
 *The dataset on chickens laying eggs is loaded and stored in `chicken_layers` and is formatted to match the table above.*
 ```{r}
-chicken_layers <- read.csv('_data/FAOSTAT_egg_chicken.csv') %>%
+chicken_layers <- read.csv('../../_data/FAOSTAT_egg_chicken.csv') %>%
   mutate(Area = case_when(
     Area == "Southern Asia" ~ "Indian Subcontinent",
     Area == "Americas" ~ "Latin America",
@@ -102,7 +102,7 @@ head(chicken_layers)
 *To calculate the biomass of chicken first chicken is seperated into two categories- broilers and layers. The resulting separate dataframes are multiplied by the avg weight as per the @ipcc standards i.e.  0.9 and 1.8 kgs. The output obtained is then stored together in `chicken_all` where the added weights are converted into Biomass(Gt C) then the actual %age of Total Biomass is calculated as well. The chicken_all dataframe adds both the dataframes together. The sum of all the regions are added based on the year using `rowSums()` and the %Total Birds mass is calculated using the constant birds_bm*
 ```{r}
 chicken_broilers <- (chicken - chicken_layers)*0.9
-chicken_layers <- (chicken_layers)* 1.8`
+chicken_layers <- (chicken_layers)* 1.8
 
 chicken_all <- (chicken_broilers + chicken_layers) %>%
   rowSums() %>%
@@ -156,7 +156,7 @@ head(Turkey_all)
 *Livestock index loads the dataset on the weight of livestocks in different regions of the world as per the @ipcc. The columns are renamed and rearranged as per the requirement*
 
 ```{r}
-livestock_index <- read.csv("_data/animal_weight.csv",
+livestock_index <- read.csv("../../_data/animal_weight.csv",
                        col.names = c('Area','Cattle_dairy', 'Cattle_non_dairy', 'Buffaloes','Swine_market', 'Swine_breeding', 'd',  'd', 'd', 'd', 'Sheep', 'Goats',                                          'Horses','Asses', 'Mules','Camels',  'd')
                        ) %>%
   select(! starts_with("d")) %>%
@@ -168,7 +168,7 @@ livestock_index
 *As for most of the data, similar wrangling is required, `wrangling_livestock` function has been created which helps in loading the `FAOSTAT_livestock` data(in most cases) and then filtering them out based on the category.*
 ```{r}
 wrangling_livestock <- function (category, file_name = "FAOSTAT_livestock"){
-  temp <- read.csv(sprintf('_data/%s.csv', file_name)) %>%
+  temp <- read.csv(sprintf('../../_data/%s.csv', file_name)) %>%
     mutate(Area = case_when(
       Area == "Southern Asia" ~ "Indian Subcontinent",
       Area == "Americas" ~ "Latin America",
@@ -187,7 +187,7 @@ wrangling_livestock <- function (category, file_name = "FAOSTAT_livestock"){
 ```
 *Dairy and non-dairy cattles have different diets and hence different weights. So, to make the calculations more accurate the data on dairy cattles is loaded from `FAOSTAT_cattle_dairy.csv` which is then filtered to match the regions which we are focussing on. Due to different column naming `wrangling_livestock` function is skipped but is to load data on non-dairy cattles.*
 ```{r}
-cattle_dairy <- read.csv('_data/FAOSTAT_cattle_dairy.csv') %>%
+cattle_dairy <- read.csv('../../_data/FAOSTAT_cattle_dairy.csv') %>%
     mutate(Area = case_when(
       Area == "Southern Asia" ~ "Indian Subcontinent",
       Area == "Americas" ~ "Latin America",
@@ -222,9 +222,9 @@ cattle_all <- (cattle + cattle_dairy) %>%
 
 head(cattle_all)
 ```
-![Estimate Population of Swine](IPCC_pigs.png)
+![Estimated Population of Swine](../../_data/IPCC_pigs.png)
 
-*For swine(pigs) the @ipcc assumption is assumed here where close to 90% of them are used for breeding and only 1% are available for market. Based on this assumption `swine_breeding` and `swine_market` dataframes are created using the wrangling_livestock function (loading FAOSTAT_livestock.csv) and then multiplied by their respective weights in different regions. These are then combined to form swine_all where using rowSums the data is categorised into Total Biomass/year and %age Total Mammal Biomass/year.*
+*For swine(pigs) the @ipcc assumption is assumed here where close to 90% of them are used for breeding and only 1% are available for market. Based on this assumption `swine_breeding` and `swine_market` dataframes are created using the wrangling_livestock function (loading FAOSTAT_livestock.csv) and then multiplied by their respective weights in different regions. These are then combined to form swine_all where using rowSums the data is categorized into Total Biomass/year and %age Total Mammal Biomass/year.*
 
 ```{r}
 swine_breeding <- wrangling_livestock("Pigs") * 0.9
@@ -249,7 +249,7 @@ head(swine_all)
 ```
 *In the case of buffaloes, most of the process is same as in cattle except the regions(buffaloes are not present in northern America and west Europe) which are modified to match rest of the tables *
 ```{r}
-buffaloes <- read.csv('_data/FAOSTAT_livestock.csv') %>%
+buffaloes <- read.csv('../../_data/FAOSTAT_livestock.csv') %>%
     mutate(Area = case_when(
       Area == "Southern Asia" ~ "Indian Subcontinent",
       Area == "Americas" ~ "Latin America",
@@ -361,7 +361,7 @@ head(asses_all)
 ```
 *Camels are not found in Europe, Northern America, Latin America much as livestocks so they have been set to zero for the purpose of calculation. The wild camels in Australia(Oceania) will come under wild Animals (included in analysis later)*
 ```{r}
-camels <- read.csv('_data/FAOSTAT_livestock.csv') %>%
+camels <- read.csv('../../_data/FAOSTAT_livestock.csv') %>%
     mutate(Area = case_when(
       Area == "Southern Asia" ~ "Indian Subcontinent",
       Area == "Americas" ~ "Latin America",
@@ -421,9 +421,9 @@ rbind(cbind(cattle_all, Category = "Cattle"), cbind(swine_all, Category = "Swine
   geom_bar(stat = "identity") + theme_minimal()
 
 ```
-*While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a far greater impact on the emission as the growth is almost exponential to the growth of human population*
+*While most nations have started dealing with carbon emissions, methane(which has a shorter life cycle) is coming under greater focus each year. The largest source of anthropogenic methane emissions is agriculture, responsible for around a quarter of the total, closely followed by the energy sector, which includes emissions from coal, oil, natural gas and bio fuels. With the visualization below I try to showcase the relation between human population growth and methane emission. It is often thought that only livestock are the major contributors but from the visualization obtained it is apparent that other human activities have a significant impact on the emission.*
 ```{r}
-methane <- read.csv("_data/ghg-concentrations_fig-1.csv", skip = 6) %>% 
+methane <- read.csv("../../_data/ghg-concentrations_fig-1.csv", skip = 6) %>% 
   slice(1860:1964) %>% 
   `colnames<-`(c("Year", "d", "Methane (ppm of C02)")) %>% 
   select(contains("e")) %>% 
@@ -431,6 +431,17 @@ methane <- read.csv("_data/ghg-concentrations_fig-1.csv", skip = 6) %>%
   filter(as.numeric(Year) %in% human_pop$Year) %>%
   slice(-c(38))
 head(methane)
+```
+```{r}
+livestocks %>%
+  mutate(Methane = methane$`Methane (ppm of C02)`, Time = seq.Date(as.Date('1961-01-01'), length = 58, by = "1 year"), Humans = human_pop$`% Mammal Biomass (Gt C)`) %>%
+  mutate(Methane = sapply(Methane, function(x){
+    return (100*(x- min(Methane))/(max(Methane) - min(Methane)))
+  }) ) %>%
+  mutate(factor = Methane/Humans) %>%
+  ggplot(aes(x = Time)) +
+  geom_line(aes(y = factor)) +
+  labs(y = "Growth Rate", title = "Growth Rate of Methane wrt Humans")
 ```
 
 
@@ -455,8 +466,12 @@ as.data.frame(rbind(cbind(poultry$`Total Biomass (Gt C)`, category = "Poultry"),
   labs(title = "Biomass Distributions of Birds and Mammals over the years", y = "Total Biomass in Gt C")
 ```
 **REFLECTION**
+*Due to dealing with multiple(10) sheets in this project, I had to deal with repetitive coding as structure of each sheet was different.I have used piping extensively in this project in order to decrease the number of variables. I decided to focus on poultry, livestock and humans in this project as I wanted to showcase human impact. I dived deep and segregated the data as much as possible to get an accurate result. For the purpose of maintaining standards and to be able to compare it with actual results in the world I decided to follow IPCC and FAOSTAT for all the information regarding weight and population.*
+*As the data was classified on the basis of the regions, I chose to focus on different regions of the world based on the geography. As a result I ended up separating Asia into Asia and Indian Subcontinent and clubbing Australia and surrounding countries Oceania. Also, a major assumption made is that the total biomass on earth 550 Gt C.*
+*Although I ended up merging all of the regions together for the sake of visualization, if allowed to continue this project I would like to study all of the different regions separately as well as this might give insights on which region is experiencing most of the changes. Desertification is major problem in Africa and is surely to be major factor in the obtained results*
 
 
 **INFERENCE**
 
-*Though we have been aware of climate change and importance of a healthy eco-system for more than three decades, the continuing sharp decline in the wild is concerning and proves that we are much farther away from a solution than we think.*
+*Though we have been aware of climate change and importance of a healthy Eco-system for more than three decades, the continuing sharp decline in the wild is concerning and proves that we are much farther away from a solution than we think. Though this project focuses on biomass distribution over the years some of the information can be linked with present situations to get verify the current situations. The rapid decline in the wildlife population is also an indication to the rapid deforestation, which has been a rising problem over the years. Besides this, we can also observe how the livestock have almost doubled in population when compared to humans. Today, the global cattle population amounted to about one billion, which makes it increasingly believable than Iceland has more sheep than human (that's close to 3 sheep per person). This also,raises the topic of till what time will earth be able to sustain the growing food demands. Earth Overshoot Day is the date that marks that we have consumed all the resources that our planet is capable of generating in one year. Each year it is calculated by dividing the planet's bio capacity by humanity's ecological footprint and multiplying by 365, for the number of days in a year. In 2021, 29th July was the Earth Overshoot Day. It was first recorded in 1970 and the overshoot day was 29 December.*
+
