@@ -1,0 +1,85 @@
+---
+title: "Death via Air Pollution"
+description: |
+  Air pollution, an important factor in the advancement of climate change has also been linked to various respiratory illnesses and deaths. In this post we will dissect the various forms of air pollution related deaths.
+author:
+  - name: Nathaniel Ross
+    url: {}
+date: 08-19-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+# Introduction
+Climate change is a serious issue that is heavily debated in the contemporary political atmosphere. Andrew Hoffman in his most recent article for the Stanford Social Innovation Review, *Climate Science as Culture War* states, 
+ "And yet a social consensus on climate change does not exist. Surveys show that the American public’s belief in the science of climate change has mostly declined over the past five years, with large  percentages of the population remaining skeptical of the science." [1]
+
+This shows that while there is a general consensus among scientists about growing climate changes, the social consensus of American citizens does not reflect that.[2] This has in turn been reflected in politics and bipartisan policy in the United States. Viewing other countries air pollution deaths can help us get a better picture of whether their policy making has been effective and how the United States could learn from these countries.
+
+# Data
+*My data consists of a list of countries and a count of deaths per 100,000 people for various causes of air pollution. The first cause of death by pollution is indoor air pollution. Indoor air pollution deaths can be caused by various factors such as carbon monoxide poisoning, asbestos, tobacco smoke, and similar indoor carcinogens. The second cause of air pollution deaths in my data is outdoor particulate matter deaths. These deaths are caused from small solid or liquid particles in the air leading to infection. The most common particulate matters are carbon monoxide, lead, nitrogen dioxide, and sulfur dioxide. The last cause of death by air pollution is death due to ozone. Ozone is a part of Earth's upper atmosphere and filters UV rays from the sun. Ozone is dangerous when it becomes plentiful in the atmosphere and comes down from the upper atmosphere and causes serious breathing issues and respiratory infection. This data is appropriate for my analysis because it allows me to compare ozone deaths across time and with different countries. This will help in the future analysis of whether or not policy making in different countries effects the amount of deaths caused by air pollution.*
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(readxl)
+library(stringr)
+```
+*My first step is to read in my data. I have skipped the first row due to it not not having relevant data. I decided to delete the totals column so I can calculate it myself. I also deleted the column for country name as this becomes redundant after we use the country code.*
+```{r, eval=TRUE, echo=TRUE}
+#Showing Dimensions of Base Data
+#assign US_Data to data
+#Skip first row because it has titles which are already included
+#Make column names, which include delete for country name and total deaths in order to remove them
+#Filtered by country code USA
+All_Data <- read_csv("../../_data/death-rates-from-air-pollution.csv", 
+         skip =1, 
+         col_names = c("Delete", "Code", "Year", "Delete", "Indoor_Deaths", "Outdoor_Particulate_Matter_Deaths", "Outdoor_Ozone_Deaths"))%>%
+  select(!contains("Delete"))
+head(All_Data)
+```
+```{r}
+#Assign US Data
+#US_Data <- All_Data %>%
+  #filter(Code == "USA") 
+```
+## Summary of Data
+*I have selected outdoor ozone deaths as my variable of analysis. I am using the estimator of mean over 17 years to see how average pollution deaths via ozone is different among countries. I selected a country from each continent to see how the mean ozone pollution deaths varies from country to country with varying demographics and policies. This grouping will help inn my analysis to see if there is a significant difference among countries.*
+```{r, eval =TRUE, echo=TRUE, tidy=TRUE}
+#Summarize Data
+summary_data<-All_Data %>%
+  group_by(Code) %>%
+  summarize(mean_ourdoor_ozone = mean(Outdoor_Ozone_Deaths), n=n())
+small_summary_data1 = c('USA', 'AFG', 'AUS', 'ALB', 'GAB')
+small_summary_data <- filter(summary_data, Code %in% small_summary_data1)
+as_tibble(small_summary_data)
+```
+## Discriptive Statistics
+*I filtered my data by countries from each continent in order to get a diverse sample among countries. I did an anova test to see if between my five selected countries, Australia, Albania, Gabon, Afghanistan, and the United States there was a difference in mean outdoor ozone deaths. My p-value of p(e) to the negative 16 confirmed that there was a significant difference between my selected countries in mean out door ozone pollution deaths.*
+```{r, echo=TRUE, eval=TRUE}
+#filtering by country code
+filter_rawdata_ <- filter(All_Data, Code %in% small_summary_data1)
+#doing anova analysis on selected countries
+aov1<-aov(Outdoor_Ozone_Deaths ~ Code, data= filter_rawdata_)
+summary(aov1)
+```
+
+# Visualization
+*To best display the differences among means between different countries, I have selected a bar graph. This bar graph uses each country's country code for the independent variable while using the mean ozone deaths per 100,000 people as the dependent variable. Other options I could have used for my data was a line graph utilizing time series data as my data came with years from 1990-2017 for each country. I chose not to do this for two different reasons, I believe one the analysis of the data would have been much more complicated and may not have yielded any clear conclusions. While I do realize that more complicated analysis can lead to more detailed results time constraints and ability left me to choose my option. My other reason was clarity of results. A time-series forecast may not have yielded as much of a clear difference as choosing a mean result. Mean is a sometimes a better estimator for getting a bigger picture of results. However, I also recognize that averages do not tell the complete story. This is just an analysis to get a general feel for whether or not further research may lead to concluding results. The mean ozone deaths for these countries does not necessarily give the whole picture, but this visualization of means provides a solid picture.*
+```{r, eval=TRUE, echo=TRUE}
+#making a bar chart of my small summary data of means
+ggplot(small_summary_data, aes(x=Code, y = mean_ourdoor_ozone)) + geom_bar(stat='identity', aes(fill=Code)) + 
+  geom_text(aes(label=round(mean_ourdoor_ozone,digits = 2))) +labs(title= 'Country vs. Mean Outdoor Ozone Deaths per 100k') + xlab('Country Code') + ylab('Mean Outdoor Ozone Deaths per 100k')
+
+```
+# Reflection
+*After my analysis is seems definite that there is a difference between ozone air pollution deaths among the countries. One concern that may affect my findings is  I chose countries by scrolling and selecting them which does not necessarily lend itself to complete randomness. I think the fact that each country is in a different continent still can lead to solid results, but I cannot say it was a completely random selection, which in turn may effect the results of analysis. Complete random selection is something in turn I do wish I did. Also, I would have grouped more than one country for each continent to see if certain climates may be a factor, and to get a better depth for how a continent as a whole is responding to the ongoing climate crisis. Another part of my project I would have liked to add is seeing how GDP per capita relates to average climate deaths. I would be curious to see how the wealth of a country may impact how they tackle climate change. Large industrial countries may have more ozone deaths because they are producing more fossil fuels, but also a large industrial nation may have more money to spend on climate policy changes. I would also be interested to see if a socialist versus capitalist country has on average more or less ozone related deaths, This would have been difficult to formulate for me given the time but I would have enjoyed adding a political and economic aspect to my analysis. I believe both of these factors could lead to a differences in ozone related deaths. These would also be the next step in my continuation of my project.  The most time consuming part of my project was subsetting my data to include multiple country codes. Once I figured out how to do this it was easy to move forward but that process was not as easy as I had figured it to be. *
+
+# Conclusion
+*My data draws the conclusion that there is a significant difference in the average ozone deaths in the selected countries. The implications of this finding is simply some countries are experiencing less ozone deaths for their population than others. This could be due to a wide range of factors such as healthcare, having better hospitals and access to healthcare may prevent the fatality rates of ozone pollution. Another factor could be a countries policy making. Some countries may experience less total ozone pollution due to laws against fossil fuel emission, or government incentives to buy electric vehicles and sustainable technology. Another factor could be economy of a country. In countries like China where there is widespread poverty, around 40% of the population is living on 5.50 USD or less a day, [3], there are less options for people to live a sustainable life. In countries where poverty is serious issue, people are worrying about surviving, not climate change. Another factor involving economy may be whether or not capitalist countries pollute more than socialist countries. Capitalists are incentivized to make profits, not worry about their environmental impact. However, some countries can incentivize capitalist corporations to pollute less. These incentives may end up leading to less pollution than socialist countries. There are a lot of questions surrounding the best way to deal with impending climate change. These are just a few factors that would impact how climate change interacts with us. There is no doubt however that climate change impacts countries differently and getting to them bottom of that may help us find some solutions to the changing of our earth. *
+
+# Bibliography
+1. Hoffman, A. J., &amp; Andrew J. Hoffman is the Holcim (US) Professor of Sustainable Enterprise at the University of Michigan. (n.d.). Climate science as culture WAR (SSIR). Stanford Social Innovation Review: Informing and Inspiring Leaders of Social Change. 
+2. https://ssir.org/books/reviews/entry/climate_science_as_culture_war#. 
+NASA. (2021, March 19). Scientific consensus: Earth's climate is warming. NASA. 
+3. https://climate.nasa.gov/scientific-consensus/. 
+Project, B. (2019, November 29). Top 10 facts about poverty in China. The Borgen Project. https://borgenproject.org/top-10-facts-about-poverty-in-china/. 
