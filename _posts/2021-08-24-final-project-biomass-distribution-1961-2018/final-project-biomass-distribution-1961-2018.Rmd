@@ -16,7 +16,12 @@ draft: true
 ---
 **INTRODUCTION**
 
-*This project helps in properly visualising as well as undersanding the rapid change in biomass distribution in the last ~60 years. @Bar-On6506*
+*This project helps in properly visualising as well as undersanding the rapid change in biomass distribution in the last ~60 years. @Bar-On6506* 
+*It is a way to fact check all the different headlines that have been going around recently like how humans contribution to the present state of the planet has been more than 83% but by themselves they only make up 0.01% of the life present on earth. @the_guardian_2018 *
+
+*How the population sizes of mammals, fish, birds, reptiles, and amphibians have declined an average of 68% between 1970 and 2016, according to World Wildlife Fund’s (WWF) Living Planet Report 2020. Populations in Latin America and the Caribbean have fared worst, with an average decline of 94%. Global freshwater species have also been disproportionately impacted, declining 84% on average. As an important indicator of planetary health, these drastic species population trends signal a fundamentally broken relationship between humans and the natural world, the consequences of which—as demonstrated by the ongoing COVID-19 pandemic—can be catastrophic. `@wwf_2020` * 
+
+*In order better understand the actual meaning behind these numbers, biomass distribution has been used which can be used to depict the size of a species with respect to all the lifeforms.*
 
 **DATA**
 
@@ -27,7 +32,7 @@ draft: true
 **WRANGLING**
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(tidyverse)
 ```
 *70% humany body is water => 30% carbon x 50% carbon out of the dry weight. Also the average of the human body is being assumed at 50 kgs. Also, 1kg is equal to 0.15 C which is stored in the variable `to_carbon` @Hern1999.*
@@ -94,10 +99,10 @@ chicken_layers <- read.csv('_data/FAOSTAT_egg_chicken.csv') %>%
   
 head(chicken_layers)
 ```
-*To calculate the biomass of chicken first chicken is seperated into two categories- broilers and layers. The resulting separate dataframes are multiplied by the avg weight as per the @ipcc standars i.e.  0.9 and 1.8 kgs. The output obtained is then stored together in `chicken_all` where the added weights are converted into Biomass(Gt C) then the actual %age of Total Biomass is calculated as well. The chicken_all dataframe adds both the dataframes together. The sum of all the regions are added based on the year using `rowSums()` and the %Total Birds mass is calculated using the constant birds_bm*
+*To calculate the biomass of chicken first chicken is seperated into two categories- broilers and layers. The resulting separate dataframes are multiplied by the avg weight as per the @ipcc standards i.e.  0.9 and 1.8 kgs. The output obtained is then stored together in `chicken_all` where the added weights are converted into Biomass(Gt C) then the actual %age of Total Biomass is calculated as well. The chicken_all dataframe adds both the dataframes together. The sum of all the regions are added based on the year using `rowSums()` and the %Total Birds mass is calculated using the constant birds_bm*
 ```{r}
 chicken_broilers <- (chicken - chicken_layers)*0.9
-chicken_layers <- (chicken_layers)* 1.8
+chicken_layers <- (chicken_layers)* 1.8`
 
 chicken_all <- (chicken_broilers + chicken_layers) %>%
   rowSums() %>%
@@ -110,7 +115,7 @@ chicken_all <- chicken_all %>%
   mutate(`Total Biomass (Gt C)` = `Total Biomass (Gt C)` * 1e-1)
 
 tail(chicken_all)
-```
+````
 *For ducks (and Turkey), the data is first loaded to `ducks`(`Turkeys`) from `bird_index` similarly as chickens before. The `ducks_all`(`Turkey_all`) then adds all the different regions together which is then multiplied by their avg weight (as per @ipcc) of 2.7 and then converted into Gt C using `converter`. *
 ```{r}
 ducks <- filter(birds_index, Item == 'Ducks') %>%
@@ -217,7 +222,7 @@ cattle_all <- (cattle + cattle_dairy) %>%
 
 head(cattle_all)
 ```
-!['@ipcc Chapter-10, 10.59'](IPCC_pigs.png)
+![Estimate Population of Swine](IPCC_pigs.png)
 
 *For swine(pigs) the @ipcc assumption is assumed here where close to 90% of them are used for breeding and only 1% are available for market. Based on this assumption `swine_breeding` and `swine_market` dataframes are created using the wrangling_livestock function (loading FAOSTAT_livestock.csv) and then multiplied by their respective weights in different regions. These are then combined to form swine_all where using rowSums the data is categorised into Total Biomass/year and %age Total Mammal Biomass/year.*
 
@@ -397,7 +402,7 @@ wild_animal_biomass <- livestocks %>%
   mutate(`% Mammal Biomass (Gt C)` = (100 - `% Mammal Biomass (Gt C)` - human_pop$`% Mammal Biomass (Gt C)`))
 ```
 
-**Visualization**
+**VISUALIZATION**
 
 *The graph below helps in the visualization of the change in biomass of the birds from 1961-2018. It is easy to observe from it that there has been a drastic drop in the wild bird population; from occupying more than 60% of the total biomass of the birds they have dropped to 30% in 2018 whereas the poultry is occupying more than 60%.*
 ```{r}
@@ -449,7 +454,9 @@ as.data.frame(rbind(cbind(poultry$`Total Biomass (Gt C)`, category = "Poultry"),
   theme_minimal() + 
   labs(title = "Biomass Distributions of Birds and Mammals over the years", y = "Total Biomass in Gt C")
 ```
+**REFLECTION**
 
-**Inference**
+
+**INFERENCE**
 
 *Though we have been aware of climate change and importance of a healthy eco-system for more than three decades, the continuing sharp decline in the wild is concerning and proves that we are much farther away from a solution than we think.*

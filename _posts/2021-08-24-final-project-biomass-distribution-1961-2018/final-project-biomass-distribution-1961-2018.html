@@ -113,6 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="citation_reference" content="citation_title=FAO global statistical yearbook, FAO regional statistical yearbooks;citation_publisher=Food; Agriculture Organization of the United Nations (FAO)"/>
   <meta name="citation_reference" content="citation_title=How many times has the human population doubled? Comparisons with cancer;citation_publication_date=1999;citation_volume=21;citation_doi=10.1023/A:1022153110536;citation_issn=1573-7810;citation_author=Warren M. Hern"/>
   <meta name="citation_reference" content="citation_title=2006 IPCC guidelines for NATIONAL greenhouse gas inventories"/>
+  <meta name="citation_reference" content="citation_title=Humans just 0.01;citation_publication_date=2018;citation_publisher=Guardian News; Media"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -1490,7 +1491,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <p><strong>INTRODUCTION</strong></p>
-<p><em>This project helps in properly visualising as well as undersanding the rapid change in biomass distribution in the last ~60 years. <span class="citation" data-cites="Bar-On6506"><a href="#ref-Bar-On6506" role="doc-biblioref">Bar-On, Phillips, and Milo</a> (<a href="#ref-Bar-On6506" role="doc-biblioref">2018</a>)</span></em></p>
+<p><em>This project helps in properly visualising as well as undersanding the rapid change in biomass distribution in the last ~60 years. <span class="citation" data-cites="Bar-On6506"><a href="#ref-Bar-On6506" role="doc-biblioref">Bar-On, Phillips, and Milo</a> (<a href="#ref-Bar-On6506" role="doc-biblioref">2018</a>)</span></em> <em>It is a way to fact check all the different headlines that have been going around recently like how humans contribution to the present state of the planet has been more than 83% but by themselves they only make up 0.01% of the life present on earth. <span class="citation" data-cites="the_guardian_2018"><a href="#ref-the_guardian_2018" role="doc-biblioref"><span>“Humans Just 0.01”</span></a> (<a href="#ref-the_guardian_2018" role="doc-biblioref">2018</a>)</span> </em></p>
+<p><em>How the population sizes of mammals, fish, birds, reptiles, and amphibians have declined an average of 68% between 1970 and 2016, according to World Wildlife Fund’s (WWF) Living Planet Report 2020. Populations in Latin America and the Caribbean have fared worst, with an average decline of 94%. Global freshwater species have also been disproportionately impacted, declining 84% on average. As an important indicator of planetary health, these drastic species population trends signal a fundamentally broken relationship between humans and the natural world, the consequences of which—as demonstrated by the ongoing COVID-19 pandemic—can be catastrophic. <code>@wwf_2020</code> </em></p>
+<p><em>In order better understand the actual meaning behind these numbers, biomass distribution has been used which can be used to depict the size of a species with respect to all the lifeforms.</em></p>
 <p><strong>DATA</strong></p>
 <p><em>This project consists of data pulled from 2006 IPCC Guidelines for National Greenhouse Gas Inventories (<span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span>) and Food and Agriculture Organization of the United Nations (<span class="citation" data-cites="faostat"><a href="#ref-faostat" role="doc-biblioref"><span>“FAO Global Statistical Yearbook, FAO Regional Statistical Yearbooks”</span></a> (<a href="#ref-faostat" role="doc-biblioref">n.d.</a>)</span>) for data regarding the mass index and distribution of poultry and livestock in different regions of the world (North and Latin America, Asia, Indian Subcontinent, Oceania and Africa). The aim of this project was to map out the change in the biomass distribution and analyze how human activities have affected the environment in the past 60 years. The main focus will be on terrestrial lifeforms (animals) and humans.</em></p>
 <p><em>The project can be broken down into two sections: Wrangling and Visualization. As I will be referring to various data sets in this project, cleaning and structuring is a big part of it. </em></p>
@@ -1870,7 +1873,7 @@ Western Europe        130   130    217</code></pre>
 1966           0.04436850                26.89000</code></pre>
 </div>
 <figure>
-<img src="IPCC_pigs.png" alt="‘“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories” (n.d.) Chapter-10, 10.59’" /><figcaption aria-hidden="true">‘<span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span> Chapter-10, 10.59’</figcaption>
+<img src="IPCC_pigs.png" alt="Estimate Population of Swine" /><figcaption aria-hidden="true">Estimate Population of Swine</figcaption>
 </figure>
 <p><em>For swine(pigs) the <span class="citation" data-cites="ipcc"><a href="#ref-ipcc" role="doc-biblioref"><span>“2006 IPCC Guidelines for NATIONAL Greenhouse Gas Inventories”</span></a> (<a href="#ref-ipcc" role="doc-biblioref">n.d.</a>)</span> assumption is assumed here where close to 90% of them are used for breeding and only 1% are available for market. Based on this assumption <code>swine_breeding</code> and <code>swine_market</code> dataframes are created using the wrangling_livestock function (loading FAOSTAT_livestock.csv) and then multiplied by their respective weights in different regions. These are then combined to form swine_all where using rowSums the data is categorised into Total Biomass/year and %age Total Mammal Biomass/year.</em></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2213,6 +2216,9 @@ Bar-On, Yinon M., Rob Phillips, and Ron Milo. 2018. <span>“The Biomass Distrib
 </div>
 <div id="ref-Hern1999" class="csl-entry" role="doc-biblioentry">
 Hern, Warren M. 1999. <span>“How Many Times Has the Human Population Doubled? Comparisons with Cancer.”</span> <em>Population and Environment</em> 21 (1): 59–80. <a href="https://doi.org/10.1023/A:1022153110536">https://doi.org/10.1023/A:1022153110536</a>.
+</div>
+<div id="ref-the_guardian_2018" class="csl-entry" role="doc-biblioentry">
+<span>“Humans Just 0.01.”</span> 2018. <em>The Guardian</em>. Guardian News; Media. <a href="https://www.theguardian.com/environment/2018/may/21/human-race-just-001-of-all-life-but-has-destroyed-over-80-of-wild-mammals-study">https://www.theguardian.com/environment/2018/may/21/human-race-just-001-of-all-life-but-has-destroyed-over-80-of-wild-mammals-study</a>.
 </div>
 </div>
 <!--radix_placeholder_article_footer-->
