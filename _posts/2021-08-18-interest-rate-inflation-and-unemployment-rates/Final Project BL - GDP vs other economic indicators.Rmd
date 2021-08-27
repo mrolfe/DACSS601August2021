@@ -15,7 +15,7 @@ draft: true
 
 
 Gross Domestic Product is the bread and butter of financial data. No country has a higher one than the United States. Although it takes into account Government Spending, Business Investment, and exports, 70% of what accounts for GDP is consumption by the citizens. It informs the Federal Reserve of how healthy our consumer culture is more than anything. Keeping the consumer in the United States able to spend is the result of a carefully managed financial system led by the Federal Reserve. Inflation in our economy eats away at the purchasing power of the dollar over time. It is very important for the stability of the US economy that inflation remain under control, with a steady increase in inflation to drive up wages as well as consumer spending.
-With a rise in Crypto Currencies and cohort of citizens seeking to decentralize our banking system I believe it is more important than ever to understand the complex relationship that keeps the US economy the most stable in the world. 
+With a rise in Crypto Currencies and a cohort of citizens seeking to decentralize our banking system I believe it is more important than ever to understand the complex relationship that keeps the US economy the most stable in the world. 
 I believe it is important to in order to maintain a stable economy the interest rate, or Federal Funds Rate should outpace inflation. If it does not then the purchasing power of the dollar when held in "risk free" assets such as US Treasury Bonds would diminish leaving people with less purchasing power over time.
   
 I will attempt to answer is there a significant  inflation rates and interest rates (federal funds rates)?
