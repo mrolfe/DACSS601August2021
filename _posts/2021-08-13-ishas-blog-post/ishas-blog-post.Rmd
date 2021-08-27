@@ -38,7 +38,7 @@ This data sample is drawn from the Australian Marriage Law Postal Survey in 2017
 >How can you arrange your dataset by territory? 
 
 ```{r}
-data_summary <- marriage_data %>% 
+data_summary <- marriage_data %>%  
   group_by(territory) %>% 
   summarise(count,resp)
 ```
