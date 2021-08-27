@@ -1,0 +1,158 @@
+---
+title: "Understanding The Fundamentals Of Hotel Bookings "
+description: |
+  This paper conducts analysis on a hotel booking dataset collected between the
+  years (2015-1017) considering different variables to answer multiple research 
+  questions that will assist you to make your next trip planning decisions.
+author:
+  - name: Zutima Tuladhar
+    url: {}
+date: 08-27-2021
+output: html_document
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Introduction**
+
+*Travel holds one of the biggest annual expenses in the USA. According to the US Travel Association in the year 2019 alone,total international and domestic traveler spending generated $2.6 trillion in economic output, measuring up to 2.9 percent of the nations gross domestic product(GDP) and most importantly generated over 15.8 million jobs in the country.*
+
+*Today, with the constant development of technology and online services, the traveling industry  has become more accessible and affordable to everyone. The statistical portal has shown that around eighty eight percent of Americans prefer to book or have booked their hotel online using the internet portals (2017).Online booking travel agents, travel websites and advanced systems have immensely affected the direct relationship of the hotel management and guests.While there are certain advantages and disadvantages of hotel booking online or offline using travel agents, the statistics of avid travelers in the USA  shows that competition is high when it comes to finding the perfect deal for stay. Additionally, online booking has been said to guarantee customers to get the lowest price possible, there have been issues of lack of transparency and chances of canceling/ moving dates last minute which we will also be analyzing the data for today.*
+
+*Studies have shown that established companies benefit and save a large amount of revenue when they are dealing with repeated customers as they do not have to have additional advertisement expenses and repeated customers can also reflect the success of a company. We will be analyzing and plotting graphs on repeated customers according to each year (2015-2017) as well as determining which of the months do customers prefer to travel back.*
+
+
+**Research Question**
+
+*For this project my research questions would be focused on three major categories in order to identify the optimal time for traveling. What is the best time of the year to book hotels?What is the optimal time of month to spend for the best rate possible?What is the most popular source of travel agents (online or offline TA)*
+
+
+
+**Data Selection**
+
+*The data set we are analyzing is a single file which aims to compare various booking information between two hotels, specifically a city hotel and a resort hotel. The data consists of 32 columns through which I have worked to determine the above mentioned research questions.*
+```{r}
+## Load the libraries
+
+library(tidyverse)
+library(dbplyr)
+library(ggplot2)
+library(stringi)
+library(rmarkdown)
+
+```
+
+```{r}
+
+book <- read_csv(file="../../_data/hotel_bookings.csv")
+
+```
+
+```{r dim}
+dim(book)
+```
+Now that our data has been read into our environment, let's give it a look using the function dim().
+
+```{r colnames}
+colnames(book)
+```
+Now that our data has been read into our environment, let's give it a look using the function colnames().
+```{r}
+
+## In order to separate and piping selected variables I am using the package dplyr and using the select() function as seen below
+
+(d <- book %>% 
+  select( deposit_type, arrival_date_year, arrival_date_month, hotel, is_repeated_guest))
+
+```
+
+```{r}
+
+unique(d$arrival_date_year)
+unique(d$arrival_date_month)
+unique(d$hotel)
+unique(d$is_repeated_guest)
+
+```
+
+```{r}
+
+ggplot(d, aes(arrival_date_year)) + geom_bar(fill = "maroon2") + theme_classic()
+
+
+## The bar shows the number of guests that booked hotels each month from 2015-2017 at the particular hotels. We can see from the graph there were highest number of bookings in 2016 and lowest number of bookings in 2017.
+
+```
+```{r}
+
+## arrival_date_month
+
+ggplot(d, aes(arrival_date_month)) + geom_bar( fill = "skyblue") +theme_classic()
+
+## The bar shows the number of guests that booked hotels each month from 2015-2017 at the particular hotels. We can see from the graph there were highest number of bookings in August and lowest number of bookings in January.
+
+```
+```{r}
+
+ggplot(d, aes(hotel)) + geom_bar(fill = "red") + theme_bw()
+
+```
+```{r filter}
+resort <- filter(d, hotel == "Resort Hotel") 
+city <- filter(d, hotel =="City Hotel")
+```
+
+We can now look at which year was the highest number of guests arriving at each hotel. 
+
+```{r arrange}
+
+resort$hotel <- resort$arrival_date_year + resort$is_repeated_guest
+city$hotel <- city$arrival_date_year + city$is_repeated_guest
+
+```
+```{r }
+
+(d %>% group_by(hotel, arrival_date_year)) %>% count(arrival_date_year)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "skyblue2", stat = "count") + 
+  labs(title = "Year Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_year), scales = "free_y"))
+
+```
+```{r}
+(d %>% group_by(hotel, is_repeated_guest)) %>% count(is_repeated_guest)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "skyblue3", stat = "count") + 
+  labs(title = "Repeated Guest") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(is_repeated_guest), scales = "free_y"))
+```
+
+
+```{r}
+
+(d %>% group_by(arrival_date_year, arrival_date_month)) %>% count(arrival_date_month)
+
+(ggplot(d, aes(arrival_date_year)) + 
+  geom_histogram(fill = "skyblue2", stat = "count") + 
+  labs(title = "Month Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_month), scales = "free_y"))
+```
+
+```{r}
+
+d %>% ggplot(aes(x = arrival_date_year, 
+             y = arrival_date_month)) +
+  geom_point(fill = "skyblue4") +
+  xlab("year") +
+  ylab("month") + theme_linedraw()
+
+```
+
