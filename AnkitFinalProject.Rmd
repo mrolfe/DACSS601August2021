@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-Have you ever wondered how the hotel management predict bookings cancellation? What strategies can be deployed by the hospitality sector to understand the satiation, seasonality, etc. How can researchers study the segmentaion of the consumers in this market to generate more revenue? 
+Have you ever wondered how the hotel management predict bookings cancellation? What strategies can be deployed by the hospitality sector to understand the satiation, seasonality, etc. How can researchers study the segmentation of the consumers in this market to generate more revenue? 
 
 Hospitality industry is one of the most service-intensive real estate asset types. Due to the Covid 19 pandemic, the hospitality industry has witnessed huge disruption making it imminent for the industry to revisit its revenue generating and asset management strategies to absorb the short and long run impacts of the pandemic on its business operations.
 
@@ -252,4 +252,14 @@ ggplot(aes(x = market_segment, y = n, fill = customer_type)) +
   theme(plot.title = element_text(face = "bold"))
 ```
 
+
+#Reflection
+
+Due to paucity of time, I could not cover all possible relationships that needs to be covered in order to explore the questions that I had set out at the outset. I will try to explore and map relationships that possible to finally develop a prediction model with respect to bookings' cancellations.
+
+#References
+
+Nuno Antonio, Ana de Almeida, Luis Nunes, "Hotel booking demand datasets", Data in Brief,
+Volume 22,2019, Pages 41-49, ISSN 2352-3409, https://doi.org/10.1016/j.dib.2018.11.126.,
+(https://www.sciencedirect.com/science/article/pii/S2352340918315191)
 
