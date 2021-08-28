@@ -1,0 +1,80 @@
+title: "AnkittHw4"
+author: "Ankit"
+date: "8/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Loading relevant packages
+
+```{r}
+library(tidyverse)
+```
+
+Reading the dataset into a data frame
+
+```{r}
+library(readr)
+hotel_bookings <- read_csv("_data/hotel_bookings.csv")
+```
+
+Overview of the dataset
+```{r}
+glimpse(hotel_bookings)
+```
+
+Taking a look at the first few rows
+```{r}
+head(hotel_bookings)
+```
+
+Are Na values present in the dataset?
+
+```{r}
+hotel_bookings %>% is.na()%>% sum()
+```
+
+There are 4 Na values in the data set.
+
+Identifying the positions of NA values in the dataset
+
+```{r}
+hotel_bookings %>% is.na() %>% which(arr.ind = TRUE)
+```
+
+arr.ind is TRUE because we need the positions of NA values in the Dataset
+
+Na values are present in the 11th column. So, examining the rows which have NA values
+
+```{r}
+hotel_bookings[c(40601,40668,40680,41161), ]
+```
+
+The children column has NA values for the above rows
+
+Removing the rows which have Na values
+```{r}
+hotel_bookings <- hotel_bookings %>% filter(!is.na(children))
+```
+
+Checking whether data set still has Na values
+
+```{r}
+hotel_bookings %>% is.na()%>% sum()
+```
+
+```{r}
+hotel_bookings %>% mutate(arrival_date_month = factor(arrival_date_month,
+    levels = c("January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"), ordered = TRUE))
+```
+
+
+Frequency table of Hotels in the dataset
+```{r}
+hotel_bookings %>%
+  group_by(hotel) %>% summarise(freq=n())
+```

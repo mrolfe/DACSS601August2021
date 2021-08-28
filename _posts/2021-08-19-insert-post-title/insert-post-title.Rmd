@@ -15,18 +15,119 @@ draft: true
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r}
-# reading hotel bookings data and viewing it
-
-library(readr)
-hotel_bookings
-read_csv("_data/hotel_bookings.csv")
-View(hotel_bookings)
-```
 
 loading relevant libraries
 
 ```{r}
 library(tidyverse)
 ```
+
+
+```{r}
+# reading hotel bookings data and viewing it
+
+library(readr)
+hotel_bookings <- read_csv("../../_data/hotel_bookings.csv")
+View(hotel_bookings)
+```
+
+inspecting the first few rows of the dataset
+```{r}
+hotel_bookings %>% head()
+```
+Overview of the dataset
+
+```{r}
+
+# Dimension of the dataset
+hotel_bookings %>% dim()
+
+# Names of the columns in the dataset
+hotel_bookings %>% names()
+
+# Summary of the dataset
+hotel_bookings %>% summary()
+
+# Type of data in each column
+hotel_bookings %>% str()
+
+```
+
+Are Na values present in the dataset?
+
+```{r}
+hotel_bookings %>% is.na()%>% sum()
+
+# there are 4 Na values in the data set
+```
+
+Identifying the positions of NA values in the dataset
+
+```{r}
+hotel_bookings %>% is.na() %>% which(arr.ind = TRUE)
+# arr.ind is TRUE because we need the positions of NA values in the Dataset
+```
+
+Na values are present in the 11th column. So, examining the rows which have NA values
+
+```{r}
+hotel_bookings[c(40601,40668,40680,41161), ]
+
+# The children column has NA values for the above rows
+```
+
+Removing the rows which have Na values
+```{r}
+hotel_bookings <- hotel_bookings %>% filter(!is.na(children))
+
+# checking whether data set still has Na values
+hotel_bookings %>% is.na()%>% sum()
+
+```
+
+Data Transformation
+
+```{r}
+library(plyr)
+count(hotel_bookings, "hotel")
+
+# The number of city hotels in the data set is very large relative to the number of resort hotels.
+```
+
+Segregating hotel data set into city hotels and resort hotels
+
+```{r}
+
+city_hotel <- hotel_bookings %>% filter(hotel_bookings$hotel == "City Hotel")
+
+resort_hotel <- hotel_bookings %>% filter(hotel_bookings$hotel == "resort Hotel")
+
+```
+
+
+Exploring City Hotels further
+
+```{r}
+count(city_hotel, "market_segment")
+
+city_hotel_by_mkt <- city_hotel %>% group_by(market_segment)
+
+```
+
+How many booking were made with deposits?
+
+```{r}
+city_hotel_by_mkt %>% count("deposit_type")
+
+city_hotel_by_mkt %>% count("is_canceled")
+```
+
+```{r}
+
+city_prices_monthly <-select(city_hotel, arrival_date_month, adr)
+
+
+city_prices_monthly %>% summarise(mean_adr = mean(adr))
+```
+
 
