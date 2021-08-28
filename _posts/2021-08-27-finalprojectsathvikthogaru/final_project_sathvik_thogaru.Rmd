@@ -1,0 +1,466 @@
+---
+title: "final_project_sathvik_thogaru"
+description: |
+  Analysis of Indian Premier League(IPL) 2008-2020
+author: sathvik_thogaru
+date: 08-27-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+<style>
+body {
+text-align: justify}
+</style>
+
+## Introduction:
+
+
+Before the twenty-first century, decision-making in sports was mainly based on observation.
+This has changed with technological progress, especially related to data acquisition and personal  
+availability of computing. The application of analytics in sports is a growing field that seeks to
+develop methodologies to collect and analyze sports data in order to improve decision making. 
+
+The popular sports which are heavily influenced by money are also influenced by analytics which are
+soccer, basketball, cricket, ice-hockey, baseball and American football[1]. The current research
+focuses on the analytics in cricket, it is regarded as one of the major sports with a long history
+dating back to 16th century. In terms of participation and viewership in terms of media, it is the
+second most popular after soccer.
+
+Cricket is a played between two teams with 11 players on each side. Each team consists of batsmen,
+bowlers and all-rounders (who can bat and bowl). If one team does the batting the other team bowls.
+This time period is called as an innings. There are always two innings in a match unless it is
+interrupted by some external factors like the change in climate, bad light, rain etc[2]. Cricket
+has three formats of play, test cricket – played for consecutive five days with maximum of 90 overs
+per day, One-Day Internationals (ODI) – maximum of 50 overs per side, Twenty20 (T20) – maximum of
+20 overs per side. The T20 format in cricket is a “big money” sport. Among professional leagues
+Indian Premier League (IPL) has the second highest average player salaries trailing National
+Basketball Association (NBA)[1].
+
+For this paper, I am going to investigate the Indian Premier League(IPL) matches which were played
+in between year 2008 and 2020.The investigation is mostly focused on finding the most successful
+team in the IPL based on victories, players in the team, toss-decision  and other metrics over the
+given period of time.
+
+
+## Data
+
+The data was collected from the Kaggle, an online datasets source for many datascientists and machine
+learning practitioners. Kaggle gives acess to users to publish datasets, survey and make models in
+data-science environment. helps to communicte with other analysts and engineers. The data set which
+is used in this project is the IPL Complete dataset(2008-2020) which was published in the Kaggle
+and was collected from the source cricsheet.org[3].
+
+The data provided in this dataset is covered from 2008-04-17 to 2020-11-09, which is 13 IPL seasons
+of data. This data is an appropriate choice as it has details of all the matches played from start
+of the IPL in 2008 till 2020 IPL.
+
+The variables that I am specifically interested in this dataset are listed as follows:
+
+1. city  : the city where the IPl match was played
+2. date : date when the match was played
+3. player_of_match : player who scored more points in the match
+4. venue : the venue where the match was played
+5. team1 : one of the two teams playing on that given date
+6. team2 : one of the two teams playing on that given date
+7. toss_winner : team that won the toss
+8. toss-decision : team that won the toss will either choose to bat or field
+9. winner : winner of the match
+10. reswult : result of the match either it is win by runs/wickets/tie
+11. result-margin : by how many runs did they winning team win/ by how many wickets did the winning team win
+12. eliminator : either thematch is a eliminator or a league match
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## IMPORTING THE DATA
+
+```{r message=FALSE,warning=FALSE}
+library(tidyverse)
+library(reshape)
+library(formattable)
+```
+
+
+#### reading the data
+
+```{r message=FALSE,warning=FALSE}
+ipl_matches <- read_csv("../../_data/IPL Matches 2008-2020.csv")
+head(ipl_matches)
+```
+
+#### viewing column names
+
+```{r message=FALSE,warning=FALSE}
+colnames(ipl_matches)
+```
+
+
+#### checking for summary statistics of the dataset and aslo knowing the number of NA values
+
+```{r message=FALSE,warning=FALSE}
+skimr::skim(ipl_matches)
+```
+
+from the skim() we can see know the summary statistics of our data,
+here we have 13 character variables, 1 date variable, 3 numeric variables. we also have 13 ,missing values in the city column and 4 missing values in player-of_match, winner,result,eliminator columns. 
+
+
+
+```{r}
+unique(ipl_matches$result)
+```
+
+## CLEANING DATA
+
+#### checking the rows containing NA values in winner column
+
+```{r message=FALSE,warning=FALSE}
+filter(ipl_matches, is.na(winner))
+```
+
+It seems the match is abandoned due to some reason, because we have the "player_of_match", "winner", "result", "result_margin" columns as NA, which in most we can say the match is not played and abandoned although the toss_decision is made.so removing those rows from the data set.
+
+```{r message=FALSE,warning=FALSE}
+ipl_matches <- ipl_matches %>% 
+  filter(!is.na(winner))
+```
+
+#### we also have 13 NA values in the city column lets have a look at those rows
+
+```{r message=FALSE,warning=FALSE}
+filter(ipl_matches, is.na(city))
+```
+
+lets try to find the 13 missing city values using the venues from the same data set. lets find where is Sharjah Cricket stadium and Dubai Intern. cricket stadium from the data
+
+```{r message=FALSE,warning=FALSE}
+(uniques <-  unique(ipl_matches[c("city","venue")]))
+(uniques <- uniques[!is.na(uniques$city),])
+```
+
+
+looks like the sharjah stadium is at Sharjah city and Dubai Intern. Stadium is at Dubai.
+lets impute these values repectively in the missing places in the city column 
+
+```{r message=FALSE,warning=FALSE}
+na_city <- which(is.na(ipl_matches$city))
+na_venue <- ipl_matches$venue[na_city]
+ipl_matches$city[which(is.na(ipl_matches$city))] <- uniques$city[match(na_venue, uniques$venue)]
+
+```
+
+#### Total teams in the IPL
+
+```{r message=FALSE,warning=FALSE}
+union(ipl_matches$team1,ipl_matches$team2)
+```
+
+Here the teams "Rising Pune Supergiants" and "Rising Pune Supergiant" are one team and should be considered as one team. we need to recode the "Rising Pune Supergiant" which is spelled wrong as "Rising Pune Supergiants"
+
+```{r message=FALSE,warning=FALSE}
+ipl_matches["team1"][ipl_matches["team1"] == "Rising Pune Supergiant"] <- "Rising Pune Supergiants"
+ipl_matches["team2"][ipl_matches["team2"] == "Rising Pune Supergiant"] <- "Rising Pune Supergiants"
+ipl_matches["toss_winner"][ipl_matches["toss_winner"] == "Rising Pune Supergiant"] <- "Rising Pune Supergiants"
+ipl_matches["winner"][ipl_matches["winner"] == "Rising Pune Supergiant"] <- "Rising Pune Supergiants"
+
+```
+
+
+```{r message=FALSE,warning=FALSE}
+union(ipl_matches$team1,ipl_matches$team2)
+```
+
+now we can see that "Rising Pune Supergiants" as one team
+
+
+## DATA EXPLORATION (TRANSFORMATION & VIZUALISATION)
+
+#### total IPL matches played in between 2008 and 2020
+
+```{r message=FALSE,warning=FALSE}
+total_matches_played <- count(ipl_matches)
+noquote(paste("Total IPL matches played from 2008 to 2020 is", total_matches_played,"matches"))
+```
+
+
+#### total matches played by individual teams in the IPL
+
+```{r message=FALSE,warning=FALSE}
+total_matches_played_by_individual_teams <- data.frame(table(ipl_matches$team1) + table(ipl_matches$team2))
+colnames(total_matches_played_by_individual_teams) <- c("team","matches_played")
+temp <- arrange(total_matches_played_by_individual_teams,desc(matches_played))
+
+formattable(temp)
+
+(plot1 <- ggplot(total_matches_played_by_individual_teams,aes(team,matches_played))+
+  geom_bar(stat = "identity",fill="turquoise2")+
+  geom_text(aes(label=matches_played),vjust=-0.3,size=3)+
+  labs(title="Matches played by each team in the IPL")+
+  scale_x_discrete(limits = c(temp$tteam))+
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)))
+
+```
+
+
+From the above Data in the table and the visualization we can see that  the Mumbai Indians, Kolkata Knight Riders, Royal Chalengers Banglore,  Chennai Super Kings,Delhi Daredevils, and Rajasthan Royals have played  over 150 games in the IPL. Mumbai Indians sitting at the top of the table have played over 200 games in 13 seasons. with average of 15.3 matches   per season. Probably it might had won most of the matches in IPL during leagues and qualified for the eliminators where it gets more matches to play. Lets check how each team performed in the IPL seasons
+
+
+#### total win, lose and tie matches of individual team in the IPL
+
+creating a new column "loser" in the ipl_matches dtatframe to know the team which lost the match ( the dataset has no column which says about who lost the match)
+
+Here I am using the ifelse() function to find the team which lost the match. here if the first expression is true then the second expression is evaluated else the third expression is considered. Here I have used nested ifelse to check two conditions.
+
+if the match is not tie 
+    then check if team1 is the winner
+      if true
+        team2 is lost
+      else
+        team1 is lost
+else
+ NA ( the match is abandoned due climate change or other external factors)
+
+```{r message=FALSE,warning=FALSE}
+ipl_matches$loser <- ifelse(ipl_matches$result!="tie",ifelse(ipl_matches$team1==ipl_matches$winner,ipl_matches$team2,ipl_matches$team1),NA)
+```
+
+finding the toital wins and loses of individual teams and then merging them with the total_matches_played_by_individual_teams dataframe and forming a new dataframe named win_lose_tie_by_team which describes the no.of matches palyed, matches-won, matches_lost, and tie matches.
+
+```{r message=FALSE,warning=FALSE}
+total_win_individual_team <- ipl_matches %>% 
+  group_by(team = winner) %>% 
+  tally(name = "matches_won",sort = TRUE)
+
+
+total_lose_individual_team <- ipl_matches %>% 
+  group_by(team = loser) %>% 
+  tally(name = "matches_lost",sort = TRUE)
+
+
+win_and_lose_by_team <- merge(total_matches_played_by_individual_teams,total_win_individual_team) %>% 
+  merge(total_lose_individual_team)
+
+win_lose_tie_by_team <- win_and_lose_by_team %>% mutate(tie=matches_played-matches_won-matches_lost)
+
+win_lose_tie_by_team <- win_lose_tie_by_team %>% 
+  mutate(win_percentage = round(matches_won/(matches_won+matches_lost)*100,2)) %>% 
+  arrange((win_percentage))
+
+formattable((arrange(win_lose_tie_by_team,desc(win_percentage))))
+
+df.long <- melt(win_lose_tie_by_team[,c(1,3,4)])
+
+(plot2 <- ggplot(df.long,aes(team,value,fill=variable))+
+    geom_bar(stat="identity",position="dodge")+
+    labs(x="team",y="matches",title = "Wins and Loses of individual teams in the IPL from 2008-2020")+
+    theme_classic()+
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)))
+
+
+(plot3 <- ggplot(win_lose_tie_by_team,aes(team,win_percentage))+
+  geom_bar(stat = "identity",fill="springgreen4")+
+  geom_text(aes(label=win_percentage),hjust=-0.5,size=3)+
+  scale_x_discrete(limits=c(win_lose_tie_by_team$team))+
+  scale_y_continuous(limits=c(0,100),breaks=c(0,25,50,75,100))+
+  labs(title = "Win percentage of individual teams in the IPL")+
+  theme_classic()+
+  coord_flip())
+
+```
+
+
+from the information in the table and the visualization we can see that Chennai super kings gains the table top position with win percentage .19% more than the Mumbai Indians. Delhi daredevils, Sunrisers hyderabad anfd Kolkata knight Riders taking the second, third, fourth position respectively. lets try to find if there is any home advantage to the teams when played at their home venues.
+
+#### No.of matches played at each city
+
+first lets find the total matches played at each venue and then compare them with the wins of individual teams
+
+```{r message=FALSE,warning=FALSE}
+matches_played_at_each_city <- data.frame(table(ipl_matches$city))
+colnames(matches_played_at_each_city) <- c("city","matches_played")
+a<-arrange(matches_played_at_each_city,matches_played)
+
+arrange(matches_played_at_each_city, desc(matches_played))
+
+(plot4 <- ggplot(a, aes(matches_played,city))+
+  geom_bar(stat = "identity",fill = "brown4")+
+  labs(title = "Total matches played at each city in IPL from 2008-2020")+
+  xlim(c(0,120))+
+  theme_classic()+
+  geom_text(aes(label=matches_played),hjust=-0.5,size=3)+
+  scale_y_discrete(limits = c(a$city)))
+```
+
+101 matches were played at Mumbai with Kolkata taking the second place having 77 matches played. 24 more matches played at Mumbai when compared to Kolkata.Looks like Mumbai is the main Venue for IPL matches. 
+
+
+#### Do teams have advantage if they play at home city when compared to other teams
+
+```{r message=FALSE,warning=FALSE}
+venue_advantage_data <- ipl_matches %>% 
+  group_by(team = winner,city) %>% 
+  tally(sort = TRUE, name = "matches_won")
+
+# we are looking at a teams and their most wins at a city 
+
+venue_advantage_data <-  venue_advantage_data %>% 
+  group_by(team) %>% 
+  slice(1) %>% 
+  ungroup()%>%
+  arrange(desc(matches_won))
+
+formattable(venue_advantage_data)
+```
+
+
+from the above table data we can see that Mumbai Indians has won 53 of its matches out of 101 played at Mumbai which is slightly higher than 50% of the matches played at Mumbai. and Kolkata has more win percentage when compared to Mumbai winning 45 matches out of 77 played at home and other teams also have their own home advantage This shows that every team has its own home advantage when winning the matches
+
+lets see if the probability of winning a match is higher if a team wins the toss
+
+
+
+#### Is winning a toss really helps in winning the game?
+
+here I have created a new column called " winning_toss_and_match" and  recoded the values of winning a toss and a match to 1 and losing a toss and winnning a match to 0, so that it will be easy to calculate the probability of winning a match.
+
+```{r message=FALSE,warning=FALSE}
+ipl_matches <- ipl_matches %>% 
+  mutate(winning_toss_and_match = case_when(toss_winner==winner~1,
+                                            toss_winner!=winner~0))
+
+table(ipl_matches$winning_toss_and_match)
+
+```
+here there are 418 instances where a team won the match when it won the toss which is >0.5 probability of winning a match. 
+
+```{r}
+(toss_winner_data <- ipl_matches %>% select(toss_winner) %>% group_by(toss_winner) %>% tally(name="freq") %>% arrange(desc(freq)))
+
+ggplot(toss_winner_data,aes(toss_winner,freq))+
+  geom_bar(stat = "identity",fill="lightgreen")+
+  scale_x_discrete(limits =toss_winner_data$toss_winner )+
+  coord_flip()+
+  labs(title="most tosses won by each team")+
+  theme_classic()
+```
+ we can see here the most number of tosses were won by the Mumbai Indians who have actually won more number of matches in the IPL
+
+#### most number of matches won by a team in a season
+
+here I created a new column called season which gives the information of seasons of IPL
+
+```{r message=FALSE,warning=FALSE}
+ipl_matches <- ipl_matches %>%
+  mutate(season= format(date,format="%Y"))
+```
+
+```{r message=FALSE,warning=FALSE}
+season_team_wins<- ipl_matches %>% 
+  select(season,winner) %>%
+  group_by(season,team=winner) %>% 
+  tally(name="wins",sort=TRUE)
+
+(seasons_team_standings <- split(season_team_wins,season_team_wins$season))
+
+(table_toppers_in_each_season <- season_team_wins %>% 
+  slice(1:2))
+```
+2010,2013,2017,2019,2020 are the seasons where Mumbai Indians was the leader of the points table with more wins and in 2011 and 2015 it was in the second place. After Mumbai Indians, Chennai Super kings is the most successful with more wins.
+
+
+
+
+
+#### top 10 most valuable players in the IPL
+
+
+```{r}
+most_valuable_players <- ipl_matches %>% 
+  select(player_of_match,winner) %>% 
+  group_by(player_of_match,winner) %>% 
+  tally(sort=TRUE, name="freq") %>% 
+  ungroup() %>% 
+  slice(1:10)
+
+formattable(most_valuable_players)
+
+ggplot(most_valuable_players, aes(player_of_match,freq))+
+  geom_bar(stat="identity",fill="coral1")+
+  scale_x_discrete(limits=c(most_valuable_players$player_of_match))+
+  coord_flip()+
+  labs(title="most valuable players awards receieved in the IPL ")
+```
+
+we can see that RG Sharma  and KA pollard are from Mumbai Indians and MS Dhoni and SK Raina are from Chennai super Kings which are the ,most successful teams. Having valuable players in the team will also help in teams Victory most of the times. Also the top two players in this table have less victories which is quite interesting.
+
+
+#### Is it better to bat first or chase next when we win the toss
+
+```{r message=FALSE,warning=FALSE}
+result_margin_when_chasing <- ipl_matches %>%
+  select(result,result_margin) %>%
+  filter(result=="wickets") %>%
+  group_by(result_margin,result) %>%
+  tally(sort = TRUE,name="freq") %>%
+  arrange(desc(freq))
+
+result_margin_when_batting_first <- ipl_matches %>%
+  select(result,result_margin) %>%
+  filter(result=="runs") %>%
+  group_by(result_margin,result) %>%
+  tally(sort = TRUE,name="freq") %>%
+  arrange(desc(freq))
+
+result_margin_when_batting_first
+formattable(result_margin_when_chasing)
+          
+paste("matches_won_when_chasing_the_target:",sum(result_margin_when_chasing$freq))
+paste("matches_won_when_batting_first:",sum(result_margin_when_batting_first$freq))
+ 
+```
+
+
+```{r message=FALSE,warning=FALSE}
+(plot5 <- ggplot(result_margin_when_batting_first,aes(result_margin,freq))+
+  geom_bar(stat = "identity",fill="sandybrown")+
+  geom_smooth()+
+  labs(title="matches won by batting first vs win by runs",x="win by runs", y="frequency")+
+  theme_classic())
+
+(plot6 <- ggplot(result_margin_when_chasing,aes(result_margin,freq))+
+  geom_bar(stat = "identity",fill="powderblue")+
+  geom_smooth()+
+  labs(title="matches won by chasing the target vs win by no of wickets",x="win by wickets", y="frequency")+
+  scale_x_discrete(limits=c(result_margin_when_chasing$result_margin))+
+  theme_classic())
+
+
+```
+
+we can observe here batting first teams have won with less margin of only 10-13 runs but while chasing with than 6 wickets in hand which shows while chasing the teams are comfortable and are in good position. batting first teams have won with a result margin of over 50 runs only twice in each occasion. 146 is the highest run margin win while batting first.
+
+
+## Reflection:
+
+while doing the project I have come across new functions which I have used for the first time like match() which is used to match the values in two different columns which I have used to impute the city names based on the venue provided. Overall the data cleaning task has consumed a lot of time since i have to find the missing values in each column and then impute them with the respective values. The data exploration and visualization part was so exciting finding the most number of wins, player of match awards and toss decisions and other important statistics.
+
+
+## Conclusion:
+
+From all the Data and visualizations,  we can see that the Mumbai Indians is the most successful team with most trophies in their name in the IPL followed by the Chennai super Kings. Also most number of toss was won by the Mumbai Indians. Chris Gayle had won the most number of player of match titles. Mumbai Indians had hosted most of the IPL matches.
+
+## Bibliography:
+
+[1]	T. B. Swartz, “Research directions in cricket,” Handb. Stat. Methods Anal. Sport., pp. 445–460, 2017, doi: 10.1201/9781315166070.
+[2]	A. Verma and M. Izadi, “Cricket Prognostic System: A framework for real-time analysis in ODI cricket,” no. August 2016, 2017.
+[3] [link](http://cricsheet.org/)
+    Rice, D., & Rolfe, M. (n.d.). Data Science Fundamentals: R Tutorials.
+    Retrieved From[link](https://classroom.google.com/u/0/w/MzcxNTE5NjczMDky/tc/MzcxNTE5NjczMTAx)
