@@ -1,0 +1,270 @@
+---
+title: "Final Project- Zoe Bean"
+description: |
+  An examination of bike rental data in Chicago
+author: Zoe Bean
+date: 08-27-2021
+categories: 
+    - final project
+    - bicycle data
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## An Introduction to the Bicycle Dataset
+
+This dataset is from the [Chicago Divvy Bicycle Sharing Data](https://www.kaggle.com/yingwurenjian/chicago-divvy-bicycle-sharing-data?select=data.csv) on Kaggle. I renamed the 'data.csv' file from Kaggle to 'chicago_bike_data.csv' to cut down on any possible confusion in my file system. This file is too big for me to upload onto github, so it will be submitted with this html file. The raw data file provided by Kaggle will not load on any software on my computer, so I am using the cleaned file. 
+
+The creator of the cleaned data file stated that they have removed any trips lasting longer than an hour, all entries that do not have a gender and NA responses. Divvy(the bike rental service the data is retrieved from) only requires that gender be disclosed for Subscribers, so the majority of the users that remain in this dataset are Subscribers, which could lead to inaccurate statistics regarding the users. 
+
+```{r import}
+library(tidyverse)
+bicycle_data<-read_csv("../../_data/chicago_bike_data.csv")
+```
+
+My questions, based on the available variables in this dataset are: what type of customer is more likely to use the bike on bad weather days? what type of customer is more likely to have a longer trip? does weather impact how long the trips are? does a certain gender take longer trips? are there times of day one gender is more likely to bike? is a certain gender more likely to bike in different weather conditions?
+
+## The Data
+
+First I Found out the possible columns in the dataset. Then find out the possible catagories for the events column,the gender column, and the usertype column. 
+
+```{r analysis1}
+colnames(bicycle_data)
+unique(bicycle_data$events) 
+unique(bicycle_data$gender) 
+unique(bicycle_data$usertype) 
+```
+
+  'trip_id' is the unique id for each bike trip. 'year', 'month', 'day', and 'hour' are the date and time that each bike trip occured. 'week' is the week of the year each trip occurred at. This data was ranges from January 1, 2014 to January 1, 2017.
+  
+  'usertype' indicated what kind of customer is using the bike; 'Subscriber' is a customer that has purchased a yearly description, 'Customer' is a customer that has purchased this single ride, and I cannot find an indication on what type of customer is 'Dependant'. 
+Gender is the gender of the person renting the bike, and it appears 'Male' and 'Female' were the only options for this dataset. 
+
+  'starttime' is the date, hour, minute, and second the trip began, and 'stoptime' is the same information for when the trip ended. 'tripduration' is how long the trip lasted in minutes. 
+  
+  'tempurature' is the temperature at the time of the trip. 'events' is the weather event, if any, that occured during the trip: the options being "tstorms"(thunderstorms),"rain or snow","cloudy", "not clear", "clear", and "unknown".
+  
+  'from_station_id' is the id of the bike rental station at the beginning of the trip, and 'from_station_name' is the name of the station at that id.'to_station_id' is the id of the bike rental station at the end of the trip, and 'to_station_name' is the name of the station at that id.
+  
+  'latitude_start' and 'longitude_start' is the latitude and the longitude of the location where the trip began; 'latitude_end' and 'longitude_end' is the latitude and the longitude of the location where the trip ended.
+  
+  'dpcapacity_start' and 'dpcapacity_end' are the variables that indicate the charging dock capacity at the stations.
+  
+  All of the variables that are directly related to the bike trip were collected off of the [divvy bikeshare website](https://www.divvybikes.com/system-data). All of the weather related data was collected by the [weather underground website](https://www.wunderground.com/). The person that uploaded this dataset added only the relevant weather data and cleaned up some of the missing variables.
+  
+
+I have no need for any variable not related to my research questions, so I will now remove everything not related to the weather, usertype, gender, hour, and trip duration in order to make a more managably sized dataset. I will also be keeping the  trip_id column as a way of numbering the observations.
+
+```{r remove cols}
+bicycle_data<-select(bicycle_data, 1, 6:8, 11:13)
+colnames(bicycle_data)
+```
+
+
+I create a new column called 'weather_type' with the categories: extreme_temp, low_vis, safe, and dangerous. I also get rid of instances when the weather is 'unknown'.
+
+I determine if the weather is an extreme temperature with the understanding that the average humidity of Chicago is 71 percent [source](https://www.chicagotribune.com/weather/ct-wea-asktom-0324-20180323-column.html). From there, I use the [heat index](https://www.weather.gov/ama/heatindex) and notice that at 70 percent humidity, the 'take extreme caution' catageory starts at 86 degrees Fahrenheit. So, it is extremely hot above 86 degrees.
+I then calculate extreme cold with the understanding that the wind speed is 10mph [source](https://en.wikipedia.org/wiki/Climate_of_Chicago), (under 'windy city' it states that the average wind chill is from 8 to 12 mph, and I took the average of that). Then I look at this [Wind Chill Chart](https://www.weather.gov/safety/cold-wind-chill-chart)  and notice that at 10mph, frostbite in 10 minutes begins at -5 degrees Fahrenheit. Thus, extreme cold is below -5. So, an extreme temperature is when 'temperature' is 86 or above, or when it is -5 or below.
+
+```{r extreme temp}
+bicycle_data<- bicycle_data %>%
+  mutate(extreme_temp=((temperature<=-5)|(temperature>=85)))
+```
+
+Now, I remove the instances where 'events' is 'unknown'. I consider it to be 'low_vis' then 'events' is anything but 'clear'.
+
+```{r low vis}
+bicycle_data<-bicycle_data %>% filter(events!='unknown') %>%
+  mutate(low_vis=(events!='clear'))
+head(bicycle_data)
+```
+
+Now I take my 'low_vis' and 'extreme temp' catagories, and use them to make my weather_type category. If it is both 'low_vis' and 'extreme_temp', it is 'dangerous'. If it is neither, it is 'safe' and if it is just one it will be that catagory. I then remove my temporary variables as well as 'temperature' and 'events'.
+
+```{r make column}
+bicycle_data<-bicycle_data %>%
+  mutate(weather_type = case_when(
+         (low_vis == TRUE) & (extreme_temp==TRUE)  ~ "dangerous",
+         (low_vis == FALSE) & (extreme_temp==FALSE)  ~ "safe",
+         (low_vis == TRUE) & (extreme_temp==FALSE)  ~ "low_vis",
+         (low_vis == FALSE) & (extreme_temp==TRUE)  ~ "extreme_temp"
+         )) %>% select(1:5, 10)
+  
+head(bicycle_data)
+```
+
+
+Here, I look at the average trip duration and hour of the day for each weather type, gender, and usertype as a preliminary look into my research questions.
+
+```{r summary}
+bicycle_data %>%
+  group_by(weather_type) %>%
+  select(tripduration, hour) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+bicycle_data %>%
+  group_by(gender) %>%
+  select(tripduration, hour) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+bicycle_data %>%
+  group_by(usertype) %>%
+  select(tripduration, hour) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+
+```
+
+## Visualizations
+
+### Question: what type of customer is more likely to use the bike on bad weather days?
+
+```{r userweather}
+prop.table(xtabs(~ usertype + weather_type, bicycle_data))
+freq_table_user_weather <- bicycle_data %>%
+  select(usertype, weather_type) %>%
+  table()
+freq_table_user_weather
+chisq.test(freq_table_user_weather)
+
+```
+
+The proportion table as well as the frequency table show that there is a higher proportion of Subscribers riding in dangerous weather and low visibility, and the no Customer/Dependant is riding in extreme temperature. With a chi squared test showing a p-value well below .005, this difference is statistically significant.
+
+I chose a proportion table with a chi squared test because it answers my question and I could not find a better way to represent two categorical variables with possible influence on each other. 
+
+### Question: is a certain gender more likely to bike in different weather conditions?
+
+```{r genderweather}
+prop.table(xtabs(~ gender + weather_type, bicycle_data))
+freq_table_gender_weather <- bicycle_data %>%
+  select(gender, weather_type) %>%
+  table()
+freq_table_gender_weather
+chisq.test(freq_table_gender_weather)
+```
+
+
+The proportion table shows there is a higher proportion of men riding in dangerous weather and low visibility. With a chi squared test showing a p-value well below .005, this difference is statistically significant. In fact, the proportioin table shows that men are about twice as likely to go out in dangerous weather and around three times as likely to go out in extreme temperatures.
+
+I chose a proportion table with a chi squared test because it answers my question and I could not find a better way to represent two categorical variables with possible influence on each other. 
+
+### Question: are there times of day one gender is more likely to bike?
+
+```{r genderhour}
+ggplot(bicycle_data, aes(hour, fill=gender)) +
+  geom_bar()+labs(title = "Gender by Hour", y="gender count")
+ggplot(bicycle_data, aes(hour, fill=gender)) +
+  geom_bar(position="fill")+labs(title = "Gender Frequency by Hour", y="gender frequency")
+```
+
+
+The first visualization shows the count of people who bike at a certain hours of the day, color stacked by gender. This is a bimodal distribution, showing people biking most frequently at around 7 or 8am, and 4 or 5pm (aka hours 16 and 17). These peaks likely are due to people going to and returning from work or school. Overall, very few people bike before 5am. 
+
+The second visualization shows the proportion of each gender at each hour.  On average, there are about 80% men biking at any hour of the day. Interestingly, at 5am, there is a sudden increase in the proportion of women biking, although it does not appear that it is statistically significant.
+
+I chose two visualizations to show this because I wanted to show both the overall trend of what hour of the day is popular AND when the proportion of each gender fluctuates. I had to do two because while ideally, the first visualization would show what I want, there are so much more men than women and the count of people per hour changes so drastically that you really can't see how the proportion fluctuates properly.
+
+I really wish that I could have shown the overall trends of the biking hourly as well as ny fluctuations in the proportions of gender at the same time, but the vast gap between the amount of men riding and women riding made that difficult to do.
+
+### Question: what type of customer is more likely to have a longer trip?
+
+```{r userduration}
+bicycle_data %>%
+  group_by(usertype) %>%
+  select(tripduration) %>%
+  summarize(mean(tripduration), na.rm = TRUE) %>%
+  ggplot(aes(x=`mean(tripduration)`, y=usertype, fill=usertype)) +
+  geom_bar(stat="identity")+labs(title = "Users by Mean Trip Duration", x=" mean trip duration in minutes")
+```
+
+This chart show how long, on average, each type of customer rides the bike for. The one time customer tends to have the longest trips, at a little over 15 minutes, and the year-long subscriber has the shortest trips on average, at around 11 minutes. This makes sense, as the subscriber would likely take more frequent, shorter trips to make the most of the subscriptions, while the one-time customer would either be unfamiliar with the route(thus taking longer), or would want to make the most of a single trip since that is what they are paying for.
+
+I chose to show this bar graph of the mean times because that way you can see how the customer type could influence the length of the ride. If I did not have it as a mean, you would only be seeing information about the subscribers since they are by far more common than the others.
+
+I think this viaualization really conveys what I want it to. The only thing I would like is to know what 'dependant' means so that I can interperet that catagory as well. I also would like to have more data points in the other catagories for more accuracy.
+
+### Question: does a certain gender take longer trips?
+
+```{r genderduration2}
+ggplot(bicycle_data , aes(x=tripduration, fill=gender)) + geom_density(alpha=0.4)+labs(title = "Gender by Trip Duration", x="trip duration")
+```
+
+This density chart shows that while most trips are around 5 minutes long, a higher proportion of men are taking these five minute treks. Women are ever-so-slightly more likely to take trips between 10 and 30 minute trips than men.
+
+
+Originally, I was going to do a box plot to show the distributions for men and women, but as you can tell from the example below, the differences were so subtle that they are hard to pick out in that format, as well as the long tail manifesting itself in a distracting way in this format. Because of how male-dominated this dataset is, a bar graph does not really work.
+
+
+```{r genderduration1}
+bicycle_data %>%
+  group_by(gender) %>%
+  select(tripduration) %>%
+  ggplot(aes(y=tripduration, x=gender, fill=gender)) +
+  geom_boxplot()+labs(title = "Gender by Trip Duration", x=" mean trip duration")
+```
+
+
+
+### Question: does weather impact how long the trips are?
+
+```{r weatherduration}
+bicycle_data %>%
+  group_by(weather_type) %>%
+  select(tripduration) %>%
+  ggplot(aes(x=tripduration, y=weather_type, fill=weather_type)) +
+  geom_violin()+labs(title = "Trip Duration by Weather", x="trip duration")
+
+```
+
+Overall, I think this visualization shows that no, weather does not really influence the length of a trip. All of the violins are similar in shape and have similar points of interest. The one with the most difference is not the 'dangerous' category, but the 'extreme_temp' category, with slightly less short trips and a little more long trips, but even that is negligible.
+
+
+I chose this approach because it shows a clearer distribution than a box plot or bar graph. The density plot ended up so similar it did not end up visually conveying anything about the weather categories.  
+
+
+Since there is little difference between the categories, I could really use most visualizations if I wished to, so there is nothing I really need to do- there is no 'ideal visualization' that I would be reaching for, so there is nothing more I wish to do with it.
+
+## Reflection
+
+#### What decisions in your pipeline are you most concerned about potentially influencing your findings? 
+
+First, the creator of the dataset’s decision to eliminate all of the entries without gender, thus eliminating the majority of the non-subscriber usertypes can lead to huge inaccuracies in the conclusions drawn in this analysis regarding users. Another possible decision that could greatly affect the results is the way I categorized the weather_types. Ideally,  instead of taking really loose yearly averages of things like wind speed and humidity to find the extreme temperatures, I would take the averages for each month as well as compare the temperature of the day to the average temperature for that area for that month and create a formula that takes those factors into account for determining if the temperature is ‘extreme’. Also, instead of consulting Heat and Wind Speed charts for an estimation, I would rather compare those temperatures to hypothermia and heat stroke temperature levels. I feel more accurate weather_type categorization could lead to a better picture of who decides to ride in inclement weather. 
+
+#### What were the most challenging and time-consuming aspects of the project? 
+
+The most time consuming aspect of the project was waiting for R to load in the visualizations. I went through multiple visualizations per question and it took a while for each visualization to load. This definitely slowed down the process of choosing the correct one. Waiting for the post to knit took even longer as it had to generate multiple visualizations each time.
+
+The most difficult part of this project was choosing a dataset. I found it difficult to find a dataset I could use that had me asking questions. Part of the reason I stuck with this big dataset was because it generated many questions that I wanted to explore. Most of the datasets that interested me had me asking questions that either required a lot of natural language processing that I did not have time for or did not have the information necessary to answer it.
+
+#### What do you wish you had been able to do? 
+
+I really wish I would have been able to be more precise with the weather typing. I also would have liked to do more with the time information. I would have liked to see how the month changes the hours. Month could also have had an effect on the other variables I was looking into. I would also have liked to use the full dates to understand how each variable is changing over the years. 
+
+#### If you were to continue the project, what would your next steps be? 
+
+My next step would be to figure out the weather formula and implement it to see how much it makes a difference. I would also look more into the times as mentioned previously.
+
+## Conclusion
+
+From what I have gathered here, my first question, what type of customer is more likely to use the bike on bad weather days, appears to have the answer of Subscribers tend to bike in bad weather than the other types of customer. My next question, is a certain gender more likely to bike in different weather conditions, and seems to be more likely for men to be riding on bad weather days than women by a lot. The question of are there times of day one gender is more likely to bike seems to have a resounding no- but there could be seasons where that changes. With the information I have collected here, my findings do say no. The single customer is more likely to have a longer trip than the other types of customer. Everyone seems to be making about five minute long trips, but it appears that a slightly higher proportion of women are willing to make 10- 30 minute long trips than men.Weather seems to have minimal to no impact on how long the people are biking, which is surprising since bad weather would typically take longer to navigate.
+
+## Bibliography
+
+JifuZhao. (2017). Chicago Divvy Bicycle Sharing Data. Retrieved 8/18/2021 from https://www.kaggle.com/yingwurenjian/chicago-divvy-bicycle-sharing-data
+
+National Weather Service. What is the heat index? Retrieved 8/20/2021 from https://www.weather.gov/ama/heatindex
+
+National Weather Service. Wind Chill Chart. Retrieved 8/20/2021 from https://www.weather.gov/safety/cold-wind-chill-chart
+
+Climate of Chicago. Retrieved 8/20/2021 from https://en.wikipedia.org/wiki/Climate_of_Chicago
+
+Tom Skilling. (2018) Ask Tom: Is Chicago's air humid much of the time? Retrieved 8/20/2021 from https://www.chicagotribune.com/weather/ct-wea-asktom-0324-20180323-column.html
