@@ -1,0 +1,3410 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>final_project_sathvik_thogaru</title>
+
+  <meta property="description" itemprop="description" content="Analysis of Indian Premier League(IPL) 2008-2020"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-08-27"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-08-27"/>
+  <meta name="article:author" content="sathvik_thogaru"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="final_project_sathvik_thogaru"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Analysis of Indian Premier League(IPL) 2008-2020"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="final_project_sathvik_thogaru"/>
+  <meta property="twitter:description" content="Analysis of Indian Premier League(IPL) 2008-2020"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["final_project_sathvik_thogaru"]},{"type":"character","attributes":{},"value":["Analysis of Indian Premier League(IPL) 2008-2020\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["sathvik_thogaru"]}]}]},{"type":"character","attributes":{},"value":["08-27-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-15-1.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-17-1.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-17-2.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-18-1.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-21-1.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-24-1.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-26-1.png","final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-26-2.png","finalprojectsathvikthogaru.html","finalprojectsathvikthogaru_files/anchor-4.2.2/anchor.min.js","finalprojectsathvikthogaru_files/bowser-1.9.3/bowser.min.js","finalprojectsathvikthogaru_files/distill-2.2.21/template.v2.js","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-14-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-15-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-16-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-16-2.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-17-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-17-2.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-18-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-21-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-24-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-24-2.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-25-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-25-2.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-26-1.png","finalprojectsathvikthogaru_files/figure-html5/unnamed-chunk-26-2.png","finalprojectsathvikthogaru_files/header-attrs-2.10/header-attrs.js","finalprojectsathvikthogaru_files/jquery-1.11.3/jquery.min.js","finalprojectsathvikthogaru_files/popper-2.6.0/popper.min.js","finalprojectsathvikthogaru_files/tippy-6.2.7/tippy-bundle.umd.min.js","finalprojectsathvikthogaru_files/tippy-6.2.7/tippy-light-border.css","finalprojectsathvikthogaru_files/tippy-6.2.7/tippy.css","finalprojectsathvikthogaru_files/tippy-6.2.7/tippy.umd.min.js","finalprojectsathvikthogaru_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="final_project_sathvik_thogaru_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="final_project_sathvik_thogaru_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="final_project_sathvik_thogaru_files/popper-2.6.0/popper.min.js"></script>
+  <link href="final_project_sathvik_thogaru_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="final_project_sathvik_thogaru_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="final_project_sathvik_thogaru_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="final_project_sathvik_thogaru_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="final_project_sathvik_thogaru_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="final_project_sathvik_thogaru_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="final_project_sathvik_thogaru_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"final_project_sathvik_thogaru","description":"Analysis of Indian Premier League(IPL) 2008-2020","authors":[{"author":"sathvik_thogaru","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-27T00:00:00.000-04:00","citationText":"sathvik_thogaru, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>final_project_sathvik_thogaru</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Analysis of Indian Premier League(IPL) 2008-2020</p></p>
+</div>
+
+<div class="d-byline">
+  
+  sathvik_thogaru
+  
+<br/>08-27-2021
+</div>
+
+<div class="d-article">
+<style>
+body {
+text-align: justify}
+</style>
+<h2 id="introduction">Introduction:</h2>
+<p>Before the twenty-first century, decision-making in sports was mainly based on observation. This has changed with technological progress, especially related to data acquisition and personal<br />
+availability of computing. The application of analytics in sports is a growing field that seeks to develop methodologies to collect and analyze sports data in order to improve decision making.</p>
+<p>The popular sports which are heavily influenced by money are also influenced by analytics which are soccer, basketball, cricket, ice-hockey, baseball and American football[1]. The current research focuses on the analytics in cricket, it is regarded as one of the major sports with a long history dating back to 16th century. In terms of participation and viewership in terms of media, it is the second most popular after soccer.</p>
+<p>Cricket is a played between two teams with 11 players on each side. Each team consists of batsmen, bowlers and all-rounders (who can bat and bowl). If one team does the batting the other team bowls. This time period is called as an innings. There are always two innings in a match unless it is interrupted by some external factors like the change in climate, bad light, rain etc[2]. Cricket has three formats of play, test cricket – played for consecutive five days with maximum of 90 overs per day, One-Day Internationals (ODI) – maximum of 50 overs per side, Twenty20 (T20) – maximum of 20 overs per side. The T20 format in cricket is a “big money” sport. Among professional leagues Indian Premier League (IPL) has the second highest average player salaries trailing National Basketball Association (NBA)[1].</p>
+<p>For this paper, I am going to investigate the Indian Premier League(IPL) matches which were played in between year 2008 and 2020.The investigation is mostly focused on finding the most successful team in the IPL based on victories, players in the team, toss-decision and other metrics over the given period of time.</p>
+<h2 id="data">Data</h2>
+<p>The data was collected from the Kaggle, an online datasets source for many datascientists and machine learning practitioners. Kaggle gives acess to users to publish datasets, survey and make models in data-science environment. helps to communicte with other analysts and engineers. The data set which is used in this project is the IPL Complete dataset(2008-2020) which was published in the Kaggle and was collected from the source cricsheet.org[3].</p>
+<p>The data provided in this dataset is covered from 2008-04-17 to 2020-11-09, which is 13 IPL seasons of data. This data is an appropriate choice as it has details of all the matches played from start of the IPL in 2008 till 2020 IPL.</p>
+<p>The variables that I am specifically interested in this dataset are listed as follows:</p>
+<ol type="1">
+<li>city : the city where the IPl match was played</li>
+<li>date : date when the match was played</li>
+<li>player_of_match : player who scored more points in the match</li>
+<li>venue : the venue where the match was played</li>
+<li>team1 : one of the two teams playing on that given date</li>
+<li>team2 : one of the two teams playing on that given date</li>
+<li>toss_winner : team that won the toss</li>
+<li>toss-decision : team that won the toss will either choose to bat or field</li>
+<li>winner : winner of the match</li>
+<li>reswult : result of the match either it is win by runs/wickets/tie</li>
+<li>result-margin : by how many runs did they winning team win/ by how many wickets did the winning team win</li>
+<li>eliminator : either thematch is a eliminator or a league match</li>
+</ol>
+<h2 id="importing-the-data">IMPORTING THE DATA</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://had.co.nz/reshape'>reshape</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://renkun-ken.github.io/formattable/'>formattable</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="reading-the-data">reading the data</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ipl_matches</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"../../_data/IPL Matches 2008-2020.csv"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 17
+      id city   date       player_of_match venue  neutral_venue team1 
+   &lt;dbl&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;           &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; 
+1 335982 Banga~ 2008-04-18 BB McCullum     M Chi~             0 Royal~
+2 335983 Chand~ 2008-04-19 MEK Hussey      Punja~             0 Kings~
+3 335984 Delhi  2008-04-19 MF Maharoof     Feroz~             0 Delhi~
+4 335985 Mumbai 2008-04-20 MV Boucher      Wankh~             0 Mumba~
+5 335986 Kolka~ 2008-04-20 DJ Hussey       Eden ~             0 Kolka~
+6 335987 Jaipur 2008-04-21 SR Watson       Sawai~             0 Rajas~
+# ... with 10 more variables: team2 &lt;chr&gt;, toss_winner &lt;chr&gt;,
+#   toss_decision &lt;chr&gt;, winner &lt;chr&gt;, result &lt;chr&gt;,
+#   result_margin &lt;dbl&gt;, eliminator &lt;chr&gt;, method &lt;chr&gt;,
+#   umpire1 &lt;chr&gt;, umpire2 &lt;chr&gt;</code></pre>
+</div>
+<h4 id="viewing-column-names">viewing column names</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;id&quot;              &quot;city&quot;            &quot;date&quot;           
+ [4] &quot;player_of_match&quot; &quot;venue&quot;           &quot;neutral_venue&quot;  
+ [7] &quot;team1&quot;           &quot;team2&quot;           &quot;toss_winner&quot;    
+[10] &quot;toss_decision&quot;   &quot;winner&quot;          &quot;result&quot;         
+[13] &quot;result_margin&quot;   &quot;eliminator&quot;      &quot;method&quot;         
+[16] &quot;umpire1&quot;         &quot;umpire2&quot;        </code></pre>
+</div>
+<h4 id="checking-for-summary-statistics-of-the-dataset-and-aslo-knowing-the-number-of-na-values">checking for summary statistics of the dataset and aslo knowing the number of NA values</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>skimr</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/skimr/reference/skim.html'>skim</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">ipl_matches</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">816</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">city</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">player_of_match</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">233</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">venue</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">team1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">team2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">toss_winner</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">toss_decision</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">winner</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">result</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eliminator</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">method</td>
+<td style="text-align: right;">797</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">umpire1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">umpire2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: Date</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">min</th>
+<th style="text-align: left;">max</th>
+<th style="text-align: left;">median</th>
+<th style="text-align: right;">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">2008-04-18</td>
+<td style="text-align: left;">2020-11-10</td>
+<td style="text-align: left;">2014-04-23</td>
+<td style="text-align: right;">596</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">756349.55</td>
+<td style="text-align: right;">305894.25</td>
+<td style="text-align: right;">335982</td>
+<td style="text-align: right;">501227.8</td>
+<td style="text-align: right;">729298</td>
+<td style="text-align: right;">1082626.2</td>
+<td style="text-align: right;">1237181</td>
+<td style="text-align: left;">▇▅▃▂▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">neutral_venue</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">result_margin</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">17.32</td>
+<td style="text-align: right;">22.07</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">146</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>from the skim() we can see know the summary statistics of our data, here we have 13 character variables, 1 date variable, 3 numeric variables. we also have 13 ,missing values in the city column and 4 missing values in player-of_match, winner,result,eliminator columns.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>result</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;runs&quot;    &quot;wickets&quot; &quot;tie&quot;     NA       </code></pre>
+</div>
+<h2 id="cleaning-data">CLEANING DATA</h2>
+<h4 id="checking-the-rows-containing-na-values-in-winner-column">checking the rows containing NA values in winner column</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ipl_matches</span>, <span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>winner</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 4 x 17
+       id city   date       player_of_match venue neutral_venue team1 
+    &lt;dbl&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;           &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; 
+1  501265 Delhi  2011-05-21 &lt;NA&gt;            Fero~             0 Delhi~
+2  829763 Banga~ 2015-04-29 &lt;NA&gt;            M Ch~             0 Royal~
+3  829813 Banga~ 2015-05-17 &lt;NA&gt;            M Ch~             0 Royal~
+4 1178424 Benga~ 2019-04-30 &lt;NA&gt;            M.Ch~             0 Royal~
+# ... with 10 more variables: team2 &lt;chr&gt;, toss_winner &lt;chr&gt;,
+#   toss_decision &lt;chr&gt;, winner &lt;chr&gt;, result &lt;chr&gt;,
+#   result_margin &lt;dbl&gt;, eliminator &lt;chr&gt;, method &lt;chr&gt;,
+#   umpire1 &lt;chr&gt;, umpire2 &lt;chr&gt;</code></pre>
+</div>
+<p>It seems the match is abandoned due to some reason, because we have the “player_of_match”, “winner”, “result”, “result_margin” columns as NA, which in most we can say the match is not played and abandoned although the toss_decision is made.so removing those rows from the data set.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ipl_matches</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>winner</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="we-also-have-13-na-values-in-the-city-column-lets-have-a-look-at-those-rows">we also have 13 NA values in the city column lets have a look at those rows</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ipl_matches</span>, <span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>city</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 13 x 17
+       id city  date       player_of_match venue   neutral_venue team1
+    &lt;dbl&gt; &lt;chr&gt; &lt;date&gt;     &lt;chr&gt;           &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;
+ 1 729281 &lt;NA&gt;  2014-04-17 YS Chahal       Sharja~             1 Delh~
+ 2 729287 &lt;NA&gt;  2014-04-19 PA Patel        Dubai ~             1 Roya~
+ 3 729289 &lt;NA&gt;  2014-04-19 JP Duminy       Dubai ~             1 Kolk~
+ 4 729291 &lt;NA&gt;  2014-04-20 GJ Maxwell      Sharja~             1 Raja~
+ 5 729295 &lt;NA&gt;  2014-04-22 GJ Maxwell      Sharja~             1 King~
+ 6 729297 &lt;NA&gt;  2014-04-23 RA Jadeja       Dubai ~             1 Raja~
+ 7 729299 &lt;NA&gt;  2014-04-24 CA Lynn         Sharja~             1 Roya~
+ 8 729301 &lt;NA&gt;  2014-04-25 AJ Finch        Dubai ~             1 Sunr~
+ 9 729303 &lt;NA&gt;  2014-04-25 MM Sharma       Dubai ~             1 Chen~
+10 729309 &lt;NA&gt;  2014-04-27 M Vijay         Sharja~             1 Delh~
+11 729311 &lt;NA&gt;  2014-04-27 DR Smith        Sharja~             1 Sunr~
+12 729313 &lt;NA&gt;  2014-04-28 Sandeep Sharma  Dubai ~             1 King~
+13 729317 &lt;NA&gt;  2014-04-30 B Kumar         Dubai ~             1 Mumb~
+# ... with 10 more variables: team2 &lt;chr&gt;, toss_winner &lt;chr&gt;,
+#   toss_decision &lt;chr&gt;, winner &lt;chr&gt;, result &lt;chr&gt;,
+#   result_margin &lt;dbl&gt;, eliminator &lt;chr&gt;, method &lt;chr&gt;,
+#   umpire1 &lt;chr&gt;, umpire2 &lt;chr&gt;</code></pre>
+</div>
+<p>lets try to find the 13 missing city values using the venues from the same data set. lets find where is Sharjah Cricket stadium and Dubai Intern. cricket stadium from the data</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>uniques</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"city"</span>,<span class='st'>"venue"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 38 x 2
+   city       venue                                     
+   &lt;chr&gt;      &lt;chr&gt;                                     
+ 1 Bangalore  M Chinnaswamy Stadium                     
+ 2 Chandigarh Punjab Cricket Association Stadium, Mohali
+ 3 Delhi      Feroz Shah Kotla                          
+ 4 Mumbai     Wankhede Stadium                          
+ 5 Kolkata    Eden Gardens                              
+ 6 Jaipur     Sawai Mansingh Stadium                    
+ 7 Hyderabad  Rajiv Gandhi International Stadium, Uppal 
+ 8 Chennai    MA Chidambaram Stadium, Chepauk           
+ 9 Mumbai     Dr DY Patil Sports Academy                
+10 Cape Town  Newlands                                  
+# ... with 28 more rows</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>uniques</span> <span class='op'>&lt;-</span> <span class='va'>uniques</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>uniques</span><span class='op'>$</span><span class='va'>city</span><span class='op'>)</span>,<span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 36 x 2
+   city       venue                                     
+   &lt;chr&gt;      &lt;chr&gt;                                     
+ 1 Bangalore  M Chinnaswamy Stadium                     
+ 2 Chandigarh Punjab Cricket Association Stadium, Mohali
+ 3 Delhi      Feroz Shah Kotla                          
+ 4 Mumbai     Wankhede Stadium                          
+ 5 Kolkata    Eden Gardens                              
+ 6 Jaipur     Sawai Mansingh Stadium                    
+ 7 Hyderabad  Rajiv Gandhi International Stadium, Uppal 
+ 8 Chennai    MA Chidambaram Stadium, Chepauk           
+ 9 Mumbai     Dr DY Patil Sports Academy                
+10 Cape Town  Newlands                                  
+# ... with 26 more rows</code></pre>
+</div>
+<p>looks like the sharjah stadium is at Sharjah city and Dubai Intern. Stadium is at Dubai. lets impute these values repectively in the missing places in the city column</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>na_city</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>city</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>na_venue</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>venue</span><span class='op'>[</span><span class='va'>na_city</span><span class='op'>]</span>
+<span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>city</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>city</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>uniques</span><span class='op'>$</span><span class='va'>city</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span><span class='op'>(</span><span class='va'>na_venue</span>, <span class='va'>uniques</span><span class='op'>$</span><span class='va'>venue</span><span class='op'>)</span><span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h4 id="total-teams-in-the-ipl">Total teams in the IPL</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sets.html'>union</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team1</span>,<span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;Royal Challengers Bangalore&quot; &quot;Kings XI Punjab&quot;            
+ [3] &quot;Delhi Daredevils&quot;            &quot;Mumbai Indians&quot;             
+ [5] &quot;Kolkata Knight Riders&quot;       &quot;Rajasthan Royals&quot;           
+ [7] &quot;Deccan Chargers&quot;             &quot;Chennai Super Kings&quot;        
+ [9] &quot;Kochi Tuskers Kerala&quot;        &quot;Pune Warriors&quot;              
+[11] &quot;Sunrisers Hyderabad&quot;         &quot;Gujarat Lions&quot;              
+[13] &quot;Rising Pune Supergiants&quot;     &quot;Rising Pune Supergiant&quot;     
+[15] &quot;Delhi Capitals&quot;             </code></pre>
+</div>
+<p>Here the teams “Rising Pune Supergiants” and “Rising Pune Supergiant” are one team and should be considered as one team. we need to recode the “Rising Pune Supergiant” which is spelled wrong as “Rising Pune Supergiants”</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"team1"</span><span class='op'>]</span><span class='op'>[</span><span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"team1"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Rising Pune Supergiant"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Rising Pune Supergiants"</span>
+<span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"team2"</span><span class='op'>]</span><span class='op'>[</span><span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"team2"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Rising Pune Supergiant"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Rising Pune Supergiants"</span>
+<span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"toss_winner"</span><span class='op'>]</span><span class='op'>[</span><span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"toss_winner"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Rising Pune Supergiant"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Rising Pune Supergiants"</span>
+<span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"winner"</span><span class='op'>]</span><span class='op'>[</span><span class='va'>ipl_matches</span><span class='op'>[</span><span class='st'>"winner"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Rising Pune Supergiant"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Rising Pune Supergiants"</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sets.html'>union</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team1</span>,<span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;Royal Challengers Bangalore&quot; &quot;Kings XI Punjab&quot;            
+ [3] &quot;Delhi Daredevils&quot;            &quot;Mumbai Indians&quot;             
+ [5] &quot;Kolkata Knight Riders&quot;       &quot;Rajasthan Royals&quot;           
+ [7] &quot;Deccan Chargers&quot;             &quot;Chennai Super Kings&quot;        
+ [9] &quot;Kochi Tuskers Kerala&quot;        &quot;Pune Warriors&quot;              
+[11] &quot;Sunrisers Hyderabad&quot;         &quot;Gujarat Lions&quot;              
+[13] &quot;Rising Pune Supergiants&quot;     &quot;Delhi Capitals&quot;             </code></pre>
+</div>
+<p>now we can see that “Rising Pune Supergiants” as one team</p>
+<h2 id="data-exploration-transformation-vizualisation">DATA EXPLORATION (TRANSFORMATION &amp; VIZUALISATION)</h2>
+<h4 id="total-ipl-matches-played-in-between-2008-and-2020">total IPL matches played in between 2008 and 2020</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>total_matches_played</span> <span class='op'>&lt;-</span> <span class='fu'>count</span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/noquote.html'>noquote</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Total IPL matches played from 2008 to 2020 is"</span>, <span class='va'>total_matches_played</span>,<span class='st'>"matches"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] Total IPL matches played from 2008 to 2020 is 812 matches</code></pre>
+</div>
+<h4 id="total-matches-played-by-individual-teams-in-the-ipl">total matches played by individual teams in the IPL</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>total_matches_played_by_individual_teams</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team1</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>total_matches_played_by_individual_teams</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"team"</span>,<span class='st'>"matches_played"</span><span class='op'>)</span>
+<span class='va'>temp</span> <span class='op'>&lt;-</span> <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>total_matches_played_by_individual_teams</span>,<span class='fu'>desc</span><span class='op'>(</span><span class='va'>matches_played</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://renkun-ken.github.io/formattable/reference/formattable.html'>formattable</a></span><span class='op'>(</span><span class='va'>temp</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+team
+</th>
+<th style="text-align:right;">
+matches_played
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+Mumbai Indians
+</td>
+<td style="text-align:right;">
+203
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kolkata Knight Riders
+</td>
+<td style="text-align:right;">
+192
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Royal Challengers Bangalore
+</td>
+<td style="text-align:right;">
+192
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kings XI Punjab
+</td>
+<td style="text-align:right;">
+190
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Chennai Super Kings
+</td>
+<td style="text-align:right;">
+178
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Delhi Daredevils
+</td>
+<td style="text-align:right;">
+159
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Rajasthan Royals
+</td>
+<td style="text-align:right;">
+159
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sunrisers Hyderabad
+</td>
+<td style="text-align:right;">
+124
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Deccan Chargers
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Pune Warriors
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Delhi Capitals
+</td>
+<td style="text-align:right;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Gujarat Lions
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Rising Pune Supergiants
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kochi Tuskers Kerala
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot1</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>total_matches_played_by_individual_teams</span>,<span class='fu'>aes</span><span class='op'>(</span><span class='va'>team</span>,<span class='va'>matches_played</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill<span class='op'>=</span><span class='st'>"turquoise2"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_text</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>matches_played</span><span class='op'>)</span>,vjust<span class='op'>=</span><span class='op'>-</span><span class='fl'>0.3</span>,size<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title<span class='op'>=</span><span class='st'>"Matches played by each team in the IPL"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>temp</span><span class='op'>$</span><span class='va'>tteam</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>90</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<p>From the above Data in the table and the visualization we can see that the Mumbai Indians, Kolkata Knight Riders, Royal Chalengers Banglore, Chennai Super Kings,Delhi Daredevils, and Rajasthan Royals have played over 150 games in the IPL. Mumbai Indians sitting at the top of the table have played over 200 games in 13 seasons. with average of 15.3 matches per season. Probably it might had won most of the matches in IPL during leagues and qualified for the eliminators where it gets more matches to play. Lets check how each team performed in the IPL seasons</p>
+<h4 id="total-win-lose-and-tie-matches-of-individual-team-in-the-ipl">total win, lose and tie matches of individual team in the IPL</h4>
+<p>creating a new column “loser” in the ipl_matches dtatframe to know the team which lost the match ( the dataset has no column which says about who lost the match)</p>
+<p>Here I am using the ifelse() function to find the team which lost the match. here if the first expression is true then the second expression is evaluated else the third expression is considered. Here I have used nested ifelse to check two conditions.</p>
+<p>if the match is not tie then check if team1 is the winner if true team2 is lost else team1 is lost else NA ( the match is abandoned due climate change or other external factors)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>loser</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>result</span><span class='op'>!=</span><span class='st'>"tie"</span>,<span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team1</span><span class='op'>==</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>winner</span>,<span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team2</span>,<span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>team1</span><span class='op'>)</span>,<span class='cn'>NA</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>finding the toital wins and loses of individual teams and then merging them with the total_matches_played_by_individual_teams dataframe and forming a new dataframe named win_lose_tie_by_team which describes the no.of matches palyed, matches-won, matches_lost, and tie matches.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>total_win_individual_team</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span>team <span class='op'>=</span> <span class='va'>winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>tally</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"matches_won"</span>,sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+
+<span class='va'>total_lose_individual_team</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span>team <span class='op'>=</span> <span class='va'>loser</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>tally</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"matches_lost"</span>,sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+
+<span class='va'>win_and_lose_by_team</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>total_matches_played_by_individual_teams</span>,<span class='va'>total_win_individual_team</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>total_lose_individual_team</span><span class='op'>)</span>
+
+<span class='va'>win_lose_tie_by_team</span> <span class='op'>&lt;-</span> <span class='va'>win_and_lose_by_team</span> <span class='op'>%&gt;%</span> <span class='fu'>mutate</span><span class='op'>(</span>tie<span class='op'>=</span><span class='va'>matches_played</span><span class='op'>-</span><span class='va'>matches_won</span><span class='op'>-</span><span class='va'>matches_lost</span><span class='op'>)</span>
+
+<span class='va'>win_lose_tie_by_team</span> <span class='op'>&lt;-</span> <span class='va'>win_lose_tie_by_team</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>win_percentage <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>matches_won</span><span class='op'>/</span><span class='op'>(</span><span class='va'>matches_won</span><span class='op'>+</span><span class='va'>matches_lost</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>100</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='op'>(</span><span class='va'>win_percentage</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://renkun-ken.github.io/formattable/reference/formattable.html'>formattable</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'>arrange</span><span class='op'>(</span><span class='va'>win_lose_tie_by_team</span>,<span class='fu'>desc</span><span class='op'>(</span><span class='va'>win_percentage</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+team
+</th>
+<th style="text-align:right;">
+matches_played
+</th>
+<th style="text-align:right;">
+matches_won
+</th>
+<th style="text-align:right;">
+matches_lost
+</th>
+<th style="text-align:right;">
+tie
+</th>
+<th style="text-align:right;">
+win_percentage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+Chennai Super Kings
+</td>
+<td style="text-align:right;">
+178
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+59.89
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Mumbai Indians
+</td>
+<td style="text-align:right;">
+203
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+59.70
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Delhi Capitals
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+57.58
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sunrisers Hyderabad
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+54.10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kolkata Knight Riders
+</td>
+<td style="text-align:right;">
+192
+</td>
+<td style="text-align:right;">
+99
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+52.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Rajasthan Royals
+</td>
+<td style="text-align:right;">
+159
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+51.27
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Rising Pune Supergiants
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+50.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Royal Challengers Bangalore
+</td>
+<td style="text-align:right;">
+192
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+47.64
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kings XI Punjab
+</td>
+<td style="text-align:right;">
+190
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+46.56
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Gujarat Lions
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+44.83
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kochi Tuskers Kerala
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+42.86
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Delhi Daredevils
+</td>
+<td style="text-align:right;">
+159
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+42.41
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Deccan Chargers
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+38.67
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Pune Warriors
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+26.67
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df.long</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/reshape/man/melt-24.html'>melt</a></span><span class='op'>(</span><span class='va'>win_lose_tie_by_team</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='op'>(</span><span class='va'>plot2</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>df.long</span>,<span class='fu'>aes</span><span class='op'>(</span><span class='va'>team</span>,<span class='va'>value</span>,fill<span class='op'>=</span><span class='va'>variable</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>geom_bar</span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>"identity"</span>,position<span class='op'>=</span><span class='st'>"dodge"</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"team"</span>,y<span class='op'>=</span><span class='st'>"matches"</span>,title <span class='op'>=</span> <span class='st'>"Wins and Loses of individual teams in the IPL from 2008-2020"</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>90</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-17-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot3</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>win_lose_tie_by_team</span>,<span class='fu'>aes</span><span class='op'>(</span><span class='va'>team</span>,<span class='va'>win_percentage</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill<span class='op'>=</span><span class='st'>"springgreen4"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_text</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>win_percentage</span><span class='op'>)</span>,hjust<span class='op'>=</span><span class='op'>-</span><span class='fl'>0.5</span>,size<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>win_lose_tie_by_team</span><span class='op'>$</span><span class='va'>team</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>100</span><span class='op'>)</span>,breaks<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>25</span>,<span class='fl'>50</span>,<span class='fl'>75</span>,<span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Win percentage of individual teams in the IPL"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-17-2.png" width="624" /></p>
+</div>
+<p>from the information in the table and the visualization we can see that Chennai super kings gains the table top position with win percentage .19% more than the Mumbai Indians. Delhi daredevils, Sunrisers hyderabad anfd Kolkata knight Riders taking the second, third, fourth position respectively. lets try to find if there is any home advantage to the teams when played at their home venues.</p>
+<h4 id="no.of-matches-played-at-each-city">No.of matches played at each city</h4>
+<p>first lets find the total matches played at each venue and then compare them with the wins of individual teams</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>matches_played_at_each_city</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>city</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>matches_played_at_each_city</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"city"</span>,<span class='st'>"matches_played"</span><span class='op'>)</span>
+<span class='va'>a</span><span class='op'>&lt;-</span><span class='fu'>arrange</span><span class='op'>(</span><span class='va'>matches_played_at_each_city</span>,<span class='va'>matches_played</span><span class='op'>)</span>
+
+<span class='fu'>arrange</span><span class='op'>(</span><span class='va'>matches_played_at_each_city</span>, <span class='fu'>desc</span><span class='op'>(</span><span class='va'>matches_played</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>             city matches_played
+1          Mumbai            101
+2         Kolkata             77
+3           Delhi             73
+4       Hyderabad             64
+5       Bangalore             63
+6         Chennai             57
+7      Chandigarh             56
+8          Jaipur             47
+9            Pune             38
+10          Dubai             33
+11      Abu Dhabi             29
+12        Sharjah             18
+13         Durban             15
+14      Bengaluru             14
+15  Visakhapatnam             13
+16      Ahmedabad             12
+17      Centurion             12
+18         Rajkot             10
+19     Dharamsala              9
+20         Indore              9
+21   Johannesburg              8
+22      Cape Town              7
+23        Cuttack              7
+24 Port Elizabeth              7
+25         Ranchi              7
+26         Raipur              6
+27          Kochi              5
+28         Kanpur              4
+29    East London              3
+30      Kimberley              3
+31         Nagpur              3
+32   Bloemfontein              2</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot4</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>a</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>matches_played</span>,<span class='va'>city</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill <span class='op'>=</span> <span class='st'>"brown4"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Total matches played at each city in IPL from 2008-2020"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.window.html'>xlim</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>120</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_text</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>matches_played</span><span class='op'>)</span>,hjust<span class='op'>=</span><span class='op'>-</span><span class='fl'>0.5</span>,size<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_y_discrete</span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>a</span><span class='op'>$</span><span class='va'>city</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+</div>
+<p>101 matches were played at Mumbai with Kolkata taking the second place having 77 matches played. 24 more matches played at Mumbai when compared to Kolkata.Looks like Mumbai is the main Venue for IPL matches.</p>
+<h4 id="do-teams-have-advantage-if-they-play-at-home-city-when-compared-to-other-teams">Do teams have advantage if they play at home city when compared to other teams</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>venue_advantage_data</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span>team <span class='op'>=</span> <span class='va'>winner</span>,<span class='va'>city</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>tally</span><span class='op'>(</span>sort <span class='op'>=</span> <span class='cn'>TRUE</span>, name <span class='op'>=</span> <span class='st'>"matches_won"</span><span class='op'>)</span>
+
+<span class='co'># we are looking at a teams and their most wins at a city </span>
+
+<span class='va'>venue_advantage_data</span> <span class='op'>&lt;-</span>  <span class='va'>venue_advantage_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>team</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ungroup</span><span class='op'>(</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>matches_won</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://renkun-ken.github.io/formattable/reference/formattable.html'>formattable</a></span><span class='op'>(</span><span class='va'>venue_advantage_data</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+team
+</th>
+<th style="text-align:right;">
+city
+</th>
+<th style="text-align:right;">
+matches_won
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+Mumbai Indians
+</td>
+<td style="text-align:right;">
+Mumbai
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kolkata Knight Riders
+</td>
+<td style="text-align:right;">
+Kolkata
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Chennai Super Kings
+</td>
+<td style="text-align:right;">
+Chennai
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Rajasthan Royals
+</td>
+<td style="text-align:right;">
+Jaipur
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kings XI Punjab
+</td>
+<td style="text-align:right;">
+Chandigarh
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sunrisers Hyderabad
+</td>
+<td style="text-align:right;">
+Hyderabad
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Royal Challengers Bangalore
+</td>
+<td style="text-align:right;">
+Bangalore
+</td>
+<td style="text-align:right;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Delhi Daredevils
+</td>
+<td style="text-align:right;">
+Delhi
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Rising Pune Supergiants
+</td>
+<td style="text-align:right;">
+Pune
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Delhi Capitals
+</td>
+<td style="text-align:right;">
+Delhi
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Pune Warriors
+</td>
+<td style="text-align:right;">
+Pune
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Deccan Chargers
+</td>
+<td style="text-align:right;">
+Cuttack
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Gujarat Lions
+</td>
+<td style="text-align:right;">
+Rajkot
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Kochi Tuskers Kerala
+</td>
+<td style="text-align:right;">
+Kochi
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>from the above table data we can see that Mumbai Indians has won 53 of its matches out of 101 played at Mumbai which is slightly higher than 50% of the matches played at Mumbai. and Kolkata has more win percentage when compared to Mumbai winning 45 matches out of 77 played at home and other teams also have their own home advantage This shows that every team has its own home advantage when winning the matches</p>
+<p>lets see if the probability of winning a match is higher if a team wins the toss</p>
+<h4 id="is-winning-a-toss-really-helps-in-winning-the-game">Is winning a toss really helps in winning the game?</h4>
+<p>here I have created a new column called " winning_toss_and_match" and recoded the values of winning a toss and a match to 1 and losing a toss and winnning a match to 0, so that it will be easy to calculate the probability of winning a match.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ipl_matches</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>winning_toss_and_match <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='va'>toss_winner</span><span class='op'>==</span><span class='va'>winner</span><span class='op'>~</span><span class='fl'>1</span>,
+                                            <span class='va'>toss_winner</span><span class='op'>!=</span><span class='va'>winner</span><span class='op'>~</span><span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>ipl_matches</span><span class='op'>$</span><span class='va'>winning_toss_and_match</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+  0   1 
+394 418 </code></pre>
+</div>
+<p>here there are 418 instances where a team won the match when it won the toss which is &gt;0.5 probability of winning a match.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>toss_winner_data</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>toss_winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>toss_winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>tally</span><span class='op'>(</span>name<span class='op'>=</span><span class='st'>"freq"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 14 x 2
+   toss_winner                  freq
+   &lt;chr&gt;                       &lt;int&gt;
+ 1 Mumbai Indians                106
+ 2 Kolkata Knight Riders          98
+ 3 Chennai Super Kings            97
+ 4 Royal Challengers Bangalore    86
+ 5 Kings XI Punjab                85
+ 6 Rajasthan Royals               85
+ 7 Delhi Daredevils               79
+ 8 Sunrisers Hyderabad            57
+ 9 Deccan Chargers                43
+10 Delhi Capitals                 20
+11 Pune Warriors                  20
+12 Gujarat Lions                  15
+13 Rising Pune Supergiants        13
+14 Kochi Tuskers Kerala            8</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>toss_winner_data</span>,<span class='fu'>aes</span><span class='op'>(</span><span class='va'>toss_winner</span>,<span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill<span class='op'>=</span><span class='st'>"lightgreen"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits <span class='op'>=</span><span class='va'>toss_winner_data</span><span class='op'>$</span><span class='va'>toss_winner</span> <span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title<span class='op'>=</span><span class='st'>"most tosses won by each team"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+</div>
+<p>we can see here the most number of tosses were won by the Mumbai Indians who have actually won more number of matches in the IPL</p>
+<h4 id="most-number-of-matches-won-by-a-team-in-a-season">most number of matches won by a team in a season</h4>
+<p>here I created a new column called season which gives the information of seasons of IPL</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ipl_matches</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>season<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='va'>date</span>,format<span class='op'>=</span><span class='st'>"%Y"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>season_team_wins</span><span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>season</span>,<span class='va'>winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>season</span>,team<span class='op'>=</span><span class='va'>winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>tally</span><span class='op'>(</span>name<span class='op'>=</span><span class='st'>"wins"</span>,sort<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='op'>(</span><span class='va'>seasons_team_standings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>season_team_wins</span>,<span class='va'>season_team_wins</span><span class='op'>$</span><span class='va'>season</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$`2008`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2008   Rajasthan Royals               13
+2 2008   Kings XI Punjab                10
+3 2008   Chennai Super Kings             9
+4 2008   Delhi Daredevils                7
+5 2008   Mumbai Indians                  7
+6 2008   Kolkata Knight Riders           6
+7 2008   Royal Challengers Bangalore     4
+8 2008   Deccan Chargers                 2
+
+$`2009`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2009   Delhi Daredevils               10
+2 2009   Deccan Chargers                 9
+3 2009   Royal Challengers Bangalore     9
+4 2009   Chennai Super Kings             8
+5 2009   Kings XI Punjab                 7
+6 2009   Rajasthan Royals                6
+7 2009   Mumbai Indians                  5
+8 2009   Kolkata Knight Riders           3
+
+$`2010`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2010   Mumbai Indians                 11
+2 2010   Chennai Super Kings             9
+3 2010   Deccan Chargers                 8
+4 2010   Royal Challengers Bangalore     8
+5 2010   Delhi Daredevils                7
+6 2010   Kolkata Knight Riders           7
+7 2010   Rajasthan Royals                6
+8 2010   Kings XI Punjab                 4
+
+$`2011`
+# A tibble: 10 x 3
+# Groups:   season [1]
+   season team                         wins
+   &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+ 1 2011   Chennai Super Kings            11
+ 2 2011   Mumbai Indians                 10
+ 3 2011   Royal Challengers Bangalore    10
+ 4 2011   Kolkata Knight Riders           8
+ 5 2011   Kings XI Punjab                 7
+ 6 2011   Deccan Chargers                 6
+ 7 2011   Kochi Tuskers Kerala            6
+ 8 2011   Rajasthan Royals                6
+ 9 2011   Delhi Daredevils                4
+10 2011   Pune Warriors                   4
+
+$`2012`
+# A tibble: 9 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2012   Kolkata Knight Riders          12
+2 2012   Delhi Daredevils               11
+3 2012   Chennai Super Kings            10
+4 2012   Mumbai Indians                 10
+5 2012   Kings XI Punjab                 8
+6 2012   Royal Challengers Bangalore     8
+7 2012   Rajasthan Royals                7
+8 2012   Deccan Chargers                 4
+9 2012   Pune Warriors                   4
+
+$`2013`
+# A tibble: 9 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2013   Mumbai Indians                 13
+2 2013   Chennai Super Kings            12
+3 2013   Rajasthan Royals               11
+4 2013   Sunrisers Hyderabad            10
+5 2013   Royal Challengers Bangalore     9
+6 2013   Kings XI Punjab                 8
+7 2013   Kolkata Knight Riders           6
+8 2013   Pune Warriors                   4
+9 2013   Delhi Daredevils                3
+
+$`2014`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2014   Kings XI Punjab                12
+2 2014   Kolkata Knight Riders          11
+3 2014   Chennai Super Kings            10
+4 2014   Mumbai Indians                  7
+5 2014   Rajasthan Royals                7
+6 2014   Sunrisers Hyderabad             6
+7 2014   Royal Challengers Bangalore     5
+8 2014   Delhi Daredevils                2
+
+$`2015`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2015   Chennai Super Kings            10
+2 2015   Mumbai Indians                 10
+3 2015   Royal Challengers Bangalore     8
+4 2015   Kolkata Knight Riders           7
+5 2015   Rajasthan Royals                7
+6 2015   Sunrisers Hyderabad             7
+7 2015   Delhi Daredevils                5
+8 2015   Kings XI Punjab                 3
+
+$`2016`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2016   Sunrisers Hyderabad            11
+2 2016   Gujarat Lions                   9
+3 2016   Royal Challengers Bangalore     9
+4 2016   Kolkata Knight Riders           8
+5 2016   Delhi Daredevils                7
+6 2016   Mumbai Indians                  7
+7 2016   Rising Pune Supergiants         5
+8 2016   Kings XI Punjab                 4
+
+$`2017`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2017   Mumbai Indians                 12
+2 2017   Rising Pune Supergiants        10
+3 2017   Kolkata Knight Riders           9
+4 2017   Sunrisers Hyderabad             8
+5 2017   Kings XI Punjab                 7
+6 2017   Delhi Daredevils                6
+7 2017   Gujarat Lions                   4
+8 2017   Royal Challengers Bangalore     3
+
+$`2018`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2018   Chennai Super Kings            11
+2 2018   Sunrisers Hyderabad            10
+3 2018   Kolkata Knight Riders           9
+4 2018   Rajasthan Royals                7
+5 2018   Kings XI Punjab                 6
+6 2018   Mumbai Indians                  6
+7 2018   Royal Challengers Bangalore     6
+8 2018   Delhi Daredevils                5
+
+$`2019`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2019   Mumbai Indians                 11
+2 2019   Chennai Super Kings            10
+3 2019   Delhi Capitals                 10
+4 2019   Kings XI Punjab                 6
+5 2019   Kolkata Knight Riders           6
+6 2019   Sunrisers Hyderabad             6
+7 2019   Rajasthan Royals                5
+8 2019   Royal Challengers Bangalore     5
+
+$`2020`
+# A tibble: 8 x 3
+# Groups:   season [1]
+  season team                         wins
+  &lt;chr&gt;  &lt;chr&gt;                       &lt;int&gt;
+1 2020   Mumbai Indians                 11
+2 2020   Delhi Capitals                  9
+3 2020   Sunrisers Hyderabad             8
+4 2020   Kolkata Knight Riders           7
+5 2020   Royal Challengers Bangalore     7
+6 2020   Chennai Super Kings             6
+7 2020   Kings XI Punjab                 6
+8 2020   Rajasthan Royals                6</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>table_toppers_in_each_season</span> <span class='op'>&lt;-</span> <span class='va'>season_team_wins</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 26 x 3
+# Groups:   season [13]
+   season team                   wins
+   &lt;chr&gt;  &lt;chr&gt;                 &lt;int&gt;
+ 1 2008   Rajasthan Royals         13
+ 2 2008   Kings XI Punjab          10
+ 3 2009   Delhi Daredevils         10
+ 4 2009   Deccan Chargers           9
+ 5 2010   Mumbai Indians           11
+ 6 2010   Chennai Super Kings       9
+ 7 2011   Chennai Super Kings      11
+ 8 2011   Mumbai Indians           10
+ 9 2012   Kolkata Knight Riders    12
+10 2012   Delhi Daredevils         11
+# ... with 16 more rows</code></pre>
+</div>
+<p>2010,2013,2017,2019,2020 are the seasons where Mumbai Indians was the leader of the points table with more wins and in 2011 and 2015 it was in the second place. After Mumbai Indians, Chennai Super kings is the most successful with more wins.</p>
+<h4 id="top-10-most-valuable-players-in-the-ipl">top 10 most valuable players in the IPL</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>most_valuable_players</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>player_of_match</span>,<span class='va'>winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>player_of_match</span>,<span class='va'>winner</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>tally</span><span class='op'>(</span>sort<span class='op'>=</span><span class='cn'>TRUE</span>, name<span class='op'>=</span><span class='st'>"freq"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ungroup</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://renkun-ken.github.io/formattable/reference/formattable.html'>formattable</a></span><span class='op'>(</span><span class='va'>most_valuable_players</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+player_of_match
+</th>
+<th style="text-align:right;">
+winner
+</th>
+<th style="text-align:right;">
+freq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+AB de Villiers
+</td>
+<td style="text-align:right;">
+Royal Challengers Bangalore
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+CH Gayle
+</td>
+<td style="text-align:right;">
+Royal Challengers Bangalore
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+MS Dhoni
+</td>
+<td style="text-align:right;">
+Chennai Super Kings
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+RG Sharma
+</td>
+<td style="text-align:right;">
+Mumbai Indians
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+DA Warner
+</td>
+<td style="text-align:right;">
+Sunrisers Hyderabad
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+SK Raina
+</td>
+<td style="text-align:right;">
+Chennai Super Kings
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+V Kohli
+</td>
+<td style="text-align:right;">
+Royal Challengers Bangalore
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+AD Russell
+</td>
+<td style="text-align:right;">
+Kolkata Knight Riders
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+KA Pollard
+</td>
+<td style="text-align:right;">
+Mumbai Indians
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+AM Rahane
+</td>
+<td style="text-align:right;">
+Rajasthan Royals
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>most_valuable_players</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>player_of_match</span>,<span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>"identity"</span>,fill<span class='op'>=</span><span class='st'>"coral1"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>most_valuable_players</span><span class='op'>$</span><span class='va'>player_of_match</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title<span class='op'>=</span><span class='st'>"most valuable players awards receieved in the IPL "</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+</div>
+<p>we can see that RG Sharma and KA pollard are from Mumbai Indians and MS Dhoni and SK Raina are from Chennai super Kings which are the ,most successful teams. Having valuable players in the team will also help in teams Victory most of the times. Also the top two players in this table have less victories which is quite interesting.</p>
+<h4 id="is-it-better-to-bat-first-or-chase-next-when-we-win-the-toss">Is it better to bat first or chase next when we win the toss</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>result_margin_when_chasing</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>result</span>,<span class='va'>result_margin</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>result</span><span class='op'>==</span><span class='st'>"wickets"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>result_margin</span>,<span class='va'>result</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>tally</span><span class='op'>(</span>sort <span class='op'>=</span> <span class='cn'>TRUE</span>,name<span class='op'>=</span><span class='st'>"freq"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>result_margin_when_batting_first</span> <span class='op'>&lt;-</span> <span class='va'>ipl_matches</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>result</span>,<span class='va'>result_margin</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>result</span><span class='op'>==</span><span class='st'>"runs"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>result_margin</span>,<span class='va'>result</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>tally</span><span class='op'>(</span>sort <span class='op'>=</span> <span class='cn'>TRUE</span>,name<span class='op'>=</span><span class='st'>"freq"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>result_margin_when_batting_first</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 91 x 3
+# Groups:   result_margin [91]
+   result_margin result  freq
+           &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
+ 1            10 runs      13
+ 2            14 runs      13
+ 3             4 runs      11
+ 4             1 runs      10
+ 5             7 runs      10
+ 6            13 runs      10
+ 7            15 runs      10
+ 8            37 runs      10
+ 9             9 runs       9
+10            12 runs       9
+# ... with 81 more rows</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://renkun-ken.github.io/formattable/reference/formattable.html'>formattable</a></span><span class='op'>(</span><span class='va'>result_margin_when_chasing</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+result_margin
+</th>
+<th style="text-align:right;">
+result
+</th>
+<th style="text-align:right;">
+freq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+88
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+62
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+wickets
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"matches_won_when_chasing_the_target:"</span>,<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>result_margin_when_chasing</span><span class='op'>$</span><span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;matches_won_when_chasing_the_target: 435&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"matches_won_when_batting_first:"</span>,<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>result_margin_when_batting_first</span><span class='op'>$</span><span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;matches_won_when_batting_first: 364&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot5</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>result_margin_when_batting_first</span>,<span class='fu'>aes</span><span class='op'>(</span><span class='va'>result_margin</span>,<span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill<span class='op'>=</span><span class='st'>"sandybrown"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_smooth</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title<span class='op'>=</span><span class='st'>"matches won by batting first vs win by runs"</span>,x<span class='op'>=</span><span class='st'>"win by runs"</span>, y<span class='op'>=</span><span class='st'>"frequency"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-26-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>plot6</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>result_margin_when_chasing</span>,<span class='fu'>aes</span><span class='op'>(</span><span class='va'>result_margin</span>,<span class='va'>freq</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,fill<span class='op'>=</span><span class='st'>"powderblue"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_smooth</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title<span class='op'>=</span><span class='st'>"matches won by chasing the target vs win by no of wickets"</span>,x<span class='op'>=</span><span class='st'>"win by wickets"</span>, y<span class='op'>=</span><span class='st'>"frequency"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_x_discrete</span><span class='op'>(</span>limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>result_margin_when_chasing</span><span class='op'>$</span><span class='va'>result_margin</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="final_project_sathvik_thogaru_files/figure-html5/unnamed-chunk-26-2.png" width="624" /></p>
+</div>
+<p>we can observe here batting first teams have won with less margin of only 10-13 runs but while chasing with than 6 wickets in hand which shows while chasing the teams are comfortable and are in good position. batting first teams have won with a result margin of over 50 runs only twice in each occasion. 146 is the highest run margin win while batting first.</p>
+<h2 id="reflection">Reflection:</h2>
+<p>while doing the project I have come across new functions which I have used for the first time like match() which is used to match the values in two different columns which I have used to impute the city names based on the venue provided. Overall the data cleaning task has consumed a lot of time since i have to find the missing values in each column and then impute them with the respective values. The data exploration and visualization part was so exciting finding the most number of wins, player of match awards and toss decisions and other important statistics.</p>
+<h2 id="conclusion">Conclusion:</h2>
+<p>From all the Data and visualizations, we can see that the Mumbai Indians is the most successful team with most trophies in their name in the IPL followed by the Chennai super Kings. Also most number of toss was won by the Mumbai Indians. Chris Gayle had won the most number of player of match titles. Mumbai Indians had hosted most of the IPL matches.</p>
+<h2 id="bibliography">Bibliography:</h2>
+<p>[1] T. B. Swartz, “Research directions in cricket,” Handb. Stat. Methods Anal. Sport., pp. 445–460, 2017, doi: 10.1201/9781315166070. [2] A. Verma and M. Izadi, “Cricket Prognostic System: A framework for real-time analysis in ODI cricket,” no. August 2016, 2017. [3] <a href="http://cricsheet.org/">link</a> Rice, D., &amp; Rolfe, M. (n.d.). Data Science Fundamentals: R Tutorials. Retrieved From<a href="https://classroom.google.com/u/0/w/MzcxNTE5NjczMDky/tc/MzcxNTE5NjczMTAx">link</a></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
