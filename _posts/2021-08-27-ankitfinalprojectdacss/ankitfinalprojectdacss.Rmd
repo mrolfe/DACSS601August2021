@@ -1,9 +1,12 @@
 ---
-title: "Ankit_HW2"
+title: "ankitFinalProjectDACSS"
 description: |
-  First attempt to understand the demand in hospitatily industry.
+  DACSS Final Project
 author: Ankit Kumar
-date: 08-18-2021
+date: 08-27-2021
+categories:
+  - Final Project
+  - Ankit Kumar
 output:
   distill::distill_article:
     self_contained: false
@@ -12,7 +15,7 @@ draft: true
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 # Introduction
@@ -37,7 +40,7 @@ Reading the dataset into a data frame
 
 ```{r}
 library(readr)
-hotel_bookings <- read_csv("_data/hotel_bookings.csv")
+hotel_bookings <- read_csv("../../_data/hotel_bookings.csv")
 ```
 
 Overview of the dataset
@@ -262,4 +265,6 @@ Due to paucity of time, I could not cover all possible relationships that needs 
 Nuno Antonio, Ana de Almeida, Luis Nunes, "Hotel booking demand datasets", Data in Brief,
 Volume 22,2019, Pages 41-49, ISSN 2352-3409, https://doi.org/10.1016/j.dib.2018.11.126.,
 (https://www.sciencedirect.com/science/article/pii/S2352340918315191)
+
+
 
