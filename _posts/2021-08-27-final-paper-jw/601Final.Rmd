@@ -1,5 +1,5 @@
 ---
-title: "601Final"
+title: "601 Final"
 author: "Joey Wolpert"
 date: "8/27/2021"
 output: pdf_document
@@ -14,14 +14,27 @@ library("dplyr")
 library("dlookr")
 ```
 
-# Homework 2
+# Introduction
+
+Public schools in America encompass a wide variety of students based on several factors including age, race, sex, religion, and many others. While we celebrate this diversity across America these differences can actually lead to vast differences when comparing communities. These differences, mostly socio-economic, can lead to disparaging conditions in the school systems in each area. Since a significant amount of funding for public schools comes from local taxes, these socio-economics differences can lead to worse school systems.
+
+One of the places where lacking of funding for schools can negatively impact them is in terms of their ability to hire more teachers. Because of their lack of funding, these school districts don't have enough room in the budget to hire more teachers or to pay them a competitive wage, which in turn leads to a lower quality of education for their students. 
+
+There have been several studies done researching the effects that student to teacher ratio has on students, one of the most well-regarded being the STAR study done in Tennessee in the 1980s. This study found that with a smaller class size (15 students compared to 22) made significant educational gains in comparison to those in the larger class. The study found that with a 32% decrease in class size students were able to increase their achievement by about 3 months over a course of 4 years (Chingos).
+
+In this paper we will look at how schools with different racial makeups can differ in terms of their student to teacher ratios, which has been shown to have a direct impact on a student's education.
+
+# Data
 
 Let's read in the data and see what it looks like:
 
-<<<<<<< HEAD
 ```{r }
 data <- read.csv("C:/Users/wolpe/DACSS601August2021/_data/Public_School_Characteristics_2017-18.csv")
 ```
+
+### How This Data Was Collected
+
+Taken from the NCES website: "The National Center for Education Statistics’ (NCES) Common Core of Data (CCD) program is an annual collection of basic administrative characteristics for all public schools, school districts, and state education agencies in the United States. These characteristics are reported by state education officials and include directory information, number of students, number of teachers, grade span, and other conditions. The NCES Education Demographic and Geographic Estimate (EDGE) program develops annually updated point locations (latitude and longitude) for public elementary and secondary schools included in the CCD. The NCES EDGE program collaborates with the U.S. Census Bureau’s Education Demographic, Geographic, and Economic Statistics (EDGE) Branch to develop point locations for schools and school district administrative offices based on reported physical addresses" (NCES).
 
 ### What's in the data?
 
@@ -31,84 +44,8 @@ This dataset looks at the characteristics of various public schools across the U
 
 The data has 79 total columns and just over 100,000 rows. It is unlikely that all of this info will be useful, so in the next section we can see if the data can be cleaned and subset to be more useful to the project.
 
-# Homework 3
-
-### Cleaning Data
-
-The data is definitely unclean, let's filter out some stuff so that we have more complete data.
-
-```{r }
-data_clean <- data %>%
-  filter(!is.na(TOTAL) & TOTAL > 0 & !is.na(FTE) & FTE > 0 & STUTERATIO < 500) %>%
-  filter(SCHOOL_TYPE_TEXT == "Regular school" & VIRTUAL == "Not a virtual school") %>%
-  filter(SCHOOL_LEVEL == "High" | SCHOOL_LEVEL == "Middle" | SCHOOL_LEVEL == "Elementary") %>%
-  filter((is.na(G13) | G13 == 0) & (is.na(PK) | PK == 0)) %>%
-  filter(!is.na(STABR) & !is.na(SCH_NAME)) 
-head(data_clean)
-```
-
-With filtering, we now have a subset of the original data that will be much more useful for analysis. The schools were filtered to include only regular, non-virtual schools at the elementary, middle, and high school levels. It also removed any schools that had students younger than kindergarten (PK) or those past their senior year of high school (G13).
-
-There is still an issue however with student to teacher ratios, so let's look at a distribution of that:
-
-```{r }
-data_clean %>%
-  summarise(quantile = c(0, 0.005, 0.025, 0.5, 0.975, 0.995, 1), quant.val = quantile(STUTERATIO, c(0, 0.005, 0.025, 0.5, 0.975, 0.995, 1)))
-```
-
-Looking at the distribution, we see that 99% of the dataset falls between a student to teacher ratio of 4.82 and 34.4274, which we can use as a boundary to remove outliers of this variable from the dataset.
-
-```{r }
-data_clean <- data_clean %>%
-  filter(STUTERATIO >= 4.82 & STUTERATIO <= 34.4274)
-```
-
-### Subsetting Columns
-
-Now let's subset the columns in the dataset to only include those that interest this project.
-
-```{r }
-data_sub <- data_clean %>%
-  select(SCH_NAME, STABR, GSLO, GSHI, G01, G02, G03, G04, G05, G06, G07, G08, G09, G10, G11, G12, TOTAL, AM, HI, BL, WH, HP, TR, FTE, STUTERATIO, AMALM, AMALF, ASALM, ASALF, HIALM, HIALF, BLALM, BLALF, WHALM, WHALF, HPALM, HPALF, TRALM, TRALF, TOTMENROL, TOTFENROL, SCHOOL_LEVEL)
-head(data_sub)
-```
-
-### Arranging Some Data
-
-It may be useful to be the top several rows for certain columns, in this script, we look at the top 6 schools ordered based on their student to teacher ratio.
-
-```{r }
-data_stuteratio <- data_sub %>%
-  arrange(STUTERATIO, by_group = TRUE)
-head(data_stuteratio)
-```
- And now we look at the bottom 6 schools with the highest student-teacher ratio.
-
-```{r }
-data_stuteratio <- data_sub %>%
-  arrange(STUTERATIO)
-tail(data_stuteratio)
-```
-
-### Summary Data
-
-Now let's take a look at some summary of the dataset in terms of its student-teacher ratio in each state.
-
-```{r }
-data_stats <- data_sub %>%
-  group_by(STABR) %>%
-  summarise(STABR = STABR, AvgRatio = mean(STUTERATIO), SDRatio = sd(STUTERATIO))
-data_summary <- distinct(data_stats)
-data_summary
-```
-
-# Homework 4
 
 For this section we need to look deeper into two variables from the dataset, for this I want to look at school type and student to teacher ratio.
-
-### How This Data Was Collected
-
-Taken from the NCES website: "The National Center for Education Statistics’ (NCES) Common Core of Data (CCD) program is an annual collection of basic administrative characteristics for all public schools, school districts, and state education agencies in the United States. These characteristics are reported by state education officials and include directory information, number of students, number of teachers, grade span, and other conditions. The NCES Education Demographic and Geographic Estimate (EDGE) program develops annually updated point locations (latitude and longitude) for public elementary and secondary schools included in the CCD. The NCES EDGE program collaborates with the U.S. Census Bureau’s Education Demographic, Geographic, and Economic Statistics (EDGE) Branch to develop point locations for schools and school district administrative offices based on reported physical addresses" (NCES).
 
 ### School Type
 
@@ -179,7 +116,76 @@ The data still appears somewhat skewed, but not in a way that will  negatively a
 
 NOTE: In the actual filtering of data the cutoffs used for STUTERATIO are different because of other filtering, in actuality the cutoffs of 4.82 and 34.4274 will be used.
 
-# Homework 5
+### Cleaning Data
+
+The data is definitely unclean, let's filter out some stuff so that we have more complete data.
+
+```{r }
+data_clean <- data %>%
+  filter(!is.na(TOTAL) & TOTAL > 0 & !is.na(FTE) & FTE > 0 & STUTERATIO < 500) %>%
+  filter(SCHOOL_TYPE_TEXT == "Regular school" & VIRTUAL == "Not a virtual school") %>%
+  filter(SCHOOL_LEVEL == "High" | SCHOOL_LEVEL == "Middle" | SCHOOL_LEVEL == "Elementary") %>%
+  filter((is.na(G13) | G13 == 0) & (is.na(PK) | PK == 0)) %>%
+  filter(!is.na(STABR) & !is.na(SCH_NAME)) 
+head(data_clean)
+```
+
+With filtering, we now have a subset of the original data that will be much more useful for analysis. The schools were filtered to include only regular, non-virtual schools at the elementary, middle, and high school levels. It also removed any schools that had students younger than kindergarten (PK) or those past their senior year of high school (G13).
+
+There is still an issue however with student to teacher ratios, so let's look at a distribution of that:
+
+```{r }
+data_clean %>%
+  summarise(quantile = c(0, 0.005, 0.025, 0.5, 0.975, 0.995, 1), quant.val = quantile(STUTERATIO, c(0, 0.005, 0.025, 0.5, 0.975, 0.995, 1)))
+```
+
+Looking at the distribution, we see that 99% of the dataset falls between a student to teacher ratio of 4.82 and 34.4274, which we can use as a boundary to remove outliers of this variable from the dataset.
+
+```{r }
+data_clean <- data_clean %>%
+  filter(STUTERATIO >= 4.82 & STUTERATIO <= 34.4274)
+```
+
+### Subsetting Columns
+
+Now let's subset the columns in the dataset to only include those that interest this project.
+
+```{r }
+data_sub <- data_clean %>%
+  select(SCH_NAME, STABR, GSLO, GSHI, G01, G02, G03, G04, G05, G06, G07, G08, G09, G10, G11, G12, TOTAL, AM, HI, BL, WH, HP, TR, FTE, STUTERATIO, AMALM, AMALF, ASALM, ASALF, HIALM, HIALF, BLALM, BLALF, WHALM, WHALF, HPALM, HPALF, TRALM, TRALF, TOTMENROL, TOTFENROL, SCHOOL_LEVEL)
+head(data_sub)
+```
+
+### Arranging Some Data
+
+It may be useful to be the top several rows for certain columns, in this script, we look at the top 6 schools ordered based on their student to teacher ratio.
+
+```{r }
+data_stuteratio <- data_sub %>%
+  arrange(STUTERATIO, by_group = TRUE)
+head(data_stuteratio)
+```
+ And now we look at the bottom 6 schools with the highest student-teacher ratio.
+
+```{r }
+data_stuteratio <- data_sub %>%
+  arrange(STUTERATIO)
+tail(data_stuteratio)
+```
+
+### Summary Data
+
+Now let's take a look at some summary of the dataset in terms of its student-teacher ratio in each state.
+
+```{r }
+data_stats <- data_sub %>%
+  group_by(STABR) %>%
+  summarise(STABR = STABR, AvgRatio = mean(STUTERATIO), SDRatio = sd(STUTERATIO))
+data_summary <- distinct(data_stats)
+data_summary
+```
+
+# Analysis
 
 Let's take a look at student to teacher ratio in relation to the percentage of black and hispanic students in the school.
 
@@ -206,11 +212,29 @@ data$Z <- quant
 print(axis_val)
 ggplot(data, aes(X, Y, fill= Z)) + 
   geom_tile() + labs(title = "Percentage of Black or Hispanic Students \nvs. Student to Teacher Ratio", x = "Student to Teacher Ratio", y = "Percent of Black and Hispanic Students")
-quant
 ```
 
 Looking at the generated heatmap, we can see that the bottom right, where schools have the highest student to teacher ratio and lowest percentage of black and hispanic are the least common. However, it appears that the most common combnation is a high student to teacher ratio and a high percentage of black and hispanic students. The heat map was used to convey the number of schools whose student to teacher ratio and black and hispanic percentage matched the x and y axes for those values. It would have been nice if there was more robust racial statistics available for the schools as more specific heatmaps could be created.
 
+We can know see if there is any kind of statistically significant correlation between the two.
+
+```{r}
+model <- lm(heat.data, formula = STUTERATIO ~ BLHI_PCT)
+summary(model)
+```
+
+It is evident from the summary of the t-test on the regression equation that the coefficient for student to teacher ratio is statistically significant, with a t value of 47.07 and a p value of nearly 0. Thus for every additional unit increase in percent of black and hispanic students in a school we expect the student to teacher ratio to increase by 0.028, which although small is a significant correlation between the two variables. 
+
+# Discussion of Results
+
+From looking at the results of the analysis, we can now begin to draw some conclusions on the relation between black and hispanic population at a school and the student to teacher ratio for the school.
+
+First looking at the heatmap, there are several observations that are important to point out. First, we see the highest amount of schools on the graph for the lowest percentile in student to teacher ratio and black and hispanic percentage, meaning that the schools with the fewest number of these students and the best student to teacher ratios are incredibly common. It is also clear that the area of the graph with the fewest schools is the area with a high student to teacher ratio and a low number of black and hispanic students, meaning that these schools are uncommon when looking at the country's public schools. Lastly, the area with a high black and hispanic population and student to teacher ratio are also very common. What this heatmap shows is that it is more common for schools with lower percentages of black and hispanic students to have better learning environments, and they are also very uncommon to have poorer learning conditions. In addition to this, schools with higher amounts of black and hispanic students are more likely to have a high student to teacher ratio.
+
+When looking at the analysis of the regression, there is a weak yet statistically sginificant positive correlation between the percentage of black and hispanic students and the school's student to teacher ratio. This per percentage point increase of 0.028, while small, does provide evidence that schools with higher percentages of black and hispanic students tend to have higher student to teacher ratios.
+
 # Works Cited
+
+$Chingos, Matthew; Whitehouse, Grover. "Class Size: What Research Says and What it Means for State Policy".  https://www.brookings.edu/research/class-size-what-research-says-and-what-it-means-for-state-policy/$
 
 $NCES. Public School characteristics.\space2017-18.\space Common Core Data Set. https://data-nces.opendata.arcgis.com/datasets/nces::public-school-characteristics-2017-18/about$
