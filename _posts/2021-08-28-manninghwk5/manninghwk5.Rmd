@@ -1,0 +1,168 @@
+---
+title: "manninghwk5"
+description: |
+  Data Visualization
+author: Michelle Manning
+date: 08-28-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+I am looking at the data set "Crime in Los Angeles Data from 2020 to Present". I have heard that 2020 had an interesting rise in certain crimes like murder, but a decrease in crime like bunco. The pandemic surely had a hand in this, but I wondered what 2021 crime data looked as covid restrictions were lifted in comparison to the same 2020 period.
+
+Questions I intend to explore: 
+1. How many crimes occurred in the first seven months of 2020 vs 2021?
+2. What is the type of crime that occurred in 2020 vs 2021?
+3. Which areas are being affected?  
+4. Out of the community area with highest crime increase in 2021, what types of crime occurred?
+           
+First I changed echo to TRUE and loaded in the libraries tidyverse and stringr. Next I read in the csv file from Kaggle.com and viewed it to examine the data.
+
+```{r setup, echo=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(stringr)
+LAcrime <- read_csv("Crime_Data_from_2020_to_Present.csv")
+```
+```{r, echo=TRUE}
+LAcrime2 <- LAcrime %>% 
+  select(`DATE OCC`, AREA, `AREA NAME`, `Crm Cd`, `Crm Cd Desc`) %>% 
+  rename(DateOcc=`DATE OCC`, Area=AREA, AreaName=`AREA NAME`, CrmCd=`Crm Cd`, CrmDesc=`Crm Cd Desc`)#Selecting columns needed & renaming them without spaces in column name.
+
+any(is.na(LAcrime2))
+any(is.null(LAcrime2))#Checking for NAs & nulls
+map(LAcrime2, ~sum(is.na(.)))
+LAcrime3 <- na.exclude(LAcrime2)#Get rid of NAs and nulls
+#Breaking up the dates into separate columns to better order the data and focus on the observations with regard to the year
+LAcrime4 <- LAcrime3 %>% 
+  separate(DateOcc, sep="/", into = c("OCCmonth", "OCCday", "OCCyear")) %>% 
+  separate(OCCyear, sep=" ", into = c("OCCyear", "1","2")) %>% 
+  select(-"1", -"2")
+LAcrime5 <- filter(LAcrime4,!(OCCmonth>= "08"))#Creating the same time period window for 2020 as 2021. 7 months, Jan 1st-July 31st.
+```
+```{r}
+# Top 10 crimes 
+n_distinct(LAcrime5$CrmDesc) #Check
+crmdesc2020_1 <- LAcrime5 %>%
+   filter(OCCyear=="2020") %>% 
+  count(CrmDesc) %>% 
+  arrange(desc(`n`)) %>% 
+  rename(count=`n`) #Count of crimes in 2020 added to this data set
+Top10_2020 <- crmdesc2020_1[1:10, ] #This object is the Top 10 crime types for 2020
+crmdesc2021_1 <- LAcrime5 %>%
+   filter(OCCyear=="2021") %>% 
+  count(CrmDesc)%>% 
+  arrange(desc(`n`))%>% 
+  rename(count=`n`)#Count of crimes in 2021 added to this data set
+Top10_2021 <- crmdesc2021_1[1:10, ]#This object is the Top 10 crime types for 2021
+#Putting a column of the years back on to data set correctly
+year2020 <- c(rep(2020,10))
+year2021 <- c(rep(2021,10))
+LAcrimeTop10_1 <- cbind(Top10_2020, year = year2020) 
+LAcrimeTop10_2 <- cbind(Top10_2021, year = year2021) 
+#Combining these data sets into one Top 10 across both years.
+LAcrimeTop10_3 <- rbind(LAcrimeTop10_1, LAcrimeTop10_2)
+LAcrimeTop10_3$year <- as.factor(LAcrimeTop10_3$year)  #Changing the new year column into a factor, so it isn't read as a continuous variable for the plots later
+
+#Community Areas
+n_distinct(LAcrime5$AreaName)#Check
+Area2020 <- LAcrime5 %>%
+   filter(OCCyear=="2020") %>% 
+  count(AreaName) %>% 
+  arrange(desc(`n`))%>% 
+  rename(count=`n`)#Count of Area crimes in 2020 added to this data set
+Area2021 <- LAcrime5 %>%
+   filter(OCCyear=="2021") %>% 
+  count(AreaName)%>% 
+  arrange(desc(`n`)) %>% 
+  rename(count=`n`)#Count of Area crimes in 2021 added to this data set
+yearArea20 <- c(rep(2020,21))
+yearArea21 <- c(rep(2021,21))#Putting a column of the years back on to data set correctly
+LAcrime_Area1 <- cbind(Area2020, year = yearArea20) 
+LAcrime_Area2 <- cbind(Area2021, year = yearArea21) 
+#Combining these data sets into one Crime Area set across both years.
+LAcrime_Area3 <- rbind(LAcrime_Area1, LAcrime_Area2)
+LAcrime_Area4 <- LAcrime_Area3 %>% 
+  arrange(AreaName)#Arranged to show the most crimes vs the area they happened in
+LAcrime_Area4$year <- as.factor(LAcrime_Area4$year) #Changing the new year column into a factor, so it isn't read as a continuous variable for the plots later
+
+#Crime Types in the Pacific Area
+Pacific2020 <- LAcrime5 %>%
+  select(OCCyear, AreaName, CrmDesc) %>% 
+   filter(OCCyear=="2020" & AreaName== "Pacific") %>% 
+  count(CrmDesc) %>% 
+  arrange(desc(`n`))%>% 
+  rename(count=`n`)#Count of crimes in the Pacific area in 2020 added to this data set
+Pacific2020_1 <- Pacific2020[1:10, ]#This object is the Pacific crime types for 2020
+Pacific2021 <- LAcrime5 %>%
+  select(OCCyear, AreaName, CrmDesc) %>% 
+   filter(OCCyear=="2021" & AreaName== "Pacific") %>% 
+  count(CrmDesc) %>% 
+  arrange(desc(`n`))%>% 
+  rename(count=`n`)#Count of crimes in the Pacific area in 2021 added to this data set
+Pacific2021_1 <- Pacific2021[1:10, ]#This object is the Pacific crime types for 2021
+#Putting a column of the years back on to data set correctly
+yearPacific20 <- c(rep(2020,10))
+yearPacific21 <- c(rep(2021,10))
+LAcrimePacific1 <- cbind(Pacific2020_1, year = yearPacific20) 
+LAcrimePacific2 <- cbind(Pacific2021_1, year = yearPacific21)
+#Combining these data sets into one Pacific crimes set across both years.
+LAcrimePacific3 <- rbind(LAcrimePacific1, LAcrimePacific2)
+LAcrimePacific3$year <- as.factor(LAcrimePacific3$year)#Changing the new year column into a factor, so it isn't read as a continuous variable for the plots later
+```
+
+Plots
+
+```{r, echo=TRUE}
+#Plot 1: shows the crime count difference between 2020 and 2021
+ggplot(LAcrime5, aes(x=OCCyear))+ 
+  geom_bar()
+```
+Plot1:
+Why this plot: 
+-Supports claims that 2020 had higher crime than 2021 in the same 7 month period.
+-I chose a bar plot because it quickly and effectively shows that the count difference between 2020 and 2021.
+-i would have preferred to also have a percentage change chart for each type of crime, but the way I found online to do it required the rows be connected to the previous row. That may apply to percent changes from consecutive days, but doesn't to categorical data like crime descriptions. It would also be unwieldy with the amount of crime descriptions.
+
+```{r, echo=TRUE}
+#Plot2: shows the top 10 crimes across both 2020 & 2021
+ggplot(LAcrimeTop10_3, aes(x= year,y=count, fill= CrmDesc))+ 
+  geom_bar(position="dodge", stat="identity")+
+  geom_text(aes(label = CrmDesc), size = 3, hjust = 1.01, position = position_dodge(.9),angle = 90, colour = "white")+
+  labs(title="Number of Crimes Committed by Type in 2020 & 2021",
+        x ="Year", y = "Crime Occurences", fill ="Crime Type")
+```
+Plot 2:
+Why this plot:
+-Shows the shift in crime types from 2020 to 2021 since 2020 was a strange year for violent crime and (more expected) crimes that require public interaction like bunco or vehicle theft.
+-This isn't the most effective. I believe having the bar grouped by year would be a better example. I wanted to practice my ggplot skills on this one. However, I think it stills gets the point across. Crime type is labelled and shows the crimes the years share in commmon and the ones that only appear in one year or the other while also expressing the count changes. 
+-Plotting with the aes(x=CrmDes, y=count, fill= year) would have been what I wanted, but it came with the side effect of grouping the crimes that the years differed on together, which prevents me from showing that difference. So the crime type plot across two plots separated by year is the solution I cam up with.
+```{r, echo=TRUE}
+#Plot 3: shows the crime count by Area across both 2020 & 2021
+ggplot(LAcrime_Area4, aes(x=AreaName, y=count, fill= year))+
+  geom_bar(position="dodge", stat="identity")+
+  geom_text(aes(label = count),size=3, vjust = 1.5,position = position_dodge(.95), colour = "white")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  labs(title="Number of Crimes Committed by Community Areas in 2020 & 2021",
+        x ="Community Area", y = "Crime Occurences", fill ="Year")
+```
+Plot 3:
+Why this plot:
+-Shows the crime counts by area grouped by year. 
+-This the plot I wished to have done on the previous plot. It worked here because there is no difference in the Area variable for both years. This plot shows readily the crime count differences between the two years. You can see where crime increased and decreased from 2020 and 2021.
+-The only thing I wish is that I didn't have so many bar graphs. They are useful when you have categorical data, though.
+```{r, echo=TRUE}
+#Plot4: shows the crime count in the Pacific area specifically
+ggplot(LAcrimePacific3, aes(x= CrmDesc,y=count, fill = year))+
+  geom_bar(position="dodge", stat="identity")+
+  theme(axis.text.x = element_text(angle = 90,size=10, vjust = 0.5, hjust=1))+
+  labs(title="Types of Crimes Committed in the Pacific Area in 2020 & 2021",
+        x ="Crime Type", y = "Crime Occurences", fill ="Year")
+```
+Plot 4,The Main One:
+1. What this visualization demonstrates - The Pacific area's, which saw the highest increase in crimes in 2021, breakdown of crime types in this neighborhood. It shows crimes like that vehicle thefts and burglary increased in 2021. That Identity theft and grand theft from a vehicle rose to the top ten crimes in 2021. Unlike the the general trend of violent crime going down, in Pacific it rose specifically in aggravated assault with a deadly weapon.
+2. Why you chose the visualization approach you selected, and what alternative approaches you considered
+but decided not to pursue. - I considered the percent change plot with this one, but ran into the same problems. I considered a plot with more than just Pacific, but the plot became to small to read between the top ten crimes and the 21 neighborhoods. Histograms and boxplots would have been more suitable for data sets with less an emphasis on categorical data.
+3. What you wished, if anything, you could have executed but found limited capability to do - Would have preferred a data set with more continuous data. I worry the plots will come out wonky on other people's laptops. In large view, the plots look fine, but in the Rmd view, its very squished.
