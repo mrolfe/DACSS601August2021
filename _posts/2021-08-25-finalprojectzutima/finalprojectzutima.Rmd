@@ -1,0 +1,260 @@
+---
+title: 'Understanding The Fundamentals Of Hotel Bookings '
+author:
+- name: Zutima Tuladhar
+  url: {}
+date: "08-27-2021"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+description: "This paper conducts analysis on a hotel booking dataset collected between
+  the\nyears (2015-1017) considering different variables to answer multiple research
+  \nquestions that will assist you to make your next trip planning decisions.\n"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Introduction**
+
+*Travel holds one of the biggest annual expenses in the USA. According to the US Travel Association in the year 2019 alone,total international and domestic traveler spending generated $2.6 trillion in economic output, measuring up to 2.9 percent of the nations gross domestic product(GDP) and most importantly generated over 15.8 million jobs in the country.*
+
+*Today, with the constant development of technology and online services, the traveling industry  has become more accessible and affordable to everyone. The statistical portal has shown that around eighty eight percent of Americans prefer to book or have booked their hotel online using the internet portals (2017).Online booking travel agents, travel websites and advanced systems have immensely affected the direct relationship of the hotel management and guests.While there are certain advantages and disadvantages of hotel booking online or offline using travel agents, the statistics of avid travelers in the USA  shows that competition is high when it comes to finding the perfect deal for stay. Additionally, online booking has been said to guarantee customers to get the lowest price possible, there have been issues of lack of transparency and chances of canceling/ moving dates last minute which we will also be analyzing the data for today.*
+
+*Studies have shown that established companies benefit and save a large amount of revenue when they are dealing with repeated customers as they do not have to have additional advertisement expenses and repeated customers can also reflect the success of a company. We will be analyzing and plotting graphs on repeated customers according to each year (2015-2017) as well as determining which of the months do customers prefer to travel back.*
+
+
+**Research Question**
+
+*For this project my research questions would be focused on three major categories in order to identify the optimal time for traveling. What is the best time of the year to book hotels? Out of the resort hotel and city hotels, which hotel recieve higher number of customers? What is the most popular source of travel agents (online or offline TA). I am personally interested in this topic as I enjoy traveling myself, especially after the COVID-19 pandemic, the travel industry has struggled to keep their doors open. Now with the prevalence of vaccinations and proper covid guidelines, the traveling industry is expected to grow drastically.*
+*In this paper, we will also be discussing the peak times of the year where it is a good idea to travel and book for hotels, it can be a struggle for many people to travel during times where locations are packed with customers. We will also identify the most popular source of booking trips and determining if it is through online services such as tripadvisor, travelhelp and expedia without any direct connection to the hotel or through offline travel agents that connect with customers directly.*
+
+
+**Data Selection**
+
+*The data set we are analyzing is a single file which aims to compare various booking information between two hotels, specifically a city hotel and a resort hotel. The data consists of 32 columns through which I have worked to determine the above mentioned research questions.*
+
+**Load the packages**
+*In order to look at the data we will be loading some packages such as tidyverse,dbplyr, ggplot2, stringi, rmarkdown)*
+```{r}
+## Load the libraries
+
+library(tidyverse)
+library(dbplyr)
+library(ggplot2)
+library(stringi)
+library(rmarkdown)
+
+```
+**Read in the database**
+
+*One of the most important step to start with would be reading in the database. We will be working with the hotel_booking database. The data is a single file which has information to compare various booking information between two hotels, specifically a city hotel and a resort hotel. The data consists of 32 columns through which I have selected five variables to research the above mentioned questions*
+
+*As you can see I have named my database "book"*
+```{r}
+
+book <- read_csv(file="../../_data/hotel_bookings.csv")
+
+```
+```{r dim}
+
+?dim()
+dim(book)
+
+```
+*Next step would be using the dim() function, it allows us to retrieve or set the dimensions of an object in R.For our current database "book" it is determined to have 32 columns and 119390 rows.*
+
+```{r colnames}
+colnames(book)
+```
+*After determining that we have 32 columns, the colnames() functions helps us look at the titles for each of the variables we have data for*
+
+**The five variables we will be looking at in this paper are**
+*1. Hotel*
+*2. Date of Arrival(Year)*
+*3. Date of Arrival(Month)*
+*4. Repeated Guest*
+*5. Market Segment*
+
+**In order to separate and piping selected variables I am using the package dplyr and using the select() function as seen below, our new file will be called "d"**
+```{r}
+
+(d <- book %>% 
+  select( hotel, arrival_date_year, arrival_date_month, hotel, is_repeated_guest, market_segment ))
+
+```
+*Next, lets clean our data for easier analysis using the unique function. Unique functions will return our data frame after removing duplicate elements/rows.We will apply this function to each of our variable*
+```{r}
+?unique
+unique(d$arrival_date_year)
+```
+
+```{r}
+
+unique(d$arrival_date_month)
+
+```
+
+```{r}
+unique(d$hotel)
+```
+
+```{r}
+unique(d$is_repeated_guest)
+```
+```{r}
+
+unique(d$market_segment)
+```
+***DATA VISUALIZATION***
+
+*Count of repeated hotel*
+
+```{r removing NA variables and blanks}
+count(d, hotel)
+```
+
+*Count of repeated year*
+```{r }
+count(d, arrival_date_year)
+```
+
+*Count of arrival_date_month*
+```{r }
+count(d, arrival_date_month)
+```
+*Count of market_segment*
+
+```{r }
+count(d, market_segment)
+```
+*Count of repeated guest*
+
+```{r }
+count(d, is_repeated_guest)
+
+```
+*Using the count() function, let us asses the number of variables and count of each subset of variable. This will give us an exact number of data in each category*
+
+
+*From this graph, we can determine the highest number of travelers in 2016 and lowest in 2015*
+```{r}
+ggplot(d, aes(arrival_date_year)) + geom_bar(fill = "maroon2") + theme_classic()
+
+```
+**Arrival Date Year**
+
+*The bar shows the number of guests that booked hotels each month from 2015-2017 at the particular hotels. We can see from the graph there were highest number of bookings in August and lowest number of bookings in January.*
+```{r}
+
+ggplot(d, aes(arrival_date_month)) + geom_bar( fill = "skyblue") +theme_classic()
+
+```
+**Preference in Month**
+
+*From this graph, we can see that guests overall preferred the City Hotel over Resort*
+```{r}
+
+ggplot(d, aes(hotel)) + geom_bar(fill = "red") + theme_bw()
+
+```
+**Preference in Hotel**
+**Filter Database**
+```{r filter}
+resort <- filter(d, hotel == "Resort Hotel") 
+city <- filter(d, hotel =="City Hotel")
+```
+**Arrange Database**
+```{r arrange}
+
+resort$hotel <- resort$arrival_date_year + resort$is_repeated_guest
+city$hotel <- city$arrival_date_year + city$is_repeated_guest
+
+(d %>% group_by(hotel, arrival_date_year)) %>% count(arrival_date_year)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "skyblue2", stat = "count") + 
+  labs(title = "Year Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_year), scales = "free_y"))
+
+(ggplot(d, aes(market_segment)) + 
+  geom_bar(fill = "skyblue2", stat = "count") + 
+  labs(title = "Market Segment") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(is_repeated_guest), scales = "free_y"))    
+
+```
+
+```{r}
+(d %>% group_by(hotel, is_repeated_guest)) %>% count(is_repeated_guest)
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "skyblue3", stat = "count") + 
+  labs(title = "Repeated Guest") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(is_repeated_guest), scales = "free_y"))
+```
+
+
+```{r}
+(d %>% group_by(arrival_date_year, is_repeated_guest) %>% count(is_repeated_guest))
+
+(ggplot(d, aes(arrival_date_year)) + 
+  geom_histogram(fill = "black", stat = "count") + 
+  labs(title = "Repeated Guest") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(is_repeated_guest), scales = "free_y"))
+
+
+```
+*The graph shows the number of repeated guests in each city hotel and resort hotel, you can also see in the number of repeated guests each year.
+```{r}
+
+
+(d %>% group_by(arrival_date_year, arrival_date_month)) %>% count(arrival_date_month)
+
+(ggplot(d, aes(arrival_date_year)) + 
+  geom_line(fill = "skyblue3", stat = "count") + 
+  labs(title = "Month Visited") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(arrival_date_month), scales = "free_y"))
+```
+
+*Organizing the database according to year and month using the geom_histogram()*
+
+
+
+```{r}
+
+(ggplot(d, aes(hotel)) + 
+  geom_histogram(fill = "yellow", stat = "count") + 
+  labs(title = "Market Segment") + 
+    theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))+
+  facet_wrap(vars(market_segment), scales = "free_y"))
+
+```
+
+
+**Reflection**
+
+*This project was my initial introduction to R and rstudio projects, therefore when I was working through understanding the concepts there were some roadblocks. However, the data set that I had selected “hotel_bookings” was a fairly advanced and straightforward dataset. It helped to complete this assignment in chunks spread out through the three weeks as I was able to identify my issues easily and work accordingly. The initial difficulty I had with the paper was in github as I was not able to identify my directory and connect it to the main repository. This created an error in R where the most important section “Read in Data” was not running. Without establishing this connection further analysis was not possible. I learned that in order to have your data in the code we have to establish the connection by piping the data to the necessary assigned folders. Once I was able to code the connection the error was removed* 
+
+
+
+**Conclusion**
+
+*This conclusion aims to answer the three major categories of research questions I had identified. Lets us look at them in order. For the first question asking the best time of the year to book hotels, the data shows that between the year of 2015-2017. The total number of guests in 2015, 2016 and 2017 were 21996,56707 and 40687 accordingly.The most popular month in 2015 is in September guests = 5114 and least popular month in 2015 is in November guests = 2340. If we further look at the data we can see that the most popular month in 2016 was was during the month of October guest = 6203 and lowest in 2016 was in the month of January guests = 2248.Although, more research is required, we can argue that the most busiest time in the year is August-October and least busiest is January-April.For our second question, overall out of both the highest guests year and lowest guest year, the city hotel was able to accumulate and serve the majority of people in comparison as we can see in our graph as well.The total number of guests were 119390, in which city hotel guests 79330 and resort guests had 40060, with a staggering difference of 39270.According to our data we can state that city hotels receive higher number of customers. It is also interesting to note that city hotels(2032) also receive higher number of repeated guests in comparison to resort hotels(1178) Lastly to analyze which is the most popular and reliable source for booking hotels and arranging travel plans. From this data and graphs we can determine that similarly to the statistic we had introduced in the first paragraph that according to US Travel Association, online travel agents are the most popular and in demand service among all the other market segment dominating the offline travel agents. To conclude, understanding the different aspects of this data will be helpful in organizing future travel plans to determine the best price, service as well as time of the month. Further research and data should be collected to improve the relability and validity*
+
+
+**References**
+
+*Hotel Booking Demand  (February 2019.) https://www.kaggle.com/jessemostipak/hotel-booking-demand*
+
+*Qualitative study of online hotel booking systems (Henry, 2018) https://pmworldlibrary.net/wp-content/uploads/2018/03/pmwj68-Mar2018-Henry-study-of-online-booking-systems-student-paper.pdf*
+
+*US Travel Association (2021) https://www.ustravel.org/answersheet *
+
+

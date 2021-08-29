@@ -15,7 +15,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+*Read in the library*
 ```{r}
 library(blogbuilder)
 library(distill)
@@ -23,29 +23,33 @@ library(tidyverse)
 library(usethis)
 library(dplyr)
 ```
-
-
+*Read in the data*
 ```{r READ DATA}
 
 book <-read_csv(file="../../_data/hotel_bookings.csv")
 
 ```
-
-
+*We will be using the head() function*
 ```{r}
-
+?head
 head(book)
+```
+
+*Let us look at the dimensions of our data using dim()*
+```{r}
 dim(book)
+```
+
+*Let us look at the columns of our data using dim()*
+```{r}
 colnames(book)
 
 ```
-
-
-
+*select() functions allows us to select particular variables form our data frame *
 ```{r Select} 
 
 head(book)
-
+?select
 select(book, "arrival_date_month")
 select(book, "arrival_date_year")
 
@@ -56,20 +60,17 @@ d <-filter(book, adults == 2)
 f <-filter(book, children == 2)
 
 ```
-
+*Arrange variables accordingly*
 ```{r arrange}
 
 head(book)
 book %>%arrange(hotel, arrival_date_month, arrival_date_year) %>%print(n=30)
-
+summarise(book, mean(adults))
+```
+```{r summarise}
+summarise(book, mean(lead_time))
 ```
 ```{r summarize}
-
-head(book)
-summarise(book, mean(adults))
-summarise(book, mean(lead_time))
 summarise(book, mean(is_canceled))
 ```
-
-
 

@@ -11,25 +11,34 @@ output:
     self_contained: false
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-```{r}
-## X is score of students in an exam out of 15 and y is the student serial number.
-
+*X is score of students in an exam out of 15.*
 x<-c(2,4,6,8,10,12,14)
+```{r}
+x<-c(2,4,6,8,10,12,14)
+```
+
+*Y is the student serial number.*
+y<-c(5,7,3,4,1,2,6)
+```{r}
 y<-c(5,7,3,4,1,2,6)
 
-## Below the scores have been divided by 15 and changed to fraction and then into percentage
+```
 
+*Below the scores have been divided by 15 and changed to fraction and then into percentage*
+
+
+```{r}
 fraction <- x/15
 percent <- fraction*100
+```
 
-## The following shows the performance of each student 
+*The following shows the performance of each student*
 
+```{r}
 plot(y,percent)
-
 ```
 
 
