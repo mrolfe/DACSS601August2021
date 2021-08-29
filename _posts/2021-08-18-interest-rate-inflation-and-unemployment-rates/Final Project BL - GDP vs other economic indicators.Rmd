@@ -1,0 +1,254 @@
+---
+title: "Interest Rate Vs Inflation Rates"
+description: |
+  Information on interest rates, inflation, gdp growth rates, and unemployment in the US from 1954-2017.
+  
+author: Ben Lewis
+date: 08-18-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+#Intro
+
+
+  Gross Domestic Product is the bread and butter of financial data. No country has a higher one than the United States. Although it takes into account Government Spending, Business Investment, and exports, 70% of what accounts for GDP is consumption by the citizens. It informs the Federal Reserve of how healthy our consumer culture is more than anything. Keeping the consumer in the United States able to spend is the result of a carefully managed financial system led by the Federal Reserve. Inflation in our economy eats away at the purchasing power of the dollar over time. It is very important for the stability of the US economy that inflation remain under control, with a steady increase in inflation to drive up wages as well as consumer spending.
+  
+  With a rise in Crypto Currencies and a cohort of citizens seeking to decentralize our banking system I believe it is more important than ever to understand the complex relationship that keeps the US economy the most stable in the world. 
+
+  I believe it is important to in order to maintain a stable economy the interest rate, or Federal Funds Rate should outpace inflation. If it does not then the purchasing power of the dollar when held in "risk free" assets such as US Treasury Bonds would diminish leaving people with less purchasing power over time.
+  
+  I will attempt to answer is there a significant  inflation rates and interest rates (federal funds rates)?
+
+
+
+```{r}
+#Packages
+library(dplyr)
+library(tidyverse)
+library(magrittr)
+library(knitr)
+library(readr)
+library(readxl)
+library(ggplot2)
+library(stringr)
+library(patchwork)
+```
+
+#Data Sources
+
+  The set fed_rates contains monthly Federal Reserve interest rates from 1954-2017. It also contains the quarterly inflation rates, and monthly unemployment rates. I downloaded this data from Kaggle. Raw data can be found [here](https://www.kaggle.com/federalreserve/interest-rates)
+ 
+ 
+  
+```{r}
+#Reading In Data
+fed_rates <- read_csv("../../_data/FedFundsRate.csv")
+
+```
+
+```{r}
+#Cleaning Data - Changing numerical form of Months to names of the Months
+fed_rates <- fed_rates %>%
+  mutate(Month = case_when(
+         Month == 1 ~ "January",
+         Month == 2 ~ "February",
+         Month == 3 ~ "March",
+         Month == 4 ~ "April",
+         Month == 5 ~ "May",
+         Month == 6 ~ "June",
+         Month == 7 ~ "July",
+         Month == 8 ~ "August", 
+         Month == 9 ~ "September",
+         Month == 10 ~ "October",
+         Month == 11 ~ "November",
+         Month == 12 ~ "December")
+  )
+```
+
+
+  This data set is appropriate to for the question. Some things that could make it better would be data to compare the economies of other countries inflation rates and GDP growth for context. 
+
+  I am interested in 6 variables within this data set. The year, month, Federal Funds rate, GDP growth, and the inflation rate.
+
+```{r}
+#Removing Variables
+fed_rates_new <- fed_rates %>%
+  select("Year" , "Month" , "Effective Federal Funds Rate" ,	"Real GDP (Percent Change)" ,	"Inflation Rate")
+fed_rates_new
+```
+   
+```{r}
+#Reducing the rows to only return quarterly numbers to reduce noise
+fed_rates_quarter <- fed_rates_new %>%
+  filter(`Month` %in% c("January" , "April" , "July" , "October"))
+	
+
+fed_rates_quarter
+  
+```
+
+  The first variable I am interested in is GDP growth rates. The US has the highest GDP in the world currently, but how fast is it growing? Is the rate of growth slowing in the US?
+
+
+```{r}
+#Mean, Max, and Min GDP growth rates
+GDP_summaries <- fed_rates_quarter 
+select(fed_rates_quarter,`Month`, `Real GDP (Percent Change)`)
+  summarise(fed_rates_quarter , mean.Real_GDP = mean(`Real GDP (Percent Change)` , na.rm = TRUE) , max.Real_GDP = max(`Real GDP (Percent Change)` , na.rm = TRUE) , min.Real_GDP = min(`Real GDP (Percent Change)` , na.rm = TRUE))
+
+```
+
+  As we can see from the above tibble the average GDP growth rate between 1954-2017 is 3.138%. The highest growth rate came in Q2 1978. The lowest GDP growth rate of -10% came in Q1 of 1958. Despite several deep recessions since 1958 the United States economy up to 2017 did not see any GDP growth rates that surpassed -10%. However, looking at the pattern on the scatter plot below we see a steady decline in the GDP growth rate. Although there has not been any recession greater than a 10% decline in GDP since Q1 1958 we do see a trend of lower rates of increase throughout time. 
+
+```{r}
+#GDP growth trend visualization
+GDP <-
+ggplot(fed_rates_quarter, aes(`Year` , `Real GDP (Percent Change)`)) + 
+  geom_point() + 
+  geom_smooth()
+GDP
+```
+
+
+  While the Federal Reserve has stated there is no exact rate of inflation they target it is believed by policy makers that a roughly 2% is healthy. At this rate the price of goods can remain relatively stable over the long run. If inflation falls too far below it is believed that the consumer is at risk of decreased wages as companies need to reduce prices due to deflation. Below I have taken the mean, maximum, and minimum of inflation rates from 1954-2017. This tells us that throughout this time period the average rate of inflation is roughly 3.73%. While this is slightly higher than the 2% loose target it is still relatively on track.
+
+
+```{r}
+#Mean, max, min of Inflation Rates
+Inflation_summaries <- fed_rates_quarter 
+select(fed_rates_quarter,`Month`, `Inflation Rate`)
+  summarise(fed_rates_quarter , mean.Inflation = mean(`Inflation Rate` , na.rm = TRUE) , max.Inflation = max(`Inflation Rate` , na.rm = TRUE) , min.Inflation = min(`Inflation Rate` , na.rm = TRUE))
+
+```
+
+  Observing the graph below we notice a slightly alarming situation that occurred throughout the 1970's into the 1980's where shot to a high of 13% in 1980 and back down to roughly 2% by the middle of the decade. The trend begins to stabilize around 2.5% in the mid 1990's into 2017. 
+
+  I chose to use this visualization because the scatter plot does an excellent job at showing the trend over 
+time.
+
+```{r}
+#Inflation Rate Visualization
+Inflation <-
+ggplot(fed_rates_quarter, aes(`Year` , `Inflation Rate`)) + 
+  geom_point() + 
+  geom_smooth() 
+Inflation
+```
+
+```{r}
+#Mean, Max, Min of Interest Rates
+Interest_summaries <- fed_rates_quarter 
+
+select(fed_rates_quarter,`Month`, `Effective Federal Funds Rate`)
+  summarise(fed_rates_quarter , mean.Interest = mean(`Effective Federal Funds Rate` , na.rm = TRUE) , max.Interest = max(`Effective Federal Funds Rate` , na.rm = TRUE) , min.Interest = min(`Effective Federal Funds Rate` , na.rm = TRUE))
+```
+
+  In the above tibble we notice that the interest rate set by the federal reserve (Federal Funds Effective Rate) is comparable to the rate of inflation in terms of the average. The above mean. Interest of 4.91% tells us that if you were to have held treasury bonds over time your money would have slightly beaten inflation. In other words your money would have roughly 1% more purchasing power, in theory. 
+
+```{r}
+#Interest Rate Visualization
+Interest <-
+ggplot(fed_rates_quarter, aes(`Year` , `Effective Federal Funds Rate`)) + 
+  geom_point() + 
+  geom_smooth() 
+```
+
+  Because the numbers are so close I want to overlay the interest rate and inflation rate over time. I am attempting to do a line graph with two y-axis to compare the trends of inflation and interest. T
+
+  I did this once and had an output with null values expressed on the graph leaving ugly blank space. While the trend is still visible I am removing the null values.
+
+```{r}
+#Removing null values from fed_rates_quarter data
+no_null_fed_rates <- fed_rates_quarter %>%
+	na.omit()
+no_null_fed_rates
+```
+
+  In doing this our data begins in Q1 of 1958 instead of Q3 1954. I believe this will still be better to visualize over a broken line graph. 
+
+```{r}
+#Visualization of Interest Rates Vs Inflation Rates Over Time
+Interest_Rates_vs_Inflation <-
+ggplot(no_null_fed_rates, aes(x = `Year` , y = `Effective Federal Funds Rate`)) +
+scale_y_continuous(name = "First Axis" , sec.axis = sec_axis(trans=~.*1 , name = "Second Axis"))
+ 
+  coeff <- 1
+interestColor <- "#69b3a2"
+inflationColor <- rgb(0.2, 0.6, 0.9, 1)
+
+ggplot(no_null_fed_rates, aes(x = `Year`)) +
+  
+  geom_line( aes(y = `Effective Federal Funds Rate`), size=2, color = `interestColor`) + 
+  geom_line( aes(y= `Inflation Rate` / `coeff`), size=2, color = `inflationColor`) +
+  
+  scale_y_continuous(name = "Federal Funds Rate" , sec.axis = sec_axis(~.*coeff, name="Inflation")
+  ) + 
+  theme(
+    axis.title.y = element_text(color = `interestColor`, size=13),
+    axis.title.y.right = element_text(color = `inflationColor`, size=13)
+  ) +
+
+  ggtitle("Interest vs Inflation 1958 - 2017")
+
+
+  
+ 
+```
+
+   In the above graph we see a very similar trend between the interest rates and inflation rates over time. Inflation and deflation diverge and converge at different times from 1958 - 2017 but a divergence around the 2008 financial crisis has seemingly subdued interest rates keeping them hovering close to 0% while inflation still continues at around 2%. I chose this visual because the data of these two variables seemed similar and the best way to visualize and compare them is to have them overlaid. It shows a similar patter and possible correlation between the two.
+  
+  I believe that in taking all of the visuals we can say that the Federal Reserve is doing its job in maintaining a healthy economy in the United States. GDP growth rates indicate that while the growth of the economy has slowed over time, it is in fact still growing and the slowing of the growth rate is due more to the size of the economy rather than the health. It is also clear that inflation rates are being managed well enough through the setting of interest rates by the Federal Reserve. It is only recently that the rate of inflation has gotten ahead of interest rates forcing investors to take on more risk in their portfolios.
+
+#Reflection
+
+  My experience with this process was somewhat frustrating. I wanted to do more than I was able to. Originally I had attempted to compare overall market returns from a separate data set with the information in the Fed Funds set. I ran into challenges of having two separate data sets and not having the time or knowledge on how to combine them within R. 
+
+  I am concerned that I could have done more in depth evaluations of the variables by decade to observe trends. This would allow for further research into economic policy of Federal Reserve chairmen as well as Presidential policies and the effects that they may effect consumer behavior. The most challenging and time consuming parts of this process were settling on a questions for my data set, and creating the visualization with two y-axis. I also ran into issues with renaming variables. I would rename them and re-run all of my code only to have errors of variables not being found downstream. I even went back and redid every step before finding satisfaction with the variable names already in place.
+
+  Overall I am proud of what I accomplished because I have no prior experience with R or any other programming language and found myself asking more questions which the one set I settled on restricted in being able to fully answer those questions. 
+ 
+  If I were to continue with this project I would go more in depth in to breaking out the data by decade and possibly including Fed Chair, President/Party, and stock market information to get a better view of the real impacts and relationships over time of different fiscal policies. It would be interesting to see how markets like the Russel 2000, S&P 1000, and Dow behaved in relation to fiscal policies. 
+
+#Conclusion
+
+```{r}
+#Regression and Correlation of Interest Rates vs Inflation
+cor(fed_rates_quarter$`Inflation Rate`,fed_rates_quarter$`Effective Federal Funds Rate`, 
+use="pairwise.complete.obs")
+INT_INF_Corr <-
+summary(lm(`Inflation Rate`~`Effective Federal Funds Rate`,data=fed_rates_quarter))
+```
+```{r}
+INT_INF_Corr
+```
+
+Do interest rates and inflation have a relationship?
+
+  When comparing Inflation and Interest Rates on a linear model we get p-value < 2.2e-16. This means the p-value is a lot less than 0.05, which means we can reject the null hypothesis. There is correlation between the Effective Federal Funds Rate and Inflation Rate over time. 
+
+  It is only since 2008 that we see inflation creeping up while interest rates remain close to 0. If this trend continues it will harm the consumer in the US by more rapidly diminishing the purchasing power of the consumer. Have safe assets with returns that outperform inflation is one reason that the US enjoys a robust economy. This trend forces investors to take on more risk and potentially suffer more losses. To do to much too soon to increase interest rates may also have a negative effect as investors have begun relying on riskier assets to help their money outpace inflation.
+
+
+#Bibliography
+
+https://www.federalreserve.gov/faqs/5D58E72F066A4DBDA80BBA659C55F774.htm#:~:text=The%20Federal%20Reserve%20has%20not%20established%20a%20formal,is%20around%202%20percent%20or%20a%20bit%20below.
+
+https://www.kaggle.com/federalreserve/interest-rates
+
+```{r}
+options(knitr.duplicate.label = "allow")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

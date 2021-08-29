@@ -1,19 +1,27 @@
 ---
-title: Interest Rate, Inflation, and Unemployment rates
+title: "GDP Growth Rates"
 description: |
-  A comparison of interest rates vs GDP change vs inflation vs unemployment rates in the US from 1954 - 2017
+  Information on interest rates, inflation, gdp growth rates, and unemployment in the US from 1954-2017 and realized gains with taxes paid.
+  
 author: Ben Lewis
 date: 08-18-2021
 output:
   distill::distill_article:
-    self_contained: no
-draft: yes
+    self_contained: false
+draft: true
 ---
 
+#Intro
+
+The Federal Reserve sets the interest rate based on a number of factors in the US economy. These factors boil down to two questions. Is the economy growing and is the economy slowing? If the economy is growing at an above normal pace, typically interest rates will increase. In theory an increase in the interest rate will have a dragging effect on the economy as money becomes more expensive to borrow, slowing investments by business and consumers appetite consumption. Adversely, when the economy slows interest rates are decreased to entice investment by businesses and consumption by making money less expensive to borrow. 
+
+I will attempt to answer two questions. Do higher realized gains lead to an increase in the growth rate of GDP? Do the interest rate, inflation rate, and realized returns have a strong correlation? 
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+I want to compare the variables in fed_rates with data on capital gains tax paid in the same years. I found another dataset of Kaggle containing capital gains taxes collected between 1954 and 2018
+# My Packages
+
+```{r}
 library(dplyr)
 library(tidyverse)
 library(magrittr)
@@ -21,22 +29,25 @@ library(knitr)
 library(readr)
 library(readxl)
 library(ggplot2)
+library(stringr)
+library(patchwork)
 ```
-
-# Reading in my data. 
-
-This set contains monthly Federal Reserve interest rates from 1954-2017. It also contains the quarterly inflation rates, and monthly unemployment rates. I downloaded this data from Kaggle. Raw data can be found [here](https://www.kaggle.com/federalreserve/interest-rates)
-
+# Sources
+For this project I am using two datasets from Kaggle. Kaggle is a website community of data scientists. It contains a large amount of datasets for use by anyone. 
+The set fed_rates contains monthly Federal Reserve interest rates from 1954-2017. It also contains the quarterly inflation rates, and monthly unemployment rates. I downloaded this data from Kaggle. Raw data can be found [here](https://www.kaggle.com/federalreserve/interest-rates)
+# Reading in data.
 ```{r}
 fed_rates <- read_csv("../../_data/FedFundsRate.csv")
+  rename(fed_rates,
+    "ff_rate" =  "Effective Federal Funds Rate" , "GDP" =  "Real GDP (Percent Change)") %>%
+  select("GDP" , "Unemployment Rate" , "ff_rate" , "Inflation Rate")
 ```
 
-# Fixing dates
+# Changing numeric values in column "Year" to names of the month. I want to simplify the data set by being able to see the names of the month instead of month number. 
 
-Changing numeric values in column "Year" to names of the month. I want to simplify the data set by being able to see the names of the month instead of month number. 
 
 ```{r}
-fed_rates <- fed_rates %>%
+fed_rates_new <- fed_rates %>%
   mutate(Month = case_when(
          Month == 1 ~ "January",
          Month == 2 ~ "February",
@@ -53,20 +64,16 @@ fed_rates <- fed_rates %>%
   )
 ```
 
-## Remove variables
-
-There are variables in the fed_rates data set that I am not concerned with. These columns are the Fed Funds Target Rate, Fed Funds Upper Target Rate, and Fed Funds Lower Target Rate. Taking my variables from 10 to 7 by removing those columns and reducing noise in the data.
+## There are variables in the fed_rates data set that I am not concerned with. These columns are the Fed Funds Target Rate, Fed Funds Upper Target Rate, and Fed Funds Lower Target Rate. Taking my variables from 10 to 7 by removing those columns and reducing noise in the data.
 
 ```{r}
-fed_rates_new <- fed_rates %>%
-  select("Year" , "Month" ,	"Day" , "Effective Federal Funds Rate" ,	"Real GDP (Percent Change)",	"Unemployment Rate" ,	"Inflation Rate")
+fed_rates_new <- fed_rates_new %>%
+  select("Year" , "Month" ,	"Day" , "GDP" ,
+         ,	"Unemployment Rate" ,	"Inflation Rate")
 
-fed_rates_new
 ```
 
-## Filtering by Quarter 
-
-to make viewing quarterly GDP growth rate data easier to track. Because we do not tend to see wild swings in monthly data in regards to inflation and interest rate change. 
+## Filtering by Quarter to make viewing quarterly GDP growth rate data easier to see 
 
 ```{r}
 fed_rates_quarter <- fed_rates_new %>%
@@ -76,21 +83,46 @@ fed_rates_quarter
   
 ```
 
-## Real GDP (Percent Change) over time
+gdp_growth over time. We see a downward annual trend since 1954 with fairly substantial movement in GDP percent growth quarterly. The highest % change in GDP came in Q2 (April) of 1978 with a 16.5% increase QoQ. 
 
-We see a  downward annual trend since 1954 with fairly substantial movement in GDP percent growth quarterly. The highest % change in GDP came in Q2 (April) of 1978 with a 16% increase QoQ. 
+
+
+
+The average GDP growth rate between 1954-2017 is 3.138%. The maximum percent change in the same time frame. I am curious what happens if all the quarters with negative growth rates are removed. How 
+
+
 
 ```{r}
-summarise_GDP <- fed_rates_quarter 
-select(fed_rates_quarter,`Month`, `Real GDP (Percent Change)`)
-  summarise(fed_rates_quarter , mean.Real_GDP = mean(`Real GDP (Percent Change)` , na.rm = TRUE) , max.Real_GDP = max(`Real GDP (Percent Change)` , na.rm = TRUE) , min.Real_GDP = min(`Real GDP (Percent Change)` , na.rm = TRUE) , sd.Real_GDP = sd(`Real GDP (Percent Change)` , na.rm = TRUE) , IQR.Real_GDP = IQR(`Real GDP (Percent Change)` , na.rm = TRUE))
+#removed all quarters with negative growth
+fed_rates_quarter2 <-
+  fed_rates_quarter[fed_rates_quarter$`Real GDP (Percent Change)` >= 0, ]%>%
+  select("Year", "Month", 
+         "gdp_growth")
+
+fed_rates_quarter2
+
 ```
 
 ```{r}
-ggplot(fed_rates_quarter, aes(`Year` , `Real GDP (Percent Change)`)) + 
+fed_rates_quarter2
+select(fed_rates_quarter2,`Month`, `Real GDP (Percent Change)`)
+
+
+summarise(fed_rates_quarter2, mean.Real_GDP = mean(`Real GDP (Percent Change)` , na.rm = TRUE))
+```
+
+
+
+```{r}
+#GDP Percent Change over time visualisation
+GDP <- ggplot(fed_rates_quarter, aes(`Year` , `Real GDP (Percent Change)`)) + 
   geom_point() + 
   geom_smooth()
+
+
+GDP
 ```
+
 
 
 # Unemployment rate over time  
@@ -105,6 +137,7 @@ ggplot(fed_rates_quarter, aes(`Year` , `Unemployment Rate`)) +
 # Interest Rate over time
 
 ```{r}
+FF <-
 ggplot(fed_rates_quarter, aes(`Year` , `Effective Federal Funds Rate`)) + 
   geom_point() + 
   geom_smooth()
@@ -113,8 +146,29 @@ ggplot(fed_rates_quarter, aes(`Year` , `Effective Federal Funds Rate`)) +
 # Inflation Rate over time
 
 ```{r}
+IR_OT <- 
  ggplot(fed_rates_quarter, aes(`Year` , `Inflation Rate`)) + 
   geom_point() + 
   geom_smooth()
 ```
+
+
+```{r}
+FF + GDP + IR_OT
+```
+
+
+
+   
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
 
