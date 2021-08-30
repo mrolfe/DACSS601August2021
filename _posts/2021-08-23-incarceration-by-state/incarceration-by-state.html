@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Is Mass Incarceration A Racial Issue?</title>
+
+  <meta property="description" itemprop="description" content="I will be investigating whether the states with the highest incarceration rates are also the states with the most racial diversity."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-08-23"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-08-23"/>
+  <meta name="article:author" content="Rhys Long"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Is Mass Incarceration A Racial Issue?"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="I will be investigating whether the states with the highest incarceration rates are also the states with the most racial diversity."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Is Mass Incarceration A Racial Issue?"/>
+  <meta property="twitter:description" content="I will be investigating whether the states with the highest incarceration rates are also the states with the most racial diversity."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["Is Mass Incarceration A Racial Issue?"]},{"type":"character","attributes":{},"value":["I will be investigating whether the states with the highest incarceration rates are also the states with the most racial diversity.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Rhys Long"]}]}]},{"type":"character","attributes":{},"value":["08-23-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["incarceration-by-state_files/anchor-4.2.2/anchor.min.js","incarceration-by-state_files/bowser-1.9.3/bowser.min.js","incarceration-by-state_files/distill-2.2.21/template.v2.js","incarceration-by-state_files/figure-html5/unnamed-chunk-14-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-15-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-16-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-17-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-18-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-19-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-20-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-21-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-22-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-1.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-2.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-3.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-4.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-5.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-6.png","incarceration-by-state_files/figure-html5/unnamed-chunk-23-7.png","incarceration-by-state_files/figure-html5/unnamed-chunk-26-1.png","incarceration-by-state_files/header-attrs-2.10/header-attrs.js","incarceration-by-state_files/jquery-1.11.3/jquery.min.js","incarceration-by-state_files/popper-2.6.0/popper.min.js","incarceration-by-state_files/tippy-6.2.7/tippy-bundle.umd.min.js","incarceration-by-state_files/tippy-6.2.7/tippy-light-border.css","incarceration-by-state_files/tippy-6.2.7/tippy.css","incarceration-by-state_files/tippy-6.2.7/tippy.umd.min.js","incarceration-by-state_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="incarceration-by-state_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="incarceration-by-state_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="incarceration-by-state_files/popper-2.6.0/popper.min.js"></script>
+  <link href="incarceration-by-state_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="incarceration-by-state_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="incarceration-by-state_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="incarceration-by-state_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="incarceration-by-state_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="incarceration-by-state_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="incarceration-by-state_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Is Mass Incarceration A Racial Issue?","description":"I will be investigating whether the states with the highest incarceration rates are also the states with the most racial diversity.","authors":[{"author":"Rhys Long","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-23T00:00:00.000+00:00","citationText":"Long, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Is Mass Incarceration A Racial Issue?</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>I will be investigating whether the states with the highest incarceration rates are also the states with the most racial diversity.</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Rhys Long
+  
+<br/>08-23-2021
+</div>
+
+<div class="d-article">
+<p>Introduction</p>
+<p>Ever since the War On Drugs in the late 20th century, mass incarceration has been rapidly growing issue in the United States. According to the American Civil Liberties Union, roughly 25% of the entire world’s prison population resides in the United States even though the United States only holds about 5% of the world’s population (American Civil Liberties Union, “Mass Incarceration”, web). The list of reasons why mass incarceration is so problematic in the United States is endless, but I can’t help but think that racial bias is one of the most significant contributors. According to census.gov, 76.3% of all US citizens are white and 13.4% of all US citizens are black, meaning that there are nearly six times more white people in the United States than black people (U.S. Census Bureau, QuickFacts, Race and Hispanic Origin, web). In spite of the fact that there are nearly six times more white people than black people in the United States, black males are six times more likely to end up incarcerated during their lifetime than white males (The Sentencing Project, Criminal Justice Facts, web). In this paper, I will be investigating whether the states with the highest incarceration rates are also the states with the lowest prevalence of white, non-Hispanic people. I also would like to examine which minority groups are most prevalent in the states with the highest incarceration rates.</p>
+<p>Dataset I</p>
+<p>The main dataset I’m interested in analyzing provides records of how many people lived in each state, how many people were incarcerated in each state, and how many violent and property crimes were committed in each state from 2001-2016. For the sake of this project I am primarily interested in compiling data regarding the state populations and prisoner counts per state in 2016 because the 2016 data is more likely to reflect the trends of 2021 data than the earlier datasets.</p>
+<p>For the sake of my project, I need the tidyverse library, the ggplot library, and the numbers library, so before loading the datasets, I’ll load the libraries.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>numbers</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Now, I’ll load the incarceration dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"../../_data/crime_and_incarceration_by_state.csv"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>In order to see how much data I’ll be working with, I’ll use the dim() function and to use colnames() to see what my variables are.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 816  17</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;jurisdiction&quot;           &quot;includes_jails&quot;        
+ [3] &quot;year&quot;                   &quot;prisoner_count&quot;        
+ [5] &quot;crime_reporting_change&quot; &quot;crimes_estimated&quot;      
+ [7] &quot;state_population&quot;       &quot;violent_crime_total&quot;   
+ [9] &quot;murder_manslaughter&quot;    &quot;rape_legacy&quot;           
+[11] &quot;rape_revised&quot;           &quot;robbery&quot;               
+[13] &quot;agg_assault&quot;            &quot;property_crime_total&quot;  
+[15] &quot;burglary&quot;               &quot;larceny&quot;               
+[17] &quot;vehicle_theft&quot;         </code></pre>
+</div>
+<p>By using the dim() and colnames() functions, I can conclude that my dataset has 816 entries and 17 variables. Of the 17 variables, nine of them pertain to crime rates of specific crimes, one pertains to the jurisdiction that the data originates from, one pertains to whether jail data is included or not, one pertains to the year the data was collected, one pertains to the amount of prisoners in each state, one pertains to whether crime reporting has changed, one indicates to whether the values are estimated or not, one pertains to state population of the corresponding year, one pertains to the total amount of violent crimes committed in the corresponding year, four pertain to the prevalence of four specific violent crimes, one pertains to the amount of property crimes committed in the corresponding year, and three pertain to the prevalence of three specific property crimes. I will use select to remove the crime_reporting_change column because I’m only interested in looking at the data from 2016 and the nine columns pertaining to the crimes that were committed because none of these variables are relevant to my research question. I’ll also provide a tibble with the narrowed-down dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>prisoner_count</span>, <span class='va'>crimes_estimated</span><span class='op'>:</span><span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 816 × 6
+   jurisdiction includes_jails  year prisoner_count crimes_estimated
+   &lt;chr&gt;        &lt;chr&gt;          &lt;int&gt;          &lt;int&gt; &lt;chr&gt;           
+ 1 FEDERAL      False           2001         149852 &quot;&quot;              
+ 2 ALABAMA      False           2001          24741 &quot;False&quot;         
+ 3 ALASKA       True            2001           4570 &quot;False&quot;         
+ 4 ARIZONA      False           2001          27710 &quot;False&quot;         
+ 5 ARKANSAS     False           2001          11489 &quot;False&quot;         
+ 6 CALIFORNIA   False           2001         157142 &quot;False&quot;         
+ 7 COLORADO     False           2001          17278 &quot;False&quot;         
+ 8 CONNECTICUT  True            2001          17507 &quot;False&quot;         
+ 9 DELAWARE     True            2001           6841 &quot;False&quot;         
+10 FLORIDA      False           2001          72404 &quot;False&quot;         
+# … with 806 more rows, and 1 more variable: state_population &lt;dbl&gt;</code></pre>
+</div>
+<p>Next, I’ll use filter() to remove rows that don’t showcase data from 2016 because I’m only interested in the most recent data from the dataset. I’ll also use filter to remove the rows labeled as “FEDERAL” because the “FEDERAL” rows have missing data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>prisoner_count</span>, <span class='va'>crimes_estimated</span><span class='op'>:</span><span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>jurisdiction</span> <span class='op'>!=</span> <span class='st'>"FEDERAL"</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2016"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 6
+   jurisdiction includes_jails  year prisoner_count crimes_estimated
+   &lt;chr&gt;        &lt;chr&gt;          &lt;int&gt;          &lt;int&gt; &lt;chr&gt;           
+ 1 ALABAMA      False           2016          23745 False           
+ 2 ALASKA       True            2016           4378 False           
+ 3 ARIZONA      False           2016          42248 False           
+ 4 ARKANSAS     False           2016          15833 False           
+ 5 CALIFORNIA   False           2016         129416 False           
+ 6 COLORADO     False           2016          19486 False           
+ 7 CONNECTICUT  True            2016          15040 False           
+ 8 DELAWARE     True            2016           6334 False           
+ 9 FLORIDA      False           2016          98010 False           
+10 GEORGIA      False           2016          53433 False           
+# … with 40 more rows, and 1 more variable: state_population &lt;dbl&gt;</code></pre>
+</div>
+<p>Just by looking at the tibble, it is unclear whether crimes_estimated() is false for every state. With that being said, I’ll use filter to check.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>prisoner_count</span>, <span class='va'>crimes_estimated</span><span class='op'>:</span><span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>jurisdiction</span> <span class='op'>!=</span> <span class='st'>"FEDERAL"</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2016"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>crimes_estimated</span> <span class='op'>!=</span> <span class='st'>"False"</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 0 × 6
+# … with 6 variables: jurisdiction &lt;chr&gt;, includes_jails &lt;chr&gt;,
+#   year &lt;int&gt;, prisoner_count &lt;int&gt;, crimes_estimated &lt;chr&gt;,
+#   state_population &lt;dbl&gt;</code></pre>
+</div>
+<p>The tibble came back empty, so I can conclude that the values are exact for each state. Now, I can use select() to remove the crimes_estimated column. I’ll also remove the year column because all of the data I’m working with is from the same year now.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>prisoner_count</span>, <span class='va'>crimes_estimated</span><span class='op'>:</span><span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>jurisdiction</span> <span class='op'>!=</span> <span class='st'>"FEDERAL"</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2016"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>includes_jails</span>, <span class='va'>prisoner_count</span>, <span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 4
+   jurisdiction includes_jails prisoner_count state_population
+   &lt;chr&gt;        &lt;chr&gt;                   &lt;int&gt;            &lt;dbl&gt;
+ 1 ALABAMA      False                   23745          4860545
+ 2 ALASKA       True                     4378           741522
+ 3 ARIZONA      False                   42248          6908642
+ 4 ARKANSAS     False                   15833          2988231
+ 5 CALIFORNIA   False                  129416         39296476
+ 6 COLORADO     False                   19486          5530105
+ 7 CONNECTICUT  True                    15040          3587685
+ 8 DELAWARE     True                     6334           952698
+ 9 FLORIDA      False                   98010         20656589
+10 GEORGIA      False                   53433         10313620
+# … with 40 more rows</code></pre>
+</div>
+<p>Finding Incarceration Rate For Each State</p>
+<p>To really get a feel for how high the incarceration rate is in each state, I have use mutate() to divide prisoner_count by state_population, but first, I need to convert the state_population column into integer format.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>prisoner_count</span>, <span class='va'>crimes_estimated</span><span class='op'>:</span><span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>jurisdiction</span> <span class='op'>!=</span> <span class='st'>"FEDERAL"</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2016"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>includes_jails</span>, <span class='va'>prisoner_count</span>, <span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>state_population<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>state_population</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 4
+   jurisdiction includes_jails prisoner_count state_population
+   &lt;chr&gt;        &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt;
+ 1 ALABAMA      False                   23745          4860545
+ 2 ALASKA       True                     4378           741522
+ 3 ARIZONA      False                   42248          6908642
+ 4 ARKANSAS     False                   15833          2988231
+ 5 CALIFORNIA   False                  129416         39296476
+ 6 COLORADO     False                   19486          5530105
+ 7 CONNECTICUT  True                    15040          3587685
+ 8 DELAWARE     True                     6334           952698
+ 9 FLORIDA      False                   98010         20656589
+10 GEORGIA      False                   53433         10313620
+# … with 40 more rows</code></pre>
+</div>
+<p>With the state_population column in integer format, I can now use mutate() to divide the prisoner_count column by the state_population column and formed a new column labeled as percent_incarcerated. I also used mutate to multiply the percent_incarcerated by 100 somthe correct percentage would be shown.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>jurisdiction</span> <span class='op'>!=</span> <span class='st'>"FEDERAL"</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2016"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>includes_jails</span>, <span class='va'>prisoner_count</span>, <span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>rename</span><span class='op'>(</span><span class='st'>"State"</span><span class='op'>=</span><span class='va'>jurisdiction</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>state_population<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>state_population</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>percent_incarcerated<span class='op'>=</span><span class='va'>prisoner_count</span><span class='op'>/</span><span class='va'>state_population</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>percent_incarcerated<span class='op'>=</span><span class='va'>percent_incarcerated</span><span class='op'>*</span><span class='fl'>100</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 5
+   State       includes_jails prisoner_count state_population
+   &lt;chr&gt;       &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt;
+ 1 ALABAMA     False                   23745          4860545
+ 2 ALASKA      True                     4378           741522
+ 3 ARIZONA     False                   42248          6908642
+ 4 ARKANSAS    False                   15833          2988231
+ 5 CALIFORNIA  False                  129416         39296476
+ 6 COLORADO    False                   19486          5530105
+ 7 CONNECTICUT True                    15040          3587685
+ 8 DELAWARE    True                     6334           952698
+ 9 FLORIDA     False                   98010         20656589
+10 GEORGIA     False                   53433         10313620
+# … with 40 more rows, and 1 more variable:
+#   percent_incarcerated &lt;dbl&gt;</code></pre>
+</div>
+<p>Now that I have all the data I need, I’ll use select() to remove the prisoner_count and incarcerated_percentage columns and I’ll save my cleaned data as cleaned_incarceration_dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>incarceration_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>incarceration_dataset</span>, <span class='va'>jurisdiction</span> <span class='op'>!=</span> <span class='st'>"FEDERAL"</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2016"</span><span class='op'>)</span>
+<span class='va'>incarceration_2</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>incarceration_1</span>, <span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>includes_jails</span>, <span class='va'>prisoner_count</span>, <span class='va'>state_population</span><span class='op'>)</span>
+<span class='va'>incarceration_3</span> <span class='op'>&lt;-</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>incarceration_2</span>, state_population<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>state_population</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>incarceration_4</span> <span class='op'>&lt;-</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>incarceration_3</span>, percent_incarcerated<span class='op'>=</span><span class='va'>prisoner_count</span><span class='op'>/</span><span class='va'>state_population</span><span class='op'>)</span>
+<span class='va'>incarceration_5</span> <span class='op'>&lt;-</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>incarceration_4</span>, percent_incarcerated<span class='op'>=</span><span class='va'>percent_incarcerated</span><span class='op'>*</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='va'>cleaned_incarceration_dataset</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>incarceration_5</span>, <span class='va'>jurisdiction</span><span class='op'>:</span><span class='va'>includes_jails</span>, <span class='va'>percent_incarcerated</span><span class='op'>)</span>
+<span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>cleaned_incarceration_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 3
+   jurisdiction includes_jails percent_incarcerated
+   &lt;chr&gt;        &lt;chr&gt;                         &lt;dbl&gt;
+ 1 ALABAMA      False                         0.489
+ 2 ALASKA       True                          0.590
+ 3 ARIZONA      False                         0.612
+ 4 ARKANSAS     False                         0.530
+ 5 CALIFORNIA   False                         0.329
+ 6 COLORADO     False                         0.352
+ 7 CONNECTICUT  True                          0.419
+ 8 DELAWARE     True                          0.665
+ 9 FLORIDA      False                         0.474
+10 GEORGIA      False                         0.518
+# … with 40 more rows</code></pre>
+</div>
+<p>Datasets II and III</p>
+<p>As I said earlier, the purpose of my research is to figure out whether states with lowest quantities of white, non-Hispanic people have the highest incarceration rates and which minority groups are most prevalent in states with high incarceration rates. My first dataset didn’t contain any data regarding race or ethnicity, so I’m including two more datasets. One of the additional datasets contains records of how many non-hispanic people of each race reside in each state and the other additional dataset contains records of how many hispanic people reside in each state.</p>
+<p>First I’ll load both datasets and use merge() to combine them.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>non_hispanic_race_by_state</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"../../_data/csvDataNonHispanic.csv"</span><span class='op'>)</span>
+<span class='va'>hispanic_by_state</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"../../_data/csvDataHispanic.csv"</span><span class='op'>)</span>
+<span class='va'>ethnoracial_dataset</span><span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>non_hispanic_race_by_state</span>, <span class='va'>hispanic_by_state</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Now, I’ll use colnames() to see whether any columns need to be removed</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ethnoracial_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;State&quot;                   &quot;WhiteNonHispanicPerc&quot;   
+ [3] &quot;BlackNonHispanicPerc&quot;    &quot;IndianNonHispanicPerc&quot;  
+ [5] &quot;AsianNonHispanicPerc&quot;    &quot;HawaiianNonHispanicPerc&quot;
+ [7] &quot;OtherNonHispanicPerc&quot;    &quot;HispanicTotal&quot;          
+ [9] &quot;Total&quot;                   &quot;HispanicPerc&quot;           </code></pre>
+</div>
+<p>By using colnames, I can see that I can can use select() eliminate the “HispanicTotal” and “Total” columns since I’m only interested in the state columns that end in “Perc”.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ethnoracial_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>State</span><span class='op'>:</span><span class='va'>OtherNonHispanicPerc</span>, <span class='va'>HispanicPerc</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>ethnoracial_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 8
+   State       WhiteNonHispanicPerc BlackNonHispanic… IndianNonHispan…
+   &lt;chr&gt;                      &lt;dbl&gt;             &lt;dbl&gt;            &lt;dbl&gt;
+ 1 Alabama                    0.655            0.265            0.0047
+ 2 Alaska                     0.606            0.031            0.144 
+ 3 Arizona                    0.547            0.0421           0.0392
+ 4 Arkansas                   0.724            0.152            0.0059
+ 5 California                 0.372            0.0552           0.0036
+ 6 Colorado                   0.681            0.0395           0.0054
+ 7 Connecticut                0.669            0.0991           0.0016
+ 8 Delaware                   0.623            0.217            0.003 
+ 9 Florida                    0.539            0.153            0.002 
+10 Georgia                    0.527            0.312            0.0019
+# … with 40 more rows, and 4 more variables:
+#   AsianNonHispanicPerc &lt;dbl&gt;, HawaiianNonHispanicPerc &lt;dbl&gt;,
+#   OtherNonHispanicPerc &lt;dbl&gt;, HispanicPerc &lt;dbl&gt;</code></pre>
+</div>
+<p>Now, I’ll use rename() to rename the columns becasue they take up a lot of space. I’ll also rename the “State” column as jurisdiction for the sake of being able to merge this dataset with the cleaned_incarceration_dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ethnoracial_dataset</span><span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>State</span><span class='op'>:</span><span class='va'>OtherNonHispanicPerc</span>, <span class='va'>HispanicPerc</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>rename</span><span class='op'>(</span><span class='st'>"jurisdiction"</span> <span class='op'>=</span> <span class='va'>State</span>, <span class='st'>"White"</span> <span class='op'>=</span> <span class='va'>WhiteNonHispanicPerc</span>, <span class='st'>"Black"</span> <span class='op'>=</span> <span class='va'>BlackNonHispanicPerc</span>, <span class='st'>"Indigenous"</span><span class='op'>=</span> <span class='va'>IndianNonHispanicPerc</span>, <span class='st'>"Asian"</span> <span class='op'>=</span> <span class='va'>AsianNonHispanicPerc</span>, <span class='st'>"Hawaiian"</span> <span class='op'>=</span> <span class='va'>HawaiianNonHispanicPerc</span>, <span class='st'>"Other"</span> <span class='op'>=</span> <span class='va'>OtherNonHispanicPerc</span>, <span class='st'>"Hispanic"</span> <span class='op'>=</span> <span class='va'>HispanicPerc</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>ethnoracial_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 8
+   jurisdiction White  Black Indigenous  Asian Hawaiian  Other
+   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Alabama      0.655 0.265      0.0047 0.0134   0.0003 0.0187
+ 2 Alaska       0.606 0.031      0.144  0.0609   0.0122 0.0749
+ 3 Arizona      0.547 0.0421     0.0392 0.0321   0.0018 0.0243
+ 4 Arkansas     0.724 0.152      0.0059 0.015    0.0029 0.0249
+ 5 California   0.372 0.0552     0.0036 0.143    0.0036 0.0328
+ 6 Colorado     0.681 0.0395     0.0054 0.0311   0.0014 0.0267
+ 7 Connecticut  0.669 0.0991     0.0016 0.0448   0.0002 0.0247
+ 8 Delaware     0.623 0.217      0.003  0.0383   0.0003 0.0263
+ 9 Florida      0.539 0.153      0.002  0.0268   0.0005 0.0227
+10 Georgia      0.527 0.312      0.0019 0.0395   0.0005 0.0236
+# … with 40 more rows, and 1 more variable: Hispanic &lt;dbl&gt;</code></pre>
+</div>
+<p>Now, I will relabel all of the State names so that they’re in all caps format, like the state names in my incarceration dataset, and save my cleaned dataset as cleaned_ethnoracial_dataset. If I don’t rename the states using all caps, the datasets won’t merge properly because r doesn’t have the ability to understand that “ALABAMA” and “Alabama” are the same word.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ethnoracial_1</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>ethnoracial_dataset</span>, <span class='va'>State</span><span class='op'>:</span><span class='va'>OtherNonHispanicPerc</span>, <span class='va'>HispanicPerc</span><span class='op'>)</span>
+<span class='va'>ethnoracial_2</span> <span class='op'>&lt;-</span> <span class='fu'>rename</span><span class='op'>(</span><span class='va'>ethnoracial_1</span>, <span class='st'>"jurisdiction"</span> <span class='op'>=</span> <span class='va'>State</span>, <span class='st'>"White"</span> <span class='op'>=</span> <span class='va'>WhiteNonHispanicPerc</span>, <span class='st'>"Black"</span> <span class='op'>=</span> <span class='va'>BlackNonHispanicPerc</span>, <span class='st'>"Indigenous"</span><span class='op'>=</span> <span class='va'>IndianNonHispanicPerc</span>, <span class='st'>"Asian"</span> <span class='op'>=</span> <span class='va'>AsianNonHispanicPerc</span>, <span class='st'>"Hawaiian"</span> <span class='op'>=</span> <span class='va'>HawaiianNonHispanicPerc</span>, <span class='st'>"Other"</span> <span class='op'>=</span> <span class='va'>OtherNonHispanicPerc</span>, <span class='st'>"Hispanic"</span> <span class='op'>=</span> <span class='va'>HispanicPerc</span><span class='op'>)</span>
+<span class='va'>cleaned_ethnoracial_dataset</span> <span class='op'>&lt;-</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>ethnoracial_2</span>, jurisdiction <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Alabama"</span> <span class='op'>~</span> <span class='st'>"ALABAMA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Alaska"</span> <span class='op'>~</span> <span class='st'>"ALASKA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Arizona"</span> <span class='op'>~</span> <span class='st'>"ARIZONA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Arkansas"</span> <span class='op'>~</span> <span class='st'>"ARKANSAS"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"California"</span> <span class='op'>~</span> <span class='st'>"CALIFORNIA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Colorado"</span> <span class='op'>~</span> <span class='st'>"COLORADO"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Connecticut"</span> <span class='op'>~</span> <span class='st'>"CONNECTICUT"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Delaware"</span> <span class='op'>~</span> <span class='st'>"DELAWARE"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Florida"</span> <span class='op'>~</span> <span class='st'>"FLORIDA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Georgia"</span> <span class='op'>~</span> <span class='st'>"GEORGIA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Hawaii"</span> <span class='op'>~</span> <span class='st'>"HAWAII"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Idaho"</span> <span class='op'>~</span> <span class='st'>"IDAHO"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Illinois"</span> <span class='op'>~</span> <span class='st'>"ILLINOIS"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Indiana"</span> <span class='op'>~</span> <span class='st'>"INDIANA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Iowa"</span> <span class='op'>~</span> <span class='st'>"IOWA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Kansas"</span> <span class='op'>~</span> <span class='st'>"KANSAS"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Kentucky"</span> <span class='op'>~</span> <span class='st'>"KENTUCKY"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Louisiana"</span> <span class='op'>~</span> <span class='st'>"LOUISIANA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Maine"</span> <span class='op'>~</span> <span class='st'>"MAINE"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Maryland"</span> <span class='op'>~</span> <span class='st'>"MARYLAND"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Massachusetts"</span> <span class='op'>~</span> <span class='st'>"MASSACHUSETTS"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Michigan"</span> <span class='op'>~</span> <span class='st'>"MICHIGAN"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Minnesota"</span> <span class='op'>~</span> <span class='st'>"MINNESOTA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Mississippi"</span> <span class='op'>~</span> <span class='st'>"MISSISSIPPI"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Missouri"</span> <span class='op'>~</span> <span class='st'>"MISSOURI"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Montana"</span> <span class='op'>~</span> <span class='st'>"MONTANA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Nebraska"</span> <span class='op'>~</span> <span class='st'>"NEBRASKA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Nevada"</span> <span class='op'>~</span> <span class='st'>"NEVADA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"New Hampshire"</span> <span class='op'>~</span> <span class='st'>"NEW HAMPSHIRE"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"New Jersey"</span> <span class='op'>~</span> <span class='st'>"NEW JERSEY"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"New Mexico"</span> <span class='op'>~</span> <span class='st'>"NEW MEXICO"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"New York"</span> <span class='op'>~</span> <span class='st'>"NEW YORK"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"North Carolina"</span> <span class='op'>~</span> <span class='st'>"NORTH CAROLINA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"North Dakota"</span> <span class='op'>~</span> <span class='st'>"NORTH DAKOTA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Ohio"</span> <span class='op'>~</span> <span class='st'>"OHIO"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Oklahoma"</span> <span class='op'>~</span> <span class='st'>"OKLAHOMA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Oregon"</span> <span class='op'>~</span> <span class='st'>"OREGON"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Pennsylvania"</span> <span class='op'>~</span> <span class='st'>"PENNSYLVANIA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Rhode Island"</span> <span class='op'>~</span> <span class='st'>"RHODE ISLAND"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"South Carolina"</span> <span class='op'>~</span> <span class='st'>"SOUTH CAROLINA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"South Dakota"</span> <span class='op'>~</span> <span class='st'>"SOUTH DAKOTA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Tennessee"</span> <span class='op'>~</span> <span class='st'>"TENNESSEE"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Texas"</span> <span class='op'>~</span> <span class='st'>"TEXAS"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Utah"</span> <span class='op'>~</span> <span class='st'>"UTAH"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Vermont"</span> <span class='op'>~</span> <span class='st'>"VERMONT"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Virginia"</span> <span class='op'>~</span> <span class='st'>"VIRGINIA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Washington"</span> <span class='op'>~</span> <span class='st'>"WASHINGTON"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"West Virginia"</span> <span class='op'>~</span> <span class='st'>"WEST VIRGINIA"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Wisconsin"</span> <span class='op'>~</span> <span class='st'>"WISCONSIN"</span>,
+    <span class='va'>jurisdiction</span> <span class='op'>==</span> <span class='st'>"Wyoming"</span> <span class='op'>~</span> <span class='st'>"WYOMING"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>cleaned_ethnoracial_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 8
+   jurisdiction White  Black Indigenous  Asian Hawaiian  Other
+   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+ 1 ALABAMA      0.655 0.265      0.0047 0.0134   0.0003 0.0187
+ 2 ALASKA       0.606 0.031      0.144  0.0609   0.0122 0.0749
+ 3 ARIZONA      0.547 0.0421     0.0392 0.0321   0.0018 0.0243
+ 4 ARKANSAS     0.724 0.152      0.0059 0.015    0.0029 0.0249
+ 5 CALIFORNIA   0.372 0.0552     0.0036 0.143    0.0036 0.0328
+ 6 COLORADO     0.681 0.0395     0.0054 0.0311   0.0014 0.0267
+ 7 CONNECTICUT  0.669 0.0991     0.0016 0.0448   0.0002 0.0247
+ 8 DELAWARE     0.623 0.217      0.003  0.0383   0.0003 0.0263
+ 9 FLORIDA      0.539 0.153      0.002  0.0268   0.0005 0.0227
+10 GEORGIA      0.527 0.312      0.0019 0.0395   0.0005 0.0236
+# … with 40 more rows, and 1 more variable: Hispanic &lt;dbl&gt;</code></pre>
+</div>
+<p>Now that all of my datasets are in cleaned format, I can use merge to get my full dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>full_dataset</span><span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>cleaned_incarceration_dataset</span>, <span class='va'>cleaned_ethnoracial_dataset</span><span class='op'>)</span>
+<span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>full_dataset</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 50 × 10
+   jurisdiction includes_jails percent_incarcerated White  Black
+   &lt;chr&gt;        &lt;chr&gt;                         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1 ALABAMA      False                         0.489 0.655 0.265 
+ 2 ALASKA       True                          0.590 0.606 0.031 
+ 3 ARIZONA      False                         0.612 0.547 0.0421
+ 4 ARKANSAS     False                         0.530 0.724 0.152 
+ 5 CALIFORNIA   False                         0.329 0.372 0.0552
+ 6 COLORADO     False                         0.352 0.681 0.0395
+ 7 CONNECTICUT  True                          0.419 0.669 0.0991
+ 8 DELAWARE     True                          0.665 0.623 0.217 
+ 9 FLORIDA      False                         0.474 0.539 0.153 
+10 GEORGIA      False                         0.518 0.527 0.312 
+# … with 40 more rows, and 5 more variables: Indigenous &lt;dbl&gt;,
+#   Asian &lt;dbl&gt;, Hawaiian &lt;dbl&gt;, Other &lt;dbl&gt;, Hispanic &lt;dbl&gt;</code></pre>
+</div>
+<p>Column Definitions For The Full Dataset</p>
+<ul>
+<li><p>jurisdiction: The state name</p></li>
+<li><p>includes_jails: Indicates whether or not the jail population is included in the taken into consideration</p></li>
+<li><p>percent_incarcerated: Indicates what percentage of people are incarcerated in each state</p></li>
+<li><p>White: Non-Hispanic and White</p></li>
+<li><p>Black: Non-Hispanic and Black</p></li>
+<li><p>Indigenous: Non-Hispanic and Indigenous American</p></li>
+<li><p>Asian: Non-Hispanic and Asian</p></li>
+<li><p>Hawaiian: Non-Hispanic and Hawaiian</p></li>
+<li><p>Other: Non-Hispanic and Other Race</p></li>
+<li><p>Hispanic: Hispanic and Any Race</p></li>
+</ul>
+<p>The Visualizations</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>full_dataset</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_longer</span><span class='op'>(</span>cols<span class='op'>=</span><span class='va'>White</span><span class='op'>:</span><span class='va'>Hispanic</span>,
+               names_to <span class='op'>=</span> <span class='st'>"Ethnoracial_Status"</span>,
+               values_to <span class='op'>=</span> <span class='st'>"Ethnoracial_Prevalence"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>percent_incarcerated</span>, <span class='va'>Ethnoracial_Prevalence</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color<span class='op'>=</span><span class='va'>Ethnoracial_Status</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"How Ethnoracial Status Impacts Incarceration"</span>, x <span class='op'>=</span> <span class='st'>"Incarceration Prevalence"</span>, y <span class='op'>=</span> <span class='st'>"Ethnoracial Group Prevalence"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>Ethnoracial_Status</span><span class='op'>)</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="incarceration-by-state_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+</div>
+<p>The first component of my research question is “Are the states with lowest prevalence of white, non-Hispanic people the states with the lowest incarceration rates?” and my answer is yes. The facet that’s labeled as “White”, the line shows a negative correlation, meaning that as the incarceration rate increases, the prevalence of white, non-hispanic people decreases. The second component of my research question is “Which minority groups are most common in the states with the highest incarceration rates?”. My findings suggest that non-Hispanic black people, non-Hispanic indigenous Americans, non-Hispanic people who identify as an unspecified race are more common in states with high incarceration rates than in states with low incarceration rates because lines in the facets associated with these three groups show an obvious positive correlation. A positive correlation indicates that as the prevalence of the indicated ethnoracial group increases, the incarceration rate increases too. High incarceration rates are also common in the states with the most Hispanic people, but to a slightly lesser extent because the line in the “Hispanic” facet has a less obvious positive correlation. There was no correlation shown between ethnoracial group prevalence and incarceration prevalence for non-Hispanic Asian and non-Hispanic Hawaiian people, which means that the states with high incarceration rates aren’t any more or less likely to have high Asian and Hawaiian populations than than states with low incarceration rates.</p>
+<p>The visualization I chose to answer my research question is a multifaceted geom_smooth plot that provides a depiction how the racial/ethnic prevalence in each state correlates with the incarceration rate. The multiple facets also allowed me to answer my research question without The reason why I chose to use geom_smooth instead of geom_point is because geom_smooth plot provides a clearer depiction of the differences in prevalence of each ethnoracial group in the states with high vs low incarceration rates than geom_point. I used a multifaceted plot for my visual because the prevalence of each race/ethnicity in states with higher vs lower incarceration rates is a lot more obvious and I can use the free_y option to take the different prevalence of each race/ethnicity in general into account. When I tried the single-faceted approach, the lines representing every racial/ethnic category except for white overlapped with each other and were almost flat.</p>
+<p>Another option I considered resorting to was making seven boxplots. The first boxplot would have involved the incarceration data from the 10 states with the largest non-Hispanic white populations, the second boxplot would have involved the incarceration data from the 10 states with the largest non-Hispanic black populations, the third boxplot would have involved the incarceration data from the 10 states with the largest non-Hispanic indigenous populations, the fourth boxplot would have involved the incarceration data from the 10 states with the largest non-Hispanic Asian populations, the fifth boxplot would have involved the incarceration data from the 10 states with the largest non-Hispanic Hawaiian populations, the sixth boxplot would have involved the incarceration data from the 10 states with the largest non-Hispanic other race populations, and the seventh boxplot would have involved the incarceration data from the 10 states with the largest Hispanic populations. When I tried the boxplot approach, I was successful at making the seven boxplots, but the boxplots were too large to compare to each other and there isn’t a way to make a multi-faceted plot involving seven different slices of data, so I did not use that approach.</p>
+<p>Reflection</p>
+<p>There was a lot of trial and error involved in combining datasets. Originally, my decision was to only include data about white prevalence from worldpopulationreview.com in each state without adding a second or third dataset. I was successful at adding the data using mutate(), case_when(), and seperate(), but that process took at least an hour of two, copying the code into later steps was a nightmare. There was also a part of me that was curious about whether some minority groups are more tied to high incarceration rates than others, so I had to change my approach. When I concluded that adding .csv files with race and ethnicity data for each state was the best approach, I tried combining the .csv files before cleaning the data. This approach worked just fine when I combined the two race and ethnicity datasets with each other, but when I tried combining the new datasets with my original incarceration dataset, it was nearly impossible for me to clean the new combined dataset becasue it had over 40,000 rows and one of the two columns that listed state names listed each state name at least 50 times. Ultimately, my decision was to clean the incarceration dataset first, combine the non_hispanic_race_by_state and hispanic_by_state datasets into the ethnoracial_dataset, and clean the ethnoracial_dataset before combining all the datasets. Even though the final tactic worked, the process was still somewhat tedious because in order for me to successfully merge all the data I needed, I had to rename the column listing all the state names and I had to use mutate() and case_when() to re-label all of the state names in all caps format. Although the process of combining three datasets made my project more difficult and time consuming, I didn’t realize that ignoring the includes_jails column could make my findings inaccurate and/or biased. For the sake of time, I decided to ignore the includes_jails() aspect of my dataset, but if I had more time, I would have taken the includes_jails column into consideration. I think it would also be worth investigating whether countries outside the US with a lot of diversity are also prone to high incarceration rates.</p>
+<p>Conclusion</p>
+<p>For the sake of this project, my purpose was to figure out whether the states with the lowest incarceration rates have more white non-Hispanic people than the states with the highest incarceration rates and to figure out which minority groups are most common in the states with high incarceration rates. By combining three datasets and forming a multifaceted geom_smooth() plot, I was able to conclude that the states with the least white non-Hispanic people are also than the states with the highest incarceration rates. I was also able to figure out that the only minority groups that aren’t disproportionately impacted by the issue of mass incarceration are Asian Americans and Hawaiian Natives. As difficult as this project was, I’m glad that I took it on because this project really opened my eyes to how problematic racism really is in the United States.</p>
+<p>Bibliography</p>
+<p>“Mass Incarceration.” American Civil Liberties Union. Web.</p>
+<p>“U.S. Census Bureau QUICKFACTS: United States.” United States Census Bureau. Web. 30 Aug. 2021.</p>
+<p>“Criminal Justice Facts.” The Sentencing Project. 03 June 2021. Web. 30 Aug. 2021.</p>
+<p>Datasets</p>
+<p>Incarceration Dataset: Correa, Chris. “Crime and Incarceration in the United States.” Kaggle. 12 Oct. 2018. Web. 30 Aug. 2021.</p>
+<p>Non-Hispanic Race By State Dataset: “US States by Race 2021.” World Population Review. Web. 30 Aug. 2021.</p>
+<p>Hispanic By State Dataset: “Hispanic Population by State 2021.” World Population Review. Web. 30 Aug. 2021.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
