@@ -1,0 +1,17 @@
+---
+title: "Mahashraya Sundararaman"
+image: "MSundararaman.jpeg"
+links:
+  - label: LinkedIn
+    url: "https://linkedin.com/masha-sundararaman"
+  - label: Twitter
+    url: "https://twitter.com/Mahashraya"
+  - label: GitHub
+    url: "https://github.com/SMahashraya/"
+  - label: Email
+    url: "msundararama@umass.edu"
+output:
+  postcards::jolla
+---
+ 
+Hey, I'm a state government employee, budding data science, and moderate nerd! Please ask me about Dishonored or Horizon:Zero Dawn.
