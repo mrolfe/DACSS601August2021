@@ -1,0 +1,36 @@
+---
+title: "My First Post"
+description: "A introduction of myself. Use distill::create_post to create a Rmarkdown." 
+Allyson Beach
+date: 09-13-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+x <- seq(1, 10)
+y <- x*2
+
+```
+
+**Plot of just y = x*2**
+
+```{r, echo = FALSE}
+df <- data.frame(x,y)
+plot(x,y)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
