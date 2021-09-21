@@ -1,0 +1,25 @@
+---
+title: "Reading in Adv US Railroad Data"
+description: |
+  This is my first attempt at reading in the advanced data on US railroad employment in 2012.
+author: Mahashraya Sundararaman
+date: 09-20-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```{r}
+readxl::railroads <- read_excel("_data/StateCounty2012.xls")
+```{r, layout="l-body=outset"}
+rmarkdown::paged_table(railroads, options = list(rows.print = 20, cols.print = 10))
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
