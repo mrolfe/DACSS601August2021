@@ -15,9 +15,11 @@ draft: true
 knitr::opts_chunk$set(echo = TRUE)
 library(readxl)
 railroads <- read_excel("/Users/mahashraya/Documents/DACSS/DACSS601August2021/_data/StateCounty2012.xls")
+library(rmarkdown)
+railroad_table <- paged_table(railroads, options = list(rows.print = 20, cols.print = 10))
 ```
-```{r}
-rmarkdown::paged_table(railroads, options = list(rows.print = 20, cols.print = 10))
+```{r show table}
+railroad_table
 ```
 Distill is a publication format for scientific and technical writing, native to the web.
 
