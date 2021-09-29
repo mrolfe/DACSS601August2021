@@ -9,10 +9,10 @@ output:
     self_contained: false
 draft: true
 ---
-## Start knitr chunks section, load libraries and read in data
+### Start knitr chunks section, load libraries, and read in data
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(readxl)
 library(tidyverse)
 library(stringr)
@@ -24,7 +24,7 @@ library(rmarkdown)
 railroad_table <- paged_table(railroads, options = list(rows.print = 20, cols.print = 10))
 ```
 
-## Print paged table
+### Print paged table
 ```{r show table}
 railroad_table
 ```
