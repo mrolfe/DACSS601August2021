@@ -14,4 +14,4 @@ output:
   postcards::jolla
 ---
  
-Hey, I'm a state government employee, budding data science, and moderate nerd! Please ask me about Dishonored or Horizon:Zero Dawn.
+Hey, I'm a state government employee, budding data scientist, and nerd! Please ask me about Dishonored or Horizon:Zero Dawn.

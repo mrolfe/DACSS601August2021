@@ -1,0 +1,33 @@
+---
+title: "Reading in Adv US Railroad Data"
+description:
+  This is my first attempt at reading in the advanced data on US railroad employment in 2012.
+author: Mahashraya Sundararaman
+date: 09-20-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+### Start knitr chunks section, load libraries, and read in data
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(readxl)
+library(tidyverse)
+library(stringr)
+railroads <- read_excel("/Users/mahashraya/Documents/DACSS/DACSS601August2021/_data/StateCounty2012.xls", skip=4,
+                        col_names = c("State", "delete1", "County", "delete2", "Total"))%>%
+  select(!starts_with("delete"))%>%
+  filter(!str_detect(State, "Total"))
+library(rmarkdown)
+railroad_table <- paged_table(railroads, options = list(rows.print = 20, cols.print = 10))
+```
+
+### Print paged table
+```{r show table}
+railroad_table
+```
+
+
+
